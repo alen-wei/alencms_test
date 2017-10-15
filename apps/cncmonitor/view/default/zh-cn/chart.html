@@ -1,0 +1,361 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	html,body{ height:100%; overflow:hidden;}
+	#objBox{ overflow-y:auto; -webkit-overflow-scrolling:touch;}
+	#defaultBut button{ padding-left:0; padding-right:0;}
+	#mainBox{ margin-top:0;}
+	@media screen and (max-width: 991px){
+		#chartType{ margin-left:0;}
+	}
+</style>
+{/block}
+{block name="body"}
+<div id="touchBox">
+    <div class="container-fluid fr_pt10">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="btn-group btn-group-justified" id="defaultBut">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" data-type="year">年</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" data-type="months">月</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" data-type="tweek">周</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group input-date" id="startDateBox">
+                    <input  type="text" readonly class="form-control" data-format="yyyy-mm-dd" placeholder="开始日期">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">清空</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group input-date" id="endDateBox">
+                    <input  type="text" readonly class="form-control" data-format="yyyy-mm-dd" placeholder="结束日期">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">清空</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group">
+                        <button id="workshop" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span>请选择车间</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" id="workshopList"></ul>
+                    </div>
+                    <div class="btn-group">
+                        <button id="objID" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span>请选择机床</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" id="objBox">
+                            <li class="dropdown-header"><i class="icon-lightbulb fr_mr5"></i>请先选择车间</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="btn-group" id="chartType_tu">
+                    <button type="button" data-type="bar" data-less="1" class="btn btn-default btn-primary">柱状图</button>
+                    <button type="button" data-type="pie" class="btn btn-default">饼图</button>
+                </div>
+                <div class="hr fr_mt5 visible-xs-block visible-sm-block"></div>
+                <div class="btn-group fr_ml10" id="chartType">
+                    <button type="button" data-type="zh" class="btn btn-default btn-primary">综合</button>
+                    <button type="button" data-type="power" class="btn btn-default">开机</button>
+                    <button type="button" data-type="run" class="btn btn-default">实动</button>
+                    <button type="button" data-type="warning" class="btn btn-default">报警</button>
+                    <button type="button" data-type="standby" class="btn btn-default">待机</button>
+                    <button type="button" data-type="task" class="btn btn-default">切削</button>
+                </div>
+                <div class="hr fr_mt5 visible-xs-block visible-sm-block"></div>
+                
+            </div>
+            <div class="col-sm-2">
+                <div id="dayTxt" class="well well-sm text-center">数据量：<b class="text-primary">0</b>天</div>
+            </div>
+        </div>
+        <div class="row fr_mt10">
+            <div id="mainBox" class="fr_wb100"></div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="foot"}
+{include file="#public_after" /}
+<script src="{$static_url}ECharts/echarts.js"></script>
+<script src="{$skin_url}Js/config.js"></script>
+<script src="{$skin_url}Js/setoption.js"></script>
+<script>
+$(window).resize(function(){
+	var wh=$('body').height();
+	var ot=$('#objID').offset().top+$('#objID').height();
+	$('#objBox').css('max-height',wh-ot-50+'px');
+	var ch=$('body').height()-$('#mainBox').offset().top;
+	$('#mainBox').height(ch<400?400:ch);
+	if(myChart)myChart.resize();
+});
+$(window).resize();
+
+$('#defaultBut button').click(function(){
+	var o=$(this);
+	var now = new Date();
+	var ss,ee,tmp;
+	var dayzs=3600*24*1000;
+	switch(o.attr('data-type')){
+		case 'year':
+			tmp=parseInt(now.getDate())==1 && parseInt(now.getMonth())==0?new Date(now.getTime()-dayzs):now;
+			ss=tmp.format('yyyy-01-01');
+		break;
+		case 'months':
+			tmp=parseInt(now.getDate())==1?new Date(now.getTime()-dayzs):now;
+			ss=tmp.format('yyyy-MM-01');
+		break;
+		case 'tweek':
+			ss=parseInt('6712345'.split('')[now.getDay()]);
+			ss=new Date(now.getTime()-(dayzs*ss)).format('yyyy-MM-dd');
+		break;
+	}
+	ee=new Date(now.getTime()-dayzs).format('yyyy-MM-dd');
+	$('#startDateBox input').val(ss);
+	$('#endDateBox input').val(ee);
+	if(!parseInt($('#workshop').attr('data-id'))){
+		$('#workshopList a:first').click();
+	}else{
+		$('#endDateBox input').change();
+	}
+});
+
+$('#objBox').delegate('a','click',function(){
+	var o=$(this);
+	var id=o.attr('data-id');
+	var name=o.text();
+	$('#objID').find('span:first').text(name);
+	$('#objID').attr('data-id',id);
+	postFun();
+});
+$('#workshopList').delegate('a','click',function(){
+	var o=$(this);
+	var id=o.attr('data-id');
+	var name=o.text();
+	$('#workshop').find('span:first').text(name);
+	$('#workshop').attr('data-id',id);
+	getName(id,function(err){
+		if(err){
+			alerts(err);
+		}else{
+			$('#objBox a:first').click();
+		}
+	});
+});
+
+
+$('#chartType_tu button').click(function(){
+	var o=$(this);
+	var type=o.attr('data-type');
+	o.addClass('btn-primary');
+	o.siblings().removeClass('btn-primary');
+	var op=opFun[type](chartData);
+	myChart.clear();
+	myChart.setOption(op);
+	myChart.off('legendselectchanged');
+	if(type in evtFun)myChart.on('legendselectchanged',evtFun[type]);
+	var but=$('#chartType button');
+	if(type=='bar'){
+		but.removeClass('btn-primary');
+		but.removeAttr('disabled');
+		but.removeClass('hide');
+		but.first().addClass('btn-primary');
+		if(parseInt(o.attr('data-less'))==2){
+			myChart.dispatchAction({
+				type: 'legendUnSelect',
+				name:opArr.power.name,
+			});
+		}
+	}else if(type=='pie'){
+		but.removeClass('btn-primary');
+		but.attr('disabled',true);
+		but.addClass('hide');
+		
+	}
+});
+$('#startDateBox button,#endDateBox button').click(function(){
+	var inp=$(this).parents('div:first').find('input');
+	inp.val('');
+	inp.change();
+});
+$('#chartType button').click(function(){
+	var o=$(this);
+	var type=o.attr('data-type');
+	o.addClass('btn-primary');
+	o.siblings().removeClass('btn-primary');
+	var tmpBatch=[];
+	for(i in opArr){
+		tmpBatch.push({name:opArr[i].name});
+	}
+	myChart.dispatchAction({
+		type: 'legendUnSelect',
+		batch:tmpBatch,
+	});
+	if(type!='zh'){
+		myChart.dispatchAction({
+			type: 'legendToggleSelect',
+			name:opArr[type].name,
+		});
+	}else{
+		var but=$('#chartType_tu button[data-type="bar"]');
+		if(parseInt(but.attr('data-less'))==2){
+			for(i in tmpBatch){
+				if(tmpBatch[i].name==opArr.power.name){
+					tmpBatch.splice(i,1);
+					break;
+				}
+			}
+		}
+		var tmp=tmpBatch.shift();
+		myChart.dispatchAction({
+			type: 'legendSelect',
+			batch:tmpBatch,
+		});
+		myChart.dispatchAction({
+			type: 'legendToggleSelect',
+			name:tmp.name,
+		});
+		
+	}
+});
+var chartData;
+var myChart = echarts.init(document.getElementById('mainBox'));
+
+var getWorkshop=function(cfun){
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getName")}',{
+			'workshop':'all',
+		},function(data){
+		var box=$('#workshopList');
+		var html='';
+		for(i in data){
+			html+='<li><a data-id="'+data[i].id+'">'+data[i].name+'</a></li>';
+		}
+		box.html(html);
+		$('.ui_hint').remove();
+		if(cfun)cfun();
+	},function(err){
+		$('.ui_hint').remove();
+		if(cfun){
+			cfun(err);
+		}else{
+			alerts(err);
+		}
+	});
+}
+
+var getName=function(wid,cfun){
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getName")}',{
+			'workshop':wid,
+		},function(data){
+		var box=$('#objBox');
+		var html='';
+		for(i in data){
+			html+='<li><a data-id="'+data[i].id+'">'+data[i].name+'</a></li>';
+		}
+		box.html(html);
+		$('.ui_hint').remove();
+		if(cfun)cfun();
+	},function(err){
+		$('.ui_hint').remove();
+		if(cfun){
+			cfun(err);
+		}else{
+			alerts(err);
+		}
+	});
+}
+
+
+
+var getData=function(times,endtime,oid){
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getData")}',{
+		'time':times,
+		'endtime':endtime,
+		'fields':'id,power,run,standby,task,warning',
+		'ids':oid,
+	},function(data){
+		chartData=data;
+		var ts=Object.getOwnPropertyNames(data).length;
+		$('#dayTxt b').text(ts);
+		if(ts>1){
+			$('#chartType_tu button[data-type="bar"]').click();
+		}else{
+			$('#chartType_tu button[data-type="pie"]').click();
+		}
+		$('.ui_hint').remove();
+	},function(err){
+		alerts(err);
+		$('.ui_hint').remove();
+	});
+}
+var postFun=function(tx){
+	var sTime=$('#startDateBox input').val();
+	var eTime=$('#endDateBox input').val();
+	var oid=$('#objID').attr('data-id');
+	if(!sTime){
+		if(!tx)alerts('请选择开始时间');
+		return;
+	}
+	if(!oid){
+		if(!tx)alerts('请选择机床');
+		return;
+	}
+	getData(sTime,eTime,oid);
+}
+$('#startDateBox input,#endDateBox input').change(function(){
+	var o=$(this);
+	var val=new Date(o.val()).getTime();
+	var now=new Date().format('yyyy-MM-dd');
+	if(val>=new Date(now).getTime()){
+		alerts('请选择今天之前的日期','',{'fun':function(){
+			o.val('');
+			o.focus();
+		}});
+		return false;
+	}
+	if(o.parents('.input-group:first').attr('id')=='endDateBox'){
+		var sObj=$('#startDateBox input');
+		var eObj=o;
+	}else{
+		var sObj=o;
+		var eObj=$('#endDateBox input');
+	}
+	if(''!=eObj.val()){
+		if(new Date(sObj.val()).getTime()>new Date(eObj.val()).getTime()){
+			alerts('结束日期必须要在开始日期之后哦','',{'fun':function(){
+				eObj.val('');
+				eObj.focus();
+			}});
+			return false;
+		}
+	}
+	postFun(true);
+});
+getWorkshop(function(err){
+	if(err){
+		alerts(err);
+	}else{
+		$('#defaultBut button:last').click();
+	}
+});
+</script>
+{/block}

@@ -1,0 +1,82 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	
+	
+</style>
+{/block}
+{block name="body"}
+<div class="topNavBg">
+	<div class="topNav cont">
+    	<a href="#" class="logo">闰星科技</a>
+        <ul class="nav">
+        	{volist name="navArr" id="v"}
+            <li><a href="{:url('user/html/command',['__active'=>$v['name'],])}">{$v['txt']}</a></li>
+            {/volist}
+        </ul>
+		<div class="msgBox">
+            <div class="col disabled">
+            	<div class="icon">
+	                <i class="fa fa-bell"></i>
+				</div>
+            </div>
+            <div class="col disabled">
+            	<div class="icon">
+	                <i class="fa fa-comments"></i>
+				</div>
+            </div>
+            <div class="col">
+            	<div class="icon">
+	                <i class="fa fa-bars"></i>
+				</div>
+                <div class="list-group">
+                	<a class="list-group-item" href="javascript:alerts('抱歉，此功能暂未开放！');"><i class="fa fa-commenting fr_mr5"></i>意见反馈</a>
+                    <a class="list-group-item" onClick="confirm_hint(this,'您确认要退出么？','','退出');return false;" href="{:url('api/logout')}"><i class="fa fa-sign-out fr_mr5"></i>退出</a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="banner">
+	<div class="cont">
+        <div class="infoBox">
+            <a class="img"><img src="{:get_user_img($user['img'])}" /></a>
+            <b class="name">{$user['name']}<i class="fa fa-vimeo fr_ml5 vip"></i></b>
+            <p class="icon">
+                <a href="{:url('user/html/command',['__active'=>'safe','__ctrl'=>'phone'])}" class="fa fa-mobile pull-left link{if condition='$bindings.phone'} x{/if}" data-toggle="tooltip" data-placement="bottom" title="{$bindings.phone|default='未绑定'}"></a>
+                <a href="{:url('user/html/command',['__active'=>'safe','__ctrl'=>'mail'])}" class="fa fa-envelope-o pull-left link{if condition='$bindings.mail'} x{/if}" data-toggle="tooltip" data-placement="bottom" title="{$bindings.mail|default='未绑定'}"></a>
+                <span class="pull-left">|</span>
+                <a onClick="alerts('抱歉，此功能暂未开放！');return false;" href="{:url('user/html/command',['__active'=>'third','__ctrl'=>'qq'])}" class="fa fa-qq pull-left disabled link" data-toggle="tooltip" data-placement="bottom" title="{$bindings.qq|default='未绑定'}"></a>
+                <a onClick="alerts('抱歉，此功能暂未开放！');return false;" href="{:url('user/html/command',['__active'=>'third','__ctrl'=>'weixin'])}" class="fa fa-weixin pull-left disabled link" data-toggle="tooltip" data-placement="bottom" title="{$bindings.weixin|default='未绑定'}"></a>
+                <a onClick="alerts('抱歉，此功能暂未开放！');return false;" href="{:url('user/html/command',['__active'=>'third','__ctrl'=>'weibo'])}" class="fa fa-weibo pull-left disabled link" data-toggle="tooltip" data-placement="bottom" title="{$bindings.weibo|default='未绑定'}"></a>
+            </p>
+            <div class="times">
+            	上次登录：{:date('Y-m-d H:i',$loginTime)}
+            </div>
+            <div class="txt">
+            	这家伙很懒什么也没留下
+            </div>
+            <a class="but" href="{:url('user/html/command',['__active'=>'info','__ctrl'=>'basic'])}"><i class="fa fa-pencil-square-o fr_mr5"></i>编辑资料</a>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="foot"}
+<script>
+$('.topNav .msgBox .col').click(function(){
+	var o=$(this);
+	if(o.hasClass('disabled')){
+		alerts('抱歉，此功能暂未开放！');
+		return false;
+	}
+	if(o.hasClass('x')){
+		o.removeClass('x');
+	}else{
+		$('.topNav .msgBox .col').removeClass('x');
+		o.addClass('x');
+	}
+});
+$('[data-toggle="tooltip"]').tooltip();
+</script>
+{/block}

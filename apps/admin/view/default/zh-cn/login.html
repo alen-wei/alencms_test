@@ -1,0 +1,229 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<link href="{$skin_url}css/login.css" rel="stylesheet" type="text/css" />
+{/block}
+{block name="body"}
+<div class="bgImg"></div>
+<div class="inpBoxBg">
+    <div class="topTxt">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <i class="fa fa-info-circle fr_mr5"></i> 这里是网站管理后台，如果您不是管理员请<a href="{:config('sys_url')}">点击这里访问网站首页</a>
+        </div>
+    </div>
+    <div class="icon">
+        <i class="fa fa-id-badge text-muted"></i>
+        <div class="txt">
+            <span class="ui_txtof">测试一下</span>
+        </div>
+    </div>
+    <div class="inpBox">
+        <div class="inpImg">
+            <span class="x">
+                <i><img src="{:get_user_img()}" /></i>
+                <a>Admini</a>
+            </span>
+            <!--
+            <span>
+                <i><img src="{:get_user_img()}" /></i>
+                <a>Alen</a>
+            </span>
+            -->
+        </div>
+        <div class="inpCol name">
+            <i class="fa fa-user"></i>
+            <input autocomplete="new-password" type="text" placeholder="请输入帐号" />
+        </div>
+        <div class="inpCol pw">
+            <i class="fa fa-lock"></i>
+            <input autocomplete="new-password" type="password" placeholder="请输入密码" />
+            <a data-toggle="tooltip" data-placement="bottom" title="忘记密码了？点击找回密码" class="less_icon fa fa-question-circle"></a>
+        </div>
+        <div class="inpCol code ">
+            <i class="fa fa-keyboard-o"></i>
+            <input autocomplete="new-password" type="text" placeholder="验证码" />
+            <img src="{:captcha_src('admin')}" data-toggle="tooltip" data-placement="top" title="看不清？点击更换" />
+        </div>
+        <div class="inpBut">
+            <div class="checkbox">
+                <label class="text-muted">
+                    <input type="checkbox"> 记住我的帐号
+                </label>
+                <a href="javascript:showShortcut()" class="fr_ml10"><i class="fa fa-paper-plane fr_mr5"></i>快捷登录</a>
+            </div>
+            <div class="txt">
+                <span>您可以使用以上帐号快捷登录</span><br />
+                <span class="text-muted small fr_mr5">或者</span><a href="javascript:showInput()">使用帐号密码登录</a>
+            </div>
+            <button id="submit" class="fr_til"><i class="fa fa-sign-in fr_mr5"></i>登录后台</button>
+        </div>
+    </div>
+    <div class="powered">
+        <span class="small text-muted">Powered by <a target="_blank" href="{$Alen.ALENCMS_URL}">AlenCMS V{$Alen.ALENCMS_VERSION}</a></span>
+    </div>
+</div>
+{/block}
+{block name="foot"}
+<script>
+    if(!$ifmobile){
+        $('.inpCol.code img,.inpBox .inpCol.pw .less_icon').tooltip();
+    }
+    //Tooltip
+    //切换提示图标
+    var iconFun=function(cls){
+        var box=$('.inpBoxBg .icon');
+        var tmpBox=$("<i class='fa "+cls+" x'></i>");
+        var old_icon=box.find('i');
+        old_icon.addClass('x');
+        box.prepend(tmpBox);
+        setTimeout(function(){
+            tmpBox.removeClass('x');
+            WN.addTranEvent(old_icon[0],function(){
+                old_icon.remove();
+            });
+        },100);
+    };
+    //隐藏提示
+    var hideTooltip=function(icon,backFun){
+        var box=$('.inpBoxBg .icon');
+        $('.inpBox').removeClass('loading');
+        box.removeClass('x');
+        box.removeAttr('data-tmp');
+        if(!icon)icon='fa-id-badge text-muted';
+        iconFun(icon);
+        if(backFun)backFun();
+    };
+    //显示提示
+    var showTooltip=function(txt,icon,closeTime,backFun){
+        if(isNull(closeTime))closeTime=true;
+        $('.inpBox').addClass('loading');
+        var box=$('.inpBoxBg .icon');
+        box.find('.txt span').text(txt);
+        box.addClass('x');
+        if(closeTime){
+            box.unbind();
+            box.click(function(){
+                $(this).unbind();
+                hideTooltip(null,backFun);
+            });
+            if(isNumber(closeTime)){
+                var idKey=Date.parse(new Date());
+                box.attr('data-tmp',idKey);
+                setTimeout(function(){
+                    if(box.attr('data-tmp')==idKey+'')box.click();
+                },closeTime);
+            }
+        }
+        if(icon)iconFun(icon);
+    };
+    
+    //帐号密码登录
+    var showInput=function(){
+        $('.inpBox').removeClass('x');
+    };
+    //快捷登录
+    var showShortcut=function(){
+        if($('.inpBox .inpImg span:not(.x)').length<1){
+            showTooltip('没有可快捷登录的用户','fa-info-circle',3000);
+        }else{
+            $('.inpBox').addClass('x');
+        }
+    };
+    //输入框
+    $('.inpCol').click(function(){
+        $(this).find('input').focus();
+    });
+    $('.inpCol input').focus(function(){
+        if($('.inpBox').hasClass('loading')){
+            $(this).blur();
+            return;
+        }
+        $(this).parent('.inpCol').addClass('focus');
+    });
+    $('.inpCol input').blur(function(){
+        $(this).parent('.inpCol').removeClass('focus');
+    });
+    $('.inpCol input').keypress(function(e){
+        if($('.inpBox').hasClass('loading'))return;
+        var o=$(this);
+        if(e.keyCode == 13){
+            var nextObj=o.parent('.inpCol').next('.inpCol');
+            if(nextObj.length>0){
+                nextObj.find('input').focus();
+            }else{
+                $('#submit').click();
+            }
+        }
+    });
+    //切换验证码
+    var loadVerify=function(){
+        var o=$('.inpCol.code img');
+        var url=o.attr('src').split('?')[0];
+        url+='?r='+Math.floor(Math.random()*1000000);
+        o.attr('src',url);
+        o.prevAll('input:first').val('');
+    };
+    $('.inpCol.code img').click(loadVerify);
+    //验证函数
+    var verifyFun=function(){
+        var data={
+            'name':{'txt':'帐号','val':''},
+            'pw':{'txt':'密码','val':''},
+            'code':{'txt':'验证码','val':''},
+        };
+        for(var k in data){
+            data[k].val=$('.inpCol.'+k+' input').val();
+        }
+        for(k in data){
+            if(data[k].val==''){
+                showTooltip('请输入'+data[k].txt,'fa-minus-circle',true,function(){
+                    $('.inpCol.'+k+' input').focus();
+                });
+                return false;
+            }
+        }
+        return true;
+    };
+    //提交函数
+    var submitFun=function(okFun,errFun){
+        var data={
+            'name':'',
+            'pw':'',
+            'code':'',
+        };
+        var postUrl="{:url('api/login')}";
+        for(var k in data){
+            data[k]=$('.inpCol.'+k+' input').val();
+        }
+        data['pw']=easy_encrypt(data['pw']);
+        data['_encrypt']=1;
+        echoLog(data);
+        alenPost(postUrl,data,okFun,errFun);
+    };
+    //提交登录
+    $('#submit').click(function(){
+        if($('.inpBox').hasClass('loading'))return;
+        if(!verifyFun())return;
+        showTooltip('登录中...请稍候...','fa-circle-o-notch fa-spin',false);
+        submitFun(function(data,url){
+            showTooltip('欢迎回来：'+data._txt,'fa-check-circle',3000,function(){
+                var backUrl="{$url}";
+                window.location.href=backUrl?backUrl:url;
+            });
+        },function(err){
+            showTooltip(err,'fa-minus-circle',true,loadVerify);
+        });
+    });
+    
+	if(top!=window){
+		var msgObj=new pageMsg(top);
+		msgObj.onHandclasp=function(data,token){
+			msgObj.send({
+				'_type':'login',
+				'url':"{$url}"
+			});
+		};
+		msgObj.init();
+	}
+</script>
+{/block}

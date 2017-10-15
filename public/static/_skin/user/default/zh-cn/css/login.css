@@ -1,0 +1,94 @@
+body{ color:#333;}
+/*登录*/
+#touchBox{ z-index:1; position:relative; width:100%; height:100%; overflow-x:hidden; overflow-y:auto;}
+#particles{ width:100%; height:100%; position:absolute; left:0; top:0; z-index:0;}
+.loginBox{ width:400px; margin-left:0px; position:absolute; left:50%; top:10%; opacity:0; z-index:1; transition:all 0.5s;}
+.loginBox.act{margin-left:-200px;  opacity:1;}
+
+.loginBox .tilbg{ width:100%; text-align:center; margin-bottom:20px; transition:all 0.5s; display:none;}
+.loginBox .tilbg.act{ display:block;}
+.loginBox .til{ height:96px; position:relative; padding-left:96px; display:inline-block;}
+.loginBox .til i{ font-size:96px; width:96px; line-height:96px; height:96px; position:absolute; top:0; left:0; text-align:center; display:block;}
+.loginBox .tilbg.reg .til i{ font-size:70px;}
+.loginBox .til p{ font-size:30px; line-height:48px; margin-bottom:0; text-align:left; text-transform:uppercase;}
+.loginBox .til b{ display:block;}
+.loginBox .til small,.loginBox .til .small{ display:block; opacity:0.8;}
+.loginBox .til .small{ display:none;}
+.webapp .loginBox .til .small{ display:block;}
+.webapp .loginBox .til small{ display:none;}
+.loginBox .inpbg{ background:rgba(255,255,255,0.5); border:1px solid #e0e0e0; width:100%; border-radius:5px; overflow:hidden;}
+.loginBox .inpbg .col{ display:block; border-bottom:1px solid #e0e0e0; padding:8px; position:relative; cursor:text; display:none; transition:all 0.2s;}
+.loginBox .inpbg .col:last-of-type{ border-bottom:0;}
+.loginBox .inpbg .col.act{ display:block;}
+.loginBox .inpbg .col input{ border:0; display:block; width:100%; color:#666; background:none;}
+.loginBox .inpbg .col i{ position:absolute; left:-1.4em; top:50%; margin-top:-0.7em; font-size:150%; line-height:1.4em; height:1.4em; width:1.4em; text-align:center; cursor:default; transition:all 0.2s;}
+.loginBox .inpbg .col.err,.loginBox .inpbg .col.load{ padding-left:2em;}
+.loginBox .inpbg .col.err i,.loginBox .inpbg .col.load i{left:0;}
+
+
+
+.loginBox .inpbg .col.password{ padding-right:2em;}
+.loginBox .inpbg .col.password .showpd{position:absolute; right:0; top:50%; margin-top:-0.7em; font-size:150%; height:1.4em; overflow:hidden; cursor:pointer; color:#999;}
+.loginBox .inpbg .col.password .showpd span{ display:block; text-align:center; width:1.4em; height:1.4em; line-height:1.4em; transition:all 0.2s;}
+.loginBox .inpbg .col.password .showpd.x{ color:#08c;}
+.loginBox .inpbg .col.password .showpd.x span:first-of-type{ position:relative; margin-top:-1.4em;}
+
+.loginBox .inpbg .col.verify{ padding-right:120px;}
+.loginBox .inpbg .col.verify input{ ime-mode:disabled;}
+.loginBox .inpbg .col.verify img{ width:120px; height:100%; position:absolute; top:0; right:0; cursor:pointer;}
+
+.loginBox .btnbg{ width:100%; padding-top:20px; overflow:hidden; position:relative;}
+.loginBox .btnbg button{ display:none;}
+.loginBox .btnbg button.act{ display:block;}
+.loginBox .btnbg .link{ display:none; padding:5px; margin-top:10px; line-height:1.4em;}
+.loginBox .btnbg .link.act{ display:block;}
+
+.loginBox .btnbg .check{ cursor:pointer;}
+.loginBox .btnbg .check i{ display:inline-block; width:1.4em; height:1.4em; text-align:center; margin-right:5px; border-radius:3px; border:1px solid #ccc; cursor:pointer; transition:all 0.2s;}
+.loginBox .btnbg .check a{ color:inherit;}
+.loginBox .btnbg .check a:hover{ color:#08c;}
+.loginBox .btnbg .check i:before{ opacity:0; transition:all 0.2s;}
+.loginBox .btnbg .check:hover i{ border-color:#08c; color:#08c;}
+.loginBox .btnbg .check i.x:before{ opacity:1;}
+
+.loginBox .btnbg #autologin{ position:relative; margin-top:-10px; margin-bottom:10px;}
+
+.loginBox .thirdbox{ width:100%; text-align:center; padding:20px 0; transition:all 0.5s;}
+.loginBox .thirdbox a{ width:20%; display:inline-block; cursor:pointer; padding:10px 0; color:#999; transition:all 0.2s;}
+.loginBox .thirdbox a:hover{ color:#08c;}
+.loginBox .thirdbox a i,.loginBox .thirdbox span{ display:inline-block; width:100%; text-align:center;}
+.loginBox .thirdbox a i{ font-size:45px;}
+.loginBox .thirdbox span{ font-size:85%; margin-top:10px;}
+
+.loginBox .thirdbox .text{ width:100%; position:relative; margin-bottom:10px;}
+.loginBox .thirdbox .text:before,.loginBox .thirdbox .text:after{ content:" "; position:absolute; left:0; top:50%; height:1px; width:calc(50% - 3em); background:#ccc;}
+.loginBox .thirdbox .text:after{ left:auto; right:0;}
+.loginBox .thirdbox .text em{ font-style:normal; color:#999; text-shadow:0 1px 0 #FFF;}
+
+.loadBox{ position:absolute; left:0; top:50%; width:100%; text-align:center; font-size:80px; line-height:1.2em; height:1.2em; margin-top:-0.6em; color:#999; opacity:1; transition:all 0.5s; z-index:0; visibility:visible;}
+
+.loadBox.x{ opacity:0; visibility:hidden;}
+
+@media screen and (max-width: 991px){
+	.loginBox{ width:90%; left:5%; margin-left:200px; top:5%;}
+	.loginBox.act{margin-left:0;  opacity:1;}
+	
+	.loginBox .tilbg{ width:100%; text-align:center; margin-bottom:5%;}
+	.loginBox .til{ height:10vmax;  padding-left:10vmax;}
+	.loginBox .til i{ font-size:10vmax; width:10vmax; line-height:10vmax; height:10vmax;}
+	.loginBox .tilbg.reg .til i{ font-size:7.5vmax;}
+	.loginBox .til p{ font-size:3vmax; line-height:5vmax;}
+	.loginBox .thirdbox{ margin-top:20px;}
+	.loginBox .thirdbox a{ width:25%;}
+	.loginBox .thirdbox span{margin-top:2vw;}
+	
+	.loadBox{ font-size:20vmin;}
+}
+@media screen and (max-width: 991px) and (orientation: landscape){
+	.loginBox{ padding-left:40%; top:50%; margin-left:0; margin-top:-200px; transform:translate(0,-50%);}
+	.loginBox.act{opacity:1; margin-top:0;}
+	
+	.loginBox .tilbg{ position:absolute; left:0; top:0; width:40%; margin-bottom:0;}
+	.loginBox .thirdbox{ position:absolute; left:0; top:12vmax; width:40%; margin:0; padding:0;}
+	.loginBox .thirdbox a i{ font-size:5vw;}
+}

@@ -1,0 +1,31 @@
+/* file */
+#startdate,#enddate{ width: 150px;}
+
+.file_icon_img:before{content:"\f1c5";}
+.file_icon_video:before{content:"\f1c8";}
+.file_icon_compressed:before{content:"\f1c6";}
+.file_icon_code:before{content:"\f1c9";}
+.file_icon_txt:before{content:"\f0f6";}
+.file_icon_file:before{content:"\f016";}
+.file_icon_:before{content:"\f29c";}
+
+#page_showFile{ padding-bottom: 0;}
+#page_showFile .content{ padding: 20px 0; height: 100%;}
+
+#showNoFile,#showImgFile,#showTxtFile{ background: #f0f0f0; border-radius: 5px; overflow:hidden; position: relative; width: 100%; height: 100%;}
+
+#showNoFile:before{ content: "抱歉，此文件暂不支持浏览"; display: block; text-align: center; width: 100%; line-height: 2em; height: 2em; margin-top: -1em; position: absolute; top: 50%; left: 0; font-size: 3vw; color: #ccc;}
+
+#showTxtFile{ padding: 10px; overflow-y: auto;}
+#showTxtFile .loadfile{ display: block; width: 100%; text-align: center; line-height: 2em; height: 2em; margin-top: -1em; position: absolute; left: 0; top: 50%; font-size: 3vw; color: #999;}
+#showTxtFile pre{ padding: 0; background: none; border: 0; margin: 0;}
+
+#showImgFile{ cursor: pointer;}
+#showImgFile img{ object-fit: scale-down; width: 100%; height: 100%; background: #f0f0f0; position: absolute; top: 0; left: 0; z-index: 1; transition: all 0.2s;}
+#showImgFile:before{ content: " "; display: block; z-index: 2; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #000; opacity: 0; transition: all 0.2s;}
+#showImgFile i{ position: absolute; top: 0; left: 50%; font-size: 10vw; text-align: center; width: 2em; height: 2em; line-height: 2em; margin: -2em auto auto -1em; z-index: 3; color: #fff; transition: all 0.2s;}
+#showImgFile:hover img{filter:blur(1px); transform:scale(1.1);}
+#showImgFile:hover:before{opacity: 0.5;}
+#showImgFile:hover i{ top: 50%; margin-top: -1em;}
+
+#vidObj{ position: relative; width: 100%; height: 100%; background: #000;}

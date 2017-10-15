@@ -1,0 +1,126 @@
+body,html{ width:100%; height:100%; overflow:hidden;}
+.safari{ width:100%; height:100%; background:#ff0; opacity:1; position:absolute; left:0; top:0; z-index:2; display:none;}
+.fr_frame{ width:100%; height:100%; position:relative; z-index:1;}
+.fr_frame.z{ z-index:3; position:fixed; left:0; top:0; height:100%!important;}
+.fr_left{ position:absolute; left:0; top:0; width:200px; height:100%; background:#333; z-index:2; transition:all 0.2s;}
+.fr_left_bg{ position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5); visibility:hidden; opacity:0; z-index:1; transition:all 0.2s; display:none;}
+.fr_title{ position:absolute; left:0; top:0; width:100%; height:40px; background:rgba(0,136,204,0.7); z-index:2;}
+.fr_nav{ position:relative; width:100%; height:100%; border-top:40px solid transparent; -webkit-overflow-scrolling:touch; z-index:1;}
+.fr_right{ position:relative; width:100%; height:100%; border-left:200px solid transparent; z-index:0; transition:all 0.2s;}
+.fr_tools{ position:absolute; left:0; top:0; width:100%; height:40px; background:#08c; z-index:1;}
+.fr_main{ position:relative; width:100%; height:100%; border-top:40px solid transparent; z-index:0; -webkit-overflow-scrolling:touch;}
+.fr_main iframe{ width:100%; height:100%; pointer-events:auto;}
+.fr_title span{ display:block; text-align:center; line-height:40px; font-size:1.5em; color:#FFF; visibility:visible; opacity:1; font-family:"Microsoft YaHei"; transition:all 0.2s;}
+.fr_title #act_leftNav{ position:absolute; top:0; right:0; display:block; transition:all 0.2s;}
+
+.toolsBtu{ width:40px; height:40px; line-height:40px; text-align:center; color:#fff; cursor:pointer; transition:all 0.2s;}
+.toolsBtu i{ font-size:1.5em;}
+.toolsBtu:hover{ background:rgba(0,0,0,0.1); color:#FFF;}
+.fr_tools .title{ color:#FFF; line-height:30px; height:30px; float:left; margin:5px 0 5px 10px; overflow: hidden; transition:all 0.2s;}
+
+.fr_tools .title i{ float: left; margin-right: 0; max-width: 0; opacity: 0; visibility: hidden; overflow: hidden; transition:all 0.2s;}
+.fr_tools .title em{ float: left; font-style: normal;}
+.fr_tools .title.x i{ margin-right: 5px; max-width: 40px; opacity: 1; visibility:visible;}
+
+.fr_tools .user{ float: right; margin:2px 10px auto auto;}
+.fr_tools .user .dropdown-toggle{ color:#fff;}
+.fr_tools .user .img{ height:1.42857143em; border-radius:50%; border:2px solid #fff; overflow:hidden;}
+.fr_tools .user.btn{ color:#FFF;}
+.fr_tools .butBox{ float:right; margin:0 10px 0 0; padding: 0; list-style: none;}
+.fr_tools .butBox>li{ float:left; position: relative; transition:all 0.2s;}
+.fr_tools .butBox>li>a{ display:block; height: 40px; color: #FFF; cursor: pointer; padding: 0 10px;}
+.fr_tools .butBox>li>a i{ display: inline-block; line-height: 40px; font-size: 1.5em;}
+.fr_tools .butBox>li>a .badge{ background-color: #d9534f; position: relative; margin:-20px auto auto -15px;}
+.fr_tools .butBox>li>a .name{ display: inline-block; padding-left: 5px;}
+.fr_tools .butBox>li>a .name .caret{ margin-left:5px; transition:all 0.2s;}
+
+.fr_tools .butBox li .zBox{position:absolute; top: 40px; right: -1px; width: 320px; background: #FFF; border:1px solid #e0e0e0; border-top:0; border-bottom: 0; box-shadow: 0 3px 3px #ccc; display: block; opacity: 0; visibility: hidden; transition:all 0.2s;}
+
+.fr_tools .butBox>li:hover>a{background:rgba(0,0,0,0.2);}
+.fr_tools .butBox>li.x:hover{background:#FFF;}
+.fr_tools .butBox>li.x:hover>a{ color: #666; background:none;}
+.fr_tools .butBox>li.x:hover>a .name .caret{ transform: rotate(180deg);}
+.fr_tools .butBox>li.x:hover .zBox{ display:block; opacity: 1; visibility: visible;}
+
+.fr_tools .butBox>li .zBox .media-list .media{ margin:0; border-bottom: 1px solid #e0e0e0; float: none; cursor:pointer;}
+.fr_tools .butBox>li .zBox .media-list .media .media-object{width:64px;}
+.fr_tools .butBox>li .zBox .media-list .media:hover{background-color:#f9f9f9;}
+
+.fr_tools .butBox>li .zBox .userBox .img,.fr_tools .butBox li .zBox .userBox .name,.fr_tools .butBox li .zBox .userBox .small{ display:block; text-align: center; font-size: 1.5em;}
+.fr_tools .butBox>li .zBox .userBox .img{ width:50%; margin: 0 auto; border-radius: 50%; margin-top: 30px;}
+.fr_tools .butBox>li .zBox .userBox .name{ margin-top:10px;}
+.fr_tools .butBox>li .zBox .userBox .small{ font-size:1em; margin-bottom: 30px;}
+.fr_tools .butBox>li .zBox .userBox ul{ display: block; list-style: none; margin: 0; padding: 0; background: #f0f0f0; overflow: hidden;}
+.fr_tools .butBox>li .zBox .userBox ul li{ float:left; width: 25%;}
+.fr_tools .butBox>li .zBox .userBox ul li a{ display: block; text-align: center; line-height: 50px; width: 100%; color: #666; cursor: pointer;}
+.fr_tools .butBox>li .zBox .userBox ul li a i{ margin-right:2px;}
+.fr_tools .butBox>li .zBox .userBox ul li a:hover{ color:#333; background: rgba(0,0,0,0.1)}
+
+.fr_tools .butBox>li .zBut{ text-align:center; padding: 10px 0; display: block; background: #f0f0f0; cursor:pointer;}
+.fr_tools .butBox>li .zBut:hover{color: #08c;}
+
+
+.fr_frame.x .fr_left{ width:40px;}
+.fr_frame.x .fr_right{ border-left-width:40px;}
+.fr_frame.x .fr_title span{visibility:hidden; opacity:0;}
+.fr_frame.x .fr_title #act_leftNav{ right:0;}
+
+.fr_nav ul{ display:block; padding:0; margin:0;}
+.fr_nav ul li{ display:block; line-height:40px; position:relative; transition:all 0.2s;}
+.fr_nav ul li:hover{ background:rgba(0,0,0,0.2);}
+.fr_nav ul li a{ color:#ccc; display:block; cursor:pointer;white-space:nowrap; overflow: hidden;}
+.fr_nav ul li a i{ display:inline-block; width:40px; text-align:center;}
+.fr_nav ul li ul{ padding-left:40px; transition:all 0.2s;}
+.fr_nav ul li ul li{border-radius:20px 0 0 20px;}
+.fr_nav ul li ul li a{ padding-left:10px;}
+.fr_nav ul li ul li a:before{ content:"●"; display:inline-block; margin-right:5px; color:#666;}
+
+
+.fr_frame.x .fr_nav ul li{ width:40px;}
+.fr_frame.x .fr_nav ul li ul{ position:absolute; top:40px; left:40px; width:0; padding-left:0; background:none; border-radius:0 0 5px 0; overflow:hidden; border-top:1px solid #333;}
+.fr_frame.x .fr_nav ul li ul li{ border-radius:0; padding-left:10px; width:100%;}
+.fr_frame.x .fr_nav ul li ul li a:before{ display:none;}
+.fr_frame.x .fr_nav ul li:hover{ background:#222; width:200px;}
+.fr_frame.x .fr_nav ul li ul li:hover{ padding-left:0;}
+.fr_frame.x .fr_nav ul li:hover ul{ width:160px; background:#222;}
+
+@media screen and (max-width: 991px){
+	.fr_left{ width:80%; left:0; box-shadow:0 0 10px #000;}
+	.fr_left_bg{visibility:visible; opacity:1; display:block;}
+	.fr_title #act_leftNav{ right:0;}
+	.fr_right{border-left-width:0px;}
+
+	.fr_frame.x .fr_left{ width:80%; left:-80%; box-shadow:none;}
+	.fr_frame.x .fr_left_bg{visibility:hidden; opacity:0;}
+	.fr_frame.x .fr_title #act_leftNav{ right:-40px;}
+	.fr_frame.x .fr_tools .title{ margin-left:45px;}
+	.fr_frame.x .fr_right{ border-left-width:0;}
+
+	.fr_frame.x .fr_title span{visibility:visible; opacity:1;}
+}
+
+body.mobile .fr_left{ width:80%; left:0; box-shadow:0 0 10px #000;}
+body.mobile .fr_left_bg{visibility:visible; opacity:1; display:block;}
+body.mobile .fr_title #act_leftNav{ right:0;}
+body.mobile .fr_right{border-left-width:0px;}
+
+body.mobile .fr_frame.x .fr_left{ width:80%; left:-80%; box-shadow:none;}
+body.mobile .fr_frame.x .fr_left_bg{visibility:hidden; opacity:0;}
+body.mobile .fr_frame.x .fr_title #act_leftNav{ right:-40px;}
+body.mobile .fr_frame.x .fr_tools .title{ margin-left:45px;}
+body.mobile .fr_frame.x .fr_right{ border-left-width:0;}
+body.mobile .fr_frame.x .fr_title span{visibility:visible; opacity:1;}
+body.mobile .fr_nav{overflow-y:auto;}
+
+@media screen and (orientation: landscape){
+	body.mobile .fr_frame.x .fr_left,body.mobile .fr_left{ width:40%;}
+	body.mobile .fr_frame.x .fr_left{left:-40%;}
+}
+
+body.mobile .fr_frame.pan .fr_left{box-shadow:0 0 10px #000; transition:none;}
+.fr_frame.pan .fr_nav ul li{ width:100%;}
+.fr_frame.pan .fr_nav ul li ul{ position:static; top:auto; left:auto; width:100%; padding-left:40px; background:none; border-radius:0; overflow:hidden; border-top:0;}
+.fr_frame.pan .fr_nav ul li ul li{border-radius:20px 0 0 20px; padding-left:0;}
+.fr_frame.pan .fr_nav ul li ul li a:before{ display:inline-block;}
+/****解决苹果webApp模式下莫名奇妙的BUG****苹果的软件都是设计师写的，好看但BUG一堆...*********/
+body.webapp .fr_left,body.webapp .fr_left_bg,body.webapp .fr_title #act_leftNav,body.webapp .fr_title span,body.webapp .toolsBtu,body.webapp .fr_tools .title {transform:translate3d(0, 0, 0); -webkit-transform:translate3d(0, 0, 0);}

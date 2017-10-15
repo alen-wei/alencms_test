@@ -1,0 +1,5646 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Record>
+  <Machine>
+    <Index>0</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>30817</Run>
+      <PowerOn>38068</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>40604</Run>
+      <PowerOn>58686</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>4654</Run>
+      <PowerOn>12052</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>46938</Run>
+      <PowerOn>82469</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>47010</Run>
+      <PowerOn>53129</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>19301</Run>
+      <PowerOn>69567</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>33942</Run>
+      <PowerOn>80517</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>44089</Run>
+      <PowerOn>57182</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>53551</Run>
+      <PowerOn>56837</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>37840</Run>
+      <PowerOn>82610</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>47429</Run>
+      <PowerOn>68618</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>5189</Run>
+      <PowerOn>13205</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>27713</Run>
+      <PowerOn>30540</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>8280</Run>
+      <PowerOn>10771</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>42503</Run>
+      <PowerOn>67338</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>69786</Run>
+      <PowerOn>73638</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>5528</Run>
+      <PowerOn>66039</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>21363</Run>
+      <PowerOn>59452</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>18079</Run>
+      <PowerOn>77903</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>13690</Run>
+      <PowerOn>63230</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>58341</Run>
+      <PowerOn>65932</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>25144</Run>
+      <PowerOn>28616</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>3052</Run>
+      <PowerOn>79068</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>46237</Run>
+      <PowerOn>70112</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>2634</Run>
+      <PowerOn>64329</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>20482</Run>
+      <PowerOn>53626</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>3922</Run>
+      <PowerOn>58828</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>19487</Run>
+      <PowerOn>64295</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>65970</Run>
+      <PowerOn>68597</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>7227</Run>
+      <PowerOn>34035</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>11516</Run>
+      <PowerOn>45951</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>23106</Run>
+      <PowerOn>41708</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>30034</Run>
+      <PowerOn>63967</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>33151</Run>
+      <PowerOn>52010</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>64932</Run>
+      <PowerOn>83743</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>14377</Run>
+      <PowerOn>80063</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>44309</Run>
+      <PowerOn>50764</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>4152</Run>
+      <PowerOn>82345</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>9675</Run>
+      <PowerOn>51214</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>44383</Run>
+      <PowerOn>65875</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>19426</Run>
+      <PowerOn>28936</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>44785</Run>
+      <PowerOn>65875</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>8293</Run>
+      <PowerOn>59247</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>46516</Run>
+      <PowerOn>78566</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>33253</Run>
+      <PowerOn>47562</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>16209</Run>
+      <PowerOn>48310</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>1209</Run>
+      <PowerOn>40360</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>68627</Run>
+      <PowerOn>81169</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>27939</Run>
+      <PowerOn>80041</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>10056</Run>
+      <PowerOn>60133</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>49665</Run>
+      <PowerOn>65542</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>10182</Run>
+      <PowerOn>23638</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>55867</Run>
+      <PowerOn>84318</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>55821</Run>
+      <PowerOn>82291</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>10845</Run>
+      <PowerOn>61733</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>19868</Run>
+      <PowerOn>39911</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>64966</Run>
+      <PowerOn>66108</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>48260</Run>
+      <PowerOn>67420</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>8354</Run>
+      <PowerOn>27537</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>26940</Run>
+      <PowerOn>74719</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>26960</Run>
+      <PowerOn>57315</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>5593</Run>
+      <PowerOn>32928</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>14839</Run>
+      <PowerOn>84315</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>9482</Run>
+      <PowerOn>60957</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>47610</Run>
+      <PowerOn>65380</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>38325</Run>
+      <PowerOn>75321</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>36403</Run>
+      <PowerOn>47349</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>21324</Run>
+      <PowerOn>27410</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>26091</Run>
+      <PowerOn>33499</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>46321</Run>
+      <PowerOn>59572</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>3395</Run>
+      <PowerOn>66130</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>2668</Run>
+      <PowerOn>74157</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>10432</Run>
+      <PowerOn>14861</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>29267</Run>
+      <PowerOn>61451</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>10239</Run>
+      <PowerOn>86391</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>928</Run>
+      <PowerOn>72257</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>22307</Run>
+      <PowerOn>29170</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>2418</Run>
+      <PowerOn>25433</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>38250</Run>
+      <PowerOn>72921</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>51606</Run>
+      <PowerOn>85864</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>19287</Run>
+      <PowerOn>42992</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>7612</Run>
+      <PowerOn>16695</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>16777</Run>
+      <PowerOn>64942</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>47464</Run>
+      <PowerOn>62815</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>10147</Run>
+      <PowerOn>23343</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>26647</Run>
+      <PowerOn>72145</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>2167</Run>
+      <PowerOn>38914</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>14187</Run>
+      <PowerOn>44731</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>10216</Run>
+      <PowerOn>49123</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>21816</Run>
+      <PowerOn>78123</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>350</Run>
+      <PowerOn>699</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>461</Run>
+      <PowerOn>890</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>86</Run>
+      <PowerOn>160</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>507</Run>
+      <PowerOn>973</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>464</Run>
+      <PowerOn>886</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>32</Run>
+      <PowerOn>72</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>247</Run>
+      <PowerOn>510</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40272</Run>
+      <PowerOn>81000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11194</Run>
+      <PowerOn>22445</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40499</Run>
+      <PowerOn>81000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27923</Run>
+      <PowerOn>55574</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23080</Run>
+      <PowerOn>46171</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>1</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>5400</Run>
+      <PowerOn>85826</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>45209</Run>
+      <PowerOn>83584</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>16949</Run>
+      <PowerOn>48103</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>26462</Run>
+      <PowerOn>44017</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>40806</Run>
+      <PowerOn>50903</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>59292</Run>
+      <PowerOn>79293</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>71419</Run>
+      <PowerOn>83003</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>140</Run>
+      <PowerOn>21550</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>23692</Run>
+      <PowerOn>39590</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>16409</Run>
+      <PowerOn>44172</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>48136</Run>
+      <PowerOn>60225</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>17998</Run>
+      <PowerOn>84034</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>53194</Run>
+      <PowerOn>86395</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>57096</Run>
+      <PowerOn>63247</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>54586</Run>
+      <PowerOn>66092</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>40307</Run>
+      <PowerOn>78731</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>22248</Run>
+      <PowerOn>68114</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>16986</Run>
+      <PowerOn>47548</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>37495</Run>
+      <PowerOn>56337</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>19518</Run>
+      <PowerOn>77005</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>40152</Run>
+      <PowerOn>46364</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>9637</Run>
+      <PowerOn>56646</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>51741</Run>
+      <PowerOn>59556</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>40903</Run>
+      <PowerOn>60755</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>8058</Run>
+      <PowerOn>83418</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>14517</Run>
+      <PowerOn>40367</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>38470</Run>
+      <PowerOn>59139</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>47862</Run>
+      <PowerOn>66388</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>17451</Run>
+      <PowerOn>58562</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>47706</Run>
+      <PowerOn>76442</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>33948</Run>
+      <PowerOn>53582</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>208</Run>
+      <PowerOn>14168</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>50205</Run>
+      <PowerOn>61522</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>32136</Run>
+      <PowerOn>45153</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>49585</Run>
+      <PowerOn>70012</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>3799</Run>
+      <PowerOn>85913</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>6217</Run>
+      <PowerOn>9147</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>38929</Run>
+      <PowerOn>82062</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>42816</Run>
+      <PowerOn>71533</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>23849</Run>
+      <PowerOn>26339</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>50562</Run>
+      <PowerOn>78401</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>439</Run>
+      <PowerOn>41138</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>64019</Run>
+      <PowerOn>68889</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>38546</Run>
+      <PowerOn>49623</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>52196</Run>
+      <PowerOn>58082</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>6110</Run>
+      <PowerOn>15522</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>25414</Run>
+      <PowerOn>40639</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>7601</Run>
+      <PowerOn>66335</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>8947</Run>
+      <PowerOn>26663</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>31718</Run>
+      <PowerOn>49589</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>54178</Run>
+      <PowerOn>68117</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>62508</Run>
+      <PowerOn>84874</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>8780</Run>
+      <PowerOn>37260</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>29455</Run>
+      <PowerOn>75061</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>46523</Run>
+      <PowerOn>52035</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>41017</Run>
+      <PowerOn>79981</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>580</Run>
+      <PowerOn>53562</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>4098</Run>
+      <PowerOn>69054</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>28722</Run>
+      <PowerOn>85746</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>56703</Run>
+      <PowerOn>73514</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>46716</Run>
+      <PowerOn>68239</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>10877</Run>
+      <PowerOn>13848</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>30436</Run>
+      <PowerOn>86067</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>37017</Run>
+      <PowerOn>60553</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>27067</Run>
+      <PowerOn>39855</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>58276</Run>
+      <PowerOn>58396</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>13388</Run>
+      <PowerOn>68656</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>34613</Run>
+      <PowerOn>54127</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>21525</Run>
+      <PowerOn>72491</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>19155</Run>
+      <PowerOn>60185</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>2882</Run>
+      <PowerOn>41562</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>28363</Run>
+      <PowerOn>44435</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>6900</Run>
+      <PowerOn>75193</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>2356</Run>
+      <PowerOn>74708</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>7491</Run>
+      <PowerOn>20444</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>2567</Run>
+      <PowerOn>18868</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>6372</Run>
+      <PowerOn>50045</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>46726</Run>
+      <PowerOn>62588</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>15524</Run>
+      <PowerOn>42280</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>46062</Run>
+      <PowerOn>78655</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>10844</Run>
+      <PowerOn>18611</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>63462</Run>
+      <PowerOn>67658</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>37582</Run>
+      <PowerOn>46326</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>11209</Run>
+      <PowerOn>12646</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>996</Run>
+      <PowerOn>18865</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>20269</Run>
+      <PowerOn>80152</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>55366</Run>
+      <PowerOn>63138</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>6632</Run>
+      <PowerOn>16393</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>17236</Run>
+      <PowerOn>43324</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>36347</Run>
+      <PowerOn>44566</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>355</Run>
+      <PowerOn>730</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>450</Run>
+      <PowerOn>910</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>81</Run>
+      <PowerOn>160</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>524</Run>
+      <PowerOn>1017</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>448</Run>
+      <PowerOn>914</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>38</Run>
+      <PowerOn>70</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>268</Run>
+      <PowerOn>518</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40547</Run>
+      <PowerOn>81002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11173</Run>
+      <PowerOn>22439</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40689</Run>
+      <PowerOn>81001</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27811</Run>
+      <PowerOn>55720</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23252</Run>
+      <PowerOn>46403</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>2</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>60552</Run>
+      <PowerOn>71318</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>43349</Run>
+      <PowerOn>51967</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>12359</Run>
+      <PowerOn>27465</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>36116</Run>
+      <PowerOn>80858</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>32284</Run>
+      <PowerOn>46277</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>2069</Run>
+      <PowerOn>28110</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>67914</Run>
+      <PowerOn>83134</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>47178</Run>
+      <PowerOn>60292</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>30114</Run>
+      <PowerOn>62648</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>31327</Run>
+      <PowerOn>32653</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>53</Run>
+      <PowerOn>17286</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>20663</Run>
+      <PowerOn>50107</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>22917</Run>
+      <PowerOn>47239</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>10838</Run>
+      <PowerOn>48594</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>25671</Run>
+      <PowerOn>85161</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>4183</Run>
+      <PowerOn>48352</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>6376</Run>
+      <PowerOn>79497</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>35042</Run>
+      <PowerOn>69405</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>71350</Run>
+      <PowerOn>73175</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>37131</Run>
+      <PowerOn>40829</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>13142</Run>
+      <PowerOn>78113</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>63075</Run>
+      <PowerOn>85740</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>71288</Run>
+      <PowerOn>81351</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>4914</Run>
+      <PowerOn>44152</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>26094</Run>
+      <PowerOn>35057</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>33571</Run>
+      <PowerOn>59606</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>43149</Run>
+      <PowerOn>81150</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>66170</Run>
+      <PowerOn>71716</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>782</Run>
+      <PowerOn>12511</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>7821</Run>
+      <PowerOn>74694</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>45967</Run>
+      <PowerOn>52376</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>22056</Run>
+      <PowerOn>85162</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>20566</Run>
+      <PowerOn>51877</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>20985</Run>
+      <PowerOn>40287</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>51598</Run>
+      <PowerOn>63754</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>13629</Run>
+      <PowerOn>60216</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>70777</Run>
+      <PowerOn>72319</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>17449</Run>
+      <PowerOn>22415</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>4539</Run>
+      <PowerOn>34269</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>43573</Run>
+      <PowerOn>53202</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>8423</Run>
+      <PowerOn>21741</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>14949</Run>
+      <PowerOn>50345</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>1045</Run>
+      <PowerOn>77368</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>20474</Run>
+      <PowerOn>73545</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>48391</Run>
+      <PowerOn>80562</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>63539</Run>
+      <PowerOn>80821</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>6882</Run>
+      <PowerOn>78451</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>45363</Run>
+      <PowerOn>57577</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>1560</Run>
+      <PowerOn>3494</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>7281</Run>
+      <PowerOn>25082</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>312</Run>
+      <PowerOn>47049</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>70771</Run>
+      <PowerOn>76650</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>30640</Run>
+      <PowerOn>55106</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>747</Run>
+      <PowerOn>54703</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>62978</Run>
+      <PowerOn>80823</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>14489</Run>
+      <PowerOn>63730</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>45562</Run>
+      <PowerOn>57709</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>25243</Run>
+      <PowerOn>55286</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>15710</Run>
+      <PowerOn>77933</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>10120</Run>
+      <PowerOn>34962</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>11399</Run>
+      <PowerOn>62496</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>45725</Run>
+      <PowerOn>54905</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>43480</Run>
+      <PowerOn>45468</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>20825</Run>
+      <PowerOn>51254</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>57839</Run>
+      <PowerOn>80217</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>25678</Run>
+      <PowerOn>71204</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>56640</Run>
+      <PowerOn>58823</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>30473</Run>
+      <PowerOn>75823</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>28941</Run>
+      <PowerOn>34404</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>30998</Run>
+      <PowerOn>69362</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>56163</Run>
+      <PowerOn>85389</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>7997</Run>
+      <PowerOn>63017</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>30945</Run>
+      <PowerOn>71508</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>35358</Run>
+      <PowerOn>49357</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>53979</Run>
+      <PowerOn>70877</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>37416</Run>
+      <PowerOn>55799</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>57082</Run>
+      <PowerOn>81872</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>22461</Run>
+      <PowerOn>45240</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>4030</Run>
+      <PowerOn>48236</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>20725</Run>
+      <PowerOn>56591</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>50795</Run>
+      <PowerOn>78237</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>67785</Run>
+      <PowerOn>79787</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>39635</Run>
+      <PowerOn>58270</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>33559</Run>
+      <PowerOn>48005</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>2953</Run>
+      <PowerOn>28521</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>3566</Run>
+      <PowerOn>47400</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>20970</Run>
+      <PowerOn>32233</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>20775</Run>
+      <PowerOn>53596</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>34494</Run>
+      <PowerOn>81848</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>52358</Run>
+      <PowerOn>75321</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>357</Run>
+      <PowerOn>707</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>467</Run>
+      <PowerOn>864</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>80</Run>
+      <PowerOn>168</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>503</Run>
+      <PowerOn>978</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>452</Run>
+      <PowerOn>978</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>33</Run>
+      <PowerOn>74</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>261</Run>
+      <PowerOn>545</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40466</Run>
+      <PowerOn>81003</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11229</Run>
+      <PowerOn>22397</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40334</Run>
+      <PowerOn>81003</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27985</Run>
+      <PowerOn>55759</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23223</Run>
+      <PowerOn>46485</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>3</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>22210</Run>
+      <PowerOn>24956</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>50354</Run>
+      <PowerOn>66594</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>14420</Run>
+      <PowerOn>31440</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>2501</Run>
+      <PowerOn>51560</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>36351</Run>
+      <PowerOn>46601</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>48665</Run>
+      <PowerOn>50285</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>27988</Run>
+      <PowerOn>56265</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>15725</Run>
+      <PowerOn>70716</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>26590</Run>
+      <PowerOn>27091</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>32959</Run>
+      <PowerOn>40656</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>21434</Run>
+      <PowerOn>68939</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>22496</Run>
+      <PowerOn>81007</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>18901</Run>
+      <PowerOn>60893</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>17564</Run>
+      <PowerOn>22300</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>20645</Run>
+      <PowerOn>60792</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>36031</Run>
+      <PowerOn>59982</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>56262</Run>
+      <PowerOn>65646</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>62698</Run>
+      <PowerOn>81927</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>46112</Run>
+      <PowerOn>48277</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>7199</Run>
+      <PowerOn>14343</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>13744</Run>
+      <PowerOn>39410</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>50922</Run>
+      <PowerOn>76169</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>19674</Run>
+      <PowerOn>38607</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>39412</Run>
+      <PowerOn>74496</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>34614</Run>
+      <PowerOn>38524</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>56622</Run>
+      <PowerOn>70191</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>60616</Run>
+      <PowerOn>67060</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>24561</Run>
+      <PowerOn>79496</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>537</Run>
+      <PowerOn>26286</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>22659</Run>
+      <PowerOn>28024</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>38503</Run>
+      <PowerOn>53733</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>26897</Run>
+      <PowerOn>40355</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>26265</Run>
+      <PowerOn>69821</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>20215</Run>
+      <PowerOn>67622</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>46657</Run>
+      <PowerOn>52979</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>5608</Run>
+      <PowerOn>84126</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>44737</Run>
+      <PowerOn>85801</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>37144</Run>
+      <PowerOn>39378</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>43725</Run>
+      <PowerOn>60740</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>10738</Run>
+      <PowerOn>83415</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>6985</Run>
+      <PowerOn>11868</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>7271</Run>
+      <PowerOn>73209</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>56691</Run>
+      <PowerOn>84456</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>3950</Run>
+      <PowerOn>29050</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>46952</Run>
+      <PowerOn>54937</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>19604</Run>
+      <PowerOn>53995</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>59396</Run>
+      <PowerOn>75033</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>25727</Run>
+      <PowerOn>32296</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>11390</Run>
+      <PowerOn>53984</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>17807</Run>
+      <PowerOn>40602</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>33390</Run>
+      <PowerOn>60893</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>13712</Run>
+      <PowerOn>23440</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>13090</Run>
+      <PowerOn>15143</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>69990</Run>
+      <PowerOn>85759</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>29516</Run>
+      <PowerOn>45373</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>12880</Run>
+      <PowerOn>57973</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>9005</Run>
+      <PowerOn>26090</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>21377</Run>
+      <PowerOn>36693</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>3367</Run>
+      <PowerOn>32929</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>61018</Run>
+      <PowerOn>74974</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>40829</Run>
+      <PowerOn>48458</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>59083</Run>
+      <PowerOn>60805</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>35132</Run>
+      <PowerOn>38346</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>18821</Run>
+      <PowerOn>26237</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>3652</Run>
+      <PowerOn>69314</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>27247</Run>
+      <PowerOn>34226</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>21500</Run>
+      <PowerOn>40050</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>8662</Run>
+      <PowerOn>60277</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>31846</Run>
+      <PowerOn>75757</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>25087</Run>
+      <PowerOn>27651</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>60717</Run>
+      <PowerOn>62250</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>10938</Run>
+      <PowerOn>14068</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>46907</Run>
+      <PowerOn>73566</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>67284</Run>
+      <PowerOn>83705</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>2339</Run>
+      <PowerOn>23450</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>13751</Run>
+      <PowerOn>71144</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>21576</Run>
+      <PowerOn>32435</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>2730</Run>
+      <PowerOn>44736</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>3231</Run>
+      <PowerOn>5519</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>16713</Run>
+      <PowerOn>82391</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>68394</Run>
+      <PowerOn>85193</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>12733</Run>
+      <PowerOn>83657</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>11711</Run>
+      <PowerOn>69671</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>10729</Run>
+      <PowerOn>52560</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>10181</Run>
+      <PowerOn>56146</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>4275</Run>
+      <PowerOn>20899</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>50698</Run>
+      <PowerOn>78898</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>39973</Run>
+      <PowerOn>58608</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>20601</Run>
+      <PowerOn>26962</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>22944</Run>
+      <PowerOn>59443</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>352</Run>
+      <PowerOn>716</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>457</Run>
+      <PowerOn>891</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>81</Run>
+      <PowerOn>154</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>507</Run>
+      <PowerOn>1024</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>465</Run>
+      <PowerOn>923</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>33</Run>
+      <PowerOn>75</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>251</Run>
+      <PowerOn>525</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40481</Run>
+      <PowerOn>81002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11218</Run>
+      <PowerOn>22357</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40480</Run>
+      <PowerOn>81002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>28065</Run>
+      <PowerOn>55997</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23286</Run>
+      <PowerOn>46321</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>4</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>39004</Run>
+      <PowerOn>61046</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>7993</Run>
+      <PowerOn>9193</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>14325</Run>
+      <PowerOn>25936</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>31632</Run>
+      <PowerOn>36559</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>51481</Run>
+      <PowerOn>75735</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>13837</Run>
+      <PowerOn>51587</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>8070</Run>
+      <PowerOn>10163</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>27332</Run>
+      <PowerOn>74458</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>67824</Run>
+      <PowerOn>75017</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>10549</Run>
+      <PowerOn>29523</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>29831</Run>
+      <PowerOn>43411</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>37341</Run>
+      <PowerOn>63996</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>15749</Run>
+      <PowerOn>47364</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>68185</Run>
+      <PowerOn>81843</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>3960</Run>
+      <PowerOn>26386</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>21932</Run>
+      <PowerOn>28335</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>2373</Run>
+      <PowerOn>49422</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>16720</Run>
+      <PowerOn>26993</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>12557</Run>
+      <PowerOn>47308</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>60551</Run>
+      <PowerOn>65032</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>24075</Run>
+      <PowerOn>32693</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>35076</Run>
+      <PowerOn>53584</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>47787</Run>
+      <PowerOn>79571</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>29138</Run>
+      <PowerOn>44099</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>25991</Run>
+      <PowerOn>49709</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>26199</Run>
+      <PowerOn>68653</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>24952</Run>
+      <PowerOn>69824</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>27864</Run>
+      <PowerOn>35496</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>57159</Run>
+      <PowerOn>69924</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>27067</Run>
+      <PowerOn>47890</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>54944</Run>
+      <PowerOn>58023</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>66157</Run>
+      <PowerOn>77448</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>11178</Run>
+      <PowerOn>37958</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>20395</Run>
+      <PowerOn>46456</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>11454</Run>
+      <PowerOn>82404</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>25004</Run>
+      <PowerOn>36481</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>62179</Run>
+      <PowerOn>75665</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>61077</Run>
+      <PowerOn>78945</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>64337</Run>
+      <PowerOn>70800</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>43850</Run>
+      <PowerOn>73997</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>39560</Run>
+      <PowerOn>50151</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>13211</Run>
+      <PowerOn>29914</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>16327</Run>
+      <PowerOn>74609</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>217</Run>
+      <PowerOn>66575</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>20708</Run>
+      <PowerOn>71048</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>58714</Run>
+      <PowerOn>68332</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>5357</Run>
+      <PowerOn>25787</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>897</Run>
+      <PowerOn>37054</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>31784</Run>
+      <PowerOn>68954</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>14356</Run>
+      <PowerOn>64053</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>37877</Run>
+      <PowerOn>48390</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>53203</Run>
+      <PowerOn>70206</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>31139</Run>
+      <PowerOn>38251</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>27615</Run>
+      <PowerOn>53582</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>41553</Run>
+      <PowerOn>72128</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>2660</Run>
+      <PowerOn>6901</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>30329</Run>
+      <PowerOn>54892</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>16701</Run>
+      <PowerOn>80902</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>43267</Run>
+      <PowerOn>76117</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>16302</Run>
+      <PowerOn>84097</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>7853</Run>
+      <PowerOn>46264</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>17352</Run>
+      <PowerOn>36112</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>12318</Run>
+      <PowerOn>85466</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>23466</Run>
+      <PowerOn>71443</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>13707</Run>
+      <PowerOn>61973</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>28624</Run>
+      <PowerOn>41495</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>30557</Run>
+      <PowerOn>43232</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>5199</Run>
+      <PowerOn>26394</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>21189</Run>
+      <PowerOn>68693</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>39730</Run>
+      <PowerOn>53791</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>31479</Run>
+      <PowerOn>42968</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>6559</Run>
+      <PowerOn>24899</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>9968</Run>
+      <PowerOn>59734</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>42949</Run>
+      <PowerOn>55338</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>12280</Run>
+      <PowerOn>47480</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>26451</Run>
+      <PowerOn>76451</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>54409</Run>
+      <PowerOn>84440</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>11500</Run>
+      <PowerOn>31037</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>22966</Run>
+      <PowerOn>36767</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>29389</Run>
+      <PowerOn>53146</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>53429</Run>
+      <PowerOn>74794</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>39169</Run>
+      <PowerOn>53532</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>39415</Run>
+      <PowerOn>40817</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>15499</Run>
+      <PowerOn>66837</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>39262</Run>
+      <PowerOn>51645</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>4357</Run>
+      <PowerOn>15080</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>53539</Run>
+      <PowerOn>76137</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>68137</Run>
+      <PowerOn>70120</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>40134</Run>
+      <PowerOn>84437</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>71854</Run>
+      <PowerOn>76720</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>355</Run>
+      <PowerOn>733</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>448</Run>
+      <PowerOn>855</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>83</Run>
+      <PowerOn>162</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>497</Run>
+      <PowerOn>1044</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>464</Run>
+      <PowerOn>942</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>36</Run>
+      <PowerOn>60</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>250</Run>
+      <PowerOn>512</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40492</Run>
+      <PowerOn>81002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11240</Run>
+      <PowerOn>22413</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40653</Run>
+      <PowerOn>81001</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27897</Run>
+      <PowerOn>55749</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23303</Run>
+      <PowerOn>46352</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>5</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>63683</Run>
+      <PowerOn>78564</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>9028</Run>
+      <PowerOn>49547</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>65672</Run>
+      <PowerOn>69159</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>30804</Run>
+      <PowerOn>82092</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>22777</Run>
+      <PowerOn>54396</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>10726</Run>
+      <PowerOn>29089</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>11564</Run>
+      <PowerOn>13792</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>24269</Run>
+      <PowerOn>57650</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>28049</Run>
+      <PowerOn>84765</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>9850</Run>
+      <PowerOn>10176</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>23600</Run>
+      <PowerOn>26304</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>13553</Run>
+      <PowerOn>29435</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>45825</Run>
+      <PowerOn>57233</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>54363</Run>
+      <PowerOn>81506</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>32158</Run>
+      <PowerOn>82840</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>20975</Run>
+      <PowerOn>22615</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>7740</Run>
+      <PowerOn>35726</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>16959</Run>
+      <PowerOn>81975</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>18279</Run>
+      <PowerOn>69305</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>25128</Run>
+      <PowerOn>26336</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>22815</Run>
+      <PowerOn>76852</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>38304</Run>
+      <PowerOn>55441</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>2376</Run>
+      <PowerOn>28776</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>58914</Run>
+      <PowerOn>59079</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>18341</Run>
+      <PowerOn>74392</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>1046</Run>
+      <PowerOn>20979</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>12832</Run>
+      <PowerOn>67967</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>5464</Run>
+      <PowerOn>61104</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>22255</Run>
+      <PowerOn>27784</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>11881</Run>
+      <PowerOn>16878</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>32523</Run>
+      <PowerOn>46315</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>32477</Run>
+      <PowerOn>34311</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>61883</Run>
+      <PowerOn>67060</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>27555</Run>
+      <PowerOn>73214</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>16326</Run>
+      <PowerOn>40449</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>10795</Run>
+      <PowerOn>57029</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>43010</Run>
+      <PowerOn>67297</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>29277</Run>
+      <PowerOn>40267</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>35725</Run>
+      <PowerOn>72444</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>60019</Run>
+      <PowerOn>62271</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>10870</Run>
+      <PowerOn>15852</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>37944</Run>
+      <PowerOn>62653</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>26939</Run>
+      <PowerOn>78696</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>39049</Run>
+      <PowerOn>63667</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>8563</Run>
+      <PowerOn>70600</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>10235</Run>
+      <PowerOn>71137</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>6111</Run>
+      <PowerOn>24637</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>28982</Run>
+      <PowerOn>33527</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>53160</Run>
+      <PowerOn>80929</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>21481</Run>
+      <PowerOn>30493</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>15329</Run>
+      <PowerOn>21393</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>43955</Run>
+      <PowerOn>60986</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>35072</Run>
+      <PowerOn>43382</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>6573</Run>
+      <PowerOn>85111</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>8290</Run>
+      <PowerOn>70018</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>49257</Run>
+      <PowerOn>57479</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>22948</Run>
+      <PowerOn>62861</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>9155</Run>
+      <PowerOn>42406</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>47784</Run>
+      <PowerOn>53356</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>34001</Run>
+      <PowerOn>75675</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>8034</Run>
+      <PowerOn>67666</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>5325</Run>
+      <PowerOn>82319</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>17222</Run>
+      <PowerOn>42521</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>14836</Run>
+      <PowerOn>28612</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>13819</Run>
+      <PowerOn>41702</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>43827</Run>
+      <PowerOn>50815</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>30009</Run>
+      <PowerOn>53333</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>9347</Run>
+      <PowerOn>45744</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>17239</Run>
+      <PowerOn>83372</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>57846</Run>
+      <PowerOn>67627</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>29048</Run>
+      <PowerOn>48580</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>60962</Run>
+      <PowerOn>66014</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>25285</Run>
+      <PowerOn>51480</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>58114</Run>
+      <PowerOn>64876</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>27670</Run>
+      <PowerOn>34980</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>4295</Run>
+      <PowerOn>6612</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>30297</Run>
+      <PowerOn>37428</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>5900</Run>
+      <PowerOn>19465</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>31395</Run>
+      <PowerOn>61598</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>10043</Run>
+      <PowerOn>34332</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>33625</Run>
+      <PowerOn>62977</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>453</Run>
+      <PowerOn>12971</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>38602</Run>
+      <PowerOn>83939</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>8701</Run>
+      <PowerOn>9044</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>13575</Run>
+      <PowerOn>26228</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>34449</Run>
+      <PowerOn>73931</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>41222</Run>
+      <PowerOn>54777</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>50403</Run>
+      <PowerOn>69647</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>9813</Run>
+      <PowerOn>45360</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>7366</Run>
+      <PowerOn>44708</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>354</Run>
+      <PowerOn>685</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>446</Run>
+      <PowerOn>900</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>82</Run>
+      <PowerOn>158</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>514</Run>
+      <PowerOn>1045</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>448</Run>
+      <PowerOn>883</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>37</Run>
+      <PowerOn>69</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>258</Run>
+      <PowerOn>509</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40542</Run>
+      <PowerOn>81000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11293</Run>
+      <PowerOn>22376</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40551</Run>
+      <PowerOn>81003</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27896</Run>
+      <PowerOn>55812</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23241</Run>
+      <PowerOn>46436</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>6</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>773</Run>
+      <PowerOn>31998</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>30861</Run>
+      <PowerOn>40398</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>8094</Run>
+      <PowerOn>30605</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>35558</Run>
+      <PowerOn>59445</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>58215</Run>
+      <PowerOn>59641</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>17646</Run>
+      <PowerOn>41902</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>19463</Run>
+      <PowerOn>24391</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>10397</Run>
+      <PowerOn>15041</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>34511</Run>
+      <PowerOn>65762</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>59499</Run>
+      <PowerOn>76347</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>63406</Run>
+      <PowerOn>81363</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>55818</Run>
+      <PowerOn>74003</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>11614</Run>
+      <PowerOn>32756</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>11558</Run>
+      <PowerOn>70290</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>10274</Run>
+      <PowerOn>27758</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>43370</Run>
+      <PowerOn>61721</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>31944</Run>
+      <PowerOn>62738</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>58744</Run>
+      <PowerOn>70165</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>42119</Run>
+      <PowerOn>66987</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>19486</Run>
+      <PowerOn>27584</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>37594</Run>
+      <PowerOn>49244</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>19711</Run>
+      <PowerOn>77376</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>13475</Run>
+      <PowerOn>44153</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>4178</Run>
+      <PowerOn>13699</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>52509</Run>
+      <PowerOn>81161</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>52452</Run>
+      <PowerOn>56483</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>14673</Run>
+      <PowerOn>36033</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>209</Run>
+      <PowerOn>80238</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>1956</Run>
+      <PowerOn>29416</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>17952</Run>
+      <PowerOn>49765</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>4481</Run>
+      <PowerOn>85933</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>35804</Run>
+      <PowerOn>37447</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>19933</Run>
+      <PowerOn>70305</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>21587</Run>
+      <PowerOn>44851</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>61744</Run>
+      <PowerOn>82027</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>22931</Run>
+      <PowerOn>61263</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>1852</Run>
+      <PowerOn>2837</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>25022</Run>
+      <PowerOn>54475</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>15345</Run>
+      <PowerOn>84670</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>34658</Run>
+      <PowerOn>82475</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>10644</Run>
+      <PowerOn>71573</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>63169</Run>
+      <PowerOn>71784</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>5986</Run>
+      <PowerOn>9501</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>8141</Run>
+      <PowerOn>64225</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>10607</Run>
+      <PowerOn>72285</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>35827</Run>
+      <PowerOn>51953</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>47949</Run>
+      <PowerOn>81383</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>1991</Run>
+      <PowerOn>77108</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>41018</Run>
+      <PowerOn>68201</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>68118</Run>
+      <PowerOn>70308</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>8126</Run>
+      <PowerOn>75169</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>31704</Run>
+      <PowerOn>53942</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>6402</Run>
+      <PowerOn>31200</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>57140</Run>
+      <PowerOn>79063</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>42758</Run>
+      <PowerOn>58134</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>55024</Run>
+      <PowerOn>81789</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>23779</Run>
+      <PowerOn>77096</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>9388</Run>
+      <PowerOn>45142</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>28959</Run>
+      <PowerOn>61366</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>35150</Run>
+      <PowerOn>47284</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>64642</Run>
+      <PowerOn>69284</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>51001</Run>
+      <PowerOn>74330</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>53899</Run>
+      <PowerOn>54716</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>23554</Run>
+      <PowerOn>29245</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>35099</Run>
+      <PowerOn>83094</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>2960</Run>
+      <PowerOn>4982</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>45846</Run>
+      <PowerOn>59284</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>21314</Run>
+      <PowerOn>74197</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>22672</Run>
+      <PowerOn>74123</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>46022</Run>
+      <PowerOn>69161</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>18534</Run>
+      <PowerOn>40869</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>66264</Run>
+      <PowerOn>71604</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>15069</Run>
+      <PowerOn>44448</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>29330</Run>
+      <PowerOn>57469</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>63697</Run>
+      <PowerOn>72773</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>13030</Run>
+      <PowerOn>44636</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>16730</Run>
+      <PowerOn>17030</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>8820</Run>
+      <PowerOn>45998</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>12184</Run>
+      <PowerOn>70947</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>30760</Run>
+      <PowerOn>81793</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>50575</Run>
+      <PowerOn>68047</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>29158</Run>
+      <PowerOn>29509</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>48392</Run>
+      <PowerOn>67258</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>28735</Run>
+      <PowerOn>50784</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>58043</Run>
+      <PowerOn>83003</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>21013</Run>
+      <PowerOn>36736</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>4808</Run>
+      <PowerOn>55630</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>44080</Run>
+      <PowerOn>72284</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>20846</Run>
+      <PowerOn>29145</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>32246</Run>
+      <PowerOn>43136</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>365</Run>
+      <PowerOn>713</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>464</Run>
+      <PowerOn>922</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>76</Run>
+      <PowerOn>147</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>503</Run>
+      <PowerOn>984</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>446</Run>
+      <PowerOn>928</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>41</Run>
+      <PowerOn>73</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>262</Run>
+      <PowerOn>503</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40420</Run>
+      <PowerOn>81004</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11219</Run>
+      <PowerOn>22380</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40443</Run>
+      <PowerOn>81004</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27870</Run>
+      <PowerOn>56272</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23136</Run>
+      <PowerOn>46530</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>7</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>71517</Run>
+      <PowerOn>86244</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>43057</Run>
+      <PowerOn>51307</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>28548</Run>
+      <PowerOn>35973</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>19032</Run>
+      <PowerOn>67335</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>17012</Run>
+      <PowerOn>38254</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>25606</Run>
+      <PowerOn>80391</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>20180</Run>
+      <PowerOn>39233</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>23476</Run>
+      <PowerOn>86361</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>12135</Run>
+      <PowerOn>37133</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>2341</Run>
+      <PowerOn>59625</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>38799</Run>
+      <PowerOn>57872</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>61647</Run>
+      <PowerOn>69952</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>14739</Run>
+      <PowerOn>82107</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>45803</Run>
+      <PowerOn>75183</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>54456</Run>
+      <PowerOn>69715</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>52472</Run>
+      <PowerOn>60086</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>46433</Run>
+      <PowerOn>75429</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>53812</Run>
+      <PowerOn>82757</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>71758</Run>
+      <PowerOn>78782</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>16354</Run>
+      <PowerOn>79002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>29962</Run>
+      <PowerOn>31791</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>40728</Run>
+      <PowerOn>47767</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>12779</Run>
+      <PowerOn>21492</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>43444</Run>
+      <PowerOn>53264</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>1215</Run>
+      <PowerOn>65418</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>3884</Run>
+      <PowerOn>7778</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>46418</Run>
+      <PowerOn>83638</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>13068</Run>
+      <PowerOn>85307</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>2496</Run>
+      <PowerOn>26903</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>57209</Run>
+      <PowerOn>67596</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>35288</Run>
+      <PowerOn>40832</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>3178</Run>
+      <PowerOn>40710</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>10580</Run>
+      <PowerOn>14313</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>34363</Run>
+      <PowerOn>63541</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>66651</Run>
+      <PowerOn>71546</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>25030</Run>
+      <PowerOn>54739</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>30042</Run>
+      <PowerOn>56043</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>22304</Run>
+      <PowerOn>65582</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>59381</Run>
+      <PowerOn>63541</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>3817</Run>
+      <PowerOn>63701</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>5181</Run>
+      <PowerOn>27571</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>1909</Run>
+      <PowerOn>19892</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>5283</Run>
+      <PowerOn>19334</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>15804</Run>
+      <PowerOn>41012</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>15635</Run>
+      <PowerOn>61197</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>1799</Run>
+      <PowerOn>49087</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>7237</Run>
+      <PowerOn>79022</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>22392</Run>
+      <PowerOn>43651</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>14423</Run>
+      <PowerOn>68125</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>2402</Run>
+      <PowerOn>7070</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>42858</Run>
+      <PowerOn>50466</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>2318</Run>
+      <PowerOn>15233</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>1565</Run>
+      <PowerOn>23050</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>14037</Run>
+      <PowerOn>53243</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>4213</Run>
+      <PowerOn>6833</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>66714</Run>
+      <PowerOn>84970</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>11013</Run>
+      <PowerOn>13175</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>19689</Run>
+      <PowerOn>42162</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>4792</Run>
+      <PowerOn>6630</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>12224</Run>
+      <PowerOn>61071</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>28508</Run>
+      <PowerOn>69563</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>61270</Run>
+      <PowerOn>72467</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>3139</Run>
+      <PowerOn>86342</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>34889</Run>
+      <PowerOn>85046</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>71126</Run>
+      <PowerOn>80262</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>21052</Run>
+      <PowerOn>57720</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>13053</Run>
+      <PowerOn>86091</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>283</Run>
+      <PowerOn>44648</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>55541</Run>
+      <PowerOn>61567</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>45762</Run>
+      <PowerOn>51282</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>26312</Run>
+      <PowerOn>56667</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>1793</Run>
+      <PowerOn>12338</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>566</Run>
+      <PowerOn>68480</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>54739</Run>
+      <PowerOn>73057</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>26247</Run>
+      <PowerOn>29486</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>23882</Run>
+      <PowerOn>33464</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>28703</Run>
+      <PowerOn>30781</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>5541</Run>
+      <PowerOn>47408</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>41328</Run>
+      <PowerOn>75664</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>12853</Run>
+      <PowerOn>18073</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>46900</Run>
+      <PowerOn>70489</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>18185</Run>
+      <PowerOn>76579</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>4888</Run>
+      <PowerOn>7945</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>17150</Run>
+      <PowerOn>57421</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>5809</Run>
+      <PowerOn>24167</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>4343</Run>
+      <PowerOn>4873</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>5394</Run>
+      <PowerOn>59188</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>3511</Run>
+      <PowerOn>74363</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>16630</Run>
+      <PowerOn>73712</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>35778</Run>
+      <PowerOn>71185</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>350</Run>
+      <PowerOn>687</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>451</Run>
+      <PowerOn>883</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>81</Run>
+      <PowerOn>162</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>501</Run>
+      <PowerOn>1002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>473</Run>
+      <PowerOn>948</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>39</Run>
+      <PowerOn>60</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>259</Run>
+      <PowerOn>536</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40514</Run>
+      <PowerOn>81000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11235</Run>
+      <PowerOn>22379</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40330</Run>
+      <PowerOn>81002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27926</Run>
+      <PowerOn>55707</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23114</Run>
+      <PowerOn>46286</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>8</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>15764</Run>
+      <PowerOn>21439</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>67535</Run>
+      <PowerOn>85636</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>38709</Run>
+      <PowerOn>85885</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>13356</Run>
+      <PowerOn>61534</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>17911</Run>
+      <PowerOn>36184</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>32815</Run>
+      <PowerOn>81807</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>46583</Run>
+      <PowerOn>58395</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>52883</Run>
+      <PowerOn>58668</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>57504</Run>
+      <PowerOn>75590</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>65804</Run>
+      <PowerOn>70273</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>34928</Run>
+      <PowerOn>49253</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>44220</Run>
+      <PowerOn>44289</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>12636</Run>
+      <PowerOn>45403</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>22284</Run>
+      <PowerOn>80054</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>7751</Run>
+      <PowerOn>45310</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>7030</Run>
+      <PowerOn>77662</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>32885</Run>
+      <PowerOn>48632</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>39464</Run>
+      <PowerOn>56290</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>30224</Run>
+      <PowerOn>85701</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>49715</Run>
+      <PowerOn>68313</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>71761</Run>
+      <PowerOn>74297</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>17863</Run>
+      <PowerOn>40762</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>42310</Run>
+      <PowerOn>80088</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>45626</Run>
+      <PowerOn>57412</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>38335</Run>
+      <PowerOn>57071</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>30885</Run>
+      <PowerOn>38838</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>26632</Run>
+      <PowerOn>33357</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>27652</Run>
+      <PowerOn>42532</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>629</Run>
+      <PowerOn>35414</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>38590</Run>
+      <PowerOn>51927</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>6299</Run>
+      <PowerOn>46558</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>60679</Run>
+      <PowerOn>64382</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>24965</Run>
+      <PowerOn>62507</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>43944</Run>
+      <PowerOn>76971</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>33375</Run>
+      <PowerOn>36450</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>8488</Run>
+      <PowerOn>85496</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>71040</Run>
+      <PowerOn>73511</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>43932</Run>
+      <PowerOn>75794</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>16219</Run>
+      <PowerOn>22647</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>9603</Run>
+      <PowerOn>28467</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>1898</Run>
+      <PowerOn>20179</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>2433</Run>
+      <PowerOn>19341</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>16789</Run>
+      <PowerOn>82321</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>39960</Run>
+      <PowerOn>46034</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>40218</Run>
+      <PowerOn>67558</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>34773</Run>
+      <PowerOn>80193</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>62696</Run>
+      <PowerOn>68316</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>16553</Run>
+      <PowerOn>16564</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>22393</Run>
+      <PowerOn>39991</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>490</Run>
+      <PowerOn>18885</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>41324</Run>
+      <PowerOn>72415</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>60800</Run>
+      <PowerOn>74090</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>34834</Run>
+      <PowerOn>80932</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>14940</Run>
+      <PowerOn>55526</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>35332</Run>
+      <PowerOn>48236</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>10153</Run>
+      <PowerOn>43574</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>30344</Run>
+      <PowerOn>83603</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>55525</Run>
+      <PowerOn>86163</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>22419</Run>
+      <PowerOn>67608</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>56214</Run>
+      <PowerOn>62358</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>42582</Run>
+      <PowerOn>79738</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>8512</Run>
+      <PowerOn>14973</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>6882</Run>
+      <PowerOn>25822</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>47035</Run>
+      <PowerOn>80962</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>47218</Run>
+      <PowerOn>47561</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>19487</Run>
+      <PowerOn>67000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>14456</Run>
+      <PowerOn>67360</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>44155</Run>
+      <PowerOn>51348</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>29970</Run>
+      <PowerOn>39007</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>59216</Run>
+      <PowerOn>60500</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>7393</Run>
+      <PowerOn>50213</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>60681</Run>
+      <PowerOn>72600</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>22030</Run>
+      <PowerOn>43645</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>58045</Run>
+      <PowerOn>62584</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>19291</Run>
+      <PowerOn>73223</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>24447</Run>
+      <PowerOn>78598</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>33869</Run>
+      <PowerOn>67263</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>5479</Run>
+      <PowerOn>37076</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>5348</Run>
+      <PowerOn>10455</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>31144</Run>
+      <PowerOn>44529</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>3999</Run>
+      <PowerOn>61895</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>5629</Run>
+      <PowerOn>37258</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>2226</Run>
+      <PowerOn>72571</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>15294</Run>
+      <PowerOn>39317</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>34429</Run>
+      <PowerOn>71931</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>45145</Run>
+      <PowerOn>64312</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>1105</Run>
+      <PowerOn>30510</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>36740</Run>
+      <PowerOn>40297</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>32546</Run>
+      <PowerOn>47738</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>67815</Run>
+      <PowerOn>78529</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>362</Run>
+      <PowerOn>716</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>441</Run>
+      <PowerOn>964</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>80</Run>
+      <PowerOn>152</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>524</Run>
+      <PowerOn>1042</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>453</Run>
+      <PowerOn>936</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>38</Run>
+      <PowerOn>68</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>250</Run>
+      <PowerOn>522</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40231</Run>
+      <PowerOn>81004</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11298</Run>
+      <PowerOn>22556</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40269</Run>
+      <PowerOn>81001</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27913</Run>
+      <PowerOn>56163</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23157</Run>
+      <PowerOn>46515</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>9</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>6710</Run>
+      <PowerOn>79631</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>17813</Run>
+      <PowerOn>51862</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>10506</Run>
+      <PowerOn>36232</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>38685</Run>
+      <PowerOn>71533</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>23048</Run>
+      <PowerOn>28965</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>10805</Run>
+      <PowerOn>74967</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>28146</Run>
+      <PowerOn>82073</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>24229</Run>
+      <PowerOn>24500</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>20420</Run>
+      <PowerOn>65899</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>58413</Run>
+      <PowerOn>70565</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>32988</Run>
+      <PowerOn>63667</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>25776</Run>
+      <PowerOn>52288</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>7327</Run>
+      <PowerOn>34682</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>15594</Run>
+      <PowerOn>32241</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>13062</Run>
+      <PowerOn>32930</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>11296</Run>
+      <PowerOn>16692</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>8212</Run>
+      <PowerOn>67036</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>5227</Run>
+      <PowerOn>69848</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>20751</Run>
+      <PowerOn>56991</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>19665</Run>
+      <PowerOn>85555</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>31919</Run>
+      <PowerOn>51345</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>17146</Run>
+      <PowerOn>33119</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>15535</Run>
+      <PowerOn>64680</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>1299</Run>
+      <PowerOn>17892</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>25782</Run>
+      <PowerOn>78334</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>9393</Run>
+      <PowerOn>12649</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>22611</Run>
+      <PowerOn>24550</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>18220</Run>
+      <PowerOn>23673</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>11982</Run>
+      <PowerOn>78669</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>30480</Run>
+      <PowerOn>50510</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>53839</Run>
+      <PowerOn>60962</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>7683</Run>
+      <PowerOn>26357</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>6970</Run>
+      <PowerOn>84335</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>47093</Run>
+      <PowerOn>57174</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>29845</Run>
+      <PowerOn>32812</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>40991</Run>
+      <PowerOn>82769</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>27132</Run>
+      <PowerOn>62164</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>29158</Run>
+      <PowerOn>86161</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>25586</Run>
+      <PowerOn>49327</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>66341</Run>
+      <PowerOn>85903</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>11549</Run>
+      <PowerOn>54317</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>60211</Run>
+      <PowerOn>66471</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>49846</Run>
+      <PowerOn>82997</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>46331</Run>
+      <PowerOn>54761</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>21185</Run>
+      <PowerOn>74538</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>54161</Run>
+      <PowerOn>71497</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>21663</Run>
+      <PowerOn>70625</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>41739</Run>
+      <PowerOn>67191</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>10172</Run>
+      <PowerOn>40502</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>9581</Run>
+      <PowerOn>56361</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>43410</Run>
+      <PowerOn>71142</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>14604</Run>
+      <PowerOn>75449</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>56461</Run>
+      <PowerOn>83614</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>11482</Run>
+      <PowerOn>73694</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>41377</Run>
+      <PowerOn>57129</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>16639</Run>
+      <PowerOn>70096</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>1642</Run>
+      <PowerOn>74109</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>21012</Run>
+      <PowerOn>52279</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>500</Run>
+      <PowerOn>46615</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>19737</Run>
+      <PowerOn>73047</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>62864</Run>
+      <PowerOn>73683</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>1157</Run>
+      <PowerOn>42017</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>36880</Run>
+      <PowerOn>41621</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>9225</Run>
+      <PowerOn>36721</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>64980</Run>
+      <PowerOn>76142</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>30363</Run>
+      <PowerOn>60542</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>57433</Run>
+      <PowerOn>76895</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>8476</Run>
+      <PowerOn>18347</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>9490</Run>
+      <PowerOn>45046</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>43909</Run>
+      <PowerOn>46960</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>23479</Run>
+      <PowerOn>84347</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>18833</Run>
+      <PowerOn>23712</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>3995</Run>
+      <PowerOn>15222</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>44095</Run>
+      <PowerOn>80657</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>30612</Run>
+      <PowerOn>81605</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>32859</Run>
+      <PowerOn>86136</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>68695</Run>
+      <PowerOn>70180</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>3313</Run>
+      <PowerOn>51201</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>21304</Run>
+      <PowerOn>81698</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>3943</Run>
+      <PowerOn>68161</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>28225</Run>
+      <PowerOn>37799</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>54651</Run>
+      <PowerOn>77205</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>18110</Run>
+      <PowerOn>75860</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>13448</Run>
+      <PowerOn>45552</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>19992</Run>
+      <PowerOn>73849</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>6300</Run>
+      <PowerOn>59793</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>39692</Run>
+      <PowerOn>80099</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>41222</Run>
+      <PowerOn>79249</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>32732</Run>
+      <PowerOn>68336</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>23698</Run>
+      <PowerOn>27385</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>346</Run>
+      <PowerOn>739</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>452</Run>
+      <PowerOn>926</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>85</Run>
+      <PowerOn>161</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>503</Run>
+      <PowerOn>1055</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>463</Run>
+      <PowerOn>915</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>34</Run>
+      <PowerOn>86</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>251</Run>
+      <PowerOn>530</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40470</Run>
+      <PowerOn>81000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11207</Run>
+      <PowerOn>22538</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40733</Run>
+      <PowerOn>81002</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27873</Run>
+      <PowerOn>55829</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23210</Run>
+      <PowerOn>46404</PowerOn>
+    </Date>
+  </Machine>
+  <Machine>
+    <Index>10</Index>
+    <Date>
+      <DateTime>2016/8/17 8:26:49</DateTime>
+      <Run>27631</Run>
+      <PowerOn>72974</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/18 8:26:49</DateTime>
+      <Run>38314</Run>
+      <PowerOn>59347</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/19 8:26:49</DateTime>
+      <Run>12454</Run>
+      <PowerOn>57946</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/20 8:26:49</DateTime>
+      <Run>13110</Run>
+      <PowerOn>84763</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/21 8:26:49</DateTime>
+      <Run>24015</Run>
+      <PowerOn>41239</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/22 8:26:49</DateTime>
+      <Run>62732</Run>
+      <PowerOn>74428</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/23 8:26:49</DateTime>
+      <Run>48582</Run>
+      <PowerOn>65123</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/24 8:26:49</DateTime>
+      <Run>10858</Run>
+      <PowerOn>38787</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/25 8:26:49</DateTime>
+      <Run>3824</Run>
+      <PowerOn>32235</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/26 8:26:49</DateTime>
+      <Run>61969</Run>
+      <PowerOn>72203</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/27 8:26:49</DateTime>
+      <Run>51471</Run>
+      <PowerOn>68734</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/28 8:26:49</DateTime>
+      <Run>57651</Run>
+      <PowerOn>58359</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/29 8:26:49</DateTime>
+      <Run>15713</Run>
+      <PowerOn>37302</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/30 8:26:49</DateTime>
+      <Run>1870</Run>
+      <PowerOn>8357</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/8/31 8:26:49</DateTime>
+      <Run>6623</Run>
+      <PowerOn>47022</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/1 8:26:49</DateTime>
+      <Run>33920</Run>
+      <PowerOn>59593</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/2 8:26:49</DateTime>
+      <Run>15691</Run>
+      <PowerOn>33072</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/3 8:26:49</DateTime>
+      <Run>68868</Run>
+      <PowerOn>85400</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/4 8:26:49</DateTime>
+      <Run>52634</Run>
+      <PowerOn>54582</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/5 8:26:49</DateTime>
+      <Run>15582</Run>
+      <PowerOn>79802</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/6 8:26:49</DateTime>
+      <Run>29145</Run>
+      <PowerOn>32119</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/7 8:26:49</DateTime>
+      <Run>40354</Run>
+      <PowerOn>83842</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/8 8:26:49</DateTime>
+      <Run>15323</Run>
+      <PowerOn>42833</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/9 8:26:49</DateTime>
+      <Run>1637</Run>
+      <PowerOn>71994</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/10 8:26:49</DateTime>
+      <Run>3082</Run>
+      <PowerOn>67234</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/11 8:26:49</DateTime>
+      <Run>33159</Run>
+      <PowerOn>46280</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/12 8:26:49</DateTime>
+      <Run>3950</Run>
+      <PowerOn>52690</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/13 8:26:49</DateTime>
+      <Run>21266</Run>
+      <PowerOn>85265</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/14 8:26:49</DateTime>
+      <Run>58777</Run>
+      <PowerOn>66075</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/15 8:26:49</DateTime>
+      <Run>27520</Run>
+      <PowerOn>71926</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/16 8:26:49</DateTime>
+      <Run>27909</Run>
+      <PowerOn>46361</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/17 8:26:49</DateTime>
+      <Run>6259</Run>
+      <PowerOn>64583</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/18 8:26:49</DateTime>
+      <Run>35243</Run>
+      <PowerOn>85966</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/19 8:26:49</DateTime>
+      <Run>19423</Run>
+      <PowerOn>58858</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/20 8:26:49</DateTime>
+      <Run>54449</Run>
+      <PowerOn>60970</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/21 8:26:49</DateTime>
+      <Run>38008</Run>
+      <PowerOn>66956</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/22 8:26:49</DateTime>
+      <Run>26735</Run>
+      <PowerOn>36814</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/23 8:26:49</DateTime>
+      <Run>1193</Run>
+      <PowerOn>40972</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/24 8:26:49</DateTime>
+      <Run>33223</Run>
+      <PowerOn>84568</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/25 8:26:49</DateTime>
+      <Run>41375</Run>
+      <PowerOn>57859</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/26 8:26:49</DateTime>
+      <Run>12175</Run>
+      <PowerOn>56861</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/27 8:26:49</DateTime>
+      <Run>9204</Run>
+      <PowerOn>82739</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/28 8:26:49</DateTime>
+      <Run>4553</Run>
+      <PowerOn>22746</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/29 8:26:49</DateTime>
+      <Run>30480</Run>
+      <PowerOn>62819</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/9/30 8:26:49</DateTime>
+      <Run>12126</Run>
+      <PowerOn>20209</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/1 8:26:49</DateTime>
+      <Run>6916</Run>
+      <PowerOn>30710</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/2 8:26:49</DateTime>
+      <Run>51595</Run>
+      <PowerOn>54217</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/3 8:26:49</DateTime>
+      <Run>64628</Run>
+      <PowerOn>80604</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/4 8:26:49</DateTime>
+      <Run>64095</Run>
+      <PowerOn>75488</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/5 8:26:49</DateTime>
+      <Run>24136</Run>
+      <PowerOn>83757</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/6 8:26:49</DateTime>
+      <Run>46236</Run>
+      <PowerOn>80795</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/7 8:26:49</DateTime>
+      <Run>34480</Run>
+      <PowerOn>81897</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/8 8:26:49</DateTime>
+      <Run>21134</Run>
+      <PowerOn>51405</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/9 8:26:49</DateTime>
+      <Run>6370</Run>
+      <PowerOn>64420</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/10 8:26:49</DateTime>
+      <Run>66628</Run>
+      <PowerOn>72390</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/11 8:26:49</DateTime>
+      <Run>51028</Run>
+      <PowerOn>51379</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/12 8:26:49</DateTime>
+      <Run>27184</Run>
+      <PowerOn>78606</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/13 8:26:49</DateTime>
+      <Run>1531</Run>
+      <PowerOn>71855</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/14 8:26:49</DateTime>
+      <Run>14483</Run>
+      <PowerOn>17202</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/15 8:26:49</DateTime>
+      <Run>14774</Run>
+      <PowerOn>62527</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/16 8:26:49</DateTime>
+      <Run>13146</Run>
+      <PowerOn>76445</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/17 8:26:49</DateTime>
+      <Run>19004</Run>
+      <PowerOn>75552</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/18 8:26:49</DateTime>
+      <Run>66998</Run>
+      <PowerOn>71388</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/19 8:26:49</DateTime>
+      <Run>26276</Run>
+      <PowerOn>79996</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/20 8:26:49</DateTime>
+      <Run>9312</Run>
+      <PowerOn>59610</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/21 8:26:49</DateTime>
+      <Run>18804</Run>
+      <PowerOn>57187</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/22 8:26:49</DateTime>
+      <Run>23315</Run>
+      <PowerOn>64468</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/23 8:26:49</DateTime>
+      <Run>6546</Run>
+      <PowerOn>74003</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/24 8:26:49</DateTime>
+      <Run>24853</Run>
+      <PowerOn>64072</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/25 8:26:49</DateTime>
+      <Run>9437</Run>
+      <PowerOn>53344</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/26 8:26:49</DateTime>
+      <Run>60942</Run>
+      <PowerOn>85608</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/27 8:26:49</DateTime>
+      <Run>33387</Run>
+      <PowerOn>50876</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/28 8:26:49</DateTime>
+      <Run>55116</Run>
+      <PowerOn>83384</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/29 8:26:49</DateTime>
+      <Run>1640</Run>
+      <PowerOn>27840</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/30 8:26:49</DateTime>
+      <Run>8066</Run>
+      <PowerOn>20827</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/10/31 8:26:49</DateTime>
+      <Run>56369</Run>
+      <PowerOn>60781</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/1 8:26:49</DateTime>
+      <Run>31536</Run>
+      <PowerOn>83527</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/2 8:26:49</DateTime>
+      <Run>30598</Run>
+      <PowerOn>55073</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/3 8:26:49</DateTime>
+      <Run>28537</Run>
+      <PowerOn>63722</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/4 8:26:49</DateTime>
+      <Run>37067</Run>
+      <PowerOn>75235</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/5 8:26:49</DateTime>
+      <Run>57310</Run>
+      <PowerOn>61293</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/6 8:26:49</DateTime>
+      <Run>37188</Run>
+      <PowerOn>66718</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/7 8:26:49</DateTime>
+      <Run>53420</Run>
+      <PowerOn>63846</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/8 8:26:49</DateTime>
+      <Run>42088</Run>
+      <PowerOn>85317</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/9 8:26:49</DateTime>
+      <Run>14814</Run>
+      <PowerOn>77195</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/10 8:26:49</DateTime>
+      <Run>11707</Run>
+      <PowerOn>40440</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/11 8:26:49</DateTime>
+      <Run>10473</Run>
+      <PowerOn>13520</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/12 8:26:49</DateTime>
+      <Run>26031</Run>
+      <PowerOn>80863</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/13 8:26:49</DateTime>
+      <Run>12665</Run>
+      <PowerOn>73120</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016/11/14 8:26:49</DateTime>
+      <Run>18991</Run>
+      <PowerOn>28873</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-14</DateTime>
+      <Run>345</Run>
+      <PowerOn>718</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-19</DateTime>
+      <Run>446</Run>
+      <PowerOn>945</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-21</DateTime>
+      <Run>72</Run>
+      <PowerOn>156</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-22</DateTime>
+      <Run>517</Run>
+      <PowerOn>1034</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-23</DateTime>
+      <Run>451</Run>
+      <PowerOn>937</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-24</DateTime>
+      <Run>35</Run>
+      <PowerOn>79</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-26</DateTime>
+      <Run>270</Run>
+      <PowerOn>503</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-29</DateTime>
+      <Run>40592</Run>
+      <PowerOn>81000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-11-30</DateTime>
+      <Run>11163</Run>
+      <PowerOn>22377</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-1</DateTime>
+      <Run>40802</Run>
+      <PowerOn>81000</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-2</DateTime>
+      <Run>27886</Run>
+      <PowerOn>55999</PowerOn>
+    </Date>
+    <Date>
+      <DateTime>2016-12-6</DateTime>
+      <Run>23169</Run>
+      <PowerOn>46635</PowerOn>
+    </Date>
+  </Machine>
+</Record>

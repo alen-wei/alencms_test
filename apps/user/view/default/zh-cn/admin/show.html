@@ -1,0 +1,379 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+	<div class="frame">
+		
+		<div class="contentBg">
+			<div class="content">
+
+				<div class="colBox fr_mt20" id="main">
+					<div class="tilBox">
+						<h3 class="text-muted">基础资料</h3>
+						<hr />
+					</div>
+					<div class="conBox">
+
+						<div class="form-group dataInp">
+							<label>用户名</label>
+							<input{if condition="$admin_ctrl=='show'"} disabled{/if} name="main_user" autocomplete="new-password" type="text" class="form-control" placeholder="请输入用户名" value="{$main.user|default=''}">
+						</div>
+						<div class="form-group dataInp">
+							<label>昵称</label>
+							<input name="main_name" autocomplete="new-password" type="text" class="form-control" placeholder="请输入昵称" value="{$main.name|default=''}">
+						</div>
+						<div class="form-group dataInp">
+							<label>密码</label>
+							<div class="input-group">
+								<input name="main_password" autocomplete="new-password" type="password" class="form-control" placeholder="请输入密码" value="{$main.password_text|default=''}">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button"><i class="fa fa-eye"></i></button>
+								</span>
+							</div>
+						</div>
+						<div class="form-group dataInp">
+							<label>帐号状态</label>
+							<select name="main_status" class="form-control">
+								{foreach name=":get_status_txt()" item="v" key="k" }
+								<option value="{$k}">{$v}</option>
+								{/foreach}
+							</select>
+						</div>
+						<div class="form-group dataInp">
+							<label>管理组</label>
+							<select name="main_admin" class="form-control">
+								<option value="0">不是管理员</option>
+								{foreach name="groups" item="v"}
+								<option value="{$v.id}">{$v.name}</option>
+								{/foreach}
+							</select>
+						</div>
+						
+						{if condition="$admin_ctrl=='show'"}
+						<hr />
+						<div class="butBox">
+							<button data-box="#main" class="btn btn-primary submit">提交资料</button>
+						</div>
+						{/if}
+					</div>
+				</div>
+
+				<div class="colBox fr_mt20" id="bindings">
+					<div class="tilBox">
+						<h3 class="text-muted">绑定资料</h3>
+						<hr />
+					</div>
+					<div class="conBox">
+						
+						<div class="form-group">
+							<label>手机</label>
+							<div class="input-group dataInp">
+								<input name="bindings_phone_account" type="text" class="form-control" placeholder="请输入手机" value="{$bindings.phone.account|default=''}">
+								<div class="input-group-btn" data-name="bindings_phone_status">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+										<span>...</span> 
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right">
+										{foreach name=":get_status_txt()" item="v" key="k"}
+										<li><a data-val="{$k}">{$v}</a></li>
+										{/foreach}
+									</ul>
+								</div>
+							</div>	
+						</div>
+						
+						<div class="form-group">
+							<label>邮箱</label>
+							<div class="input-group dataInp">
+								<input name="bindings_mail_account" type="text" class="form-control" placeholder="请输入邮箱" value="{$bindings.mail.account|default=''}">
+								<div class="input-group-btn" data-name="bindings_mail_status">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+										<span>...</span> 
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right">
+										{foreach name=":get_status_txt()" item="v" key="k"}
+										<li><a data-val="{$k}">{$v}</a></li>
+										{/foreach}
+									</ul>
+								</div>
+							</div>	
+						</div>
+						{if condition="$admin_ctrl=='show'"}
+						<hr />
+						<div class="butBox">
+							<button data-box="#bindings" type="button" class="btn btn-primary submit">提交资料</button>
+						</div>
+						{/if}
+					</div>
+				</div>
+				
+				<div class="colBox fr_mt20" id="info">
+					<div class="tilBox">
+						<h3 class="text-muted">详细资料</h3>
+						<hr />
+					</div>
+					<div class="conBox">
+						<div class="form-group dataInp">
+							<label>性别</label>
+							<select name="info_sex" class="form-control">
+								<option value="0">保密</option>
+								<option value="1">男</option>
+								<option value="2">女</option>
+							</select>
+						</div>
+						<div class="form-group dataInp">
+							<label>简介</label>
+							<textarea name="info_txts" class="form-control" placeholder="请输入简介">{$info.txts|default=''}</textarea>
+						</div>
+						{if condition="$admin_ctrl=='show'"}
+						<hr />
+						<div class="butBox">
+							<button data-box="#info" type="button" class="btn btn-primary submit">提交资料</button>
+						</div>
+						{/if}
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<dvi class="lessInfo">
+			<div class="colBox fr_mt20">
+				<div class="conBox">
+					<div class="ui_upload_box" id="userImg">
+						<div class="obj">{if condition="isset($main.img)"}<img src="{:get_user_img($main.img,320)}" />{/if}</div>
+						<div class="but">
+							<i class="fa fa-picture-o"></i>
+							<span>上传头像</span>
+						</div>
+					</div>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">KEY</small><br />
+					<span>{$main.keys|default='系统自动生成'}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">注册IP</small><br />
+					<span>{$admin_ctrl=='show'?$main['ips']:request()->ip()}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">注册时间</small><br />
+					<span>{$admin_ctrl=='show'?date('Y-m-d H:i:s',$main['create_time']):'系统自动获取'}</span>
+					{if condition="$admin_ctrl=='show'"}
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">上次登录时间</small><br />
+					<span>{$main.login_time?date('Y-m-d H:i:s',$main['login_time']):'暂未登录'}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<a href="{:url('log')}?userid={$main.id}"><i class="fa fa-file-text-o fr_mr5"></i>查看日志</a>
+					{/if}
+				</div>
+			</div>
+		</dvi>
+			 
+		<div class="lessNav">
+			<b class="text-primary">快速导航</b>
+			<ul class="nav">
+				<li><a href="#main">基础资料</a></li>
+				<li><a href="#bindings">绑定资料</a></li>
+				<li><a href="#info">详细资料</a></li>
+				<li class="x">
+					<a class="small" href="{:url('lists')}"><i class="fa fa-list-ul fr_mr5"></i>用户列表</a>
+					<a class="small" href="#top"><i class="fa fa-chevron-circle-up fr_mr5"></i>返回顶部</a>
+				</li>
+			</ul>
+		</div>
+	
+		<div class="butToolsBg">
+			<hr />
+			<div class="butTools">
+				<button data-box=".content" type="button" class="btn btn-info submit">全部提交</button>
+				<a href="{:request()->server('HTTP_REFERER')}" class="btn btn-default">返回</a>
+				{if condition="$admin_ctrl=='show'"}
+				<a onclick="confirm_hint(this,'确认删除用户【{$main.name}】？');return false;" href="{:url('del')}?ids={$main.id}&url={:urlencode(request()->server('HTTP_REFERER'))}" class="btn btn-danger pull-right">删除用户</a>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div></div>
+{/block}
+{block name="foot"}
+<script src="{$static_url}Jq_plugins/jquery.scrollTo.js"></script>
+<script src="{$static_url}Alen/Js/iscroll-zoom.js"></script>
+<script src="{$static_url}Alen/Js/alen.Clip.js"></script>
+<script>
+    $(window).ready(function(){
+		//快速导航
+		$('.lessNav ul li a').click(function(){
+			var href=$(this).attr('href');
+			if('#'==href.substr(0,1)){
+				$('.contentBg').scrollTo(href=='#top'?0:href,500);
+				return false;
+			}
+		});
+		//绑定数据，状态事件
+		$('#bindings .dataInp [data-name] li a').click(function(){
+			var o=$(this);
+			var val=o.attr('data-val');
+			var box=o.parents('[data-name]');
+			box.attr('data-val',val);
+			box.find('button span:first').text(o.text());
+		});
+		
+		//显示密码
+		$('.dataInp [name=main_password]').next('.input-group-btn').find('button').click(function(){
+			var o=$(this);
+			o.toggleClass('active');
+			var box=o.parent('.input-group-btn').prev('[name]');
+			box.attr('type',o.hasClass('active')?'text':'password');
+		});
+		
+		//提交函数
+		var funSubmit=function(data,opOkFun,opErrFun){
+			opOkFun=opOkFun?opOkFun:function(data){
+				alerts('修改成功');
+			};
+			opErrFun=opErrFun?opErrFun:function(err){
+				alerts('<span class="text-danger"><i class="fa fa-2x fa-exclamation-circle fr_mr10"></i>'+err+'</span>');
+			};
+			/*{if condition="$admin_ctrl=='show'"}*/
+			var url="{:url('save')}";
+			var id="{$main.id}";
+			var max=objCount(data);
+			if(max>1){
+				var progress=new alen_progress({
+					'cancel':false,
+					'max':max
+				});
+				var tjNum=0;
+				var okFun=function(data){
+					tjNum++;
+					progress.set(tjNum);
+					if(tjNum<max){
+						tmpFun();
+						return;
+					}
+					progress.close();
+					opOkFun(data);
+				};
+				var errFun=function(err){
+					progress.close();
+					opErrFun(err);
+				};
+				progress.show();
+			}else{
+				var okFun=function(data){
+					alert_hint_close();
+					opOkFun(data);
+				};
+				var errFun=function(err){
+					alert_hint_close();
+					opErrFun(err);
+				};
+				alert_hint('提交中','spinner',-1);
+			}
+			var tmpFun=function(){
+				var postData={};
+				for(var type in data){
+					if(!data[type])continue;
+					for(var k in data[type]){
+						postData[k]=data[type][k];
+						if(!postData[k])postData[k]='';
+					}
+					data[type]='';
+					break;
+				}
+				postData.id=id;
+				postData._type=type;
+				echoLog(postData);
+				alenPost(url,postData,okFun,errFun);
+			};
+			tmpFun();
+			/*{else /}*/
+			var url="{:url('add')}";
+			var postData={};
+			for(var k in data){
+				for(var i in data[k]){
+					if(isNull(data[k][i]))continue;
+					postData[k+'_'+i]=data[k][i];
+				}
+			}
+			var okFun=function(data){
+				alert_hint_close();
+				alerts('新建用户成功',false,{
+					confirm:'查看用户',
+					cancel:'继续添加',
+					fun:function(val){
+						if(val){
+							window.location.href="{:url('show')}?id="+data.id;
+						}else{
+							window.location.reload();
+						}
+					}
+				});
+			};
+			var errFun=function(err){
+				alert_hint_close();
+				opErrFun(err);
+			};
+			alert_hint('提交中','spinner',-1);
+			alenPost(url,postData,okFun,errFun);
+			/*{/if}*/
+		};
+		
+		//提交按钮
+		$('.butTools .submit,.content .colBox .submit').click(function(){
+			var o=$(this);
+			var box=$(o.attr('data-box'));
+			var data={};
+			box.find('[name],[data-name]').map(function(){
+				var tmpThis=$(this);
+				if(tmpThis.attr('disabled'))return;
+				var k=tmpThis.attr('name');
+				if(!k)k=tmpThis.attr('data-name');
+				var v=tmpThis.val();
+				if(!v)v=tmpThis.attr('data-val');
+				var tmp=k.split('_');
+				var tmpType=tmp.shift();
+				if(!(tmpType in data))data[tmpType]={};
+				data[tmpType][tmp.join('_')]=v;
+				
+			});
+			/*{if condition="$admin_ctrl=='add'"}*/
+			data.main.img=$('#userImg').attr('data-val');
+			/*{/if}*/
+			funSubmit(data);
+			return false;
+		});
+		//上传头像
+		var upUmg=new _alenClip();
+		$('#userImg').click(function(){
+			var o=$(this);
+			upUmg.clipFile(null,640,640,function(data){
+				var url=data.back.url;
+				var img=data.back.path+data.back.thumb[320];
+				var backFun=function(){
+					o.attr('data-val',url);
+					var imgbox=o.find('.obj img');
+					if(imgbox.length<1){
+						imgbox=$('<img />');
+						o.find('.obj').append(imgbox);
+					}
+					imgbox.attr('src',img);
+				};
+				/*{if condition="$admin_ctrl=='add'"}*/
+				backFun();
+				/*{else /}*/
+				funSubmit({'main':{'img':url}},backFun);
+				/*{/if}*/
+			});
+		});
+		
+		//填充数据
+		$('.dataInp [name=main_status]').val("{$main.status|default=1}");
+		$('.dataInp [name=main_admin]').val("{$main.admin|default=0}");
+		$('.dataInp [data-name=bindings_phone_status] li a[data-val={$bindings.phone.status|default=2}]').click();
+		$('.dataInp [data-name=bindings_mail_status] li a[data-val={$bindings.mail.status|default=2}]').click();
+		$('.dataInp [name=info_sex]').val("{$info.sex|default=0}");
+		
+		$('.contentBg').scrollspy({ target: '.lessNav'});
+	});
+</script>
+{/block}

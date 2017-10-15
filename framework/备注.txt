@@ -1,0 +1,8 @@
+框架修改文件列表，升级框架之前请备份
+
+需要扩展
+php_fileinfo
+
+thinkphp/library/think/Template.php
+thinkphp/library/think/File.php
+thinkphp/library/think/template/taglib/Cx.php

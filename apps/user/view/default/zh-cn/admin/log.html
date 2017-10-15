@@ -1,0 +1,243 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+<!--顶部工具栏-->
+<div class="topTools">
+	<div class="col x">
+		<form class="form-inline">
+			<span class="form-group text-muted">时间区间：</span>
+			<div class="btn-group" id="case">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<i></i> <span>预设条件</span> <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li data-val=""><a href="#">自定义</a></li>
+					<li role="separator" class="divider"></li>
+					<li data-val="1d"><a href="#">今天</a></li>
+					<li data-val="1w"><a href="#">一个星期内</a></li>
+					<li data-val="1m"><a href="#">一个月内</a></li>
+					<li data-val="3m"><a href="#">三个月内</a></li>
+					<li data-val="1y"><a href="#">一年内</a></li>
+				</ul>
+			</div>
+			<div class="input-group input-date" id="startdate">
+				<input type="text" class="form-control" readonly value="{$cond.startdate}" data-format="yyyy-mm-dd" placeholder="开始时间">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+				</span>
+			</div>
+			<div class="input-group input-date" id="enddate">
+				<input type="text" class="form-control" readonly value="{$cond.enddate}" data-format="yyyy-mm-dd" placeholder="结束时间">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+				</span>
+			</div>
+			<div class="hidden" id="userid" data-val="{$cond.userid}"></div>
+		</form>
+		
+	</div>
+	<div class="col">
+		<span class="text-muted fr_ml5">操作类型：</span>
+		<div class="btn-group" id="module">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i></i> <span>全部</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li data-val=""><a href="#">全部</a></li>
+				<li role="separator" class="divider"></li>
+				{volist name="appArr" id="v"}
+				<li data-val="{$v.name}"><a href="#">{$v.txt}</a></li>
+				{/volist}
+            </ul>
+        </div>
+		
+		<div class="btn-group" id="ctrl">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i></i> <span>全部</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li data-val=""><a href="#">全部</a></li>
+            </ul>
+        </div>
+	</div>
+	
+	<div class="col">
+		<a id="submit" class="btn btn-primary fr_ml5">提交</a>
+	</div>
+</div>
+<!--内容列表-->
+<div class="container-fluid">
+	<div class="fr_main">
+		{if condition="isset($userData)"}
+		<div class="col">
+			<div class="colBox fr_mr20">
+				<div class="conBox" style="width: 230px;">
+					<div class="ui_upload_box" id="userImg" data-url="{:url('show')}?id={$userData.id}">
+						<div class="obj"><img src="{:get_user_img($userData.img,320)}" /></div>
+						<div class="but">
+							<i class="fa fa-user-circle"></i>
+							<span>详细资料</span>
+						</div>
+					</div>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">昵称</small><br />
+					<span>{$userData.name}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">KEY</small><br />
+					<span>{$userData.keys}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">注册IP</small><br />
+					<span>{$userData.ips}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">注册时间</small><br />
+					<span>{:date('Y-m-d H:i:s',$userData['create_time'])}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">上次登录时间</small><br />
+					<span>{$main.login_time?date('Y-m-d H:i:s',$main['login_time']):'暂未登录'}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<a id="backBut" data-val='{"userid":""}' href="#"><i class="fa fa-chevron-left fr_mr5"></i>返回查看全部日志</a>
+				</div>
+			</div>
+		</div>
+		{/if}
+		<div class="col x">
+			{if condition="$count>0"}
+			<p>
+				<span class="small text-muted">共 <b>{$count}</b> 条记录，每页 <b>{$page.num}</b> 条，共 <b>{$page.max}</b> 页</span>
+			</p>
+			{/if}
+			<ul class="ui_admin_List1">{volist name="list" id="v"}
+				<li data-id="{$v.id}">
+					<div class="check"><i class="fa fa-check-circle"></i></div>
+					<div class="col txt">
+						<span class="text-muted">{:date('Y-m-d H:i:s',$v.create_time)}</span>
+						<a title="查看该用户的日志" class="fr_ml10" data-val='{"userid":"{$v.user_id}"}' href="#">{$userLists[$v['user_id']]['name']}</a>
+						<a title="查看此类操作日志" class="fr_ml10 text-default" data-val='{"module":"{$appArr[$v["module_id"]]["name"]}","ctrl":"{$v.ctrl}"}' href="#">{:get_log_txt($v.ctrl,$v.info,null,$v["module_id"])}</a>
+						{if condition="$v.modify_user_id!=$v.user_id and isset($userLists[$v['modify_user_id']])"}
+						<a title="查看该用户的日志" class="fr_ml10" data-val='{"userid":"{$v.modify_user_id}"}' href="#">
+							{if condition="isset($userLists[$v['modify_user_id']]['delete_time']) and $userLists[$v['modify_user_id']]['delete_time']>0" /}<i class="fa fa-eye-slash text-danger fr_mr5"></i>{/if}{$userLists[$v['modify_user_id']]['name']}
+						</a>
+						{/if}
+					</div>
+					<div class="col">
+						<a onclick="confirm_hint(this,'确认删除这条日志？');return false;" href="{:url('dellog')}?ids={$v.id}" class="text-muted small ui_txtof fr_mr5"><i class="fa fa-trash-o fr_mr5"></i>删除</a>
+					</div>
+				</li>
+			{/volist}</ul>
+			<!--翻页-->
+			<nav class="text-center">
+				{:get_page_html($page.index,$page.max,5,$urlParam)}
+			</nav>
+		</div>
+	</div>
+   
+    
+</div>
+
+</div></div>
+{/block}
+{block name="foot"}
+<script>	
+	$('#module ul,#ctrl ul,#case ul').delegate('li a','click',function(e){
+		var o=$(this).parent('li');
+		var box=o.parents('.btn-group:first');
+		var val=o.attr('data-val');
+		box.attr('data-val',val?val:'');
+		if(!box.attr('data-noup'))box.find('button span:first').text(o.text());
+		stopDefault(e);
+	});
+	var loadCtrlFun=function(module,backFun){
+		var ul=$('#ctrl ul');
+		ul.find('._jsadd').remove();
+		ul.find('li:first a').click();
+		if(module){
+			ul.append('<li role="separator" class="divider _jsadd"></li><li class="fr_pl20 _jsadd"><span><i class="fa fa-spinner fa-spin fr_mr5"></i>加载中...</span></li>');
+			alenPost('{:url("logtype")}',{'module':module},function(data){
+				ul.find('._jsadd').remove();
+				var html='<li role="separator" class="divider _jsadd"></li>';
+				for(var i in data.list){
+					html+="<li class='_jsadd' data-val="+data.list[i].name+"><a>"+data.list[i].txt+"</a></li>";
+				}
+				ul.append(html);
+				if(backFun)backFun();
+			},function(err){
+				ul.find('._jsadd').remove();
+			});
+		}
+	};
+	$('#module ul li a').click(function(e){
+		if($(this).attr('data-stop')){
+			$(this).removeAttr('data-stop');
+			return;
+		}
+		var o=$(this).parent('li');
+		var val=o.attr('data-val');
+		if(val){
+			loadCtrlFun(val);
+		}else{
+			var ul=$('#ctrl ul');
+			ul.find('._jsadd').remove();
+			ul.find('li:first a').click();
+		}
+	});
+	$('#case ul li a').click(function(e){
+		var o=$(this).parent('li');
+		var val=o.attr('data-val');
+		if(val){
+			$('#startdate input,#enddate input').attr('disabled',true);
+		}else{
+			$('#startdate input,#enddate input').removeAttr('disabled');
+		}
+	});
+	
+	$('#startdate button,#enddate button').click(function(){
+		var o=$(this);
+		var box=o.parents('.input-date');
+		box.find('input').val('');
+	});
+	
+	$('#submit').click(function(e){
+		var url='';
+		$('.topTools [id]:not(#submit)').map(function(){
+			var val=$(this).find('input').length>0?$(this).find('input').val():$(this).attr('data-val');
+			if(!val)return;
+			url+=url?'&':'?';
+			url+=$(this).attr('id')+'='+encodeURIComponent(val);
+		});
+		window.location.href=url?url:'?';
+		stopDefault(e);
+	});
+	$('.ui_admin_List1 li a[data-val],#backBut').click(function(e){
+		var val=$(this).attr('data-val');
+		if(!val)return;
+		val=$.parseJSON(val);
+		var tmpFun=function(tID,vVal){
+			var o=$('#'+tID);
+			if(o.find('input').length>0){
+				o.find('input').val(vVal);
+			}else{
+				o.attr('data-val',vVal);
+			}
+		};
+		for(var i in val){
+			tmpFun(i,val[i]);
+		}
+		$('#submit').click();
+		stopDefault(e);
+	});
+	$('#userImg').click(function(e){
+		var url=$(this).attr('data-url');
+		if(url)window.location.href=url;
+		stopDefault(e);
+	});
+	
+	$('#case li[data-val="{$cond.case}"] a').click();
+	if("{$cond.module}"){
+		$('#module li[data-val="{$cond.module}"] a').attr('data-stop',true);
+		$('#module li[data-val="{$cond.module}"] a').click();
+		loadCtrlFun("{$cond.module}",function(){
+			$('#ctrl li[data-val="{$cond.ctrl}"] a').click();
+		});
+	}
+</script>
+{/block}

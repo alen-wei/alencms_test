@@ -1,0 +1,212 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+
+<!--顶部工具栏-->
+<div class="topTools">
+	<div class="col x">
+		<form class="form-inline">
+			<span class="form-group text-muted">上传时间：</span>
+			<div class="btn-group" id="update">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<i></i> <span>预设条件</span> <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li data-val=""><a href="#">自定义</a></li>
+					<li role="separator" class="divider"></li>
+					<li data-val="1d"><a href="#">今天</a></li>
+					<li data-val="1w"><a href="#">一个星期内</a></li>
+					<li data-val="1m"><a href="#">一个月内</a></li>
+					<li data-val="3m"><a href="#">三个月内</a></li>
+					<li data-val="1y"><a href="#">一年内</a></li>
+				</ul>
+			</div>
+			<div class="input-group input-date" id="startdate">
+				<input type="text" readonly class="form-control" value="{$cond.startdate}" data-format="yyyy-mm-dd" placeholder="开始时间">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+				</span>
+			</div>
+			<div class="input-group input-date" id="enddate">
+				<input type="text" readonly class="form-control" value="{$cond.enddate}" data-format="yyyy-mm-dd" placeholder="结束时间">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+				</span>
+			</div>
+			<div class="hidden" id="userid" data-val="{$cond.userid}"></div>
+		</form>
+		
+	</div>
+	<div class="col">
+		<span class="text-muted fr_ml5">文件类型：</span>
+		<div class="btn-group" id="type">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i></i> <span>全部</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+				<li data-val=""><a href="#">全部</a></li>
+				<li role="separator" class="divider"></li>
+                <li data-val="img"><a href="#">图片</a></li>
+				<li data-val="video"><a href="#">视频</a></li>
+				<li data-val="compressed"><a href="#">压缩包</a></li>
+            </ul>
+        </div>
+		
+	</div>
+	
+	<div class="col">
+		<a id="submit" class="btn btn-primary fr_ml5">提交</a>
+	</div>
+</div>
+<!--内容列表-->
+<div class="container-fluid">
+	<div class="fr_main">
+		{if condition="isset($userData)"}
+		<div class="col">
+			<div class="colBox fr_mr20">
+				<div class="conBox" style="width: 230px;">
+					<div class="ui_upload_box" id="userImg" data-url="{:url('user/admin/show')}?id={$userData.id}">
+						<div class="obj"><img src="{:get_user_img($userData.img,320)}" /></div>
+						<div class="but">
+							<i class="fa fa-user-circle"></i>
+							<span>详细资料</span>
+						</div>
+					</div>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">昵称</small><br />
+					<span>{$userData.name}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">KEY</small><br />
+					<span>{$userData.keys}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">注册IP</small><br />
+					<span>{$userData.ips}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">注册时间</small><br />
+					<span>{:date('Y-m-d H:i:s',$userData['create_time'])}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">上次登录时间</small><br />
+					<span>{$main.login_time?date('Y-m-d H:i:s',$main['login_time']):'暂未登录'}</span>
+					<hr class="fr_mt5 fr_mb5" />
+					<a id="backBut" data-val='{"userid":""}' href="#"><i class="fa fa-chevron-left fr_mr5"></i>返回查看全部文件</a>
+				</div>
+			</div>
+		</div>
+		{/if}
+		<div class="col x">
+			{if condition="$count>0"}
+			<p>
+				<span class="small text-muted">共 <b>{$count}</b> 条记录，每页 <b>{$page.num}</b> 条，共 <b>{$page.max}</b> 页</span>
+			</p>
+			{/if}
+			<ul class="ui_admin_List1">{volist name="list" id="v"}
+				<li data-id="{$v.id}">
+					<div class="check"><i class="fa fa-check-circle"></i></div>
+					<div class="col img">
+						<a>{if condition="$v->ext=='PDF'"}
+						<i class="fa fa-2x fa-file-pdf-o"></i>
+						{elseif condition="$extType[$v->ext]=='img'" /}
+						<img src="{:get_static_img($v.path,100)}" />
+						{else /}
+						<i class="fa fa-2x file_icon_{$extType[$v->ext]}"></i>
+						{/if}</a>
+					</div>
+					<div class="col txt">
+						<p class="fr_pb5">
+							<span class="text-default">{$v.path}</span>
+						</p>
+						<p class="small ui_txtof">
+							<span class="text-muted ">{:date('Y-m-d H:i',$v.create_time)}</span>
+							<span class="text-default fr_ml10">{:get_file_size($v['size'])}</span>
+							<span class="text-default fr_ml10">{$v.ext}</span>
+							{if condition="isset($userList[$v['user_id']])"}<span class="text-muted fr_ml10">上传：<a title="查看这个用户上传的文件" data-val='{"userid":"{$v->user_id}"}' href="#">{$userList[$v->user_id]->name}</a></span>{/if}
+							<span class="text-muted fr_ml10">{$v.apply>0?$v['apply'].'个':'无'}应用</span>
+						</p>
+					</div>
+					<div class="col but">
+						<div class="butGroup">
+							<a href="{:url('show')}?id={$v.id}" class="btn btn-primary"><i class="fa fa-eye fr_mr5"></i>查看</a>
+							<a target="_blank" href="{:url('download')}?id={$v.id}" class="btn btn-default"><i class="fa fa-download fr_mr5"></i>下载</a>
+						</div>
+					</div>
+				</li>
+			{/volist}</ul>
+			<!--翻页-->
+			<nav class="text-center">
+				{:get_page_html($page.index,$page.max,5,$urlParam)}
+			</nav>
+		</div>
+	</div>
+
+</div>
+
+</div></div>
+{/block}
+{block name="foot"}
+<script>
+	$('#type ul,#update ul').delegate('li a','click',function(e){
+		var o=$(this).parent('li');
+		var box=o.parents('.btn-group:first');
+		var val=o.attr('data-val');
+		box.attr('data-val',val?val:'');
+		if(!box.attr('data-noup'))box.find('button span:first').text(o.text());
+		stopDefault(e);
+	});
+	
+	$('#update ul li a').click(function(e){
+		var o=$(this).parent('li');
+		var val=o.attr('data-val');
+		if(val){
+			$('#startdate input,#enddate input').attr('disabled',true);
+		}else{
+			$('#startdate input,#enddate input').removeAttr('disabled');
+		}
+	});
+	
+	$('#startdate button,#enddate button').click(function(){
+		var o=$(this);
+		var box=o.parents('.input-date');
+		box.find('input').val('');
+	});
+	
+	$('.ui_admin_List1 li a[data-val],#backBut').click(function(e){
+		var val=$(this).attr('data-val');
+		if(!val)return;
+		val=$.parseJSON(val);
+		var tmpFun=function(tID,vVal){
+			var o=$('#'+tID);
+			if(o.find('input').length>0){
+				o.find('input').val(vVal);
+			}else{
+				o.attr('data-val',vVal);
+			}
+		};
+		for(var i in val){
+			tmpFun(i,val[i]);
+		}
+		$('#submit').click();
+		stopDefault(e);
+	});
+	$('#userImg').click(function(e){
+		var url=$(this).attr('data-url');
+		if(url)window.location.href=url;
+		stopDefault(e);
+	});
+	
+	$('#submit').click(function(e){
+		var url='';
+		$('.topTools [id]:not(#submit)').map(function(){
+			var val=$(this).find('input').length>0?$(this).find('input').val():$(this).attr('data-val');
+			if(!val)return;
+			url+=url?'&':'?';
+			url+=$(this).attr('id')+'='+encodeURIComponent(val);
+		});
+		
+		window.location.href=url?url:'?';
+		stopDefault(e);
+	});
+	
+	$('#update li[data-val="{$cond.update}"] a').click();
+	$('#type li[data-val="{$cond.type}"] a').click();
+</script>
+{/block}

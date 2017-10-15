@@ -1,0 +1,76 @@
+<div class="container-fluid userTab">
+	<div class="row">
+    	<div class="col-md-2 name">
+        	头像：
+        </div>
+        <div class="col-md-10">
+        	<div class="imgBox{if condition="$user['img']"} x{/if}">
+	        	<img src="{:get_user_img($user['img'])}" />
+                <p><i class="fa fa-camera"></i><span>点击上传</span></p>
+                <input type="hidden" name="img" value="{$user['img']}" />
+			</div>
+        </div>
+    </div>
+    
+    <div class="row but">
+    	<div class="col-md-12">
+        	<button id="submit" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+</div>
+<!-- 本来Clip模块会自动加载iscroll，但不知道为什么有时会报错-->
+<script src="{$static_url}Alen/Js/iscroll-zoom.js"></script>
+<script>
+$(function(){
+	include(_sys.static_url+'Alen/Js/alen.Clip.js','js',function(){
+		var clipObj=new _alenClip;
+		$('.imgBox').click(function(){
+			var o=$(this);
+			clipObj.clipFile(false,320,320,function(data){
+				o.find('img').attr('src',data.back.path+data.back.url);
+				o.addClass('x');
+				o.find('input').val(data.back.url);
+			});
+		});
+	});
+	
+	var submitFun=function(){
+		var o=$(this);
+		if(o.attr('disabled'))return;
+		var isstop=false;
+		var postData={};
+		$('.userTab input[name]').map(function(){
+			if(isstop)return;
+			var obj=$(this);
+			var name=obj.attr('name');
+			var val=obj.val();
+			switch(name){
+				case 'img':
+					if(val==''){
+						isstop=true;
+						alerts('请选择图片');
+					}
+				break;
+			}
+            postData[name]=val;
+        });
+		if(isstop)return;
+		o.attr('disabled',true);
+		alert_hint('提交中...','spinner',-1);
+		alenPost("{:url('Api/saveInfo')}",postData,function(data){
+			$('.ui_hint').remove();
+			alerts('修改成功！','',{'fun':function(){
+				window.location.reload();
+			}});
+		},function(err){
+			$('.ui_hint').remove();
+			o.removeAttr('disabled');
+			alerts(err);
+		});
+		
+		
+	}
+	$('#submit').click(submitFun);
+	
+});
+</script>

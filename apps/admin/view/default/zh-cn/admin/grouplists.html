@@ -1,0 +1,213 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+
+<!--顶部工具栏-->
+<div class="topTools">
+    <!--搜索-->
+    <div class="col x">
+        <div class="input-group">
+            <input id="post_search" type="text" class="form-control" placeholder="请输入关键字" value="{$cond.search}">
+            <span id="submitBut" class="input-group-btn">
+                <a class="btn btn-default"><i class="fa fa-search"></i></a>
+            </span>
+        </div>
+    </div>
+    <!--筛选-->
+    <div class="col">
+        <div class="fold" id="post_filter" data-val="{$cond.filter}" data-static="{$cond.filter}">
+            <span class="split">|</span>
+            <a class="btn btn-info switch">筛选</a>
+            <div class="zbox">
+                
+                <div class="btn-group" data-key="status">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span>状态</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {foreach name=":get_status_txt()" item="v" key="k" }
+                        <li data-val="{$k}"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>{$v}</a></li>
+                        {/foreach}
+                        <li role="separator" class="divider"></li>
+                        <li data-val=""><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>全部</a></li>
+                    </ul>
+                </div>
+                <span class="split">|</span>
+                
+                <a class="btn btn-default" id="filterCancel">恢复</a>
+                <a class="btn btn-success" id="filterSubmit">确定</a>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <span class="split">|</span>
+        <a href="{:url('groupadd')}" class="btn btn-primary"><i class="fa fa-plus-square fr_mr5"></i>新建管理组</a>
+    </div>
+    
+</div>
+<!--内容列表-->
+<div class="container-fluid">
+	{if condition="$count>0"}
+    <p>
+        <span class="small text-muted">共 <b>{$count}</b> 条记录，每页 <b>{$page.num}</b> 条，共 <b>{$page.max}</b> 页　|　筛选：<b id="filterStr">...</b></span>
+    </p>
+	{/if}
+    <ul class="ui_admin_List1">{volist name="list" id="v"}
+        <li data-id="{$v.id}">
+            <div class="check"><i class="fa fa-check-circle"></i></div>
+            <div class="col txt">
+				<a class="fr_ml5" href="{:url('groupshow')}?id={$v.id}">{$v.name}</a>
+				{switch $v.status}
+					{case 0}<span class="label label-danger fr_ml10">{:get_status_txt($v.status)}</span>{/case}
+					{case 2}<span class="label label-warning fr_ml10">{:get_status_txt($v.status)}</span>{/case}
+				{/switch}
+            </div>
+            <div class="col but">
+                <div class="butGroup">
+                    <a href="{:url('groupshow')}?id={$v.id}" class="btn btn-primary"><i class="fa fa-pencil fr_mr5"></i>编辑</a>
+					<a href="{:url('groupshow')}?id={$v.id}&type=staff" class="btn btn-default"><i class="fa fa-users fr_mr5"></i>成员</a>
+                    <a onclick="confirm_hint(this,'确认删除管理组【{$v.name}】？');return false;" href="{:url('groupdel')}?ids={$v.id}" class="btn btn-danger"><i class="fa fa-trash fr_mr5"></i>删除</a>
+                </div>
+            </div>
+        </li>
+    {/volist}</ul>
+    <!--翻页-->
+    <nav class="text-center">
+        {:get_page_html($page.index,$page.max,5,$urlParam)}
+    </nav>
+    
+</div>
+
+</div></div>
+{/block}
+{block name="foot"}
+<script>
+	 $(window).ready(function(){
+        //工具栏通用展开/收起
+        $('.fold .switch').click(function(){
+            var box=$(this).parent();
+            if(box.hasClass('x')){
+                box.removeClass('x');
+            }else{
+                $('.fold.x .switch').click();
+                box.addClass('x');
+            }
+        });
+        //筛选-取消按钮
+        $('#filterCancel').click(function(){
+            var o=$('#post_filter');
+            o.attr('data-val',o.attr('data-static'));
+            reFilterVal();
+        });
+        //筛选-确定按钮
+        $('#filterSubmit').click(postPage);
+        //筛选展开/收起
+        $('#post_filter .switch').click(function(){
+            var box=$(this).parent();
+            if(!box.hasClass('x')){
+                $('#filterCancel').click();
+            }
+        });
+		//刷新筛选
+        function reFilterVal(){
+            var box=$('#post_filter');
+            var val=box.attr('data-val').split("&");
+            var obj={};
+            for(var i=0;i<val.length;i++){
+                val[i]=val[i].split("=");
+                obj[val[i][0]]=val[i][1];
+            }
+            box.find('.zbox [data-key]').map(function(){
+                var o=$(this);
+                var key=o.attr('data-key');
+                if(obj[key]){
+                    var tmp=o.find('li[data-val="'+obj[key]+'"]');
+                    if(tmp.length>0){
+                        tmp.click();
+                    }else{
+                        o.find('li[data-val]:last').click();
+                    }
+                }else{
+                    o.find('li[data-val]:last').click();
+                } 
+            });
+        }
+		//筛选选项
+        $('#post_filter .zbox .btn-group li').click(function(e){
+			var o=$(this);
+			var val=o.attr('data-val');
+			var tmp=o.parent('ul').find('i.text-primary');
+			tmp.removeClass('fa-check-circle').removeClass('text-primary').addClass('fa-circle-o').addClass('text-muted');
+			tmp=o.find('i');
+			tmp.removeClass('fa-circle-o').removeClass('text-muted').addClass('fa-check-circle').addClass('text-primary');
+
+			o.parents('.btn-group').attr('data-val',val);
+			o.parent('ul').find('[data-val="diy"] small').remove();
+			setFilterVal();
+			stopDefault(e);
+        });
+		//设置筛选字符
+        function setFilterVal(){
+            var box=$('#post_filter');
+            var str='';
+            box.find('.zbox').find('[data-key]').map(function(){
+                var o=$(this);
+                if(o.attr('data-val')){
+                    if(str)str+='&';
+                    str+=o.attr('data-key')+'='+o.attr('data-val');
+                }
+            });
+            box.attr('data-val',str);
+        }
+		//刷新筛选字符
+        function setFilterStr(){
+            var box=$('#post_filter');
+            var str='';
+            box.find('.zbox').find('[data-key]').map(function(){
+                var o=$(this);
+                if(str)str+='；';
+                str+=o.find('button span:first').text();
+                var i=o.find('li i.text-primary');
+                var small=i.nextAll('small');
+                str+='-';
+                if(small.length>0){
+                    str+=small.text();
+                }else{
+                    str+=i.parent().text();
+                }
+            });
+            $('#filterStr').text(str);
+        }
+        //提交页面
+        function postPage(){
+            var param={
+                'search':$('#post_search').val(),
+                'filter':$('#post_filter').attr('data-val')
+            };
+            
+            var str='';
+            for(var k in param){
+                if(param[k]){
+                    str+=str?'&':'?';
+                    str+=k+'='+encodeURIComponent(param[k]);
+                }
+            }
+			str=str?str:'?';
+            echoLog(str);
+            window.location.href=str;
+            return false;
+        }
+        //搜索关键词
+        $('#post_search').keydown(function(e){
+            e = e || event;
+            if(event.keyCode===13)postPage();
+        });
+        //搜索按钮
+        $('#submitBut').click(postPage);
+		
+		reFilterVal();
+		setFilterStr();
+    });
+</script>
+{/block}

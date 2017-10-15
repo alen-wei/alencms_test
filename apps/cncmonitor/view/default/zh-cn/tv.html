@@ -1,0 +1,151 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+body,html{ height:100%; overflow-y:hidden;}
+.til{ border-bottom:1px solid #e0e0e0; height:50px; margin-bottom:10px; position:relative; z-index:1; position:relative;}
+.til h2{ display:block; margin:0; line-height:49px;}
+
+.til .status{ position:absolute; top:5px; right:5px; height:40px; width:40px; text-align:center; overflow:hidden; background:#08c; border-radius:20px; transition:all 0.2s;}
+.til .status i{ display:block; height:40px; width:40px; line-height:40px; color:#fff; position:relative; transition:all 0.2s;}
+.til .status.x{ background:#d9534f;}
+.til .status.x i:first-child{ margin-top:-40px;}
+
+.mian_iframe{ width:100%; height:100%; position:absolute; top:5px; left:10px; padding-top:60px; z-index:0;}
+.mian_iframe .iframebox{ width:100%; height:100%; position:relative; transition:all 0.5s;}
+/*
+.mian_iframe iframe{ display:block; width:100%; height:100%; position:absolute; left:100%; top:0; transition:all 0.5s;}
+*/
+.mian_iframe iframe{ display:block; width:100%; height:100%; float:left;}
+.mian_iframe iframe.x{ left:0;}
+</style>
+{/block}
+{block name="body"}
+<div class="til text-center">
+	<h2 class="fr_pz15">加载中...</h2>
+    <div class="status">
+    	<i class="fa fa-play"></i>
+        <i class="fa fa-pause"></i>
+    </div>
+</div>
+<div class="mian_iframe">
+	<div class="iframebox" data-i="0"></div>
+</div>
+{/block}
+{block name="foot"}
+{include file="#public_after" /}
+<script>
+var url={'status':["{:url('tv_status')}",'实动状态'],'mission':["{:url('tv_mission')}",'任务状态']};
+var urlArr=[];
+var getWorkshop=function(cfun){
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getName")}',{
+			'workshop':'all',
+	},function(data){
+		for(var i in data){
+			for(var n in url){
+				urlArr.push({'url':url[n][0]+'?workshop='+data[i].id,'txt':data[i].name+'【'+url[n][1]+'】'});
+			}
+		}
+		if(cfun)cfun();
+		$('.ui_hint').remove();
+	},function(err){
+		alerts(err);
+		$('.ui_hint').remove();
+	});
+}
+var timeIframe;
+var nextFun=function(){
+	var o=$('.iframebox iframe.x');
+	var di=parseInt($('.iframebox').attr('data-i'));
+	var ww=$('.mian_iframe').width();
+	var iframe=$('.iframebox iframe');
+	if(!di)di=0;
+	di++;
+	if(di>=iframe.length)di=0;
+	var next=iframe.eq(di);
+	
+	$('.til h2').text(next.attr('data-txt'));
+	
+	$('.iframebox').css('margin-left',0-(di*ww)+'px');
+	$('.iframebox').attr('data-i',di);
+}
+var prevFun=function(){
+	var o=$('.iframebox iframe.x');
+	var di=parseInt($('.iframebox').attr('data-i'));
+	var ww=$('.mian_iframe').width();
+	var iframe=$('.iframebox iframe');
+	if(!di)di=0;
+	di--;
+	if(di<0)di=iframe.length-1;
+	var next=iframe.eq(di);
+	
+	$('.til h2').text(next.attr('data-txt'));
+	
+	$('.iframebox').css('margin-left',0-(di*ww)+'px');
+	$('.iframebox').attr('data-i',di);
+}
+var stopFun=function(){
+	clearInterval(timeIframe);
+	$('.til .status').addClass('x');
+}
+var palyFun=function(){
+	timeIframe=setInterval(nextFun,10000);
+	$('.til .status').removeClass('x');
+}
+var keyfun=function(code){
+	
+	switch(code){
+		case 33:   //page_up
+		case 37:   //上
+		case 38:   //左
+			stopFun();
+			prevFun();
+		break;
+		case 34:   //page_down
+		case 39:   //下
+		case 40:   //右
+			stopFun();
+			nextFun();
+		break;
+		case 116:   //F5
+		case 27:    //esc
+		case 13:    //回车
+		case 32:    //空格
+			if($('.til .status').hasClass('x')){
+				palyFun();
+			}else{
+				stopFun();
+			}
+		break;
+		case 66:   //b
+			echoLog('全屏');
+		break;
+	}
+	
+}
+
+
+$(window).keydown(function(event){
+	keyfun(event.keyCode);
+	if(event.keyCode==116)return false;
+});
+
+$(window).resize(function(){
+	var ww=$('.mian_iframe').width();
+	var iframe=$('.iframebox iframe');
+	iframe.width(ww);
+	$('.iframebox').width(ww*iframe.length);
+});
+
+getWorkshop(function(){
+	var objHtml='';
+	for(var i in urlArr){
+		objHtml+='<iframe src="'+urlArr[i].url+'" data-txt="'+urlArr[i].txt+'" frameborder="0" />';
+	}
+	$('.iframebox').html(objHtml);
+	$('.til h2').text($('.iframebox iframe:first').attr('data-txt'));
+	$(window).resize();
+	palyFun();
+});
+</script>
+{/block}

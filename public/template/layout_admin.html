@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+{include file="$public_template.head" /}
+<link href="{$static_url}{:config('skin_dirname')}/admin/{:config('app_theme')}/{:config('default_lang')}/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+{include file="$public_template.before" /}
+{__CONTENT__}
+{include file="$public_template.after" /}
+<script src="{$static_url}{:config('skin_dirname')}/admin/{:config('app_theme')}/{:config('default_lang')}/js/function.js"></script>
+</body>
+{include file="$public_template.loadfile" /}
+<script>
+(function(){
+	var urlData={
+		"title":"{$page_title}",
+		'module':"{:request()->module()}",
+		'action':"{$admin_ctrl}",
+		'uri':getUrlParam()
+	};
+	
+	var msgObj=new pageMsg(top);
+	msgObj.onHandclasp=function(data,token){
+		//echoLog('握手成功|token：'+token+'|url：'+data.url);
+		
+		urlData._type='finish';
+		msgObj.send(urlData);
+	};
+	msgObj.onClose=function(){
+		echoLog(window.location.href+'：关闭');
+	};
+	msgObj.init();
+	//top.postMessage(urlData,'*');
+	//echoLog(urlData);
+	//setTimeout(function(){
+	//	msgObj.close();
+	//},3000);
+})();	
+</script>
+</html>

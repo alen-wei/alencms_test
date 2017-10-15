@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Machine>
+<Mac IP="10.1.1.138" DelayTime="1">  <Name>钻攻 CY2518 #1</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="5">  <Name>钻攻 CY2518 #2</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="4">  <Name>钻攻 CY2518 #3</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="3">  <Name>钻攻 CY2518 #4</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="2">  <Name>钻攻 CY2518 #5</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="2">  <Name>钻攻 CY2518 #6</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="3">  <Name>钻攻 CY2518 #7</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="2">  <Name>钻攻 CY2518 #8</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="4">  <Name>钻攻 CY2518 #9</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="1">  <Name>钻攻 CY2518 #10</Name> </Mac>
+<Mac IP="10.1.1.138" DelayTime="2">  <Name>钻攻 CY2518 #11</Name> </Mac>
+</Machine>

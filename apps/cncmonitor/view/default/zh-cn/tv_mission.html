@@ -1,0 +1,286 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<link href="{$skin_url}iconfont/iconfont.css" rel="stylesheet" type="text/css" />
+<style>
+body,html{ height:100%; overflow-y:hidden;}
+.container-fluid{ height:100%;}
+</style>
+{/block}
+{block name="body"}
+<div class="container-fluid">
+    <div id="tvBox"></div>
+    <div id="listBox">
+    	<ul></ul>
+    </div>
+    <div class="clearfix"></div>
+    <div class="lessList">
+    	<ul></ul>
+        <ul class="x"></ul>
+        <div class="noerr ui_txtof">
+        	<i class="fa fa-check-circle"></i><b>暂无报错信息</b>
+        </div>
+	</div>
+</div>
+{/block}
+{block name="foot"}
+{include file="#public_after" /}
+<script src="{$skin_url}Js/config.js"></script>
+<script src="{$skin_url}Js/setoption.js"></script>
+<script>
+var $mobile=ifmobile();
+if($mobile)$('.lessList').addClass('mobile');
+//错误面板布局
+var errObjArr=[];
+var masonryFun=function(){
+	if($mobile){
+		var masonryBox=$('.lessList ul.x');
+		var t_li=masonryBox.find('li');
+		if(t_li.length<1){
+			$('.lessList ul:first').removeAttr('style');
+			$('.lessList').addClass('x');
+			return false;
+		}
+		$('.lessList').removeClass('x');
+		var prev,left,t;
+		t_li.map(function(){
+            var o=$(this);
+			if(!left)left=0;
+			if(!t)t=0;
+			if(prev){
+				t=parseInt(prev.attr('data-top'))+prev.outerHeight(true);
+				if(t+o.outerHeight(true)>masonryBox.height()){
+					left+=prev.outerWidth(true);
+					t=0;
+				}
+			}
+			o.attr('data-top',t);
+			o.css({'position':'absolute','left':left+'px','top':t+'px'});
+			prev=o;
+        });
+		$('.lessList.mobile ul:first').width(left+t_li.last().outerWidth(true));
+	}else{
+		var masonryBox=$('.lessList ul:first');
+		if(errObjArr.length<1){
+			masonryBox.find('li').remove();
+			$('.lessList').addClass('x');
+			return false;
+		}
+		$('.lessList').removeClass('x');
+		var x_box=$('.lessList ul.x');
+		var prev,left,o,t;
+		for(var i in errObjArr){
+			o=$('#'+errObjArr[i].id+'_copy');
+			if(o.length<1){
+				o=$('#'+errObjArr[i].id).clone();
+				o.attr('id',errObjArr[i].id+'_copy');
+			}else{
+				o.find('p').remove();
+				$('#'+errObjArr[i].id+' p').map(function(){
+					o.append($(this).clone());
+				});
+			}
+			o.addClass('js_temp');
+			if(!left)left=0;
+			if(!t)t=0;
+			masonryBox.append(o);
+			if(prev){
+				t=parseInt(prev.attr('data-top'))+prev.outerHeight(true);
+				if(t+o.outerHeight(true)>masonryBox.height()){
+					if(left>0){
+						
+						o.remove();
+						
+						break;
+					}
+					left+=prev.outerWidth(true);
+					t=0;
+				}
+			}
+			o.attr('data-top',t);
+			o.css({'position':'absolute','left':left+'px','top':t+'px'});
+			prev=o;
+		}
+		masonryBox.find('li').not('.js_temp').remove();
+		masonryBox.find('li').removeClass('js_temp');
+		var x_obj=$('.lessList ul.x li.x');
+		if(x_obj.length>0)x_box.css('margin-top',0-x_obj.position().top+'px');
+	}
+};
+$(window).resize(function(){
+	var th=$('#tvBox').outerHeight();
+	$('#listBox').height($('#tvBox').outerHeight());
+	$('.lessList').height($('body').height()-th-10);
+	masonryFun();
+});
+(function(){
+	var workshop=getUrlParam('workshop');
+	var cjName='s_'+workshop;
+	var gs=0;
+	var html='';
+	var data;
+	for(i in cjDtat[cjName]){
+		data=cjDtat[cjName][i];
+		if(data.length>gs)gs=data.length;
+		if(data.length>1){
+			html+='<div class="objCol">';
+			for(n in data){
+				html+=data[n]>0?'<div class="obj" id="id_'+data[n]+'" data-id="'+data[n]+'"><span>'+data[n]+'</span><div class="boxBg"><i class="iconfont icon-renwu"></i></div></div>':'<div class="obj x"><div class="boxBg"></div> </div>';
+			}
+			html+='</div>';
+		}else{
+			html+='<div class="objCol x progress-bar-striped"></div>'
+		}
+	}
+	$('#tvBox').html(html);
+	$('#tvBox .obj').css('width',(parseInt(100/gs*100)/100)+'%');
+	
+	$(window).resize();
+	
+	var ajaxObj;
+	function getData(times,bFun){
+		var postData={'fields':'id,mission_status,finished,mission,workpiece,error,warning','workshop':workshop};
+		if(times)postData.time=times;
+		ajaxObj=alenPost('{:url("Api/getData")}',postData,function(data){
+			ajaxObj=false;
+			var cor=[
+				opArr.standby.color,
+				opArr.run.color,
+				opArr.warning.color,
+			]
+			var html,tmpObj,bn;
+			for(var first in data)break;
+			data=data[first];
+			for(var i in data){
+				data[i].bn=parseInt(data[i].mission)?parseInt(data[i].finished/data[i].mission*100):100;
+			}
+			//错误面板
+			var errObj;
+			errObjArr=[];
+			for(i in data){
+				errObj=$('#err_'+data[i].id);
+				if(objCount(data[i].error)<1){
+					errObj.remove();
+					continue;
+				}
+				if(errObj.length>0){
+					html='';
+					errObj.find('p').remove();
+					for(var n in data[i].error){html+='<p class="text-danger">'+n+':'+data[i].error[n]+'</p>';}
+					errObj.append(html);
+				}else{
+					html='<li id="err_'+data[i].id+'"><i class="fa fa-warning text-danger"></i><b>#'+data[i].id+'</b><small class="text-muted fr_ml10">'+jsTime(data[i].warning)+'</small>';
+					for(var n in data[i].error){
+						html+='<p class="text-danger">'+n+':'+data[i].error[n]+'</p>';
+					}
+					html+='</li>';
+					$('.lessList ul.x').append(html);
+				}
+				if(!$mobile)errObjArr.push({'id':'err_'+data[i].id,'val':data[i].warning});
+			}
+			if(!$mobile)errObjArr.sort(function(a,b){return b.val-a.val;});
+			masonryFun();
+			//排序
+			data.sort(function(a,b){
+				return a.bn-b.bn;
+				//return b.bn-a.bn;
+				//return b.mission_status-a.mission_status;
+			});
+			//主面板
+			var o_p;
+			for(i in data){
+				//$('#id_'+data[i].id).find('.boxBg').css('background',cor[data[i].mission_status]);
+				$('#id_'+data[i].id).find('.boxBg').css('color',cor[data[i].mission_status]);
+				tmpObj=$('#listBox #listId_'+data[i].id);
+				bn=data[i].bn
+				if(tmpObj.length){
+					tmpObj.find('.mission b').text(data[i].finished);
+					tmpObj.find('.mission small').text(data[i].mission);
+					tmpObj.find('.progress-bar').css('width',bn+'%');
+					if(o_p){
+						tmpObj.insertAfter(o_p);
+					}else{
+						tmpObj.insertBefore(tmpObj.siblings(':first'));
+					}
+					o_p=tmpObj;
+				}else{
+					html='<li id="listId_'+data[i].id+'"><div class="name x small">#'+data[i].id+'</div><div class="workpiece small ui_txtof">'+data[i].workpiece+'</div><div class="mission"><b>'+data[i].finished+'</b>/<small>'+data[i].mission+'</small></div><div class="bar x"><div class="progress fr_mb0"><div class="progress-bar progress-bar-striped" style="width: '+bn+'%"></div></div></div><div class="clearfix"></div></li>';
+					$('#listBox ul').append(html);	
+				}			
+			}
+			if(bFun)bFun();
+		},function(err){
+			ajaxObj=false;
+			if(bFun){
+				bFun(err);
+			}else{
+				alerts(err);
+			}
+		});
+	}
+	var upS=3000;
+	var errGd=3;
+	var res=10;
+	var upFun=function(){
+		if(ajaxObj){ajaxObj.abort();ajaxObj=false;}
+		getData(null,function(err){
+			if(err){
+				var o=alerts(err,'',{
+					'cancel':'重试 - <span class="respan">'+res+'</span>秒',
+					'fun':function(){
+						clearInterval(reTime);
+						reTime=null;
+						upFun();
+					}
+				});
+				var reTime=setInterval(function(){
+					var io=$(o).find('.respan');
+					i=parseInt(io.text());
+					i--;
+					if(i<=0){
+						clearInterval(reTime);
+						reTime=null;
+						o.modal('hide')
+						return false;
+					}
+					io.text(i);
+				},1000);
+			}else{
+				if(!$mobile){
+					var gdBox=$('.lessList ul.x');
+					if(gdBox.find('li').length>0){
+						var s=gdBox.attr('data-s');
+						if(s){
+							s++;
+							if(s>=errGd){
+								s=0;
+								var m_id,m_stop;
+								gdBox.find('li').map(function(){
+									if(m_stop)return;
+									var o=$(this);
+									if($('body').height()-o.offset().top-o.outerHeight(true)<0){
+										m_stop=true;
+										return;
+									}
+									m_id=o;
+								});
+								if(m_id.next().length<1)m_id=gdBox.find('li:first');
+								gdBox.find('li').removeClass('x');
+								m_id.addClass('x');
+								setTimeout(function(){
+									gdBox.animate({'margin-top':0-m_id.position().top+'px'},1000);
+								},1000);
+							}
+						}else{
+							s=0;
+						}
+						gdBox.attr('data-s',s);
+					}
+				}
+				upTime=setTimeout(upFun,upS);
+			}
+		});
+	}
+	upFun();
+})();
+</script>
+{/block}

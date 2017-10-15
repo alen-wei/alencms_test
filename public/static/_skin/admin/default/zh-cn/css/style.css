@@ -1,0 +1,75 @@
+html,body{ height: 100%;}
+.topTools{ border-bottom: 1px solid #e0e0e0; box-shadow: 0 0 10px #ccc; margin-bottom: 20px; padding: 5px 15px; display: table; width: 100%;}
+.topTools .col{ display: table-cell; vertical-align: middle; white-space:nowrap;}
+.topTools .col.x{ width: 99999999px;}
+.topTools .col .fold{ display:table; vertical-align: middle;  text-align: right;}
+.topTools .col .split{ display: inline-block; color: #ccc; margin: 0 10px;}
+.topTools .col .fold .zbox{ display: inline-block; max-width: 0; visibility: hidden; opacity: 0; margin-left:0; padding:5px 0; background: #e0e0e0; border-radius: 5px; transition:all 0.5s;}
+.topTools .col .fold .zbox .split{ color: #999;}
+.topTools .col .fold.x .zbox{ max-width: 800px; visibility: visible; opacity: 1; margin-left: 5px; padding: 5px;}
+.topTools .col .fold .switch:before{ content: "«"; display: inline-block; margin-right: 5px;}
+.topTools .col .fold.x .switch:before{ content: "»";}
+
+.ui_admin_List1{ transition: all 0.2s;}
+.ui_admin_List1 li:nth-child(2n){ background: #f5f5f5;}
+.ui_admin_List1 li:nth-child(2n):hover{ background: rgba(51,122,183,0.1);}
+.ui_admin_List1 .check{ display:block; position:absolute; left: -40px; top: 0; height: 100%; opacity: 0; visibility: hidden; transition: all 0.5s;}
+.ui_admin_List1 .check i{ font-size: 2.6em; width: 1em; line-height: 1em; height: 1em; position:relative; top: 50%; margin-top: -0.5em; color: #e0e0e0; transition: all 0.2s;}
+.ui_admin_List1 .check i:hover{ color: #999;}
+.ui_admin_List1 li .txt .label{ cursor: pointer;}
+.ui_admin_List1.x{ padding-left: 40px;}
+.ui_admin_List1.x .check{ opacity: 1; visibility:visible;}
+.ui_admin_List1.x .check i{ cursor: pointer;}
+
+.ui_admin_List1 li.x{ background: rgba(51,122,183,0.1); border-color: rgba(51,122,183,0.2);; z-index: 3;}
+.ui_admin_List1 li.x .check i{ color: #337ab7;}
+.ui_admin_List1 li.x:hover{ border-color: rgba(51,122,183,1); background: rgba(51,122,183,0.1);}
+
+.ui_admin_List1+nav.text-center{ min-height: 20px;}
+
+.frame{ position: relative; width: 100%; height: 100%; overflow: hidden; padding-bottom: 55px;}
+
+.lessNav,.lessInfo{ position: absolute; right: 20px; top: 0; width: 230px; z-index: 2;}
+.lessInfo{ right: auto; left: 20px;}
+.lessNav{ display: none; top: 20px;}
+.lessNav>b{ font-size: 120%; display: block; padding-bottom: 15px;}
+.lessNav>ul{ margin: 0; padding: 0; list-style: none;}
+.lessNav>ul li{ display:block;}
+.lessNav>ul li a{ display:block; color: #666; line-height: 2em; border-left: 2px solid #ccc; padding:0 0 0 15px; transition: all 0.2s;}
+.lessNav>ul li a:hover{ color: #333; background: none;}
+.lessNav>ul li.active a{ border-color: #08c; color: #08c;}
+.lessNav>ul li.x{ padding-top: 2em;}
+.lessNav>ul li.x a{ border: 0; padding-left: 0; color: #999;}
+.lessNav>ul li.x a:hover{ color: #08c;}
+.lessNav>ul li a:focus{ background: none;}
+
+.lessInfo .dl-horizontal dt{ width:50%; margin-right: 0; text-align: left; font-weight: normal;}
+.lessInfo .dl-horizontal dd{ margin-left: 0; text-align: right;}
+
+.butToolsBg{ position:absolute; left: 0; bottom: 0; width: 100%; z-index: 3; background: #FFF; box-shadow: 0 0 10px #ccc;}
+.butToolsBg hr{ margin: 0;}
+.butTools{ padding: 10px 20px 10px 270px;}
+
+.contentBg{ position:relative; width: 100%; height: 100%; overflow-x:hidden; overflow-y: auto;  padding:0 20px 0 270px; background: #fafafa; z-index: 1;}
+.content{ width: 100%; padding-bottom: 20px;}
+
+.frame.noLess .contentBg{ padding-left: 20px; padding-right: 280px;}
+.frame.noLess .butTools{ padding-left: 20px;}
+.frame.noLess .lessNav{ display: block;}
+
+.colBox{ background: #fff; box-shadow: 0 0 3px #ccc; border-radius: 3px;}
+.colBox .tilBox h3{ margin: 0; padding: 10px;}
+.colBox .tilBox hr{ margin: 0;}
+.colBox .conBox{ padding: 20px; position: relative;}
+.colBox textarea{resize:none; height: 6em;}
+
+.diyBoxBg{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: all 0.2s;}
+.diyBoxBg .diyBox{ position:absolute; left: 50%; top: 0; width: 400px; height: 160px; margin: -160px auto auto -200px; border-radius: 5px; background: #fff; box-shadow: 0 0 20px #666; padding: 20px; transition: all 0.2s;}
+
+.diyBoxBg.x{ opacity: 1; visibility: visible;}
+.diyBoxBg.x .diyBox{ top: 50%; margin-top: -130px;}
+
+@media (min-width: 1200px){
+	.contentBg{ padding-right: 280px;}
+	.lessNav{ display:block;}
+}

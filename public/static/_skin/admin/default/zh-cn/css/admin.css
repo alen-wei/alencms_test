@@ -1,0 +1,9 @@
+#group_users{ overflow: hidden;}
+#group_users .media{ width: 50%; float:left; margin-bottom: 10px; margin-top: 0;}
+#group_users .media .media-left{ padding-left: 10px;}
+#group_users .media .media-body{ vertical-align: middle;}
+#group_users:empty:after{ content: "暂无信息"; display: block; text-align: center; color: #ccc; font: bold 2em/3 'Microsoft YaHei';}
+
+@media (min-width:1200px) {
+	#group_users .media{ width: 25%;}
+}

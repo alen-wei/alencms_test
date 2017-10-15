@@ -1,0 +1,43 @@
+{if condition="$__active=='index'"}
+<div class="banner">
+	<div class="cont">
+        <div class="infoBox">
+            <a class="img"><img src="{:get_user_img($user['img'])}" /></a>
+            <b class="name">{$user['name']}<i class="fa fa-vimeo fr_ml5 vip"></i></b>
+            <p class="icon">
+                <a href="{:url('user/html/command',['__active'=>'safe','__ctrl'=>'phone'])}" class="fa fa-mobile link{if condition='$bindings.phone'} x{/if}" data-toggle="tooltip" data-placement="bottom" title="{$bindings.phone|default='未绑定'}"></a>
+                <a href="{:url('user/html/command',['__active'=>'safe','__ctrl'=>'mail'])}" class="fa fa-envelope-o link{if condition='$bindings.mail'} x{/if}" data-toggle="tooltip" data-placement="bottom" title="{$bindings.mail|default='未绑定'}"></a>
+                <span>|</span>
+                <a onClick="alerts('抱歉，此功能暂未开放！');return false;" href="{:url('user/html/command',['__active'=>'third','__ctrl'=>'qq'])}" class="fa fa-qq disabled link" data-toggle="tooltip" data-placement="bottom" title="{$bindings.qq|default='未绑定'}"></a>
+                <a onClick="alerts('抱歉，此功能暂未开放！');return false;" href="{:url('user/html/command',['__active'=>'third','__ctrl'=>'weixin'])}" class="fa fa-weixin disabled link" data-toggle="tooltip" data-placement="bottom" title="{$bindings.weixin|default='未绑定'}"></a>
+                <a onClick="alerts('抱歉，此功能暂未开放！');return false;" href="{:url('user/html/command',['__active'=>'third','__ctrl'=>'weibo'])}" class="fa fa-weibo disabled link" data-toggle="tooltip" data-placement="bottom" title="{$bindings.weibo|default='未绑定'}"></a>
+            </p>
+            <div class="times">
+            	上次登录：{:date('Y-m-d H:i',$loginTime)}
+            </div>
+            <div class="txt">
+            	这家伙很懒什么也没留下
+            </div>
+            <a class="but" href="{:url('user/html/command',['__active'=>'info','__ctrl'=>'basic'])}"><i class="fa fa-pencil-square-o fr_mr5"></i>编辑资料</a>
+        </div>
+    </div>
+</div>
+<script>
+$(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+{else /}
+<div class="banner x">
+	<div class="cont">
+    	<div class="infoBox">
+            <a class="img"><img src="{:get_user_img($user['img'])}" /></a>
+            <b class="name">{$user['name']}<i class="fa fa-vimeo fr_ml5 vip"></i></b>
+            <div class="times">
+            	这家伙很懒什么也没留下
+            </div>
+		</div>
+        <div class="til">{$navArr[$__activeID]['subnav'][$__ctrl]}</div>
+    </div>
+</div>
+{/if}

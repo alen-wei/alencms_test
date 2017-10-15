@@ -1,0 +1,277 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	html,body{ height:100%; overflow:auto;}
+	.codeList span{ cursor:pointer;}
+	#objBox{ overflow-y:auto;}
+</style>
+{/block}
+{block name="body"}
+<div id="touchBox">
+    <div class="container-fluid fr_pt10">
+        <div class="row">
+        	<div class="col-sm-4">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group">
+                        <button id="workshop" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span>请选择车间</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" id="workshopList"></ul>
+                    </div>
+                    <div class="btn-group">
+                        <button id="objID" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span>请选择机床</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" id="objBox">
+                            <li class="dropdown-header"><i class="icon-lightbulb fr_mr5"></i>请先选择车间</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 codeList"></div>
+        </div>
+        
+        <div class="row fr_pt10">
+            <div class="col-sm-12">
+                <textarea id="content" class="form-control"></textarea>
+            </div>
+        </div>
+        
+        <div class="row">
+        	<div class="col-sm-12">
+            	<hr />
+            	<button class="btn btn-primary pull-left" id="saveBut" type="button" disabled>提交</button>
+                <button class="btn btn-danger pull-left fr_ml10" id="delBut" type="button" disabled>删除</button>
+                <button class="btn btn-success pull-right" id="downBut" type="button" disabled>下载</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="foot"}
+{include file="#public_after" /}
+<script>
+$(window).resize(function(){
+	var wh=$('body').height();
+	var ot=$('#objID').offset().top+$('#objID').height();
+	$('#objBox').css('max-height',wh-ot-50+'px');
+	
+	var ch=$('body').height()-$('#content').offset().top-100;
+	$('#content').height(ch);
+	
+});
+$(window).resize();
+
+$('#saveBut').click(function(){
+	if($(this).attr('disabled'))return false;
+	alert_hint('加载中','spinner',-1);
+	var id=$('#objID').attr('data-id');
+	var txt=$('#content').val();
+	alenPost('{:url("Api/saveCode")}',{
+			'id':id,
+			'content':txt,
+	},function(data){
+		$('.ui_hint').remove();
+		$('.codeList span:not([data-id])').remove();
+		$('#objBox li a[data-id='+id+']').click();
+		
+	},function(err){
+		$('.ui_hint').remove();
+		alerts(err);
+	});
+});
+$('#delBut').click(function(){
+	if($(this).attr('disabled'))return false;
+	alert_hint('加载中','spinner',-1);
+	var id=$('#objID').attr('data-id');
+	var codeID=$('.codeList span.label-primary').attr('data-id');
+	alenPost('{:url("Api/delCode")}',{
+			'id':id,
+			'codeid':codeID,
+	},function(data){
+		$('.ui_hint').remove();
+		$('.codeList span:not([data-id])').remove();
+		$('#objBox li a[data-id='+id+']').click();
+	},function(err){
+		$('.ui_hint').remove();
+		alerts(err);
+	});
+});
+$('#downBut').click(function(){
+	if($(this).attr('disabled'))return false;
+	var id=$('#objID').attr('data-id');
+	var codeID=$('.codeList span.label-primary').attr('data-id');
+	var url='{:url("Api/downCode")}';
+	url+='?id='+id+'&codeid='+codeID;
+	openUrlNew(url);
+});
+
+$('#workshopList').delegate('a','click',function(){
+	var o=$(this);
+	var tmpObj=$('.codeList span:not([data-id])');
+	if(tmpObj.length>0){
+		newEndFun(o,tmpObj);
+		return;
+	}
+	var id=o.attr('data-id');
+	var name=o.text();
+	$('#workshop').find('span:first').text(name);
+	$('#workshop').attr('data-id',id);
+	getName(id,function(err){
+		if(err){
+			alerts(err);
+		}else{
+			$('#objBox a:first').click();
+		}
+	});
+});
+$('#objBox').delegate('a','click',function(){
+	var o=$(this);
+	var tmpObj=$('.codeList span:not([data-id])');
+	if(tmpObj.length>0){
+		newEndFun(o,tmpObj);
+		return;
+	}
+	var id=o.attr('data-id');
+	var name=o.text();
+	$('#objID').find('span:first').text(name);
+	$('#objID').attr('data-id',id);
+	$('#content').val('');
+	$('#downBut,#delBut,#saveBut').attr('disabled',true);
+	getCode(id);
+});
+var newEndFun=function(obj,delObj){
+	alerts('新添加的程序还没保存哦<br /><br />是否留下？','',{
+		'confirm':'放弃',
+		'cancel':'留下',
+		'fun':function(val){
+			if(val!=1)return;
+			$('#content').val('');
+			delObj.remove();
+			obj.click();
+		}
+	});
+}
+$('.codeList').delegate('span','click',function(){
+	var o=$(this);
+	if(o.hasClass('label-primary'))return;
+	var codeID=o.attr('data-id');
+	var tmpObj=o.siblings('span:not([data-id])');
+	if(tmpObj.length>0){
+		newEndFun(o,tmpObj);
+		return;
+	}
+	var id=$('#objID').attr('data-id');
+	getCode(id,codeID,function(data){
+		$('.codeList span').removeClass('label-primary')
+		$('.codeList span').addClass('label-default');
+		o.removeClass('label-default');
+		o.addClass('label-primary');
+		$('#downBut,#delBut,#saveBut').removeAttr('disabled');
+		$('#content').val(data);
+	});
+});
+$('.codeList').delegate('a','click',function(){
+	var o=$(this);
+	var tmpObj=o.siblings('span:not([data-id])');
+	if(tmpObj.length>0){
+		newEndFun(o,tmpObj);
+		return;
+	}	
+	var html='<input class="form-control codeName" placeholder="请输入程序名" />';
+	var msgObj=alerts(html,'添加程序',{
+		'confirm':'添加',
+		'cancel':'取消',
+		'html':true,
+		'fun':function(val){
+			if(val!=1)return;
+			var inpTxt=msgObj.find('.codeName').val();
+			if(!inpTxt)return;
+			if('O'!=inpTxt.substr(0,1))inpTxt='O'+inpTxt;
+			if(inpTxt)
+			$('.codeList span').removeClass('label-primary');
+			$('.codeList span').addClass('label-default');
+			var objHtml=$('<span class="label label-primary pull-left fr_mr5">'+inpTxt+'</span>');
+			o.before(objHtml);
+			$('#downBut,#delBut').attr('disabled',true);
+			$('#saveBut').removeAttr('disabled');
+			$('#content').val('%\n'+inpTxt+'\n%');
+			$('#content').focus();
+		}
+	});
+});
+
+var getWorkshop=function(cfun){
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getName")}',{
+			'workshop':'all',
+		},function(data){
+		var box=$('#workshopList');
+		var html='';
+		for(i in data){
+			html+='<li><a data-id="'+data[i].id+'">'+data[i].name+'</a></li>';
+		}
+		box.html(html);
+		$('.ui_hint').remove();
+		if(cfun)cfun();
+	},function(err){
+		$('.ui_hint').remove();
+		if(cfun){
+			cfun(err);
+		}else{
+			alerts(err);
+		}
+	});
+}
+
+var getName=function(wid,cfun){
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getName")}',{
+			'workshop':wid,
+		},function(data){
+		var box=$('#objBox');
+		var html='';
+		for(i in data){
+			html+='<li><a data-id="'+data[i].id+'">'+data[i].name+'</a></li>';
+		}
+		box.html(html);
+		$('.ui_hint').remove();
+		if(cfun)cfun();
+	},function(err){
+		$('.ui_hint').remove();
+		if(cfun){
+			cfun(err);
+		}else{
+			alerts(err);
+		}
+	});
+}
+var getCode=function(id,codeID,cfun){
+	var postData={'id':id};
+	if(codeID)postData.codeid=codeID;
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getCode")}',postData,function(data){
+		$('.ui_hint').remove();
+		if(!codeID){
+			var html='';
+			for(var i in data){
+				html+='<span class="label label-default pull-left fr_mr5" data-id="'+data[i]+'">'+data[i]+'</span>';
+			}
+			html+='<a class="label label-default pull-left"><i class="fa fa-plus-circle fr_mr5"></i>添加</a><div class="clearfix"></div>';
+			$('.codeList').html(html);
+		}
+		if(cfun)cfun(data);
+	},function(err){
+		$('.ui_hint').remove();
+		if(cfun){
+			cfun(err);
+		}else{
+			alerts(err);
+		}
+	});
+		
+}
+getWorkshop();
+</script>
+{/block}

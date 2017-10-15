@@ -1,0 +1,66 @@
+<div class="topNavBg">
+	<div class="topNav cont">
+    	<a href="{:config('sys_url')}" class="logo">{:config('sys_name')}</a>
+        <div class="showNav"><i class="fa fa-bars"></i></div>
+        <div class="navBg">
+            <ul class="nav">
+                {volist name="navArr" id="v"}
+                <li><a{if condition="$__activeID==$key"} class="x"{/if} href="{:url('user/html/command',['__active'=>$v['name'],])}">{$v['txt']}</a></li>
+                {/volist}
+            </ul>
+        </div>
+		<div class="msgBox">
+            <div class="col notice disabled">
+            	<div class="icon">
+	                <i class="fa fa-bell"></i>
+				</div>
+            </div>
+            <div class="col msg disabled">
+            	<div class="icon">
+	                <i class="fa fa-comments"></i>
+				</div>
+            </div>
+            <div class="userInfo">
+            	 <a class="img"><img src="{:get_user_img($user['img'])}" /></a>
+                 <b class="name">{$user['name']}<i class="fa fa-vimeo fr_ml5 vip"></i></b>
+            </div>
+            <div class="col bars">
+            	<div class="icon">
+	                <i class="fa fa-bars"></i>
+				</div>
+                <div class="list-group">
+                	<a class="list-group-item" href="javascript:alerts('抱歉，此功能暂未开放！');"><i class="fa fa-commenting fr_mr5"></i>意见反馈</a>
+                    <a class="list-group-item" onClick="confirm_hint(this,'您确认要退出么？','','退出');return false;" href="{:url('api/logout')}"><i class="fa fa-sign-out fr_mr5"></i>退出</a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="navHint"></div>
+<script>
+$(function(){
+	$('.topNav .msgBox .col').click(function(){
+		var o=$(this);
+		if(o.hasClass('disabled')){
+			alerts('抱歉，此功能暂未开放！');
+			return false;
+		}
+		if(o.hasClass('x')){
+			o.removeClass('x');
+		}else{
+			$('.topNav .msgBox .col').removeClass('x');
+			o.addClass('x');
+		}
+	});
+	
+	$('.topNav .showNav').click(function(){
+		$('.topNav .navBg,.topNav .msgBox,.navHint').addClass('x');
+	});
+	
+	$('.navHint').on('click',function(){
+		$('.topNav .navBg,.topNav .msgBox,.navHint').removeClass('x');
+	});
+	
+});
+</script>

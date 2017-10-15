@@ -1,0 +1,125 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	html,body{ width:100%; height:100%; overflow:hidden;}
+	body{ background:rgba(0,136,204,0.1);}
+</style>
+{/block}
+{block name="body"}
+<div id="touchBox">
+
+<div class="loginBox">
+	<div class="tilbg">
+        <div class="til text-primary">
+            <i class="fa fa-user"></i>
+            <p class="ui_txtof"><b class="fr_til">用户登录</b><small>log in</small></p>
+        </div>
+    </div>
+    <div class="tilbg reg">
+        <div class="til text-primary">
+            <i class="fa fa-user-plus"></i>
+            <p class="ui_txtof"><b class="fr_til">用户注册</b><small>sign up</small></p>
+        </div>
+    </div>
+    <div class="inpbg">
+    
+    	<div class="col">
+        	<input type="text" name="user" placeholder="手机/邮箱/用户名" />
+        </div>
+        <div class="col reg">
+        	<input type="text" name="name" placeholder="昵称" />
+        </div>
+        <div class="col">
+        	<input type="password" name="password" placeholder="密码" />
+        </div>
+        <div class="col verify">
+        	<input type="text" name="_verify" placeholder="验证码" />
+            <img src="{:captcha_src()}" />
+        </div>
+    </div>
+    <div class="btnbg">
+    	<a id="autologin" class="link text-muted small check"><i class="fa fa-check x"></i>下次自动登录</a>
+    	<button type="button" class="btn btn-primary fr_wb100"><i class="fa fa-sign-in fr_mr5"></i>登录</button>
+        <button type="button" class="btn btn-primary fr_wb100 reg"><i class="fa fa-user-circle fr_mr5"></i>注册</button>
+        <a href="#signup" class="link pull-right text-primary small">还没有帐户？点击这里快速注册&raquo;</a>
+        <a target="_blank" href="#" class="link pull-left text-muted small">无法登录？</a>
+        <a href="#login" class="link pull-right text-primary small reg">已有帐户？登录&raquo;</a>
+        <span id="agreement" class="link pull-left text-muted small reg check"><i class="fa fa-check x"></i>阅读并同意<a href="#">《用户协议》</a></span>
+    </div>
+    <div class="thirdbox">
+    	<div class="text"><em>第三方登录</em></div>
+    	<a data-type="qq"><i class="fa fa-qq"></i><br /><span>QQ</span></a><a data-type="weixin"><i class="fa fa-weixin"></i><br /><span>微信</span></a><a data-type="weibo"><i class="fa fa-weibo"></i><br /><span>新浪微博</span></a>
+    </div>
+</div>
+</div>
+<div id="particles"></div>
+{/block}
+{block name="foot"}
+<script src="{$static_url}Particles.js/particles.min.js"></script>
+<script src="{$static_url}Jq_plugins/jquery.ba-hashchange.min.js"></script>
+<script>
+//背景
+particlesJS.load('particles', '{$static_url}Particles.js/config/particles.json', function() {
+	console.log('背景加载完成');
+});
+//切换
+var actFun=function(type){
+	var bgBOx=$('.loginBox');
+	var showFun=function(){
+		type=type?type:0;
+		var htmlObj=$('.loginBox .tilbg,.btnbg .link,.loginBox .btnbg button');
+		var colObj=$('.loginBox .inpbg .col');
+		if(type){
+			type=type=='signup'?1:0;
+		}else{
+			if(htmlObj.not('.reg').first().hasClass('act'))type=1;
+		}
+		htmlObj.removeClass('act');
+		colObj.removeClass('act');
+		if(type){  //注册
+			htmlObj=htmlObj.filter('.reg');
+		}else{  //登录
+			htmlObj=htmlObj.not('.reg');
+			colObj=colObj.not('.reg');
+		}
+		htmlObj.addClass('act');
+		colObj.addClass('act');
+		$('.loginBox').addClass('act');
+	}
+	if(bgBOx.hasClass('act')){
+		WN.addTranEvent(bgBOx[0],showFun);
+		bgBOx.removeClass('act');
+	}else{
+		showFun();
+	}
+}
+$('.loginBox .inpbg .col.verify img').click(function(){
+	var url=$(this).attr('src').split('?')[0];
+	url+='?r='+Math.floor(Math.random()*1000000);
+	$(this).attr('src',url);
+});
+$('.loginBox .btnbg .check').click(function(){
+	$(this).find('i').toggleClass('x');
+});
+$('.loginBox .btnbg .check a').click(function(){
+	openUrlNew($(this).attr('href'));
+	return false;
+});
+$('.thirdbox a').click(function(){
+	alerts('暂未开放');
+});
+//hash
+$(window).hashchange(function(){
+	var tmp=getHash();
+	if(hash==tmp)return;
+	actFun(tmp);
+	hash=tmp;
+});
+var hash=getHash();
+hash=hash=='signup'?hash:'login';
+{if condition="$type"}
+	hash="{$type}";
+{/if}
+actFun(hash);
+</script>
+{/block}

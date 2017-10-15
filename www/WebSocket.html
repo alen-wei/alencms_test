@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WebSocket</title>
+</head>
+<body>
+<button onClick="socketlink();">连接</button>
+<button onClick="socketClose();">关闭</button>
+<span>状态：</span><B id="status">关闭</B>
+<div>
+<br />
+<input id="inp" />
+<button onClick="socketSend();">发送</button>
+</div>
+<br />
+<div>
+	<b>接收：</b>
+    <p id="txt">..</p>
+</div>
+<script>
+var socket;
+var socketlink=function(){
+	if(socket){
+		alert('当前已连接');
+		return;
+	}
+	socket=new WebSocket("ws://192.168.137.1:2346");
+	socket.onopen = function(){
+		document.getElementById('status').innerHTML='连接';
+		document.getElementById('txt').innerHTML='';
+		socket.send('link');
+	}
+	socket.onmessage = function(e){
+		document.getElementById('txt').innerHTML=e.data;
+	}
+	socket.onclose = function(e){
+		document.getElementById('status').innerHTML='关闭';
+		document.getElementById('txt').innerHTML='';
+		socket=false;
+	}
+}
+var socketClose=function(){
+	if(!socket){
+		alert('当前已关闭');
+		return;
+	}
+	socket.close();
+	
+}
+var socketSend=function(){
+	if(!socket){
+		alert('当前已关闭');
+		return;
+	}
+	socket.send(document.getElementById('inp').value);
+}
+</script>
+</body>
+</html>

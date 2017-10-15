@@ -1,0 +1,120 @@
+<style>
+	.alen_explorer{ overflow:hidden; display:block; width:100%; height:100%; position:relative;}
+	.alen_filebox{ overflow-x:hidden; overflow-y:auto; width:100%; display:block; padding:5px; position:relative;}
+	.alen_filebox:empty:before{ position:absolute; left:0; top:50%; content:'暂无文件'; color:#CCC; text-align:center; width:100%; font-size:3em; display:block; line-height:4em; margin-top:-2em;}
+	.alen_filebox .alen_file{ float:left; width:6.25%; padding:5px;}
+	.alen_filebox .alen_file a{ display:block; width:100%; cursor:default; border-radius:5px; overflow:hidden; padding-bottom:5px; border:1px solid transparent; transition:all 0.1s;}
+	.alen_filebox .alen_file span{ display:block; width:100%;}
+	.alen_filebox .alen_file .img{ position:relative; width:100%; padding-top:100%; overflow:hidden;}
+	.alen_filebox .alen_file .img > i{ position:absolute; left:50%; top:50%; width:100%; height:100%; display:block; font-size:4vw; line-height:1.2em; height:1.2em; width:1.2em; text-align:center; margin:-0.6em auto auto -0.6em; color:#f9d975;}
+	.alen_filebox .alen_file .img > small{ position:absolute; right:5px; bottom:5px; font-size:2vw; color:#08c; text-shadow:2px 0 0 #FFF,-2px 0 0 #FFF,0 2px 0 #FFF,0 -2px 0 #FFF;}
+	.alen_filebox .alen_file .img > img{ position:absolute; top:50%; left:50%; max-width:100%; height:auto; display:block; box-shadow:0 0 5px #000; transform:translate(-50%,-50%) scale(0.9); -webkit-transform:translate(-50%,-50%) scale(0.9);}
+	.alen_filebox .alen_file .name{ text-align:center; color:#333; width:100%; padding:0 5px;}
+	.alen_filebox .alen_file a:hover,.alen_filebox .alen_file.hover a{ background:rgba(0,136,204,0.15);}
+	.alen_filebox .alen_file.focus a{ background:rgba(0,136,204,0.15); border-color:#08c;}
+	.alen_filebox .alen_file.file .img > i{ color:#999;}
+	.alen_filebox .alen_file.shear .img{ opacity:0.6;}
+	.alen_mousenav{left:0; top:0; z-index:9; min-width:200px; margin:0; display:none;}
+	.alen_mousenav>li>a{ padding:3px 10px; cursor:default; overflow:hidden; text-align:right;}
+	.alen_mousenav>li>a i,.alen_mousenav>li>a span{ float:left;}
+	.alen_toptools{ position:relative; padding:5px 370px 5px 10px; border-bottom:1px solid #e0e0e0; box-shadow:0 6px 12px #f0f0f0;}
+	.alen_toptools .btn-group-justified{ width:350px; position:absolute; top:5px; right:10px;}
+	.alen_toptools .dropdown-menu>li>a{ cursor:pointer;}
+	.alen_exp_loadBox{ position:absolute; left:50%; top:-3em; opacity:0; visibility:hidden; padding:5px 10px; background:rgba(0,0,0,0.6); color:#FFF; font-size:2em; border-radius:5px; transform: translate(-50%,0); -webkit-transform:translate(-50%,0); cursor:default; z-index:9; box-shadow:0 0 2px #000; transition:all 0.2s;}
+	.alen_exp_loadBox i{ margin-right:5px;}
+	.alen_exp_loadBoxBg{ position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(255,255,255,0.5); z-index:8; opacity:0; visibility:hidden; transition:all 0.2s;}
+	.alen_exp_loadBoxBg.navBg{ background:rgba(0,0,0,0.5);}
+	.alen_exp_loadBox.x{ top:3em; opacity:1; visibility:visible;}
+	.alen_exp_loadBoxBg.x{ opacity:1; visibility:visible;}
+	.alen_bottomtools{ padding:5px 10px; border-top:1px solid #e0e0e0;}
+	.alen_bottomtools .info,.alen_toptools .com_other{cursor:default;}
+	.alen_selectBox{ position:absolute; border:1px solid #08c; z-index:9; background:rgba(0,136,204,0.15); display:none; z-index:9;}
+	.alen_moveicon{ position:absolute; width:6.25%; display:none; z-index:9; top:50px; left:50px;}
+	.alen_moveicon a{ display:block; position:relative; width:100%; padding-top:100%;}
+	.alen_moveicon a i,.alen_moveicon a span{ position:absolute; left:50%; top:50%; display:block; font-size:4vw; line-height:1.2em; height:1.2em; width:1.2em; text-align:center; margin:-0.6em auto auto -0.6em; opacity:0.6; cursor:default;}
+	.alen_moveicon a span{ color:#FFF; background:#08c; border-radius:0.2em; width:auto; min-width:1.2em; margin:auto; margin-top:-0.6em; left:0; top:50%;}
+	.alen_explorer .softwareBg{ position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:99;}
+	.alen_explorer .softwareBg .software{ position:absolute; background:#FFF; border-radius:5px; box-shadow:0 0 20px #333; overflow:hidden;}
+	.alen_explorer .softwareBg .software .til{ display:block; border-bottom:1px solid #ccc; overflow:hidden; line-height:2em; font-size:1.2em;}
+	.alen_explorer .softwareBg .software .til span{ float:left; padding-left:10px; cursor:default;}
+	.alen_explorer .softwareBg .software .til i{ float:right; width:2em; text-align:center; cursor:pointer;}
+	.alen_explorer .softwareBg .software .til i:hover{ background:#08c; color:#FFF;}
+	.alen_explorer .softwareBg .software .til i.but_close{ color:#a94442;}
+	.alen_explorer .softwareBg .software .til i.but_close:hover{ background:#a94442; color:#FFF}
+	.alen_explorer .softwareBg .software .software_content{ display:block; overflow:auto; width:100%; position:relative;}
+	.alen_explorer .softwareBg .software .move{ position:absolute; bottom:0; right:0; width:10px; height:10px; cursor:move; z-index:9;}
+	.alen_explorer .softwareBg .software.s_max{ border-radius:0;}
+	.alen_explorer .softwareBg .software.s_max .move{ display:none;}
+	
+	.alen_explorer.phone .alen_mousenav{ top:auto; left:2%; bottom:1%; width:96%;}
+	.alen_explorer.phone .alen_mousenav>li>a{ padding:5px 10px; font-size:1.2em;}
+	.alen_explorer.phone .alen_mousenav>li>a small{ display:none;}
+	.alen_explorer.phone .alen_toptools,.alen_explorer.pad .alen_toptools{ padding:5px;}
+	.alen_explorer.phone .alen_toptools .btn-group-justified,.alen_explorer.pad .alen_toptools .btn-group-justified{ position:static; top:0; right:0; width:100%; margin-top:5px;}
+	.alen_explorer.phone .alen_filebox .alen_file{ width:33.33%;}
+	.alen_explorer.phone .alen_filebox .alen_file .img > i{ font-size:20vw;}
+	.alen_explorer.phone .alen_filebox .alen_file .img > small{font-size:10vw;}
+	.alen_explorer.phone .softwareBg .software .til i.but_max{ display: none;}
+	.alen_explorer.pad .alen_filebox .alen_file{ width:20%;}
+	.alen_explorer.pad .alen_filebox .alen_file .img > i{ font-size:15vw;}
+	.alen_explorer.pad .alen_filebox .alen_file .img > small{font-size:7vw;}
+	.alen_explorer.pc .alen_filebox .alen_file{ width:10%;}
+	.alen_explorer.pc .alen_filebox .alen_file .img > i{ font-size:6vw;}
+	.alen_explorer.pc .alen_filebox .alen_file .img > small{font-size:3vw;}
+	.alen_explorer.max .alen_filebox .alen_file{ width:120px;}
+	.alen_explorer.max .alen_filebox .alen_file .img > i{ font-size:80px;}
+	.alen_explorer.max .alen_filebox .alen_file .img > small{font-size:35px;}
+	@media screen and (orientation: landscape){
+		.alen_explorer.phone .alen_mousenav{ left:0; bottom:0; width:50%; height:100%; border-radius:0; border:0; box-shadow:0 0 10px #000; overflow-y:auto;}
+		.alen_explorer.phone .alen_filebox .alen_file{ width:20%;}
+		.alen_explorer.phone .alen_filebox .alen_file .img > i{ font-size:12vw;}
+	}
+</style>
+<div class="alen_explorer">
+	<div class="alen_toptools">
+		<div class="input-group pathTools">
+			<input type="text" class="form-control" value="" />
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button"><i class="fa fa-arrow-circle-right"></i></button>
+			</span>
+		</div>
+		<div class="btn-group btn-group-justified">
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" data-cmd="backup"><i class="fa fa-arrow-circle-up"></i><span class="fr_ml5">上一层</span></button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" data-cmd="upload"><i class="fa fa-upload"></i><span class="fr_ml5">上传文件</span></button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle com_other" data-toggle="dropdown">
+					<i class="fa fa-bars"></i><span class="fr_ml5">其它操作</span>
+				</button>
+				<ul class="dropdown-menu pull-right">
+					<li data-cmd="refurbish"><a><i class="fa fa-refresh fr_mr5"></i>刷新</a></li>
+					<li data-navcol="adddir"><a><i class="fa fa-folder fr_mr5"></i>新建文件夹</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+	<div class="alen_exp_loadBox"><i></i><span class="small"></span></div>
+	<div class="alen_exp_loadBoxBg"></div>
+	<div class="alen_filebox"></div>
+	<div class="alen_bottomtools">
+		<small class="text-muted info"><b>0</b>个文件夹，<b>0</b>个文件，<b>0</b>个选中</small>
+	</div>
+	<div class="alen_moveicon"><a></a></div>
+	<div class="alen_selectBox"></div>
+	<ul class="dropdown-menu alen_mousenav"></ul>
+	<div class="softwareBg hide">
+		<div class="software">
+			<div class="til">
+				<span></span>
+				<i class="fa fa-times but_close"></i>
+				<i class="fa fa-window-maximize but_max"></i>
+			</div>
+			<div class="software_content"></div>
+			<div class="move"></div>
+		</div>
+	</div>
+</div>

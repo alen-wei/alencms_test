@@ -1,0 +1,31 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	.msgbox{ display:table; width: 100%;}
+	.msgbox .td{ display: table-cell;}
+	.msgbox .td.t{ width:100%; vertical-align: middle;}
+	.msgbox .td>i{font-size: 2.6em;}
+	
+	.ui_callout-danger .msgbox .td>i{ color:#d9534f;}
+</style>
+{/block}
+{block name="body"}
+<div class="container-fluid">
+	<div class="ui_callout ui_callout-danger fr_mt20">
+		<div class="msgbox">
+			<div class="td">
+				<i class="fa fa-exclamation-triangle fr_mr20"></i>
+			</div>
+			<div class="td t">
+				<h4 class="fr_ma0">访问受限</h4>
+				<p class="text-muted fr_mb0 fr_mt10">您没有使用此模块的权限，请联系管理员</p>
+			</div>
+		</div>
+		<hr />
+		<button type="button" class="btn btn-danger fr_mr10">联系管理员</button>
+        <!--
+		<button type="button" class="btn btn-link">返回</button>
+        -->
+	</div>
+</div>
+{/block}

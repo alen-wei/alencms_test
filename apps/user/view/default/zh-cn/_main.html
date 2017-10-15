@@ -1,0 +1,19 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+
+{/block}
+{block name="body"}
+{include file="#public_head" /}
+{include file="#public_bannner" /}
+<div class="cont">
+	{include file="#public_lessnav" /}
+	<div class="mainContent{if condition="count($navArr[$__activeID]['subnav'])<=1"} x{/if}">
+    	{include file="$__tplName" /}
+    </div>
+    <div class="clearfix"></div>
+</div>
+{include file="#public_foot" /}
+{/block}
+{block name="foot"}
+
+{/block}

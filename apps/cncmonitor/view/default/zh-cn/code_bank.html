@@ -1,0 +1,50 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	html,body{ height:100%; overflow:auto;}
+</style>
+<script>var noHammer=true;</script>
+{/block}
+{block name="body"}
+<div id="touchBox">
+    <div class="container-fluid fr_hb100">
+        <div class="row fr_hb100" id="filEexplorer">
+            加载中
+        </div>
+    </div>
+</div>
+{/block}
+{block name="foot"}
+{include file="#public_after" /}
+<script src="{$static_url}Jq_plugins/jquery.ba-hashchange.min.js"></script>
+<script src="{$static_url}Alen/Js/alen.Upload.js"></script>
+<script src="{$static_url}alenExplorer/alen.Explorer.js"></script>
+<script src="{$static_url}alenExplorer/extends/uploadToCnc.js"></script>
+<script src="{$static_url}alenExplorer/extends/PhotoBrowser.js"></script>
+<script src="{$static_url}alenExplorer/extends/videoPlayer.js"></script>
+<script>
+_alenExplorer_extends.uploadToCnc.setUrl({
+	'getName':'{:url("Api/getName")}',
+	'saveCode':'{:url("Api/saveCode")}',
+});
+var explorer=new _alenExplorer('#filEexplorer',{
+	'_htmlFile':"{$static_url}alenExplorer/html.html",
+	'upload':"{:url('file/Upload/postExplorer')}",
+	'getList':"{:url('file/Explorer/getList')}",
+	'getInfo':"{:url('file/Explorer/getInfo')}",
+	'addDir':"{:url('file/Explorer/addDir')}",
+	'addFile':"{:url('file/Explorer/addFile')}",
+	'del':"{:url('file/Explorer/del')}",
+	'rename':"{:url('file/Explorer/rename')}",
+	'download':"{:url('file/Explorer/download')}",
+	'move':"{:url('file/Explorer/move')}",
+	'copy':"{:url('file/Explorer/copy')}",
+	'getTxt':"{:url('file/Explorer/getTxt')}",
+	'saveTxt':"{:url('file/Explorer/saveTxt')}",
+	'getUrl':"{:url('file/Explorer/getUrl')}",
+});
+explorer.init();
+//imgZoom($('img'),{'history':false});
+</script>
+{/block}
+

@@ -1,0 +1,159 @@
+html,body{ width:100%; height:100%; overflow:hidden;}
+body{overflow-y:auto;}
+.cont{width:100%; min-width:1000px; max-width:1200px; margin:0 auto;}
+
+.topNavBg{ height:50px; width:100%; z-index:1; position:fixed; left:0; top:0; transition:all 0.2s;}
+.topNavBg:hover{ background:rgba(0,0,0,0.9);}
+.topNav{height:100%; color:#FFF;}
+.topNav .logo{ height:100%; line-height:50px; color:#FFF; font-family:"Microsoft YaHei"; font-size:24px; padding:0 10px; float:left;}
+.topNav .navBg{overflow:hidden; float:left;}
+.topNav .nav{ display:block;}
+.topNav .nav li{ float:left;}
+.topNav .nav li a{ display:block; padding:0 10px; line-height:50px; color:#ccc; text-shadow:0 0px 3px #000; transition:all 0.2s;}
+.topNav .nav li a.x{ color:#fff; border-top:3px solid #08c;}
+.topNav .logo:hover,.topNav .nav li a:hover,.topNav .nav li a:focus{ background:#08c; color:#FFF; text-shadow:none;}
+.topNav .msgBox{ float:right; height:100%;}
+.topNav .msgBox .col{ float:left; position:relative; height:100%; padding-top:10px; cursor:pointer;}
+.topNav .msgBox .col .icon{font-size:1.5em; line-height:1.4em; height:1.4em; text-align:center; color:#ccc; padding:0 10px; transition:all 0.2s;}
+.topNav .msgBox .col.x .icon,.topNav .msgBox .col:hover .icon{ background:#08c; color:#fff; border-radius:0.7em;}
+.topNav .msgBox .col .list-group{ position:absolute; top:55px; right:50%; margin-right:-100px; width:200px; margin-bottom:0; opacity:0; visibility:hidden; margin-top:10px; transition:all 0.2s;}
+.topNav .msgBox .col .list-group:before{ content:'◆'; color:#333; font-size:20px; line-height:20px; height:20px; width:20px; text-align:center; position:absolute; left:50%; top:-10px; margin-left:-10px;}
+.topNav .msgBox .col .list-group .list-group-item{ background-color:rgba(0,0,0,0.9); border-color:#333; color:#999; cursor:pointer; transition:all 0.2s;}
+.topNav .msgBox .col .list-group .list-group-item:hover{ background:#08c; color:#FFF;}
+.topNav .msgBox .col.x .list-group{ opacity:1; visibility:visible; margin-top:0;}
+.topNav .msgBox .col.disabled{ opacity:0.5;}
+.topNav .msgBox .col.disabled:hover .icon{ background:none; color:#ccc; border-radius:0; cursor:no-drop;}
+
+.banner{width:100%; height:500px; z-index:0; background-position:center center; background-repeat:no-repeat; background-color:#000; background-image:url(../img/banner.jpg);}
+.banner .cont{ position:relative; top:50px; width:100%; height:450px;}
+.banner .infoBox{ width:600px; padding-left:120px; position:relative; top:110px; margin:0 auto; color:#ccc; overflow:hidden;}
+.banner .infoBox .img{ position:absolute; left:0; top:0; width:100px; display:block; border:3px solid #fff; border-radius:50%; background:#FFF;}
+.banner .infoBox .img img{ display:block; width:100%; border-radius:50%;}
+.banner .infoBox .name{font-size:2em; color:#FFF; font-weight:normal; font-family:"Microsoft YaHei"; float:left;}
+.banner .infoBox .name .vip{ color:#ffe78b; display:none;}
+.banner .infoBox .icon{ font-size:2em; margin:0; overflow:hidden; float:right;}
+.banner .infoBox .icon span{ margin-right:0.5em; opacity:0.3;}
+.banner .infoBox .icon .link{ color:#FFF; margin-right:0.5em; cursor:pointer; opacity:0.3; transition:all 0.2s;}
+.banner .infoBox .icon .link:hover{ opacity:0.5;}
+.banner .infoBox .icon .link.x{ opacity:1;}
+.banner .infoBox .icon .link.disabled{ opacity:0.15; cursor:no-drop;}
+.banner .infoBox .times{ clear:both; opacity:0.5;}
+.banner .infoBox .txt{ border-top:1px solid #333; margin-top:10px; padding-top:10px; font-size:85%; opacity:0.5;}
+.banner .infoBox .but{display:block; border:1px solid #FFF; color:#FFF; background:none; line-height:2.4em; width:8em; border-radius:1.7em; text-align:center; opacity:0.3; cursor:pointer; transition:all 0.2s; margin:10px auto 0 auto; position:relative; left:-50px;}
+.banner .infoBox .but:hover{ opacity:1; border-color:#08c; color:#08c;}
+.banner .til{ position:absolute; right:10px; top:50%; color:#fff; opacity:0.3; font-family:"Microsoft YaHei"; font-size:2em; line-height:1.2em; height:1.2em; margin-top:-0.6em;}
+
+.banner.x{ height:130px; background-position:center -280px;}
+.banner.x .cont{ height:80px;}
+.banner.x .infoBox{ top:15px; padding-left:75px; width:100%;}
+.banner.x .infoBox .img{ width:50px; border-width:2px; left:10px;}
+.banner.x .infoBox .name{ font-size:1.5em;}
+
+.lessNav a{ display:block; line-height:2em; height:2em; color:#999; border-left:3px solid transparent; padding-left:15px;}
+.lessNav a:hover{ color:#08c;}
+.lessNav a.x{ color:#08c; border-color:#08c;}
+
+.lessNav{ float:right; width:20%; padding-left:20px;}
+.mainContent{ float:left; width:80%;}
+.lessNav,.mainContent{ padding-top:20px; padding-bottom:20px;}
+.mainContent.x{ float:none; width:100%;}
+
+.imgBox{display:inline-block; border:2px dashed #ccc; border-radius:1em; overflow:hidden; width:320px; cursor:pointer;}
+.imgBox img{ display:none;}
+.imgBox p{ margin-bottom:0; text-align:center; font-size:2.5em; padding:25px 0; color:#ccc;}
+.imgBox p i{ margin-right:10px;}
+.imgBox.x{ padding:1px;}
+.imgBox.x img{ display:block; width:100%; border-radius:1em;}
+.imgBox.x p{ display:none;}
+.imgBox:hover{ border-color:#08c;}
+
+.userTab .name{ text-align:right;}
+.userTab .row{ padding:5px 0;}
+.userTab .but{ border-top:1px solid #e0e0e0; padding-top:20px; margin-top:10px;}
+.userTab .but button{ width:100px;}
+
+.verifyCol{ width:100%; position:relative;}
+.verifyCol img{ position:absolute; left:1px; top:1px; width:120px; height:32px; border-radius:4px 0 0 4px; border-right:1px solid #ccc; cursor:pointer;}
+.verifyCol .form-control{ padding-left:130px;}
+
+
+/*白色*/
+.topNavBg.white{ background:rgba(255,255,255,0.5);}
+.topNavBg.white:hover{ background:rgba(255,255,255,0.9);}
+.topNavBg.white .topNav .logo{ color:#333;}
+.topNavBg.white .topNav .nav li a{ color:#666; text-shadow:0 0px 3px #FFF;}
+.topNavBg.white .topNav .nav li a.x{ color:#333;}
+.topNavBg.white .topNav .nav li a:hover{ text-shadow:none;}
+.topNavBg.white .topNav .msgBox .col .icon{ color:#666;}
+.topNavBg.white .topNav .msgBox .col .list-group .list-group-item{ background-color:rgba(255,255,255,0.9); border-color:#ccc; color:#666;}
+.topNavBg.white .topNav .msgBox .col .list-group:before{ color:#ccc;}
+.topNavBg.white .topNav .logo:hover,.topNavBg.white .topNav .msgBox .col:hover .icon,.topNavBg.white .topNav .nav li a:hover,.topNavBg.white .topNav .msgBox .col .list-group .list-group-item:hover{ background-color:#08c; color:#FFF;}
+.topNavBg.white .topNav .msgBox .col.disabled:hover .icon{background:none; color:#666;}
+
+
+
+.banner.white{ background-image:url(../img/banner_white.jpg); background-color:#fff;}
+.banner.white .infoBox,.banner.white .infoBox .name,.banner.white .infoBox .icon .link{ color:#333;}
+.banner.white .infoBox .but{ border-color:#333; color:#333; background:rgba(255,255,255,0.2); opacity:1;}
+.banner.white .infoBox .but:hover{ border-color:#08c; background:#08c; color:#FFF;}
+.banner.white .til{ color:#000;}
+
+.topNav .showNav{ line-height:50px; float:right; padding:0 15px; font-size:1.2em; cursor:pointer; display:none;}
+.topNav .msgBox .userInfo{ display:none;}
+.navHint{ display:none;}
+@media screen and (max-width: 991px){
+	.cont{ min-width:100%; max-width:100%;}
+	.userTab .name{ text-align:left;}
+	.topNav .showNav{ display:block;}
+	.navHint{ display:block; visibility:hidden; opacity:0; z-index:10; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.2);}
+	.navHint.x{ visibility:visible; opacity:1;}
+	.topNavBg{ z-index:11;}
+	.topNavBg:hover{ background:none;}
+	
+	.topNav .navBg,.topNav .msgBox{ position:fixed; right:-180px; top:0; width:180px; height:100%; display:block; visibility:hidden; transition:all 0.2s;}
+	.topNav .navBg.x,.topNav .msgBox.x{ right:0; visibility:visible;}
+	.topNav .navBg{ padding:210px 0 30px 0; float:none; z-index:12; pointer-events:none;}
+	.topNav .nav{ position:relative; height:100%; width:100%; border-top:1px solid #444; pointer-events:auto;}
+	.topNav .nav li{ float:none;}
+	.topNav .nav li a{ line-height:2.5em;}
+	.topNav .nav li a.x{ border-top:0; color:#08c;}
+	
+	.topNav .msgBox{ background:#333; z-index:11; box-shadow:0 0 10px #000;}
+	.topNav .msgBox .col{ float:left; padding:0; height:auto; position:static; width:50%;}
+	.topNav .msgBox .col.disabled{ opacity:1;}
+	.topNav .msgBox .col .icon{ font-size:1em; color:#FFF; line-height:2em; height:auto;}
+	.topNav .msgBox .col.disabled .icon{ opacity:0.5;}
+	.topNav .msgBox .col.notice,.topNav .msgBox .col.msg{ position:relative; z-index:3; background:rgba(0,0,0,0.5);}
+	.topNav .msgBox .col.notice .icon:after{ content:"通知";}
+	.topNav .msgBox .col.msg .icon:after{ content:"消息";}
+	.topNav .msgBox .col.bars .icon{ display:none;}
+	.topNav .msgBox .col .list-group{ visibility:visible; opacity:1; margin:0; width:100%; right:0; top:auto; bottom:0; border-top:1px solid #444; height:30px;}
+	.topNav .msgBox .col .list-group:before{ display:none;}
+	.topNav .msgBox .col .list-group .list-group-item{ background:none; width:50%; float:left; padding:0; text-align:center; text-align:center; line-height:29px; border:0;}
+	
+	.topNav .msgBox .userInfo{ display:block; position:relative; z-index:2;}
+	.topNav .msgBox .userInfo .img{ width:100%; padding-top:100%; position:relative; display:block;}
+	.topNav .msgBox .userInfo .img img{ display:block; width:100%; height:100%; position:absolute; top:0; left:0;}
+	.topNav .msgBox .userInfo .name{ display:block; text-align:center; font-size:1.2em; font-weight:normal; line-height:25px;}
+	.topNav .msgBox .userInfo .name .vip{ display:none;}
+	
+	.banner{ height:100%; position:relative; background-position:center bottom; background-size:auto 400px;}
+	.banner .cont{ height:100%; top:0;}
+	.banner .infoBox{ width:260px; padding-top:120px; padding-left:0; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); margin-top:-20px;}
+	.banner .infoBox .img{ left:10px;}
+	.banner .infoBox .name,.banner .infoBox .txt{ position:absolute; left:0; padding-left:120px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+	.banner .infoBox .name{ top:0; width:100%;}
+	.banner .infoBox .txt{ top:3.5em; padding-top:0; margin:0; border-top:0; display:block;}
+	.banner .infoBox .icon{ float:none; text-align:center;}
+	.banner .infoBox .times{ text-align:center; padding-top:10px;}
+	.banner .infoBox .but{ position:absolute; left:120px; top:5em; margin:0;}
+	.banner.x{ height:100px; background-position:center -60px; background-size:auto 160px;}
+	.banner.x .cont{ display:none;}
+	
+	.lessNav,.mainContent{ padding:0; display:block; width:100%; float:none;}
+	.lessNav{ border-bottom:1px solid #ccc; background:#f0f0f0; white-space:nowrap; overflow-y:hidden; overflow-x:auto;}
+	.lessNav a{ padding:0 10px; border:0; display:inline-block; line-height:2.5em; height:auto; white-space:nowrap;}
+	.mainContent{ padding:10px 0;}
+	
+	.imgBox{ width:100%;}
+}

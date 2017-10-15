@@ -1,0 +1,566 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+body,html{ height:100%; overflow-y:hidden;}
+body{ position:relative;}
+</style> 
+{/block}
+{block name="body"}
+<div data-spy="scroll" data-target=".navTab_m" data-offset="50" id="touchBox">
+
+    <div class="container-fluid fr_pt10 fr_wb100">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group input-date" id="dateBox">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span>请选择车间</span> <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="divider"></li>
+                            <li><a data-id="0">全部</a></li>
+                        </ul>
+                    </div>
+                    <input readonly type="text" class="form-control" data-format="yyyy-mm-dd">
+                </div>
+            </div>
+            <div class="col-sm-6 hidden-xs text-right">
+                <a href="{:url('chart')}" class="btn btn-default"><i class="fa fa-bar-chart"></i> 统计信息</a>
+            </div>
+        </div>
+        
+        
+        <div class="row fr_mt10 upTxt">
+            <div class="col-sm-12">
+                <div class="alert alert-info fr_mb0" role="alert">
+                    <i class="fa fa-circle-o-notch fa-spin fr_mr5"></i>数据更新中
+                </div>
+            </div>
+        </div>
+        <div class="row fr_mt10" id="mainBox"></div>
+    </div>
+    
+</div>
+
+<div class="navTabBg">
+    <div class="navTab">
+        <div class="navTab_m">
+            <ul class="nav nav-pills" role="tablist"></ul>
+        </div>
+    </div>
+</div>
+
+<div class="tools">
+    <i class="fa fa-cog"></i>
+    <ul>
+        <li data-val="desc"><i class="fa fa-sort-amount-desc"></i><span>降序</span><small>实动率</small></li>
+        <li data-val="asc"><i class="fa fa-sort-amount-asc"></i><span>升序</span><small>实动率</small></li>
+        <li data-val="default" class="act"><i class="fa fa-filter x"></i><span>默认</span><small>默认</small></li>
+    </ul>
+</div>
+
+<div class="objInfo">
+    <div class="info">
+    
+        <div class="tool">
+            <i class="fa fa-remove"></i>
+        </div>
+        <div class="til"></div>
+    	<div class="loading">
+        	<i class="fa fa-circle-o-notch fa-spin"></i>
+            <span>加载中...</span>
+        </div>
+        <div class="scrollbox">
+            <div class="chart_boxBg">
+                <div class="status">
+                    <i></i>
+                    <span></span>
+                </div>
+                 <div class="auth">
+                 	权限：
+                    <span>1</span>
+                </div>
+                <div class="mission"><i></i><span>0</span><small class="text-muted">/0</small></div>
+                <div class="axis">
+                    <b>X：</b>
+                    <span>0</span><br />
+                    <b>Y：</b>
+                    <span>0</span><br />
+                    <b>Z：</b>
+                    <span>0</span>
+                </div>
+                <div class="chart_box1 x">
+                    <div id="chart_spindle" class="chart_main"></div>
+                </div>
+                <div class="chart_box1">
+                    <div id="chart_feedrateper" class="chart_main"></div>
+                </div>
+                <div class="chart_box1">
+                    <div id="chart_feedrate" class="chart_main"></div>
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 run">
+
+                    <div class="row">
+                        <div class="col-md-12 td">&nbsp;</div>
+                        <div class="col-md-6 td">
+                            <b>开机:</b>
+                            <span>0</span>
+                        </div>
+                        <div class="col-md-6 td">
+                            <b>开机率:</b>
+                            <span>0</span>
+                        </div> 
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active active" role="progressbar" style="width:0">
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="col-md-6 val">
+                
+                    <div class="row">
+                        <div class="col-md-6 td">
+                            <b>切削:</b>
+                            <span>0</span>
+                        </div>
+                        <div class="col-md-6 td">
+                            <b>运行:</b>
+                            <span>0</span>
+                        </div>
+                        <div class="col-md-6 td">
+                            <b>待机:</b>
+                            <span>0</span>
+                        </div>
+                        <div class="col-md-6 td">
+                            <b>报警:</b>
+                            <span>0</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:0%; background-color:#1B7C1B;"></div>
+                        <div class="progress-bar progress-bar-success x" style="width:0%"><span>0%</span></div>
+                        <div class="progress-bar progress-bar-warning" style="width:0%"></div>
+                        <div class="progress-bar progress-bar-danger" style="width:0%"></div>
+                    </div>
+
+                    
+                </div>
+                
+            </div>
+            
+            <hr />
+            
+            <div class="row txt">
+                <div class="col-md-4 td">
+                    <b>主程序号:</b>
+                    <span>0</span>
+                </div>
+                <div class="col-md-4 td">
+                    <b>当前工件:</b>
+                    <span>0</span>
+                </div>
+                <div class="col-md-4 td">
+                    <b>子程序号:</b>
+                    <span>0</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{/block}
+{block name="foot"}
+{include file="#public_after" /}
+<script src="{$static_url}ECharts/echarts.js"></script>
+<script src="{$skin_url}Js/config.js"></script>
+<script>
+$('.navTabBg').hammer().on('pan',function(){
+	event.stopPropagation();
+});
+var ajaxUrl='{:url("Api/getData");}';
+var ajaxObj,ajaxInfo,timeInfo;
+var sortFun={
+	'desc':function(a,b){return b.bn-a.bn;},
+	'asc':function(a,b){return a.bn-b.bn;},
+	'default':function(a,b){return a.id-b.id;},
+}
+
+var statusArr=[
+		{'name':'关机','color':'#ccc',},
+		opArr.run,
+		opArr.standby,
+		opArr.warning,
+		{'name':opArr.task.name,'color':'#1B7C1B',},
+	];
+
+var chartObj=[
+	{
+		'name':'主轴转速',
+		'key':'spindle',
+		'max':'20000',
+		'color':[[1, '#5cb85c']],
+		'dw':'rpm',
+		'obj':null,
+	},
+	{
+		'name':'进给倍率',
+		'key':'feedrateper',
+		'max':'250',
+		'color':[[0.6, '#5cb85c'],[1, '#428bca']],
+		'dw':'%',
+		'obj':null,
+	},
+	{
+		'name':'进给速度',
+		'key':'feedrate',
+		'max':'48000',
+		'color':[[1, '#428bca']],
+		'dw':'mm',
+		'obj':null,
+	},
+]
+var feedrateper_Chart,spindle_Chart,resize_time,resize_type;
+resize_type=false;
+var resizeFun=function(){
+	var box=$('.objInfo .info');
+	if(!box.hasClass('x'))return false;
+	for(var i in chartObj){
+		if(chartObj[i].obj)chartObj[i].obj.resize();
+	}
+	box.removeAttr('data-resize');
+	echoLog('aaa');
+}
+$(window).resize(function(){
+	var box=$('.objInfo .info');
+	if($('.objInfo .info').hasClass('x')){
+		WN.addTranEvent(box[0],resizeFun);
+	}else{
+		box.attr('data-resize',true);
+	}
+});
+var offChart=function(){
+	for(var i in chartObj){
+		if(chartObj[i].obj){
+			chartObj[i].obj.dispose();
+			chartObj[i].obj=null;
+		}
+	}
+}
+var getChart=function(data){
+	var option;
+	for(var i in chartObj){
+		if(!chartObj[i].obj){
+			chartObj[i].obj=echarts.init(document.getElementById('chart_'+chartObj[i].key));;
+		}
+		option={
+			series: [
+				{
+					name:chartObj[i].name,
+					min:0,
+					max:chartObj[i].max,
+					axisLine: {            // 坐标轴线
+						lineStyle: {       // 属性lineStyle控制线条样式
+							width: 8,
+							color: chartObj[i].color,
+						}
+					},
+					axisTick: {show: false},
+					splitLine: {           // 分隔线
+						length: 15,         // 属性length控制线长
+						lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+							color: 'auto'
+						}
+					},
+					type: 'gauge',
+					detail: {formatter:'{value}'+chartObj[i].dw},
+					data: [{value: 30, name: chartObj[i].name}]
+				}
+			]
+		};
+		option.series[0].data[0].value = data[chartObj[i].key];
+		chartObj[i].obj.setOption(option, true);
+	}
+	for(i in data.axis){
+		$('.chart_boxBg .axis span').eq(i).text(data.axis[i].toFixed(3));
+	}
+	if($('.objInfo .info').attr('data-resize'))resizeFun();
+}
+var getInfo=function(tid,cfun){
+	if(ajaxInfo){ajaxInfo.abort();ajaxInfo=false;}
+	var postData={'ids':tid};
+	ajaxInfo=alenPost(ajaxUrl,postData,function(data){
+		ajaxInfo=false;
+		for(var i in data)break;
+		data=data[i][0];
+		var box=$('.objInfo');
+		box.find('.alert').remove();
+		if(!box.find('.info').hasClass('x')){
+			box.find('.info').addClass('x');
+			box.find('.scrollbox').scrollTop(0);
+		}
+		for(i in data.error){
+			box.find('.chart_boxBg').before('<div class="alert alert-danger fr_mt10 fr_mb0"><i class="fa fa-warning fr_mr5"></i><b>'+i+':'+data.error[i]+'</b></div>');
+		}
+		
+		data.status=parseInt(data.status);
+		var status=statusArr[data.status];
+		
+		box.find('.status span').text(status.name);
+		box.find('.status span').css('color',status.color);
+		box.find('.status i').css('background',status.color);
+		
+		box.find('.txt .td:eq(0) span').text(data.workpiece);
+		box.find('.txt .td:eq(1) span').text(data.workpiece);
+		box.find('.txt .td:eq(2) span').text(data.subprogram);
+		
+		box.find('.run span:eq(0)').text(jsTime(data.power));
+		box.find('.run span:eq(1)').text((data.power/(24*3600)*100).toFixed(2)+'%');
+		box.find('.run .progress-bar').css('width',(data.power/(24*3600)*100).toFixed(2)+'%');
+		
+		var cor=[
+			opArr.standby.color,
+			opArr.run.color,
+			opArr.warning.color,
+		]
+		box.find('.mission i').css('background',cor[data.mission_status]);
+		box.find('.mission span').text(data.finished);
+		box.find('.mission span').css('color',cor[data.mission_status]);
+		box.find('.mission small').text('/'+data.mission);
+		
+		box.find('.chart_boxBg .auth span').text(data.auth);
+		
+		box.find('.val .td:eq(0) span').text(jsTime(data.task));
+		box.find('.val .progress .progress-bar:eq(0)').css('width',parseInt(data.task/data.power*10000)/100+'%');
+		box.find('.val .td:eq(1) span').text(jsTime(data.run));
+		box.find('.val .progress .progress-bar:eq(1)').css('width',parseInt((data.run-data.task)/data.power*10000)/100+'%');
+		box.find('.val .td:eq(2) span').text(jsTime(data.standby));
+		box.find('.val .progress .progress-bar:eq(2)').css('width',parseInt(data.standby/data.power*10000)/100+'%');
+		box.find('.val .td:eq(3) span').text(jsTime(data.warning));
+		box.find('.val .progress .progress-bar:eq(3)').css('width',parseInt(data.warning/data.power*10000)/100+'%');
+		var sdb=(data.run/data.power*100).toFixed(2);
+		box.find('.val .progress .progress-bar.x span').text((sdb>0?sdb:0)+'%');
+		
+		getChart(data);
+		if(cfun)cfun();
+		//til
+		//console.log(data);
+	},function(err){
+		if(cfun)cfun(err);
+	});
+}
+$('.objInfo .info .tool i').click(function(){
+	$('.objInfo').removeClass('x');
+	$('.objInfo .info').removeClass('x');
+	$('#touchBox').removeClass('x');
+	if(ajaxInfo){ajaxInfo.abort();ajaxInfo=false;}
+	clearTimeout(timeInfo);
+	timeInfo=false;
+});
+$('#mainBox').on('click','.objCol .thumbnail',function(){
+	var o=$(this).parent('.objCol');
+	var id=parseInt(o.attr('id').split('_')[1]);
+	
+	var box=$('.objInfo');
+	box.find('.til').text(o.find('h5').text());
+	box.addClass('x');
+	$('#touchBox').addClass('x');
+	var tmpFun=function(){
+		getInfo(id,function(err){
+			if(err){
+				box.find('.tool i').click();
+				alerts(err);
+			}else{
+				timeInfo=setTimeout(tmpFun,200);
+			}
+		});
+	}
+	timeInfo=setTimeout(tmpFun,500);
+});
+
+function getData(times,bFun){
+	$('.upTxt').addClass('x');
+	var postData={'fields':'id,power,run,name,status','workshop':$('#dateBox button').attr('data-id')};
+	if(times)postData.time=times;
+	ajaxObj=alenPost(ajaxUrl,postData,function(data){
+		for(first in data)break;
+		data=data[first];
+		ajaxObj=false;
+		var newID=new Array();
+		var html,sObj,BoxObj,navObj;
+		for(i in data){data[i].bn=parseInt(data[i].run/data[i].power*100);data[i].bn=data[i].bn?data[i].bn:0;}
+		var sortType=$('.tools li.act').attr('data-val');
+		//console.log(sortFun[sortType]);
+		data.sort(sortFun[sortType]);
+		//console.log(data);
+		var ifx=false;
+		$('.navTab .nav').html('');
+		for(i in data){
+			ifx=false;
+			BoxObj=$('#mainBox .objCol').eq(i);
+			navObj=$('.navTab .nav li').eq(i);
+			if(navObj.length){
+				navObj.find('a').attr('href','#id_'+data[i].id);
+				navObj.find('a').text(data[i].id);
+			}else{
+				$('.navTab .nav').append('<li role="presentation"><a href="#id_'+data[i].id+'">'+data[i].id+'</a></li>');
+			}
+			if(BoxObj.length){
+				if(BoxObj.attr('id').split('_')[1]==data[i].id)ifx=true;
+			}
+			data[i].status=parseInt(data[i].status);
+			data[i].status=data[i].status?data[i].status:0;
+			if(ifx){
+				sObj=BoxObj;
+				BoxObj.find('h5').text(data[i].name);
+				BoxObj.find('h5').css('color',statusArr[data[i].status].color);
+				BoxObj.find('.txt span:first').text(jsTime(data[i].power));
+				BoxObj.find('.txt span:eq(1)').text(jsTime(data[i].run));
+				BoxObj.find('.progress-bar').text(data[i].bn+'%');
+				BoxObj.find('.progress-bar').css('width',data[i].bn+'%');
+			}else{
+				BoxObj.remove();
+				html=$('<div class="col-sm-6 col-md-4 objCol" id="id_'+data[i].id+'"><div class="thumbnail"><div class="caption"><h5 style="color:'+statusArr[data[i].status].color+';" class="fr_mt0">'+data[i].name+'</h5><div class="txt"><p>开机：<span class="text-primary">'+jsTime(data[i].power)+'</span></p><p>实动：<span class="text-primary">'+jsTime(data[i].run)+'</span></p></div><div class="progress fr_mb0"><div class="progress-bar" role="progressbar" style="width:'+data[i].bn+'%; min-width:2em;">'+data[i].bn+'%</div></div></div></div></div>');
+				if(sObj){
+					sObj.after(html);
+				}else{
+					$('#mainBox').prepend(html);
+				}
+				sObj=html;
+			}
+		}
+		sObj.nextAll('.objCol').remove();
+		$('.navTab_m').removeAttr('style');
+		
+		$('#touchBox').scrollspy('refresh');
+		
+		
+		$('.navTab .nav').addClass('pull-left');
+		$('.navTab_m').width($('.navTab .nav').width());
+		$('.navTab .nav').removeClass('pull-left');
+		
+		$('.upTxt').removeClass('x');
+		if(bFun)bFun();
+	},function(err){
+		ajaxObj=false;
+		$('.upTxt').removeClass('x');
+		if(bFun){
+			bFun(err);
+		}else{
+			alerts(err);
+		}
+	});
+}
+
+$('#dateBox .dropdown-menu').delegate('a','click',function(){
+	var o=$(this);
+	var id=o.attr('data-id');
+	var name=o.text();
+	$('#dateBox button').find('span:first').text(name);
+	$('#dateBox button').attr('data-id',id);
+	$('#dateBox input').change();
+});
+
+$('#dateBox input').change(function(){
+	var str=$(this).val();
+	if(!str)return;
+	if(ajaxObj){ajaxObj.abort();ajaxObj=false;}
+	getData(str);
+});
+$('.tools>i').click(function(){
+	$('.tools ul').toggleClass('x');
+});
+
+var upTime;
+var startFun=function(){
+	var upS=5000;
+	var now=new Date();
+	now=now.format('yyyy-MM-dd');
+	var inp=$('#dateBox input');
+	if(!inp.val())inp.val(now);
+	var upFun=function(){
+		if(now==inp.val()){
+			if(ajaxObj){ajaxObj.abort();ajaxObj=false;}
+			getData(now,function(err){
+				if(err){
+					alerts(err);
+				}else{
+					upTime=setTimeout(upFun,upS);
+				}
+			});
+		}else{
+			upTime=setTimeout(upFun,upS);
+		}
+	}
+	upFun();
+}
+var getWorkshop=function(cfun){
+	alert_hint('加载中','spinner',-1);
+	alenPost('{:url("Api/getName")}',{
+			'workshop':'all',
+		},function(data){
+		var box=$('#dateBox .dropdown-menu .divider');
+		var html='';
+		for(i in data){
+			html+='<li><a data-id="'+data[i].id+'">'+data[i].name+'</a></li>';	
+		}
+		box.prevAll().remove();
+		box.before(html);
+		$('.ui_hint').remove();
+		if(cfun)cfun();
+	},function(err){
+		alerts(err);
+		$('.ui_hint').remove();
+	});
+}
+getWorkshop(function(){
+	$('#dateBox .dropdown-menu li:first a').click();
+	startFun();
+});
+
+var scrollspyFun=function(){
+	var box=$('.navTab');
+	var o=box.find("li.active");
+	var currentItem =o.text();
+	var endLeft=-1;
+	if(o.position().left<box.scrollLeft()){
+		endLeft=o.position().left;
+	}else if(o.position().left>box.scrollLeft()+box.width()-o.width()){
+		endLeft=o.position().left-o.width();
+	}
+	if(endLeft!=-1){
+		box.stop(true,false);
+		box.animate({'scrollLeft':endLeft},200);
+	}
+}
+
+$('.tools li').click(function(){
+	var o=$(this);
+	if(o.hasClass('act'))return false;
+	o.siblings('li').removeClass('act');
+	o.addClass('act');
+	$('#dateBox input').change();
+});
+$('.navTab_m').on('activate.bs.scrollspy',scrollspyFun); 
+
+$('.navTab .nav').on('click','a',function(){
+	var id=$(this).attr('href');
+	$('#touchBox').animate({'scrollTop':$('#touchBox').scrollTop()+$(id).offset().top-$('.navTab').height()-2},200);
+	return false;
+});
+
+$('#touchBox').scroll(function(){
+	if($('#touchBox').scrollTop()>50){
+		$('.navTabBg').addClass('x')
+		$('.navTabBg').removeAttr('style');
+	}else{
+		$('.navTabBg').removeClass('x')
+		$('.navTabBg').css('top',50-$('#touchBox').scrollTop());
+	}
+});
+
+</script>
+{/block}

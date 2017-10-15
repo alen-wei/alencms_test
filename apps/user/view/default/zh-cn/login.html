@@ -1,0 +1,475 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	html,body{ width:100%; height:100%; overflow:hidden;}
+	body{ background:rgba(0,136,204,0.1);}
+</style>
+{/block}
+{block name="body"}
+<div id="touchBox">
+	<div class="loadBox">
+    	<i class="fa fa-circle-o-notch fa-spin"></i>
+    </div>
+    <div class="loginBox">
+        <div class="tilbg">
+            <div class="til text-primary">
+                <i class="fa fa-user"></i>
+                <p class="ui_txtof"><b class="fr_til">用户登录</b><small>log in</small><a href="{$url}" class="small">点击返回来源页&raquo;</a></p>
+            </div>
+        </div>
+        <div class="tilbg reg">
+            <div class="til text-primary">
+                <i class="fa fa-user-plus"></i>
+                <p class="ui_txtof"><b class="fr_til">用户注册</b><small>sign up</small><a href="{$url}" class="small">点击返回来源页&raquo;</a></p>
+            </div>
+        </div>
+        <div class="inpbg">
+            <form id="dataForm" data-login="{:url('api/login')}" data-signup="{:url('api/signup')}" data-verify="{:url('api/verifyUser')}">
+            <div class="col">
+                <i class="fa fa-exclamation-circle text-danger" data-toggle="tooltip" data-placement="right" title=""></i>
+                <input type="text" name="user" data-reg="email|mobile|username" data-txt="请填写正确的手机或邮箱" placeholder="手机/邮箱/用户名" />
+            </div>
+            <div class="col reg">
+                <i class="fa fa-exclamation-circle text-danger" data-toggle="tooltip" data-placement="right" title=""></i>
+                <input type="text" name="name" data-reg="notempty" data-txt="请填写昵称" placeholder="昵称" />
+            </div>
+            <div class="col password">
+                <i class="fa fa-exclamation-circle text-danger" data-toggle="tooltip" data-placement="right" title=""></i>
+                <input type="password" name="password" data-reg="notempty" data-txt="请填写密码" placeholder="密码" />
+                <a class="showpd">
+                    <span class="fa fa-eye-slash"></span>
+                    <span class="fa fa-eye"></span>
+                </a>
+            </div>
+            <div class="col verify">
+                <i class="fa fa-exclamation-circle text-danger" data-toggle="tooltip" data-placement="right" title=""></i>
+                <input type="text" maxlength="4" name="_verify" placeholder="验证码" />
+                <img src="{:captcha_src()}" data-toggle="tooltip" data-placement="top" title="看不清？点击更换" />
+            </div>
+            <input type="hidden" name="_encrypt" value="1" />
+            </form>
+        </div>
+        <div class="btnbg">
+            <a id="autologin" class="link text-muted small check"><i class="fa fa-check x"></i>下次自动登录</a>
+            <button id="loginBtn" type="button" class="btn btn-primary fr_wb100"><i class="fa fa-sign-in fr_mr5"></i>登录</button>
+            <button id="signupBtn" type="button" class="btn btn-primary fr_wb100 reg"><i class="fa fa-user-circle fr_mr5"></i>注册</button>
+            <a href="#signup" class="link pull-right text-primary small">还没有帐户？点击这里快速注册&raquo;</a>
+            <a target="_blank" href="#" class="link pull-left text-muted small">无法登录？</a>
+            <a href="#login" class="link pull-right text-primary small reg">已有帐户？登录&raquo;</a>
+            <span id="agreement" class="link pull-left text-muted small reg check"><i class="fa fa-check x"></i>阅读并同意<a href="http://127.0.0.1:81/user/api/signupverify">《用户协议》</a></span>
+        </div>
+        <div class="thirdbox">
+            <div class="text"><em>第三方登录</em></div>
+            <a data-type="qq"><i class="fa fa-qq"></i><br /><span>QQ</span></a><a data-type="weixin"><i class="fa fa-weixin"></i><br /><span>微信</span></a><a data-type="weibo"><i class="fa fa-weibo"></i><br /><span>新浪微博</span></a>
+        </div>
+    </div>
+</div>
+<div id="particles"></div>
+{/block}
+{block name="foot"}
+<script src="{$static_url}Alen/Js/regex.js"></script>
+<script src="{$static_url}Jq_plugins/jquery.ba-hashchange.min.js"></script>
+<script>
+if(window.navigator.standalone)$('body').addClass('webapp');
+$('.loginBox .inpbg .col i').tooltip({});
+if(!$ifmobile){
+	$('.loginBox .inpbg .col.verify img').tooltip();
+}
+//切换
+var pageType;
+var actFun=function(type){
+	pageType=type;
+	echoLog(pageType);
+	if(Inp_time){
+		clearTimeout(Inp_time);
+		Inp_time=false;
+	}
+	var bgBOx=$('.loginBox');
+	var showFun=function(){
+		type=type?type:0;
+		var htmlObj=$('.loginBox .tilbg,.btnbg .link,.loginBox .btnbg button');
+		var colObj=$('.loginBox .inpbg .col');
+		colObj.find('input').val('');
+		//if(colObj.find('i').attr('aria-describedby'))colObj.find('i').tooltip('hide');
+		colObj.find('i').tooltip('hide');
+		colObj.removeClass('err');
+		if(type){
+			type=type=='signup'?1:0;
+		}else{
+			if(htmlObj.not('.reg').first().hasClass('act'))type=1;
+		}
+		htmlObj.removeClass('act');
+		colObj.removeClass('act');
+		if(type){  //注册
+			htmlObj=htmlObj.filter('.reg');
+		}else{  //登录
+			htmlObj=htmlObj.not('.reg');
+			colObj=colObj.not('.reg');
+		}
+		htmlObj.addClass('act');
+		colObj.addClass('act');
+		$('.loginBox').addClass('act');
+	}
+	if(bgBOx.hasClass('act')){
+		WN.addTranEvent(bgBOx[0],showFun);
+		bgBOx.removeClass('act');
+	}else{
+		showFun();
+	}
+}
+$('.loginBox .inpbg .col').click(function(){
+	$(this).find('input:first').focus();
+});
+$('.loginBox .inpbg .col input').click(function(){return false;});
+$('.loginBox .inpbg .col input').keydown(function(event){
+	var o=$(this);
+	if(event.keyCode==13){
+		var nextBox=o.parent('.col').nextAll('.col:visible');
+		if(nextBox.length>0){
+			nextBox.first().find('input:first').focus();
+		}else{
+			$('.loginBox .btnbg button:visible').click();
+			
+		}
+	}
+});
+$('.loginBox .inpbg .col.password .showpd').click(function(){
+	var o=$(this);
+	o.toggleClass('x');
+	$('.loginBox .inpbg .col.password input:first').attr('type',o.hasClass('x')?'text':'password');
+});
+//切换验证码
+var loadVerify=function(){
+	var o=$('.loginBox .inpbg .col.verify img');
+	var url=o.attr('src').split('?')[0];
+	url+='?r='+Math.floor(Math.random()*1000000);
+	o.attr('src',url);
+	o.prevAll('input:first').val('');
+}
+$('.loginBox .inpbg .col.verify img').click(loadVerify);
+//选框
+$('.loginBox .btnbg .check').click(function(){
+	$(this).find('i').toggleClass('x');
+});
+$('.loginBox .btnbg .check a').click(function(){
+	openUrlNew($(this).attr('href'));
+	return false;
+});
+//第三方登录
+$('.thirdbox a').click(function(){
+	alerts('暂未开放');
+});
+//hash
+$(window).hashchange(function(){
+	var tmp=getHash();
+	if(hash==tmp)return;
+	actFun(tmp);
+	hash=tmp;
+});
+var hash=getHash();
+{if condition="$type"}
+	if(!hash)hash="{$type}";
+{/if}
+hash=hash=='signup'?hash:'login';
+//注册
+var Inp_ajax,Inp_time,Inp_out;
+$('.loginBox .inpbg .col input').focus(function(){
+	var o=$(this);
+	var obj=o.prevAll('i:first');
+	if(obj.attr('aria-describedby'))obj.tooltip('hide');
+	if(Inp_time && Inp_out==o.attr('name')){
+		clearTimeout(Inp_time);
+		Inp_time=false;
+	}
+});
+$('.loginBox .inpbg .col input').blur(function(){
+	if(Inp_time){
+		clearTimeout(Inp_time);
+		Inp_time=false;
+	}
+	var o=$(this);
+	Inp_out=o.attr('name');
+	Inp_time=setTimeout(function(){
+		Inp_verify(o);
+		Inp_time=false;
+	},200);
+});
+var Inp_verify_user=function(o){
+	if(pageType=='login')Inp_success(o);return;
+	var url="{:url('api/verifyUser')}";
+	var obj=o.prevAll('i:first');
+	var val=o.val();
+	var typeName;
+	if(val.indexOf('@')!=-1){
+		typeName='邮箱';
+	}else if(regexCheck(val,'intege1')){
+		typeName='手机';
+	}else{
+		typeName='用户名';
+	}
+	obj.attr('data-original-title','正在验证'+typeName+'是否被占用');
+	if(Inp_ajax){Inp_ajax.abort();Inp_ajax=false;}
+	Inp_ajax=alenPost(url,{
+		'val':val,
+	},function(data){
+		Inp_ajax=false;
+		Inp_success(o);
+	},function(err,errID){
+		if(errID){
+			//setTimeout(function(){Inp_err(o,err);},500);
+			Inp_err(o,err);
+		}else{
+			Inp_success(o);
+		}
+		Inp_ajax=false;
+	});
+	Inp_load(o);
+}
+var Inp_load=function(o){
+	var obj=o.prevAll('i:first');
+	if(obj.attr('aria-describedby'))obj.tooltip('hide');
+	obj.removeClass('fa-exclamation-circle');
+	obj.removeClass('text-danger');
+	obj.addClass('fa-circle-o-notch');
+	obj.addClass('fa-spin');
+	obj.addClass('text-primary');
+	
+	o.parent().removeClass('err');
+	o.parent().addClass('load');
+	
+	//fa-exclamation-circle text-danger
+}
+var Inp_success=function(o){
+	var obj=o.prevAll('i:first');
+	if(obj.attr('aria-describedby'))obj.tooltip('hide');
+	o.parent().removeClass('err');
+	o.parent().removeClass('load');
+}
+var Inp_err=function(o,errTxt){
+	var obj=o.prevAll('i:first');
+	var box=o.parent();
+	obj.attr('data-original-title',errTxt?errTxt:o.attr('data-txt'));
+	obj.removeClass('fa-circle-o-notch');
+	obj.removeClass('fa-spin');
+	obj.removeClass('text-primary');
+	obj.addClass('fa-exclamation-circle');
+	obj.addClass('text-danger');
+	box.removeClass('load');
+	if(box.hasClass('err')){
+		obj.tooltip('show');
+	}else{
+		box.addClass('err');
+		WN.addTranEvent(obj[0],function(){
+			if(box.hasClass('err'))obj.tooltip('show');
+		});
+	}
+}
+var Inp_verify=function(o,noAjax){
+	var name=o.attr('name');
+	var val=o.val();
+	if(name=='_verify'){
+		if(val==''){
+			Inp_err(o,'请输入验证码');
+			return false;
+		}
+		if(val.length!=4){
+			Inp_err(o,'请输入4位数的验证码');
+			return false;
+		}
+		Inp_success(o);
+	}else{
+		var regType=o.attr('data-reg');
+		var regArr;
+		var ifc='&&';
+		if(regType.indexOf(',')!=-1){
+			regArr=regType.split(',');
+		}else{
+			ifc='||';
+			regArr=regType.split('|');
+		}
+		var runStr='ifc=';
+		for(i in regArr){
+			if(i>0)runStr+=' '+ifc+' ';
+			runStr+='regexCheck(val,"'+regArr[i]+'")';
+		}
+		eval(runStr);
+		if(!ifc){
+			Inp_err(o);
+			return false;
+		}
+		if(!noAjax){
+			if(name=='user'){
+				Inp_verify_user(o);
+				return true;
+			}
+		}
+		Inp_success(o);
+	}
+	return true;
+}
+var verifyFun=function(){
+	var form=$('#dataForm');
+	var userData={};
+	var verify='';
+	var isstop=0;
+	form.find('input:visible').map(function(){
+		//if(isstop)return false;
+		var o=$(this);
+		var name=o.attr('name');
+		var val=o.val();
+		if(Inp_verify($(this),true)){
+			if(name=='password' && form.find("input[name='_encrypt']").val()){
+				val=easy_encrypt(val);
+				userData._encrypt=1;
+			}
+			userData[name]=val;
+		}else{
+			isstop=1;
+		}
+	});
+	return isstop?false:userData;
+}
+var signupFun=function(){
+	if($('.loginBox .btnbg button').attr('disabled'))return;
+	if(Inp_time){
+		clearTimeout(Inp_time);
+		Inp_time=false;
+	}
+	if(!$('#agreement i').hasClass('x')){
+		alerts('请勾选"'+$('#agreement').text()+'"。');
+		return false;
+	}
+	var postData=verifyFun();
+	if(!postData)return;
+	echoLog(postData);
+	var url=$('#dataForm').attr('data-signup');
+	alert_hint('提交中...','spinner',-1);
+	$('.loginBox .btnbg button').attr('disabled',true);
+	var okFun=function(txt,url){
+		alerts(txt,'',{'fun':function(){
+			var tmpUrl='{$url}';
+			tmpUrl=tmpUrl?tmpUrl:url;
+			window.location.href=tmpUrl;
+		}});
+	}
+	var endFun=function(){
+		$('.loginBox .btnbg button').removeAttr('disabled');
+		$('.ui_hint').remove();
+		loadVerify();
+	}
+	var verifyCode=function(userStr,key){
+		var html='<div class="form-group fr_mb0"><p>验证码已发送到<a style="color:#08c;">'+userStr+'</a>请查收</p><input type="text" class="form-control" placeholder="请输入验证码"></div>';
+		var alertObj=alerts(html,'',{
+			'cancel':'取消',
+			'lessbut':'重发验证信息',
+			'confirm':'提交',
+			'html':true,
+			'fun':function(val){
+				if(val==2){ //重发
+					var url=$('#dataForm').attr('data-signup');
+					alert_hint('提交中...','spinner',-1);
+					alenPost(url,{'key':key,'user':userStr},function(data){
+						$('.ui_hint').remove();
+						verifyCode(userStr,data.key);
+					},function(err){
+						$('.ui_hint').remove();
+						alerts(err);
+					});
+				}else if(val==1){  //提交
+					var url="{:url('api/signupVerify')}";
+					var code=alertObj.find('input').val();
+					alert_hint('提交中...','spinner',-1);
+					alenPost(url,{'key':key,'code':code},function(data,backUrl){
+						$('.ui_hint').remove();
+						okFun(data._txt,backUrl);
+					},function(err){
+						$('.ui_hint').remove();
+						alerts(err,'',{'fun':function(){
+							verifyCode(userStr,key);
+						}});
+					});
+				}
+			}
+		});
+		var reBut=alertObj.find('.lessbut');
+		reBut.attr('disabled',true);
+		var txt='重发验证信息';
+		
+		var ss=10;
+		var reTime;
+		var reTimeFun=function(){
+			reBut.text(txt+' - '+ss);
+			ss--;
+			if(ss>0){
+				reTime=setTimeout(reTimeFun,1000);
+			}else{
+				reBut.text(txt);
+				reBut.removeAttr('disabled');
+			}
+		}
+		reTimeFun();
+	}
+	alenPost(url,postData,function(data,backUrl){
+		endFun();
+		if('verify'==data.type){
+			$('.loginBox .inpbg .col.verify img').click();
+			verifyCode(postData.user,data.key);
+		}else{
+			okFun(data._txt,backUrl);
+		}
+	},function(err){
+		endFun();
+		alerts(err);
+	});
+	
+}
+var loginFun=function(){
+	if($('.loginBox .btnbg button').attr('disabled'))return;
+	if(Inp_time){
+		clearTimeout(Inp_time);
+		Inp_time=false;
+	}
+	var postData=verifyFun();
+	if(!postData)return;
+	echoLog(postData);
+	var url=$('#dataForm').attr('data-login');
+	alert_hint('提交中...','spinner',-1);
+	$('.loginBox .btnbg button').attr('disabled',true);
+	var okFun=function(txt,url){
+		var tmpUrl='{$url}';
+		tmpUrl=tmpUrl?tmpUrl:url;
+		window.location.href=tmpUrl;
+	}
+	var endFun=function(){
+		loadVerify();
+		$('.loginBox .btnbg button').removeAttr('disabled');
+		$('.ui_hint').remove();
+	}
+	alenPost(url,postData,function(data,backUrl){
+		endFun();
+		if('verify'==data.type){
+			//$('.loginBox .inpbg .col.verify img').click();
+			//verifyCode(postData.user,data.key);
+		}else{
+			okFun(data._txt,backUrl);
+		}
+	},function(err){
+		endFun();
+		alerts(err);
+	});
+}
+$('#signupBtn').click(signupFun);
+$('#loginBtn').click(loginFun);
+</script>
+<!--背景-->
+<script src="{$static_url}Particles.js/particles.min.js"></script>
+<script>
+particlesJS.load('particles', '{$static_url}Particles.js/config/particles.json', function() {
+	echoLog('背景加载完成');
+	WN.addTranEvent($('.loadBox')[0],function(){
+		actFun(hash);
+	});
+	$('.loadBox').addClass('x');
+});
+</script>
+{/block}

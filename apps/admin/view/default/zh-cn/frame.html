@@ -1,0 +1,230 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<link href="{$skin_url}css/frame.css" rel="stylesheet" type="text/css" />
+{/block}
+{block name="body"}
+<div class="fr_frame x">
+	<div class="fr_left_bg"></div>
+	<div class="fr_left">
+    	<div class="fr_title">
+        	<span class="ui_txtof">{:config('sys_name')}</span>
+            <a class="toolsBtu" id="act_leftNav"><i class="fa fa-bars"></i></a>
+        </div>
+        <div class="fr_nav">
+        	<ul>
+                {volist name="nav" id="v"}
+                <li>
+                	<a><i class="{$v.icon}"></i>{$v.name}</a>
+                    <ul>
+                        {volist name="v.item" id="vv"}
+                    	<li><a class="ui_txtof" target="mainbox" data-nolink='1' href="{$vv.url}">{$vv.name}</a></li>
+                        {/volist}
+                    </ul>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <div class="fr_right">
+    	<div class="fr_tools">
+			<span class="title x"><i class="fa fa-refresh fa-spin"></i><em>加载中...</em></span>
+			<ul class="butBox">
+				<li class="x">
+					<a><i class="fa fa-user-circle-o"></i><span class="name">{$user.name}<em class="caret"></em></span></a>
+					<div class="zBox">
+						<div class="userBox">
+							<img class="img" src="{:get_user_img($user['img'])}" />
+							<span class="name">{$user.name}</span>
+							<small class="small text-muted">{$group->name}</small>
+							<ul>
+                                <li><a target="mainbox" href="{:url('user/admin/show')}?id={$user.id}">
+									<i class="fa fa-id-card-o"></i>
+									<span>资料</span>
+								</a></li>
+								<li><a target="mainbox" href="{:url('user/admin/log')}?userid={$user.id}">
+									<i class="fa fa-file-text-o"></i>
+									<span>记录</span>
+								</a></li>
+								<li><a href="{:url('config')}">
+									<i class="fa fa-cog"></i>
+									<span>设置</span>
+								</a></li>
+								<li><a>
+									<i class="fa fa-sign-out"></i>
+									<span>退出</span>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="x">
+					<a>
+						<i class="fa fa-bell"></i>
+						<span class="badge">42</span>
+					</a>
+					<div class="zBox">
+						<ul class="media-list">
+							<li class="media fr_pa10">
+								<div class="media-left">
+									<img class="media-object" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWM2ODgwZDdkNCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1YzY4ODBkN2Q0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNCIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="...">
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">Media heading</h4>
+									测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下
+								</div>
+							</li>
+							<li class="media fr_pa10">
+								<div class="media-body">
+									<h4 class="media-heading">Media heading</h4>
+									测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下
+								</div>
+							</li>
+						</ul>
+						<div class="zBut">
+							<i class="fa fa-bars fr_mr5"></i><span>查看更多</span>
+						</div>
+					</div>
+				</li>
+				<li class="x">
+					<a>
+						<i class="fa fa-comments"></i>
+						<span class="badge"></span>
+					</a>
+					<div class="zBox">
+						<ul class="media-list">
+							<li class="media fr_pa10">
+								<div class="media-body">
+									<h4 class="text-center text-muted fr_til"><i class="fa fa-commenting fr_mr5"></i>暂无新消息</h4>
+								</div>
+							</li>
+						</ul>
+						<div class="zBut">
+							<i class="fa fa-bars fr_mr5"></i><span>查看更多</span>
+						</div>
+					</div>
+				</li>
+				<li>
+                    <a onclick="confirm_hint(this,'确认退出后台？','','退出');return false;" href="{:url('api/logout')}"><i class="fa fa-sign-out"></i></a>
+				</li>
+			</ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="fr_main">
+        	<iframe data-nolink="true" id="mainbox" name="mainbox" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+<div class="safari"></div>
+{/block}
+{block name="foot"}
+<script src="{$static_url}Jq_plugins/jquery.scrollTo.js"></script>
+<script>
+
+(function(){
+	if(self.frameElement && self.frameElement.tagName == "IFRAME"){
+		var msgObj=new pageMsg(top);
+		msgObj.onHandclasp=function(data,token){
+			msgObj.send({
+				'_type':'tohome',
+			});
+		};
+		msgObj.init();
+	}
+})();
+
+
+
+
+if(window.navigator.standalone){
+	$('body').addClass('webapp');
+}
+if($ifmobile){
+	$('body').addClass('mobile');
+}
+
+$('.fr_nav').hammer().on('tap',function(){
+	var o=$(event.target);
+	if(o[0].tagName.toLowerCase()!='a')return false;
+	var url=o.attr('href');
+	if(!url){
+		var zo=o.next();
+		if(zo.length>0){
+			url=zo.find('a:first').attr('href');
+		}
+	}
+	if(url){
+		mainbox.location.href=url;
+		if($('.fr_left_bg:visible').length>0 && !$('.fr_frame').hasClass('x'))$('.fr_frame').addClass('x');
+		return false;
+	}
+});
+$('#act_leftNav').hammer().on('tap',function(){
+	$('.fr_frame').toggleClass('x');
+});
+$('.fr_left_bg').hammer().on('tap',function(){
+	$('.fr_frame').addClass('x');
+});
+var setFrameName=function(txt){
+	$('.fr_tools .title').text(txt);
+};
+
+$(window).keydown(function(event){
+	if(mainbox.window.keyfun){
+		return mainbox.window.keyfun(event.keyCode);
+	}
+});
+
+
+
+var hashlink=false;
+var hashFun=function(){
+	if(hashlink){
+		hashlink=false;
+		return;
+	}
+	var hash=window.location.hash.substr(1);
+	var suffix='.html';
+	if(!hash)hash='user/lists';
+	var tmp=hash.split('@');
+	var cmdArr=tmp[0].split('/');
+	var url='/'+cmdArr[0]+'/admin/'+cmdArr[1]+suffix;
+	url+=tmp[1]?'?'+tmp[1]:'';
+	mainbox.location.href=url;
+	//echoLog(url);
+};
+
+$(window).on('hashchange',hashFun);
+hashFun();
+
+var msgObj=new pageMsg(null,{
+	'finish':function(data){
+		var hash='';
+		if(data.uri){
+			for(var k in data.uri){
+				hash+=hash?'&':'@';
+				hash+=k+'='+encodeURIComponent(data.uri[k]);
+			}
+		}
+		hash=data.module+'/'+data.action+hash;
+		$('.fr_tools .title em').text(data.title);
+		$('.fr_tools .title').removeClass('x');
+		hashlink=true;
+		window.location.hash=hash;
+		return true;
+	},
+	'login':function(data){
+		window.location.href="{:url('login')}";
+		return true;
+	},
+	'tohome':function(data){
+		window.location.href="{:url('frame')}";
+		return true;
+	}
+});
+msgObj.onClose=function(){
+	$('.fr_tools .title').addClass('x');
+	$('.fr_tools .title em').text('加载中...');
+};
+msgObj.init();
+</script>
+{/block}

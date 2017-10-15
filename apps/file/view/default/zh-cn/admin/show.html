@@ -1,0 +1,126 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+	<div class="frame noLess" id="page_showFile">
+		
+		
+		<div class="contentBg">
+			<div class="content">
+				{if condition="$data->ext=='PDF'"}
+				<iframe class="ui_pdf_box" src="{:config('static_url')}pdf.js/web/?file={:urlencode(get_static_file($data.path))}"></iframe>
+				{else /}
+				{switch name="$extType"}
+					{case value="img"}
+					<div id="showImgFile" data-img="{:get_static_img($data.path)}" onclick="imgZoom(this);return false;" >
+						<img src="{:get_static_img($data.path)}" />
+						<i class="fa fa-search"></i>
+					</div>
+					{/case}
+					{case value="video"}
+					<video id="vidObj" controls src="{:get_static_file($data.path)}"></video>
+					<script>
+						$(window).ready(function(){
+							setVideo('#vidObj',true);
+						});
+					</script>
+					{/case}
+					{case value="txt|code"}
+					<div id="showTxtFile" data-url="{:get_static_file($data.path)}">
+						<div class="loadfile">
+							<i class="fa fa-circle-o-notch fa-spin fr_mr10"></i><span>文件加载中...</span>
+						</div>
+					</div>
+					<script>
+						$(window).ready(function(){
+							$.get("{:get_static_file($data.path)}",function(data){
+								$('#showTxtFile').html('<pre></pre>');
+								$('#showTxtFile pre').text(data);
+							});
+						});
+					</script>
+					{/case}
+					{default /}
+					<div id="showNoFile"></div>
+				{/switch}
+				{/if}
+			</div>
+		</div>
+		
+		<div class="lessNav">
+			<div class="list-group">
+				<div class="list-group-item">
+					<small class="text-muted">文件名</small>
+					<p title="{$data.path}" class="list-group-item-text ui_txtof">
+						{$data.path}
+					</p>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">文件类型</small>
+					<p title="{$data.ext}　|　{$data.type}" class="list-group-item-text ui_txtof">
+						{if condition="$data->ext=='PDF'"}
+						<i class="fa fa-file-pdf-o"></i>
+						{else /}
+						<i class="fa file_icon_{$extType}"></i>
+						{/if}
+						{$data.ext}　|　{$data.type}
+					</p>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">MD5</small>
+					<p title="{$data.md5}" class="list-group-item-text ui_txtof">
+						{$data.md5}
+					</p>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">上传IP</small>
+					<p title="{$data.ips}" class="list-group-item-text ui_txtof">
+						{$data.ips}
+					</p>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">上传时间</small>
+					<p title="{:date('Y-m-d H:i:s',$data.create_time)}" class="list-group-item-text ui_txtof">
+						{:date('Y-m-d H:i:s',$data.create_time)}
+					</p>
+				</div>
+				<div class="list-group-item">
+					<div class="media">
+						<div class="media-left media-middle">
+							<a href="{:url('user/admin/show')}?id={$userData.id}">
+								<img height="50" class="media-object img-rounded" src="{:get_user_img($userData.img,100)}" />
+							</a>
+						</div>
+						<div class="media-body media-middle">
+							<small class="text-muted">上传用户</small>
+							<div title="{$userData.name}" class="ui_txtof"><a class="text-default" href="{:url('user/admin/show')}?id={$userData.id}">{$userData.name}</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">应用</small>
+					<p class="list-group-item-text ui_txtof">
+						{$data['apply']>0?$data['apply'].'个':'无'}应用
+					</p>
+				</div>
+				<a href="{:request()->server('HTTP_REFERER')}" class="list-group-item">
+					<span class="text-primary">返回来源页</span>
+				</a>
+				<a onclick="confirm_hint(this,'确认删除文件【{$data.path}】？');return false;" href="{:url('del')}?id={$data.id}&url={:urlencode(request()->server('HTTP_REFERER'))}" class="list-group-item">
+					<span class="badge bg-danger">无法恢复</span>
+					<span class="text-danger"><i class="fa fa-trash-o fr_mr5"></i>删除文件</span>
+				</a>
+				<a target="_blank" href="{:url('download')}?id={$data.id}" class="list-group-item">
+					<span class="badge">{:get_file_size($data.size)}</span>
+					<span class="text-primary">下载文件</span>
+				</a>
+			</div>
+		</div>
+		
+	</div>
+</div></div>
+{/block}
+{block name="foot"}
+<script>
+	
+</script>
+{/block}

@@ -1,0 +1,549 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+
+<!--顶部工具栏-->
+<div class="topTools">
+    <!--搜索-->
+    <div class="col x">
+        <div class="input-group">
+            <div class="input-group-btn" id="post_key" data-val="{$cond.key}">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span>...</span> <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li data-val="user"><a href="#">用户名</a></li>
+                    <li data-val="name"><a href="#">昵称</a></li>
+                    <li data-val="phone"><a href="#">手机</a></li>
+                    <li data-val="mail"><a href="#">邮箱</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li data-val="all"><a href="#"><span>全部</span><small class="text-muted fr_ml5">低性能</small></a></li>
+                </ul>
+            </div>
+            <input id="post_search" type="text" class="form-control" placeholder="请输入关键字" value="{$cond.search}">
+            <span id="submitBut" class="input-group-btn">
+                <a class="btn btn-default"><i class="fa fa-search"></i></a>
+            </span>
+        </div>
+    </div>
+    <!--排序-->
+    <div class="col fr_pl10">
+        <div class="btn-group" id="post_sort" data-val="{$cond.sort}">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i></i> <span>...</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li data-val="login_time"><a href="#">登录时间</a></li>
+                <li data-val="create_time"><a href="#">注册时间</a></li>
+                <li data-val="name"><a href="#">昵称</a></li>
+                <li role="separator" class="divider"></li>
+                <li data-val="desc"><a href="#"><i class="fa fa-arrow-circle-down fr_mr5"></i>降序</a></li>
+                <li data-val="asc"><a href="#"><i class="fa fa-arrow-circle-up fr_mr5"></i>升序</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!--筛选-->
+    <div class="col">
+        <div class="fold" id="post_filter" data-val="{$cond.filter}" data-static="{$cond.filter}">
+            <span class="split">|</span>
+            <a class="btn btn-info switch">筛选</a>
+            <div class="zbox">
+                
+                <div class="btn-group" data-key="status">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span>状态</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {foreach name=":get_status_txt()" item="v" key="k" }
+                        <li data-val="{$k}"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>{$v}</a></li>
+                        {/foreach}
+                        <li role="separator" class="divider"></li>
+                        <li data-val=""><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>全部</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="btn-group" data-key="login_time">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span>登录时间</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li data-val="1d"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>今天</a></li>
+                        <li data-val="1w"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>一个星期内</a></li>
+                        <li data-val="1m"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>一个月内</a></li>
+                        <li data-val="3m"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>三个月内</a></li>
+                        <li data-val="1y"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>一年内</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data-val="diy"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i><span>自定义</span></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data-val=""><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>全部</a></li>
+                    </ul>
+                </div>
+                
+                <div class="btn-group" data-key="create_time">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span>注册时间</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li data-val="1d"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>今天</a></li>
+                        <li data-val="1w"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>一个星期内</a></li>
+                        <li data-val="1m"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>一个月内</a></li>
+                        <li data-val="3m"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>三个月内</a></li>
+                        <li data-val="1y"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>一年内</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data-val="diy"><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i><span>自定义</span></a></li>
+                        <li role="separator" class="divider"></li>
+                        <li data-val=""><a href="#"><i class="fa fa-circle-o text-muted fr_mr5"></i>全部</a></li>
+                    </ul>
+                </div>
+                
+                <span class="split">|</span>
+                
+                <a class="btn btn-default" id="filterCancel">恢复</a>
+                <a class="btn btn-success" id="filterSubmit">确定</a>
+                
+            </div>
+        </div>
+    </div>
+    <!--批量操作-->
+    <div class="col">
+        <div class="fold" id='batchBox'>
+            <span class="split">|</span>
+            <a class="btn btn-info switch batchBut">批量操作</a>
+            <div class="zbox">
+                
+                <a class="btn btn-default" id="batch_checkall">全选</a>
+                <a class="btn btn-default" id="batch_uncheck">不选</a>
+                
+                <span class="split">|</span>
+                
+                <div id="batchStatus" class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>设置状态</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {foreach name=":get_status_txt()" item="v" key="k" }
+                        <li data-val="{$k}"><a href="#">{$v}</a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                
+                <a id="batchDel" class="btn btn-danger">删除</a>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="col">
+        <span class="split">|</span>
+        <a href="{:url('add')}" class="btn btn-primary"><i class="fa fa-plus-square fr_mr5"></i>新建用户</a>
+    </div>
+    
+</div>
+<!--内容列表-->
+<div class="container-fluid">
+	{if condition="$count>0"}
+    <p>
+        <span class="small text-muted">共 <b>{$count}</b> 条记录，每页 <b>{$page.num}</b> 条，共 <b>{$page.max}</b> 页　|　筛选：<b id="filterStr">...</b></span>
+    </p>
+	{/if}
+    <ul class="ui_admin_List1">{volist name="list" id="v"}
+        <li data-id="{$v.id}">
+            <div class="check"><i class="fa fa-check-circle"></i></div>
+            <div class="col img"><a><img src="{:get_user_img($v.img,100)}" /></a></div>
+            <div class="col txt">
+                <p class="fr_pb5">
+                    <a href="{:url('show')}?id={$v.id}">{$v.name}</a>
+                    {if condition="$v.admin>0"}<i title="管理员" class="fa fa-id-card text-success fr_ml5"></i>{/if}
+                    {if condition="0==1"}<i class="fa fa-diamond fr_ml5 ui_icon_vip"></i>{/if}
+                    {switch $v.status}
+                        {case 0}<span class="label label-danger fr_ml5">{:$v.status_text}</span>{/case}
+                        {case 2}<span class="label label-warning fr_ml5">{:$v.status_text}</span>{/case}
+                    {/switch}
+                </p>
+                <p class="small ui_txtof">
+                    {if condition="$cond.key=='user' or $cond.key=='all'"}
+                    <span class="text-muted">用户名：{$v.user}</span>
+                    　{/if}
+                    {if condition="$cond.key=='phone' or $cond.key=='all'"}
+                    <span class="text-muted">手机：{$v.phone}{if condition="!$v.phone"}未绑定{/if}</span>
+                    　{/if}
+                    {if condition="$cond.key=='mail' or $cond.key=='all'"}
+                    <span class="text-muted">邮箱：{$v.mail}{if condition="!$v.mail"}未绑定{/if}</span>
+                    　{/if}
+                    <span class="text-muted">登录：{$v.login_time?date('Y-m-d H:i',$v['login_time']):'暂未登录'}</span>
+                    　
+                    <span class="text-muted">注册：{:date('Y-m-d H:i',$v.create_time)}</span>
+                </p>
+            </div>
+            <div class="col but">
+                <div class="butGroup">
+                    <a href="{:url('show')}?id={$v.id}" class="btn btn-primary"><i class="fa fa-pencil fr_mr5"></i>编辑</a>
+					<a href="{:url('log')}?userid={$v.id}" class="btn btn-default"><i class="fa fa-file-text-o fr_mr5"></i>日志</a>
+                    <a onclick="confirm_hint(this,'确认删除用户【{$v.name}】？');return false;" href="{:url('del')}?ids={$v.id}" class="btn btn-danger"><i class="fa fa-trash fr_mr5"></i>删除</a>
+                </div>
+            </div>
+        </li>
+    {/volist}</ul>
+    <!--翻页-->
+    <nav class="text-center">
+        {:get_page_html($page.index,$page.max,5,$urlParam)}
+    </nav>
+    
+</div>
+
+</div></div>
+
+<div class="diyBoxBg">
+    <div class="diyBox">
+        <p class="text-muted">
+            请输入筛选时间
+        </p>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="请填写小写数字">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span>天</span><span>内</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li data-val="d"><a href="#">天</a></li>
+                    <li data-val="w"><a href="#">星期</a></li>
+                    <li data-val="m"><a href="#">月</a></li>
+                    <li data-val="y"><a href="#">年</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li data-val="h"><a href="#">小时</a></li>
+                    <li data-val="i"><a href="#">分钟</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fr_pt20 text-right">
+            <button type="button" class="btn btn-default but_close"><i class="fa fa-times fr_mr5"></i>取消</button>
+            <button type="button" class="btn btn-primary but_inp"><i class="fa fa-check fr_mr5"></i>确定</button>
+        </div>
+        
+    </div>
+</div>
+{/block}
+{block name="foot"}
+<script>
+    $(window).ready(function(){
+        //工具栏通用展开/收起
+        $('.fold .switch').click(function(){
+            var box=$(this).parent();
+            if(box.hasClass('x')){
+                box.removeClass('x');
+            }else{
+                $('.fold.x .switch').click();
+                box.addClass('x');
+            }
+        });
+        //筛选-取消按钮
+        $('#filterCancel').click(function(){
+            var o=$('#post_filter');
+            o.attr('data-val',o.attr('data-static'));
+            reFilterVal();
+        });
+        //筛选-确定按钮
+        $('#filterSubmit').click(postPage);
+        //筛选展开/收起
+        $('#post_filter .switch').click(function(){
+            var box=$(this).parent();
+            if(!box.hasClass('x')){
+                $('#filterCancel').click();
+            }
+        });
+        //批量操作展开/收起
+        $('.batchBut').click(function(){
+            var box=$(this).parent();
+            if(box.hasClass('x')){
+                $('.ui_admin_List1').addClass('x');
+            }else{
+                $('.ui_admin_List1').removeClass('x');
+                $('.ui_admin_List1 li').removeClass('x');
+            }
+        });
+        //全选
+        $('#batchBox #batch_checkall').click(function(){
+            $('.ui_admin_List1 li').addClass('x');
+        });
+        //全不选
+        $('#batchBox #batch_uncheck').click(function(){
+            $('.ui_admin_List1 li').removeClass('x');
+        });
+        //列表选中
+        $('.ui_admin_List1 li .check').click(function(){
+            var o=$(this);
+            o.parent('li').toggleClass('x');
+        });
+		//批量框架函数
+		var batchFun=function(url,data,txt){
+			if($('.ui_hint').length>0)return;
+			var ids=getIds();
+			if(!ids){
+				alerts('请先选择用户');
+				return;
+			}
+			var tmpFun=function(){
+				alert_hint('提交中','spinner',-1);
+				var postData=data;
+				postData.ids=ids;
+				alenPost(url,postData,function(msg){
+					alert_hint_close();
+					window.location.reload();
+				},function(err){
+					alert_hint_close();
+					alerts(err);
+				});
+			};
+			if(txt){
+				confirm_hint(false,txt,tmpFun,'确认');
+			}else{
+				tmpFun();
+			}
+		};
+		//批量删除
+		$('#batchDel').click(function(e){
+			batchFun("{:url('del')}",{},'确认批量删除用户？');
+			stopDefault(e);
+		});
+		//批量状态
+		$('#batchStatus li').click(function(e){
+			batchFun("{:url('save')}",{'status':$(this).attr('data-val')},'确认批量修改用户？');
+			stopDefault(e);
+		});
+		//获取ids
+		function getIds(){
+			var ids=[];
+			$('.ui_admin_List1 li.x').map(function(){
+				ids.push($(this).attr('data-id'));
+			});
+			return ids.length>0?ids.join(','):false;
+		}
+        //提交页面
+        function postPage(){
+            var param={
+                'key':$('#post_key').attr('data-val'),
+                'search':$('#post_search').val(),
+                'sort':$('#post_sort').attr('data-val'),
+                'filter':$('#post_filter').attr('data-val')
+            };
+            
+            var str='';
+            for(var k in param){
+                if(param[k]){
+                    str+=str?'&':'?';
+                    str+=k+'='+encodeURIComponent(param[k]);
+                }
+            }
+            echoLog(str);
+            window.location.href=str;
+            return false;
+        }
+        //显示自定义面板
+        function showDiy(boxStr){
+            $('.diyBoxBg .diyBox').attr('data-id',boxStr);
+            $('.diyBoxBg').addClass('x');
+            $('.diyBoxBg .diyBox .dropdown-menu li:first').click();
+            $('.diyBoxBg .diyBox input.form-control').val('');
+        }
+        //隐藏自定义面板
+        function hideDiy(){
+            $('.diyBoxBg').removeClass('x');
+        }
+        //设置筛选字符
+        function setFilterVal(){
+            var box=$('#post_filter');
+            var str='';
+            box.find('.zbox').find('[data-key]').map(function(){
+                var o=$(this);
+                if(o.attr('data-val')){
+                    if(str)str+='&';
+                    str+=o.attr('data-key')+'='+o.attr('data-val');
+                }
+            });
+            box.attr('data-val',str);
+        }
+        //转换日期字符
+        function toDateText(str){
+            var arr={
+                'd':'天',
+                'w':'星期',
+                'm':'月',
+                'y':'年',
+                'h':'小时',
+                'i':'分钟'
+            };
+            var dw=str.substr(-1,1);
+            var inp=str.substr(0,str.length-1);
+            return inp+arr[dw]+'内';
+        }
+        //刷新筛选
+        function reFilterVal(){
+            var box=$('#post_filter');
+            var val=box.attr('data-val').split("&");
+            var obj={};
+            for(var i=0;i<val.length;i++){
+                val[i]=val[i].split("=");
+                obj[val[i][0]]=val[i][1];
+            }
+            box.find('.zbox [data-key]').map(function(){
+                var o=$(this);
+                var key=o.attr('data-key');
+                if(obj[key]){
+                    var tmp=o.find('li[data-val="'+obj[key]+'"]');
+                    if(tmp.length>0){
+                        tmp.click();
+                    }else{
+                        tmp=o.find('li[data-val="diy"]');
+                        tmp.attr('data-tmp',obj[key]);
+                        tmp.click();
+                    }
+                }else{
+                    o.find('li[data-val]:last').click();
+                } 
+            });
+        }
+        //刷新筛选字符
+        function setFilterStr(){
+            var box=$('#post_filter');
+            var str='';
+            box.find('.zbox').find('[data-key]').map(function(){
+                var o=$(this);
+                if(str)str+='；';
+                str+=o.find('button span:first').text();
+                var i=o.find('li i.text-primary');
+                var small=i.nextAll('small');
+                str+='-';
+                if(small.length>0){
+                    str+=small.text();
+                }else{
+                    str+=i.parent().text();
+                }
+            });
+            $('#filterStr').text(str);
+        }
+        //刷新排序
+        function reSortVal(){
+            var box=$('#post_sort');
+            var val=box.attr('data-val').split(" ");
+            for(var i=0;i<val.length;i++){
+                box.find('li[data-val="'+val[i]+'"]').click();
+            }
+        }
+        //刷新搜索字段
+        function reKeyVal(){
+            var box=$('#post_key');
+            var val=box.attr('data-val');
+            box.find('li[data-val="'+val+'"]').click();
+        }
+        //自定义面板取消按钮
+        $('.diyBoxBg .diyBox .but_close').click(function(){
+            var box=$('.diyBoxBg .diyBox');
+            var id=box.attr('data-id');
+            var obj=$('#post_filter .btn-group[data-key="'+id+'"]');
+            var val=obj.attr('data-val');
+            var tmp=obj.find('li[data-val="'+val+'"]');
+            if(tmp.length>0)tmp.click();
+            hideDiy();
+        });
+        //自定义面板确定按钮
+        $('.diyBoxBg .diyBox .but_inp').click(function(){
+            var box=$('.diyBoxBg .diyBox');
+            var inp=box.find('input.form-control').val();
+            var str=inp+box.find('.input-group-btn').attr('data-val');
+            box.find('input.form-control').val('');
+            var id=box.attr('data-id');
+            var obj=$('#post_filter .btn-group[data-key="'+id+'"]');
+            var li=obj.find('[data-val="diy"]');
+            var small=li.find('small');
+            if(small.length>0){
+                small.text(inp+box.find('.input-group-btn button span:first').text()+'内');
+            }else{
+                li.find('a').append('<small class="fr_ml5 text-muted">'+inp+box.find('.input-group-btn button span:first').text()+'内</small>');
+            }
+            obj.attr('data-val',str);
+            setFilterVal();
+            hideDiy();
+        });
+        //自定义面板单位选项
+        $('.diyBoxBg .diyBox .dropdown-menu li').click(function(){
+            var o=$(this);
+            if(o.hasClass('divider'))return false;
+            var box=o.parents('.input-group-btn');
+            box.attr('data-val',o.attr('data-val'));
+            box.find('button span:first').text(o.text());
+            return false;
+        });
+        //搜索字段
+        $('#post_key .dropdown-menu li').click(function(e){
+            var o=$(this);
+            var val=o.attr('data-val');
+            $('#post_key').attr('data-val',val);
+            var txt=o.find('span').text();
+            if(!txt)txt=o.text();
+            $('#post_key button span:first').text(txt);
+            stopDefault(e);
+        });
+        //搜索关键词
+        $('#post_search').keydown(function(e){
+            e = e || event;
+            if(event.keyCode===13)postPage();
+        });
+        //搜索按钮
+        $('#submitBut').click(postPage);
+        //排序选项
+        $('#post_sort .dropdown-menu li').click(function(e){
+            var o=$(this);
+            var arr=$('#post_sort').attr('data-val');
+            arr=arr.split(' ');
+            var val=o.attr('data-val');
+            if(val==='asc' || val==='desc'){
+                $('#post_sort button i').attr('class',o.find('i').attr('class'));
+                arr[1]=o.attr('data-val');
+            }else{
+                $('#post_sort button span:first').text(o.text());
+                arr[0]=o.attr('data-val');
+            }
+            arr=arr.join(' ');
+            $('#post_sort').attr('data-val',arr);
+            //postPage();
+            stopDefault(e);
+        });
+        //筛选选项
+        $('#post_filter .zbox .btn-group li').click(function(e){
+            var o=$(this);
+            var val=o.attr('data-val');
+            var tmp=o.parent('ul').find('i.text-primary');
+            tmp.removeClass('fa-check-circle').removeClass('text-primary').addClass('fa-circle-o').addClass('text-muted');
+            tmp=o.find('i');
+            tmp.removeClass('fa-circle-o').removeClass('text-muted').addClass('fa-check-circle').addClass('text-primary');
+            if(val==='diy'){
+                var tmpStr=o.attr('data-tmp');
+                o.removeAttr('data-tmp');
+                if(tmpStr){
+                    var text=toDateText(tmpStr);
+                    o.parents('.btn-group').attr('data-val',tmpStr);
+                    var small=o.find('small');
+                    if(small.length>0){
+                        small.text(text);
+                    }else{
+                        o.find('a').append('<small class="fr_ml5 text-muted">'+text+'</small>');
+                    }
+                    setFilterVal();
+                }else{
+                    showDiy(o.parents('.btn-group').attr('data-key'));
+                }
+            }else{
+                o.parents('.btn-group').attr('data-val',val);
+                o.parent('ul').find('[data-val="diy"] small').remove();
+                setFilterVal();
+            }
+            stopDefault(e);
+        });
+        
+        reFilterVal();
+        reSortVal();
+        reKeyVal();
+        setFilterStr();
+    });
+</script>
+{/block}

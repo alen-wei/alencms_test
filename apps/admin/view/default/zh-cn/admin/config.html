@@ -1,0 +1,221 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+	<div class="frame">
+		
+		<div class="contentBg">
+			<div class="content">
+				
+				<div class="colBox fr_mt20" id="col_webinfo">
+					<div class="tilBox">
+						<h3 class="text-muted">站点设置</h3>
+						<hr />
+					</div>
+					
+					<div class="conBox">
+						<div class="form-group dataInp">
+							<label>公司名</label>
+							<input name="sys_name" type="text" class="form-control" placeholder="请输入公司名" value="{$config.sys_name}">
+						</div>
+
+						<div class="form-group dataInp">
+							<label>公司全称</label>
+							<input name="sys_name_full" type="text" class="form-control" placeholder="请输入公司全称" value="{$config.sys_name_full}">
+						</div>
+
+						<div class="form-group dataInp">
+							<label>网址</label>
+							<input name="sys_url" type="text" class="form-control" placeholder="请输入网址" value="{$config.sys_url}">
+						</div>
+
+						<div class="form-group dataInp">
+							<label>域</label>
+							<input name="const-DOMAIN" type="text" class="form-control" placeholder="请输入域" value="{$Alen.DOMAIN}">
+						</div>
+						
+						<div class="form-group dataInp">
+							<label>静态文件网址</label>
+							<input name="static_url" type="text" class="form-control" placeholder="请输入静态文件网址" value="{$config.static_url}">
+						</div>
+						
+						<div class="form-group dataInp">
+							<label>默认主题</label>
+							<select class="form-control" name="app_theme">
+								<option value="default">default</option>
+							</select>
+						</div>
+						
+						<div class="form-group dataInp">
+							<label>默认语言</label>
+							<select class="form-control" name="default_lang">
+								<option value="zh-cn">zh-cn</option>
+							</select>
+						</div>
+						
+						<div class="form-group dataInp">
+							<label>系统标记</label>
+							<input name="const-PREFIX" type="text" class="form-control" placeholder="请输入系统标记" value="{$Alen.PREFIX}">
+						</div>
+						
+						<div class="form-group dataInp">
+							<label>调试模式</label>
+							<select class="form-control" name="const-DEBUG">
+								<option value="0">关闭</option>
+								<option value="1">开启</option>
+							</select>
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<div class="colBox fr_mt20" id="col_db_rdbms">
+					<div class="tilBox">
+						<h3 class="text-muted">数据库信息</h3>
+						<hr />
+					</div>
+					
+					<div class="conBox">
+						
+						<div class="form-group dataInp">
+							<label>关系型数据库</label>
+							<select class="form-control" name="db_config-rdbms-type">
+								{foreach name="$dbArr.rdbms" item="v" key="k"}
+								<option value="{$k}">{$k}</option>
+								{/foreach}
+							</select>
+						</div>
+
+						<div class="form-group dataInp">
+							<label>非关系型数据库</label>
+							<select class="form-control" name="db_config-rdbms-type">
+								<option value="">无</option>
+								{foreach name="$dbArr.nosql" item="v" key="k"}
+								<option value="{$k}">{$k}</option>
+								{/foreach}
+							</select>
+						</div>
+						
+						<div class="form-group dataInp">
+							<label>缓存服务</label>
+							<select class="form-control" name="db_config-rdbms-type">
+								<option value="">文件系统</option>
+								{foreach name="$dbArr.cache" item="v" key="k"}
+								<option value="{$k}">{$k}</option>
+								{/foreach}
+							</select>
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="lessInfo">
+			<div class="colBox fr_mt20">
+				<div class="conBox">
+					<dl class="dl-horizontal fr_mb0">
+						<dt class="small text-muted">系统版本</dt>
+						<dd class="small ui_txtof">{$Alen.ALENCMS_VERSION}</dd>
+					</dl>
+					<div class="clearfix"></div>
+					
+					<hr class="fr_mt5 fr_mb5" />
+					<dl class="dl-horizontal fr_mb0 fr_mt5">
+						<dt class="small text-muted">核心版本</dt>
+						<dd class="small ui_txtof">{$Alen.THINK_VERSION}</dd>
+					</dl>
+					<div class="clearfix"></div>
+					
+					<hr class="fr_mt5 fr_mb5" />
+					<dl class="dl-horizontal fr_mb0 fr_mt5">
+						<dt class="small text-muted">服务器</dt>
+						<dd class="small ui_txtof" title="{$Alen.SERVER.SERVER_SOFTWARE}" >{$Alen.SERVER.SERVER_SOFTWARE}</dd>
+					</dl>
+					<div class="clearfix"></div>
+					
+					<hr class="fr_mt5 fr_mb5" />
+					<dl class="dl-horizontal fr_mb0 fr_mt5">
+						<dt class="small text-muted">PHP版本</dt>
+						<dd class="small ui_txtof" >{$Alen.PHP_VERSION}</dd>
+					</dl>
+					<div class="clearfix"></div>
+					
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">PHP插件</small>
+					<dl class="dl-horizontal fr_mb0 fr_mt5">
+					{foreach name="$staticData.exts" item="v" key="k" }
+						<dt class="small">{$k}</dt>
+						<dd class="ui_txtof small" >{$v?'已打开':'未打开'}</dd>
+					{/foreach}
+					</dl>
+					<div class="clearfix"></div>
+					
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">缓存插件</small>
+					<dl class="dl-horizontal fr_mb0 fr_mt5">
+					{foreach name="$staticData.cache" item="v" key="k" }
+						<dt class="small">{$k}</dt>
+						<dd class="ui_txtof small" >{$v?'支持':'不支持'}</dd>
+					{/foreach}
+					</dl>
+					<div class="clearfix"></div>
+					
+					<hr class="fr_mt5 fr_mb5" />
+					<small class="text-muted">非关系型数据库插件</small>
+					<dl class="dl-horizontal fr_mb0 fr_mt5">
+					{foreach name="$staticData.nosql" item="v" key="k" }
+						<dt class="small">{$k}</dt>
+						<dd class="ui_txtof small" >{$v?'支持':'不支持'}</dd>
+					{/foreach}
+					</dl>
+					<div class="clearfix"></div>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="lessNav">
+			<b class="text-primary">快速导航</b>
+			<ul class="nav">
+				
+				<li><a href="#col_users">管理组成员</a></li>
+				
+				<li class="x">
+					<!--type-->
+					<a class="small" href="{:url('grouplists')}"><i class="fa fa-list-ul fr_mr5"></i>管理组列表</a>
+					<a class="small" href="#top"><i class="fa fa-chevron-circle-up fr_mr5"></i>返回顶部</a>
+					
+				</li>
+			</ul>
+		</div>
+	
+		<div class="butToolsBg">
+			<hr />
+			<div class="butTools">
+				<button data-box=".content" type="button" class="btn btn-info submit">全部提交</button>
+				<a href="{:request()->server('HTTP_REFERER')}" class="btn btn-default">返回</a>
+			</div>
+		</div>
+	</div>
+</div></div>
+{/block}
+{block name="foot"}
+<script src="{$static_url}Jq_plugins/jquery.scrollTo.js"></script>
+<script>
+    $(window).ready(function(){
+		//快速导航
+		$('.lessNav ul li a').click(function(){
+			var href=$(this).attr('href');
+			if('#'==href.substr(0,1)){
+				$('.contentBg').scrollTo(href=='#top'?0:href,500);
+				return false;
+			}
+		});
+		
+	});
+</script>
+{/block}

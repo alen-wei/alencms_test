@@ -1,0 +1,208 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<style>
+	body,html{ width:100%; height:100%; overflow:hidden;}
+	.safari{ width:100%; height:100%; background:#ff0; opacity:1; position:absolute; left:0; top:0; z-index:2; display:none;}
+	.fr_frame{ width:100%; height:100%; position:relative; z-index:1;}
+	.fr_frame.z{ z-index:3; position:fixed; left:0; top:0; height:100%!important;}
+	.fr_left{ position:absolute; left:0; top:0; width:200px; height:100%; background:#333; z-index:2; transition:all 0.2s;}
+	.fr_left_bg{ position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5); visibility:hidden; opacity:0; z-index:1; transition:all 0.2s; display:none;}
+	.fr_title{ position:absolute; left:0; top:0; width:100%; height:40px; background:rgba(0,136,204,0.7); z-index:2;}
+	.fr_nav{ position:relative; width:100%; height:100%; border-top:40px solid transparent; -webkit-overflow-scrolling:touch; z-index:1;}
+	.fr_right{ position:relative; width:100%; height:100%; border-left:200px solid transparent; z-index:0; transition:all 0.2s;}
+	.fr_tools{ position:absolute; left:0; top:0; width:100%; height:40px; background:#08c; z-index:1;}
+	.fr_main{ position:relative; width:100%; height:100%; border-top:40px solid transparent; z-index:0; -webkit-overflow-scrolling:touch;}
+	.fr_main iframe{ width:100%; height:100%; pointer-events:auto;}
+	.fr_title span{ display:block; text-align:center; line-height:40px; font-size:1.5em; color:#FFF; visibility:visible; opacity:1; font-family:"Microsoft YaHei"; transition:all 0.2s;}
+	.fr_title #act_leftNav{ position:absolute; top:0; right:0; display:block; transition:all 0.2s;}
+	
+	.toolsBtu{ width:40px; height:40px; line-height:40px; text-align:center; color:#fff; cursor:pointer; transition:all 0.2s;}
+	.toolsBtu i{ font-size:1.5em;}
+	.toolsBtu:hover{ background:rgba(0,0,0,0.1); color:#FFF;}
+	.fr_tools .title{ color:#FFF; line-height:30px; height:30px; float:left; margin:5px 0 5px 10px; transition:all 0.2s;}
+	.fr_tools .user{ position:absolute; top:2px; right:10px;}
+	.fr_tools .user .dropdown-toggle{ color:#fff;}
+	.fr_tools .user .img{ height:1.42857143em; border-radius:50%; border:2px solid #fff; overflow:hidden;}
+	.fr_tools .user.btn{ color:#FFF;}
+	
+	.fr_frame.x .fr_left{ width:40px;}
+	.fr_frame.x .fr_right{ border-left-width:40px;}
+	.fr_frame.x .fr_title span{visibility:hidden; opacity:0;}
+	.fr_frame.x .fr_title #act_leftNav{ right:0;}
+	
+	.fr_nav ul{ display:block; padding:0; margin:0;}
+	.fr_nav ul li{ display:block; line-height:40px; position:relative; transition:all 0.2s;}
+	.fr_nav ul li:hover{ background:rgba(0,0,0,0.2);}
+	.fr_nav ul li a{ color:#ccc; display:block; cursor:pointer;white-space:nowrap; overflow: hidden;}
+	.fr_nav ul li a i{ display:inline-block; width:40px; text-align:center;}
+	.fr_nav ul li ul{ padding-left:40px; transition:all 0.2s;}
+	.fr_nav ul li ul li{border-radius:20px 0 0 20px;}
+	.fr_nav ul li ul li a{ padding-left:10px;}
+	.fr_nav ul li ul li a:before{ content:"●"; display:inline-block; margin-right:5px; color:#666;}
+	
+	
+	.fr_frame.x .fr_nav ul li{ width:40px;}
+	.fr_frame.x .fr_nav ul li ul{ position:absolute; top:40px; left:40px; width:0; padding-left:0; background:none; border-radius:0 0 5px 0; overflow:hidden; border-top:1px solid #333;}
+	.fr_frame.x .fr_nav ul li ul li{ border-radius:0; padding-left:10px; width:100%;}
+	.fr_frame.x .fr_nav ul li ul li a:before{ display:none;}
+	.fr_frame.x .fr_nav ul li:hover{ background:#222; width:200px;}
+	.fr_frame.x .fr_nav ul li ul li:hover{ padding-left:0;}
+	.fr_frame.x .fr_nav ul li:hover ul{ width:160px; background:#222;}
+	
+	@media screen and (max-width: 991px){
+		.fr_left{ width:80%; left:0; box-shadow:0 0 10px #000;}
+		.fr_left_bg{visibility:visible; opacity:1; display:block;}
+		.fr_title #act_leftNav{ right:0;}
+		.fr_right{border-left-width:0px;}
+		
+		.fr_frame.x .fr_left{ width:80%; left:-80%; box-shadow:none;}
+		.fr_frame.x .fr_left_bg{visibility:hidden; opacity:0;}
+		.fr_frame.x .fr_title #act_leftNav{ right:-40px;}
+		.fr_frame.x .fr_tools .title{ margin-left:45px;}
+		.fr_frame.x .fr_right{ border-left-width:0;}
+		.fr_frame.x .fr_title span{visibility:visible; opacity:1;}
+	}
+	
+	body.mobile .fr_left{ width:80%; left:0; box-shadow:0 0 10px #000;}
+	body.mobile .fr_left_bg{visibility:visible; opacity:1; display:block;}
+	body.mobile .fr_title #act_leftNav{ right:0;}
+	body.mobile .fr_right{border-left-width:0px;}
+		
+	body.mobile .fr_frame.x .fr_left{ width:80%; left:-80%; box-shadow:none;}
+	body.mobile .fr_frame.x .fr_left_bg{visibility:hidden; opacity:0;}
+	body.mobile .fr_frame.x .fr_title #act_leftNav{ right:-40px;}
+	body.mobile .fr_frame.x .fr_tools .title{ margin-left:45px;}
+	body.mobile .fr_frame.x .fr_right{ border-left-width:0;}
+	body.mobile .fr_frame.x .fr_title span{visibility:visible; opacity:1;}
+	body.mobile .fr_nav{overflow-y:auto;}
+	
+	@media screen and (orientation: landscape){
+		body.mobile .fr_frame.x .fr_left,body.mobile .fr_left{ width:40%;}
+		body.mobile .fr_frame.x .fr_left{left:-40%;}
+	}
+	
+	body.mobile .fr_frame.pan .fr_left{box-shadow:0 0 10px #000; transition:none;}
+	.fr_frame.pan .fr_nav ul li{ width:100%;}
+	.fr_frame.pan .fr_nav ul li ul{ position:static; top:auto; left:auto; width:100%; padding-left:40px; background:none; border-radius:0; overflow:hidden; border-top:0;}
+	.fr_frame.pan .fr_nav ul li ul li{border-radius:20px 0 0 20px; padding-left:0;}
+	.fr_frame.pan .fr_nav ul li ul li a:before{ display:inline-block;}
+	/****解决苹果webApp模式下莫名奇妙的BUG****苹果的软件都是设计师写的，好看但BUG一堆...*********/
+	body.webapp .fr_left,body.webapp .fr_left_bg,body.webapp .fr_title #act_leftNav,body.webapp .fr_title span,body.webapp .toolsBtu,body.webapp .fr_tools .title {transform:translate3d(0, 0, 0); -webkit-transform:translate3d(0, 0, 0);}
+</style>
+{/block}
+{block name="body"}
+<div class="fr_frame x">
+	<div class="fr_left_bg"></div>
+	<div class="fr_left">
+    	<div class="fr_title">
+        	<span class="ui_txtof">润星系统</span>
+            <a class="toolsBtu" id="act_leftNav"><i class="fa fa-bars"></i></a>
+        </div>
+        <div class="fr_nav">
+        	<ul>
+            	<li>
+                	<a class=""><i class="fa fa-tv"></i>车间看板</a>
+                    <ul>
+                    	<li><a class="ui_txtof" target="mainbox" data-nolink='1' href="{:url('board')}">全部</a></li>
+                        <li><a class="ui_txtof" target="mainbox" data-nolink='1' href="{:url('board',['type'=>1,'workshop'=>1])}">一车间 - 状态</a></li>
+                        <li><a class="ui_txtof" target="mainbox" data-nolink='1' href="{:url('board',['type'=>2,'workshop'=>1])}">一车间 - 任务</a></li>
+                        <li><a class="ui_txtof" target="mainbox" data-nolink='1' href="{:url('board',['type'=>1,'workshop'=>2])}">二车间 - 状态</a></li>
+                        <li><a class="ui_txtof" target="mainbox" data-nolink='1' href="{:url('board',['type'=>2,'workshop'=>2])}">二车间 - 任务</a></li>
+                    </ul>
+                </li>
+            	<li>
+                	<a class="" target="mainbox" data-nolink='1' href="{:url('monitor')}"><i class="fa fa-tachometer"></i>实时监控</a>
+                </li>
+                <li>
+                	<a class="" target="mainbox" data-nolink='1' href="{:url('chart')}"><i class="fa fa-bar-chart"></i>数据统计分析</a>
+                </li>
+                <li>
+                	<a class=""><i class="fa fa-code"></i>程序管理</a>
+                    <ul>
+                    	<li><a class="ui_txtof" data-nolink='1' target="mainbox" href="{:url('code_bank')}">程序库管理</a></li>
+                    	<li><a class="ui_txtof" data-nolink='1' target="mainbox" href="{:url('code')}">上传程序</a></li>
+					</ul>
+                	
+                </li>
+                <!--
+                <li>
+                	<a class="ui_txtof" target="mainbox" href="javascript:alerts('抱歉，此功能暂未开放！');"><i class="fa fa-magic"></i>刀具管理</a>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+    <div class="fr_right">
+    	<div class="fr_tools">
+        	<span class="title"></span>
+            {if condition="$user"}
+            <div class="dropdown user">
+                <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" >
+                	<img class="img" src="{:get_user_img()}" />
+                    <span class="name">Alen</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="{:url('user/html/index')}"><i class="fa fa-user-circle fr_mr5"></i>个人中心</a></li>
+                    <li class="hide"><a href="{:url('config')}"><i class="fa fa-wrench fr_mr5"></i>系统设置</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{:url('user/api/logout')}"><i class="fa fa-sign-out fr_mr5"></i>退出</a></li>
+                </ul>
+            </div>
+			{else/}
+            <a class="btn btn-link user" href="{:url('user/html/login')}" >
+                登录 / 注册 &raquo;
+            </a>
+			{/if}
+            <div class="clearfix"></div>
+        </div>
+        <div class="fr_main">
+        	<iframe data-nolink="true" id="mainbox" name="mainbox" frameborder="0" src="{:url('monitor')}"></iframe>
+        </div>
+    </div>
+</div>
+<div class="safari"></div>
+{/block}
+{block name="foot"}
+<script src="{$static_url}Jq_plugins/jquery.scrollTo.js"></script>
+<script>
+if(window.navigator.standalone){
+	$('body').addClass('webapp');
+}
+if($ifmobile){
+	$('body').addClass('mobile');
+}
+
+$('.fr_nav').hammer().on('tap',function(){
+	var o=$(event.target);
+	if(o[0].tagName.toLowerCase()!='a')return false;
+	var url=o.attr('href');
+	if(!url){
+		var zo=o.next();
+		if(zo.length>0){
+			url=zo.find('a:first').attr('href');
+		}
+	}
+	if(url){
+		mainbox.location.href=url;
+		if($('.fr_left_bg:visible').length>0 && !$('.fr_frame').hasClass('x'))$('.fr_frame').addClass('x');
+		return false;
+	}
+});
+$('#act_leftNav').hammer().on('tap',function(){
+	$('.fr_frame').toggleClass('x');
+});
+$('.fr_left_bg').hammer().on('tap',function(){
+	$('.fr_frame').addClass('x');
+})
+var setFrameName=function(txt){
+	$('.fr_tools .title').text(txt);
+}
+
+$(window).keydown(function(event){
+	if(mainbox.window.keyfun){
+		return mainbox.window.keyfun(event.keyCode);
+	}
+});
+</script>
+{/block}

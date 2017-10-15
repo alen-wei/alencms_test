@@ -1,0 +1,77 @@
+<div class="container-fluid userTab">
+	<div class="row">
+    	<div class="col-md-2 name">
+        	昵称：
+        </div>
+        <div class="col-md-10">
+        	<input type="text" class="form-control" name="name" placeholder="请输入昵称" value="{$user['name']}" />
+        </div>
+    </div>
+    
+	<div class="row">
+    	<div class="col-md-2 name">
+        	头像：
+        </div>
+        <div class="col-md-10">
+			<a href="{:url('user/html/command',['__active'=>$__active,'__ctrl'=>'portrait'])}"><img class="img-rounded" width="100" src="{:get_user_img($user['img'])}" /></a>
+        </div>
+    </div>
+    
+    
+    
+    <div class="row">
+    	<div class="col-md-2 name">
+        	手机：
+        </div>
+        <div class="col-md-10">
+            {$bindings['phone']}
+            <a href="{:url('user/html/command',['__active'=>'safe','__ctrl'=>'phone'])}">{$bindings['phone']?'修改':'立刻绑定'}</a>
+        </div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-2 name">
+        	邮箱：
+        </div>
+        <div class="col-md-10">
+        	{$bindings['mail']}
+            <a href="{:url('user/html/command',['__active'=>'safe','__ctrl'=>'mail'])}">{$bindings['mail']?'修改':'立刻绑定'}</a>
+        </div>
+    </div>
+    
+    <div class="row but">
+    	<div class="col-md-12">
+        	<button id="submit" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+</div>
+<script>
+$(function(){
+	$('#submit').click(function(){
+		var o=$(this);
+		if(o.attr('disabled'))return;
+		var isstop=false;
+		var postData={};
+		$('.userTab input[name]').map(function(){
+			if(isstop)return;
+			var obj=$(this);
+			var name=obj.attr('name');
+			var val=obj.val();
+            postData[name]=val;
+        });
+		if(isstop)return;
+		o.attr('disabled',true);
+		alert_hint('提交中...','spinner',-1);
+		alenPost("{:url('api/saveInfo')}",postData,function(data){
+			$('.ui_hint').remove();
+			alerts('修改成功！','',{'fun':function(){
+				window.location.reload();
+			}});
+		},function(err){
+			$('.ui_hint').remove();
+			o.removeAttr('disabled');
+			alerts(err);
+		});
+	});
+});
+</script>

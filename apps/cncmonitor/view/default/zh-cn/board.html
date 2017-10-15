@@ -1,0 +1,230 @@
+{extend name="$public_template.frame" /}
+{block name="head"}
+<link href="{$skin_url}iconfont/iconfont.css" rel="stylesheet" type="text/css" />
+<style>
+body,html{ height:100%; overflow-y:hidden;}
+.container-fluid{ height:100%;}
+.mianBox{ position:relative; width:100%; height:100%; overflow:hidden; padding-top:50px;}
+.mianBox.x{ padding-top:10px;}
+.mianBox .til{ position:absolute; left:0; top:0; width:100%; height:45px; display:block; border-bottom:1px solid #ccc; overflow:hidden;}
+.mianBox .til>span{ float:left; line-height:45px; font-size:1.5em;}
+.mianBox .til>ul{ float:right; list-style:none;}
+.mianBox .til>ul li{ float:left; border:1px solid #f0f0f0; padding:0 5px; margin:3px 10px auto auto; border-radius:5px; cursor:pointer; transition:all 0.2s;}
+.mianBox .til>ul li a,.mianBox .til>ul li small{ display:block; text-align:center; line-height:18px; color:#666;}
+.mianBox .til>ul li small{ color:#999;}
+.mianBox .til>ul li:hover{ background:#f0f0f0;}
+.mianBox .til>ul li.x{ background:#08c; border-color:#08c;}
+.mianBox .til>ul li.x a,.mianBox .til>ul li.x small{ color:#FFF;}
+.mianBox .til>ul li.x small{ color:#e0e0e0;}
+.mianBox .til .but{ width:33px; line-height:33px; height:33px; text-align:center; float:left; overflow:hidden; background:#08c; border-radius:50%; margin:6px 8px auto auto; cursor:pointer;}
+.mianBox .til .but i{ display:block; color:#FFF; transition:all 0.2s; position:relative;}
+.mianBox .til .but.x{ background:#d9534f;}
+.mianBox .til .but.x i:first-child{ margin-top:-33px;}
+.mianBox .til .link{ position:absolute; left:0; bottom:0; width:0; height:1px; background:#08c; content:' ';}
+</style>
+{/block}
+{block name="body"}
+<div class="container-fluid">
+	<div class="mianBox">
+    	{if condition="!$type and !$workshop"}
+    	<div class="til">
+            <div class="but x">
+                <i class="fa fa-play"></i>
+                <i class="fa fa-pause"></i>
+            </div>
+        	<span></span>
+            <ul></ul>
+            <div class="link"></div>
+        </div>
+        {/if}
+        <div class="boardBg"></div>
+    </div>
+</div>
+{/block}
+{block name="foot"}
+{include file="#public_after" /}
+<script src="{$skin_url}Js/config.js"></script>
+<script src="{$skin_url}Js/setoption.js"></script>
+<script src="{$skin_url}Js/board.js"></script>
+<script>
+var keyfun=false;
+(function(){
+	var dhTime=1000;
+	var gdTime=10000;
+	var sTime;
+	var url='{:url("Api/getData")}';
+	var html='<div class="board"><div class="tmpLoad"><i class="fa fa-circle-o-notch fa-spin fr_mr5"></i><span>加载中...</span></div></div>';
+	var pvAjax;
+	var nextFun=function(){
+		var obj=$(html);
+		var box=$('.boardBg');
+		box.addClass('x');
+		box.append(obj);
+		box.find('.board:first').stop(true,true);
+		box.find('.board:first').animate({'marginLeft':'-100%'},dhTime,function(){
+			$(this).remove();
+			box.removeClass('x');
+		});
+		return obj;
+	}
+	keyfun=function(code){
+		if(code==116)return false;
+		switch(code){
+			case 33:   //page_up
+			case 37:   //上
+			case 38:   //左
+				stopFun();
+				prevMoveFun();
+			break;
+			case 34:   //page_down
+			case 39:   //下
+			case 40:   //右
+				stopFun();
+				nextMoveFun();
+			break;
+			case 116:   //F5
+			case 27:    //esc
+			case 13:    //回车
+			case 32:    //空格
+				if($('.mianBox .til .but').hasClass('x')){
+					stopFun();
+				}else{
+					startFun();
+				}
+			break;
+			case 66:   //b
+				echoLog('全屏');
+			break;
+		}
+		return true;
+	}
+	var prevFun=function(){
+		var obj=$(html);
+		var box=$('.boardBg');
+		obj.css('margin-left','-100%');
+		box.addClass('x');
+		box.prepend(obj);
+		obj.stop(true,true);
+		obj.animate({'marginLeft':'0'},dhTime,function(){
+			obj.removeAttr('style');
+			box.find('.board:last').remove();
+			box.removeClass('x');
+		});
+		return obj;
+	}
+	var addBoard=function(type,workshop,funName){
+		if(pvAjax){pvAjax.stop();}
+		var obj;
+		if($('.boardBg .board').length<1){
+			obj=$(html);
+			$('.boardBg').append(obj);
+		}else{
+			obj=funName();
+		}
+		var mianObj=new cncBoard(type,workshop,obj,url);
+		mianObj.init();
+		mianObj.show();
+		return mianObj;
+	}
+	var getWorkshop=function(cfun){
+		alert_hint('加载中','spinner',-1);
+		alenPost('{:url("Api/getName")}',{
+				'workshop':'all',
+			},function(data){
+				var html='';
+				for(var i in data){
+					html+='<li data-type="1" data-workshop="'+data[i].id+'"><a>'+data[i].name+'</a><small>实时</small></li>';
+					html+='<li data-type="2" data-workshop="'+data[i].id+'"><a>'+data[i].name+'</a><small>任务</small></li>';
+				}
+				$('.mianBox .til ul').html(html);
+			echoLog(data);
+			$('.ui_hint').remove();
+			if(cfun)cfun();
+		},function(err){
+			alerts(err);
+			$('.ui_hint').remove();
+		});
+	}
+	var moveFun=function(o){
+		o=$(o);
+		if(o.hasClass('x'))return;
+		var tmpFun=$('.mianBox .til ul li.x').prevAll().length>o.prevAll().length?prevFun:nextFun;
+		$('.mianBox .til ul li').removeClass('x');
+		o.addClass('x');
+		var type=o.attr('data-type');
+		var workshop=o.attr('data-workshop');
+		$('.mianBox .til>span').text(o.find('a').text()+' - '+o.find('small').text());
+		pvAjax=addBoard(type,workshop,tmpFun);
+	}
+	var prevMoveFun=function(){
+		var o=$('.mianBox .til ul li.x');
+		var tmp=o.prevAll().length>0?o.prev():o.siblings(':last');
+		tmp.click();
+	}
+	var nextMoveFun=function(){
+		var o=$('.mianBox .til ul li.x');
+		var tmp=o.nextAll().length>0?o.next():o.siblings(':first');
+		tmp.click();
+	}
+	var upTime=function(){
+		var linkObj=$('.mianBox .til .link');
+		var obj=$('.mianBox .til ul li.x');
+		if(obj.length<1 || obj.next().length<1){
+			moveFun('.mianBox .til ul li:first');
+		}else{
+			moveFun(obj.next());
+		}
+		linkObj.stop(true,true);
+		linkObj.css('width',0);
+		linkObj.animate({'width':'100%'},gdTime);
+		sTime=setTimeout(upTime,gdTime);
+		
+	}
+	var stopFun=function(){
+		if(sTime){
+			clearTimeout(sTime);
+			sTime=false;
+			$('.mianBox .til .but').removeClass('x');
+			var linkObj=$('.mianBox .til .link');
+			linkObj.stop(true,true);
+			linkObj.css('width',0);
+		}
+	}
+	var startFun=function(){
+		stopFun();
+		sTime=setTimeout(upTime,gdTime);
+		$('.mianBox .til .but').addClass('x');
+		var linkObj=$('.mianBox .til .link');
+		linkObj.stop(true,true);
+		linkObj.css('width',0);
+		linkObj.animate({'width':'100%'},gdTime);
+	}
+	$('.mianBox .til .but').on('click',function(){
+		var o=$(this);
+		if(o.hasClass('x')){
+			stopFun();
+		}else{
+			startFun();
+		}
+	});
+	$('.mianBox .til ul').on('click','li',function(){
+		moveFun(this);
+		stopFun();
+	});
+	{if condition="!$type and !$workshop"}
+	getWorkshop(upTime);
+	
+	$(window).keydown(function(event){
+		return keyfun(event.keyCode);
+	});
+	
+	{else /}
+	$('.mianBox').addClass('x');
+	var mianObj=new cncBoard('{$type}','{$workshop}','.boardBg',url);
+	mianObj.init();
+	mianObj.show();
+	{/if}
+	
+})();
+</script>
+{/block}

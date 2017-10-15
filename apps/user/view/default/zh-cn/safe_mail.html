@@ -1,0 +1,182 @@
+<div class="container-fluid userTab">
+	{if condition="$binding"}
+	<div class="row">
+    	<div class="col-md-2 name">
+        	旧邮箱：
+        </div>
+        <div class="col-md-10">
+        	<input type="text" class="form-control" name="old" placeholder="{$binding['name']}" />
+			
+        </div>
+    </div>
+    {/if}
+	<div class="row">
+    	<div class="col-md-2 name">
+        	邮箱：
+        </div>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="new" placeholder="请输入邮箱" />
+        </div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-2 name">
+        	验证码：
+        </div>
+        <div class="col-md-10">
+        	<div class="verifyCol">
+            	<img src="{:captcha_src()}" data-toggle="tooltip" data-placement="top" title="看不清？点击更换" />
+	            <input type="text" class="form-control" name="_verify" placeholder="请输入验证码" />
+			</div>
+        </div>
+    </div>
+    
+	<div class="row but">
+    	<div class="col-md-12">
+        	<button id="submit" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+</div>
+<script src="{$static_url}Alen/Js/regex.js"></script>
+<script>
+$(function(){
+	$('.userTab input:visible[name]').keydown(function(event){
+		var o=$(this);
+		if(event.keyCode==13){
+			var nextBox=o.parents('.row').nextAll('.row').not('.but');
+			if(nextBox.length>0){
+				nextBox.first().find('input:first').focus();
+			}else{
+				$('#submit').click();
+				
+			}
+			
+		}
+	});
+	
+	var loadVerify=function(){
+		var o=$('.verifyCol img');
+		var url=o.attr('src').split('?')[0];
+		url+='?r='+Math.floor(Math.random()*1000000);
+		o.attr('src',url);
+		o.next().val('');
+	}
+	
+	$('.verifyCol img').click(loadVerify);
+	$('.verifyCol').click(function(){
+		$('.verifyCol input').focus();
+	});
+	
+	var submitFun=function(){
+		var o=$(this);
+		if(o.attr('disabled'))return;
+		var isstop=false;
+		var postData={};
+		$('.userTab input[name]').map(function(){
+			if(isstop)return;
+			var obj=$(this);
+			var name=obj.attr('name');
+			var val=obj.val();
+			switch(name){
+				case 'old':
+					var tmp_txt='旧邮箱';
+				case 'new':
+					if(!tmp_txt){
+						var tmp_txt='邮箱';
+						if('old' in postData){
+							if(val==postData.old){
+								isstop=true;
+								alerts('邮箱不可以与旧邮箱一样');
+							}
+						}
+					}
+					if(!regexCheck(val,'email')){
+						isstop=true;
+						alerts('请输入正确的'+tmp_txt);
+					}
+				break;
+				case '_verify':
+					if(val==''){
+						isstop=true;
+						alerts('请输入验证码');
+					}
+					if(val.length!=4){
+						isstop=true;
+						alerts('请输入4位数的验证码');
+					}
+				break;
+			}
+            postData[name]=val;
+        });
+		if(isstop)return;
+		o.attr('disabled',true);
+		alert_hint('提交中...','spinner',-1);
+		var url="{:url('api/saveBinding','type=mail')}";
+		var verifyCode=function(account,token){
+			var html='<div class="form-group fr_mb0"><p>验证码已发送到<a style="color:#08c;">'+account+'</a>请查收</p><input type="text" class="form-control" placeholder="请输入验证码"></div>';
+			var alertObj=alerts(html,'',{
+				'cancel':'取消',
+				'lessbut':'重发验证信息',
+				'confirm':'提交',
+				'html':true,
+				'fun':function(val){
+					if(val==2){ //重发
+						alert_hint('重发中...','spinner',-1);
+						alenPost(url,{'token':token},function(data){
+							$('.ui_hint').remove();
+							verifyCode(data.account,data.token);
+						},function(err){
+							$('.ui_hint').remove();
+							alerts(err);
+						});
+					}else if(val==1){  //提交
+						alert_hint('提交中...','spinner',-1);
+						var code=alertObj.find('input').val();
+						alenPost(url,{'code':code,'account':account},function(data){
+							$('.ui_hint').remove();
+							alerts('绑定成功！','',{'fun':function(){
+								window.location.reload();
+							}});
+						},function(err){
+							$('.ui_hint').remove();
+							alerts(err,'',{'fun':function(){
+								verifyCode(account,token);
+							}});
+						});
+					}
+				}
+			});
+			var reBut=alertObj.find('.lessbut');
+			reBut.attr('disabled',true);
+			var txt='重发验证信息';
+			
+			var ss=10;
+			var reTime;
+			var reTimeFun=function(){
+				reBut.text(txt+' - '+ss);
+				ss--;
+				if(ss>0){
+					reTime=setTimeout(reTimeFun,1000);
+				}else{
+					reBut.text(txt);
+					reBut.removeAttr('disabled');
+				}
+			}
+			reTimeFun();
+		}
+		var endFun=function(){
+			$('.ui_hint').remove();
+			loadVerify();
+			o.removeAttr('disabled');
+		}
+		alenPost(url,postData,function(data){
+			endFun();
+			verifyCode(data.account,data.token);
+		},function(err){
+			endFun();
+			alerts(err);
+		});
+	}
+	$('#submit').click(submitFun);
+});
+</script>

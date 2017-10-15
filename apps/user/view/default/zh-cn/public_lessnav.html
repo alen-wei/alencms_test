@@ -1,0 +1,7 @@
+{if condition="count($navArr[$__activeID]['subnav'])>1"}
+<div class="lessNav">
+    {volist name="$navArr[$__activeID]['subnav']" id="v"}
+    <a{if condition="$__ctrl==$key"} class="x"{/if} href="{:url('user/html/command',['__active'=>$__active,'__ctrl'=>$key])}">{$v}</a>
+    {/volist}
+</div>
+{/if}

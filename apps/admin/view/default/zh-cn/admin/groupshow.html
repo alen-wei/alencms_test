@@ -1,0 +1,260 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+	<div class="frame noLess">
+		
+		
+		<div class="contentBg">
+			<div class="content">
+				
+				<div class="colBox fr_mt20" id="col_main">
+					<div class="tilBox">
+						<h3 class="text-muted">管理组信息</h3>
+						<hr />
+					</div>
+					<div class="conBox">
+						<form class="form-horizontal">
+							<div class="form-group dataInp">
+								<label class="col-sm-2 control-label">名称</label>
+								<div class="col-sm-10">
+									<input name="group_name" autocomplete="new-password" type="text" class="form-control" placeholder="请输入名称" value="{$group.name|default=''}" />
+								</div>
+							</div>
+							<div class="form-group dataInp">
+								<label class="col-sm-2 control-label">状态</label>
+								<div class="col-sm-10">
+									<select name="group_status" class="form-control">
+										{foreach name=":get_status_txt()" item="v" key="k" }
+										<option value="{$k}">{$v}</option>
+										{/foreach}
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				{if condition="$type=='staff'"}
+				<div class="colBox fr_mt20" id="col_users">
+					<div class="tilBox">
+						<h3 class="text-muted">管理组成员<small class="fr_ml10">共{$count}人</small></h3>
+						<hr />
+					</div>
+					<div class="conBox">
+						<div id="group_users">{foreach name="userLists" item="v"}
+							<div class="media">
+								<div class="media-left">
+									<a href="{:url('user/admin/show')}?id={$v.id}">
+										<img class="media-object img-rounded" width="50" src="{:get_user_img($v['img'],100)}">
+									</a>
+								</div>
+								<div class="media-body ui_txtof">
+									<a href="{:url('user/admin/show')}?id={$v.id}">{$v.name}</a><br />
+									<span class="small text-muted">{$v.login_time?date('Y-m-d H:i:s',$v['login_time']):'暂未登录'}</span>
+								</div>
+							</div>
+						{/foreach}</div>
+						<nav class="text-center">
+							{:get_page_html($page.index,$page.max,5,$urlParam)}
+						</nav>
+					</div>
+				</div>
+				{/if}
+				{if condition="$type=='info' or $type=='add'"}
+				{foreach name="authList" item="v" key="k"}
+				<div class="colBox fr_mt20 moduleid_{$v.id}" id="col_{$k}" data-val="{$k}">
+					<div class="tilBox">
+						<h3 class="text-muted">{$v.name}</h3>
+						<hr />
+					</div>
+					<div class="conBox">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-2 control-label">授予方式</label>
+									<div class="col-sm-10">
+										<div class="btn-group GrantWay">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+												<span>手动勾选</span> <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+												<li data-val="1"><a href="#">手动勾选</a></li>
+												<li data-val="0"><a href="#">全部授予</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">权限列表</label>
+									<div class="col-sm-10">
+										{foreach name="v.item" item="vv"  key="kk"}
+										<div class="checkbox pull-left fr_mr20">
+											<label>
+												<input class="ctrl_{$vv.id}" data-val="{$vv.id}" type="checkbox"> {$vv.name}
+											</label>
+										</div>
+										{/foreach}
+										<div class="clearfix"></div>
+										<hr />
+										<button type="button" data-cmd="checked" class="btn btn-default ctrlBut fr_mr5">全选</button>
+										<button type="button" class="btn btn-default ctrlBut">全不选</button>
+									</div>
+								</div>
+							</form>
+					</div>
+				</div>
+				{/foreach}
+				{/if}
+			</div>
+		</div>
+		
+			 
+		<div class="lessNav">
+			<b class="text-primary">快速导航</b>
+			<ul class="nav">
+				{if condition="$type=='staff'"}
+				<li><a href="#col_main">管理组信息</a></li>
+				{/if}
+				<li><a href="#col_users">管理组成员</a></li>
+				{if condition="$type=='info' or $type=='add'"}
+				{foreach name="authList" item="v" key="k"}
+				<li><a href="#col_{$k}">{$v.name}</a></li>
+				{/foreach}
+				{/if}
+				<li class="x">
+					<!--type-->
+					<a class="small" href="{:url('grouplists')}"><i class="fa fa-list-ul fr_mr5"></i>管理组列表</a>
+					{if condition="$type!='add'"}
+					{if condition="$type=='info'"}
+					<a class="small" href="?id={$group.id}&type=staff"><i class="fa fa-users fr_mr5"></i>查看管理组成员</a>
+					{else /}
+					<a class="small" href="?id={$group.id}"><i class="fa fa-id-card fr_mr5"></i>查看管理组信息</a>
+					{/if}
+					{/if}
+					<a class="small" href="#top"><i class="fa fa-chevron-circle-up fr_mr5"></i>返回顶部</a>
+				</li>
+			</ul>
+		</div>
+	
+		<div class="butToolsBg">
+			<hr />
+			<div class="butTools">
+				<button data-box=".content" type="button" class="btn btn-info submit">全部提交</button>
+				<a href="{:request()->server('HTTP_REFERER')}" class="btn btn-default">返回</a>
+				{if condition="$admin_ctrl=='groupshow'"}
+				<a onclick="confirm_hint(this,'确认删除管理组【{$group.name}】？');return false;" href="{:url('groupdel')}?ids={$group.id}&url={:urlencode(request()->server('HTTP_REFERER'))}" class="btn btn-danger pull-right">删除管理组</a>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div></div>
+{/block}
+{block name="foot"}
+<script src="{$static_url}Jq_plugins/jquery.scrollTo.js"></script>
+<script>
+    $(window).ready(function(){
+		//快速导航
+		$('.lessNav ul li a').click(function(){
+			var href=$(this).attr('href');
+			if('#'==href.substr(0,1)){
+				$('.contentBg').scrollTo(href=='#top'?0:href,500);
+				return false;
+			}
+		});
+		
+		//授予方式
+		$('.colBox .GrantWay ul li a').click(function(e){
+			var o=$(this).parent('li');
+			var box=o.parents('.GrantWay');
+			var val=o.attr('data-val');
+			var txt=o.text();
+			box.attr('data-val',val);
+			box.find('button span:first').text(txt);
+			if(val=='1'){
+				box.parents('.colBox').find('input,.ctrlBut').removeAttr('disabled');
+			}else{
+				box.parents('.colBox').find('input,.ctrlBut').attr('disabled',true);
+			}
+			stopDefault(e);
+		});
+		//全选or不选
+		$('.colBox .ctrlBut').click(function(e){
+			var o=$(this);
+			var box=o.parents('.colBox ');
+			box.find('input[type=checkbox]').map(function(){
+				this.checked=o.attr('data-cmd')?true:false;
+			});
+			stopDefault(e);
+		});
+		//刷新
+		var reAuthVal=function(){
+			var box;
+			for(var i in _auth){
+				box=$('.moduleid_'+i);
+				if(box.length<1)continue;
+				if(_auth[i]=='0'){
+					box.find('.GrantWay ul li[data-val=0] a').click();
+					continue;
+				}
+				box.find('.GrantWay ul li[data-val=1] a').click();
+				if(_auth[i]=='')continue;
+				box.find('input[type=checkbox]').checked=false;
+				for(var k in _auth[i]){
+					box.find('input.ctrl_'+_auth[i][k])[0].checked=true;
+				}
+			}
+		};
+		//提交函数
+		var funSubmit=function(data,opOkFun,opErrFun){
+			opOkFun=opOkFun?opOkFun:function(data){
+				alert_hint_close();
+				alerts('修改成功');
+			};
+			opErrFun=opErrFun?opErrFun:function(err){
+				alert_hint_close();
+				alerts('<span class="text-danger"><i class="fa fa-2x fa-exclamation-circle fr_mr10"></i>'+err+'</span>');
+			};
+			alert_hint('提交中','spinner',-1);
+			{if condition="$type=='add'"}
+			alenPost("{:url('groupadd')}",data,opOkFun,opErrFun);
+			{else /}
+			data.id="{$group.id}";
+			alenPost("{:url('groupsave')}",data,opOkFun,opErrFun);
+			{/if}
+		};
+		
+		//提交按钮
+		$('.butTools .submit,.content .colBox .submit').click(function(){
+			var dataObj={};
+			$('.colBox[data-val]').map(function(){
+				var box=$(this);
+				var moduleid=box.attr('data-val');
+				if(box.find('.GrantWay').attr('data-val')=="0"){
+					dataObj[moduleid]='0';
+					return;
+				}
+				var tmp=[];
+				box.find('input:checked').map(function(){
+					tmp.push($(this).attr('data-val'));
+				});
+				if(tmp.length<1){
+					dataObj[moduleid]='';
+					return;
+				}
+				dataObj[moduleid]=tmp.join(',');
+			});
+			$('#col_main [name]').map(function(){
+				dataObj[$(this).attr('name')]=$(this).val();
+			});
+			funSubmit(dataObj);
+			return false;
+		});
+		
+		$('.contentBg').scrollspy({ target: '.lessNav'});
+		$('#col_main [name=group_status]').val("{$group.status|default=1}");
+		
+		{if condition="$type=='info'"}
+		var _auth=$.parseJSON('{:json_encode($auth)}');
+		reAuthVal();
+		{/if}
+	});
+</script>
+{/block}
