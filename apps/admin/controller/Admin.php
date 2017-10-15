@@ -36,6 +36,16 @@ class Admin extends \base\Admin{
 	
 	
 	protected function _config($request,$user){
+		$postData=$request->param();
+		if($postData){
+			$config=[];
+			arr_dyadic_multi($postData,$config);
+			$const=$config['const'];
+			unset($config['const']);
+			\app\Admin\event\AlenConfig::setConfig($config);
+			\app\Admin\event\AlenConfig::getConst($const);
+			return true;
+		}
 		$staticData=['cache'=>[]];
 		$extLists=['Redis','Memcache','Memcached'];
 		foreach ($extLists as $v){
@@ -51,10 +61,8 @@ class Admin extends \base\Admin{
 		foreach ($extLists as $v){
 			$staticData['exts'][$v]=extension_loaded($v);
 		}
-		$config=include CONFIG_PATH.'config.php';
-		
-		$dbArr=include CONFIG_PATH.'dbconfig.php';
-		
+		$config=\app\Admin\event\AlenConfig::getConfig();
+		$dbArr=\app\Admin\event\AlenConfig::getConfig(true);
 		return [
 			'staticData'=>$staticData,
 			'config'=>$config,
@@ -70,8 +78,8 @@ class Admin extends \base\Admin{
 		$cond_search=$request->param('search');
 		$cond_filter=$request->param('filter');
 		
-		$search=$cond_search;
-		$filter=$cond_filter;
+		//$search=$cond_search;
+		//$filter=$cond_filter;
 		
 		$where=[];
 		if($cond_filter){

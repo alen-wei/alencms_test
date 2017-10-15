@@ -59,7 +59,7 @@
 						
 						<div class="form-group dataInp">
 							<label>调试模式</label>
-							<select class="form-control" name="const-DEBUG">
+							<select class="form-control" name="debug">
 								<option value="0">关闭</option>
 								<option value="1">开启</option>
 							</select>
@@ -67,6 +67,21 @@
 						
 					</div>
 					
+				</div>
+				
+				<div class="colBox fr_mt20" id="col_admin">
+					<div class="tilBox">
+						<h3 class="text-muted">后台设置</h3>
+						<hr />
+					</div>
+					
+					<div class="conBox">
+						<div class="form-group dataInp">
+							<label>每页信息个数</label>
+							<input name="admin-page-gs" type="text" class="form-control" placeholder="请输入系统标记" value="{$config.admin.page.gs}">
+						</div>
+					</div>
+						
 				</div>
 				
 				<div class="colBox fr_mt20" id="col_db_rdbms">
@@ -79,7 +94,7 @@
 						
 						<div class="form-group dataInp">
 							<label>关系型数据库</label>
-							<select class="form-control" name="db_config-rdbms-type">
+							<select class="form-control" name="db_config-rdbms">
 								{foreach name="$dbArr.rdbms" item="v" key="k"}
 								<option value="{$k}">{$k}</option>
 								{/foreach}
@@ -88,7 +103,7 @@
 
 						<div class="form-group dataInp">
 							<label>非关系型数据库</label>
-							<select class="form-control" name="db_config-rdbms-type">
+							<select class="form-control" name="db_config-nosql">
 								<option value="">无</option>
 								{foreach name="$dbArr.nosql" item="v" key="k"}
 								<option value="{$k}">{$k}</option>
@@ -98,7 +113,7 @@
 						
 						<div class="form-group dataInp">
 							<label>缓存服务</label>
-							<select class="form-control" name="db_config-rdbms-type">
+							<select class="form-control" name="db_config-cache">
 								<option value="">文件系统</option>
 								{foreach name="$dbArr.cache" item="v" key="k"}
 								<option value="{$k}">{$k}</option>
@@ -182,10 +197,12 @@
 			<b class="text-primary">快速导航</b>
 			<ul class="nav">
 				
-				<li><a href="#col_users">管理组成员</a></li>
+				<li><a href="#col_webinfo">站点设置</a></li>
+				<li><a href="#col_admin">后台设置</a></li>
+				<li><a href="#col_db_rdbms">数据库信息</a></li>
+				
 				
 				<li class="x">
-					<!--type-->
 					<a class="small" href="{:url('grouplists')}"><i class="fa fa-list-ul fr_mr5"></i>管理组列表</a>
 					<a class="small" href="#top"><i class="fa fa-chevron-circle-up fr_mr5"></i>返回顶部</a>
 					
@@ -215,7 +232,41 @@
 				return false;
 			}
 		});
+		$('.contentBg').scrollspy({ target: '.lessNav'});
 		
+		
+		//提交函数
+		var funSubmit=function(data,opOkFun,opErrFun){
+			opOkFun=opOkFun?opOkFun:function(data){
+				alert_hint_close();
+				alerts('修改成功');
+			};
+			opErrFun=opErrFun?opErrFun:function(err){
+				alert_hint_close();
+				alerts('<span class="text-danger"><i class="fa fa-2x fa-exclamation-circle fr_mr10"></i>'+err+'</span>');
+			};
+			alert_hint('提交中','spinner',-1);
+			alenPost("?",data,opOkFun,opErrFun);
+		};
+		//提交按钮
+		$('.butTools .submit').click(function(){
+			var dataObj={};
+			$('.dataInp').map(function(){
+				var box=$(this);
+				var o=box.find('[name]');
+				var k=o.attr('name');
+				var v=o.val();
+				dataObj[k]=v;
+			});
+			funSubmit(dataObj);
+			return false;
+		});
+		
+		
+		$('.dataInp [name=debug]').val("{:intval($config.debug)}");
+		$('.dataInp [name=db_config-rdbms]').val("{$config.db_config.rdbms}");
+		$('.dataInp [name=db_config-nosql]').val("{$config.db_config.nosql}");
+		$('.dataInp [name=db_config-cache]').val("{$config.db_config.cache}");
 	});
 </script>
 {/block}

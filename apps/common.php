@@ -614,3 +614,19 @@ function get_page_html($index,$max,$num=5,$uri=''){
     $html.='</ul>';
     return $html;
 }
+function arr_dyadic_multi($val,&$arr,$ds='-'){
+	if(is_array($ds)){
+		$k=array_shift($ds);
+		if(count($ds)>0){
+			if(!isset($arr[$k]))$arr[$k]=[];
+			arr_dyadic_multi($val,$arr[$k],$ds);
+		}else{
+			$arr[$k]=$val;
+		}
+	}else{
+		foreach($val as $k=>$v){
+			$k=explode($ds, $k);
+			arr_dyadic_multi($v,$arr,(array)$k);
+		}
+	}
+}
