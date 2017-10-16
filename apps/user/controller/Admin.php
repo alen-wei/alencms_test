@@ -35,14 +35,44 @@ class Admin extends \base\Admin{
 			'id'=>6,
 			'name'=>'删除日志',
 		],
+		'noticelists'=>[
+			'id'=>7,
+			'name'=>'公告列表',
+		],
+		'noticeadd'=>[
+			'id'=>8,
+			'name'=>'发布公告',
+		],
+		'noticesave'=>[
+			'id'=>9,
+			'name'=>'修改公告',
+		],
+		'noticedel'=>[
+			'id'=>10,
+			'name'=>'删除公告',
+		],
+		
     ];
-	static $adminNav=['lists','log'];
+	static $adminNav=['lists','noticelists','log'];
     //protected $noVerify=['lists'];
     
     //日期字符处理
     private function TextToDate($str){
         return str_to_date($str);
     }
+	
+	
+	
+	protected function _noticeadd($request,$user){
+		return true;
+	}
+	protected function _noticelists($request,$user){
+		$event=controller($this->module.'/Notice', 'event');
+		
+		
+		$lists=$event->getLists();
+		return true;
+	}
 	protected function _logtype($request,$user){
 		$module=$request->param('module');
 		$event=controller($this->module.'/Log', 'event');

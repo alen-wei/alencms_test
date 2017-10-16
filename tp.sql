@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-10-15 11:06:13
+Date: 2017-10-16 17:36:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for tp_admin_auth
+-- Table structure for `tp_admin_auth`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_admin_auth`;
 CREATE TABLE `tp_admin_auth` (
@@ -42,7 +42,7 @@ INSERT INTO `tp_admin_auth` VALUES ('8', '6', '1,2', '6', '1506743244', '1506754
 INSERT INTO `tp_admin_auth` VALUES ('9', '1', '0', '3', '1507519521', '1507519521', null);
 
 -- ----------------------------
--- Table structure for tp_admin_group
+-- Table structure for `tp_admin_group`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_admin_group`;
 CREATE TABLE `tp_admin_group` (
@@ -64,7 +64,7 @@ INSERT INTO `tp_admin_group` VALUES ('5', 'test', '0', '1', '1506743138', '15067
 INSERT INTO `tp_admin_group` VALUES ('6', '管理员', '0', '0', '1506743244', '1506755582', null);
 
 -- ----------------------------
--- Table structure for tp_admin_user
+-- Table structure for `tp_admin_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_admin_user`;
 CREATE TABLE `tp_admin_user` (
@@ -84,7 +84,7 @@ CREATE TABLE `tp_admin_user` (
 INSERT INTO `tp_admin_user` VALUES ('1', '49', '1', '1506731414', '1486436970', '1486436970', null);
 
 -- ----------------------------
--- Table structure for tp_cms_index
+-- Table structure for `tp_cms_index`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_cms_index`;
 CREATE TABLE `tp_cms_index` (
@@ -107,7 +107,7 @@ CREATE TABLE `tp_cms_index` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tp_cncmonitor_iris_log
+-- Table structure for `tp_cncmonitor_iris_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_cncmonitor_iris_log`;
 CREATE TABLE `tp_cncmonitor_iris_log` (
@@ -168,7 +168,7 @@ INSERT INTO `tp_cncmonitor_iris_log` VALUES ('15a1fe36-a75f-4863-9d10-c713d7c3f4
 INSERT INTO `tp_cncmonitor_iris_log` VALUES ('2e2dc74e-411f-418c-b9cf-e8e77579fb39', '2000010100009', '5', '1492664102', '201401072301208739344289316a321', '165.254.1.254', '1492664213', '1492664213', null);
 
 -- ----------------------------
--- Table structure for tp_cncmonitor_machine
+-- Table structure for `tp_cncmonitor_machine`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_cncmonitor_machine`;
 CREATE TABLE `tp_cncmonitor_machine` (
@@ -534,7 +534,7 @@ INSERT INTO `tp_cncmonitor_machine` VALUES ('350', '3', '#350号机床');
 INSERT INTO `tp_cncmonitor_machine` VALUES ('351', '3', '#351号机床');
 
 -- ----------------------------
--- Table structure for tp_cncmonitor_status
+-- Table structure for `tp_cncmonitor_status`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_cncmonitor_status`;
 CREATE TABLE `tp_cncmonitor_status` (
@@ -554,7 +554,7 @@ CREATE TABLE `tp_cncmonitor_status` (
 INSERT INTO `tp_cncmonitor_status` VALUES ('1', '2', '2e2dc74e-411f-418c-b9cf-e8e77579fb39', '5', '1489134978', '1492664213', null);
 
 -- ----------------------------
--- Table structure for tp_cncmonitor_workshop
+-- Table structure for `tp_cncmonitor_workshop`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_cncmonitor_workshop`;
 CREATE TABLE `tp_cncmonitor_workshop` (
@@ -571,7 +571,7 @@ INSERT INTO `tp_cncmonitor_workshop` VALUES ('2', '车间 #2');
 INSERT INTO `tp_cncmonitor_workshop` VALUES ('3', '车间 #3');
 
 -- ----------------------------
--- Table structure for tp_file_apply
+-- Table structure for `tp_file_apply`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_file_apply`;
 CREATE TABLE `tp_file_apply` (
@@ -597,7 +597,27 @@ INSERT INTO `tp_file_apply` VALUES ('5', '110', '2', '58', 'userimg', '150751847
 INSERT INTO `tp_file_apply` VALUES ('6', '110', '2', '50', 'userimg', '1507524193', '1507524193', null);
 
 -- ----------------------------
--- Table structure for tp_file_dir
+-- Table structure for `tp_file_content`
+-- ----------------------------
+DROP TABLE IF EXISTS `tp_file_content`;
+CREATE TABLE `tp_file_content` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `module_id` int(11) DEFAULT NULL,
+  `by_id` varchar(255) DEFAULT NULL,
+  `less` varchar(255) DEFAULT NULL,
+  `content` text,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  `delete_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tp_file_content
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tp_file_dir`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_file_dir`;
 CREATE TABLE `tp_file_dir` (
@@ -619,7 +639,7 @@ INSERT INTO `tp_file_dir` VALUES ('38', '0', '49', '手机外壳', '1490839823',
 INSERT INTO `tp_file_dir` VALUES ('39', '0', '49', '车铣复合', '1490839869', '1490839869', null);
 
 -- ----------------------------
--- Table structure for tp_file_item
+-- Table structure for `tp_file_item`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_file_item`;
 CREATE TABLE `tp_file_item` (
@@ -643,7 +663,7 @@ INSERT INTO `tp_file_item` VALUES ('64', '39', '49', '103', 'audio.nc', 'NC', '1
 INSERT INTO `tp_file_item` VALUES ('65', '0', '49', '116', '1dc053969abd000001dc601e2ff3.jpg', 'JPEG', '1507539143', '1507539143', null);
 
 -- ----------------------------
--- Table structure for tp_file_main
+-- Table structure for `tp_file_main`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_file_main`;
 CREATE TABLE `tp_file_main` (
@@ -694,7 +714,7 @@ INSERT INTO `tp_file_main` VALUES ('123', '49', '_upload/20171010/4CE56F77A08815
 INSERT INTO `tp_file_main` VALUES ('124', '49', '_upload/20171012/34B941B0E441000C.jpeg', 'JPEG', 'image/jpeg', '356811', '2d9a62e0d09412f8439f002908f84f4e', '0', '1', '127.0.0.1', '1507796468', '1507796468', null);
 
 -- ----------------------------
--- Table structure for tp_public_treeview
+-- Table structure for `tp_public_treeview`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_public_treeview`;
 CREATE TABLE `tp_public_treeview` (
@@ -721,7 +741,7 @@ INSERT INTO `tp_public_treeview` VALUES ('15', '0', '15', '1', '1', '1', '15', '
 INSERT INTO `tp_public_treeview` VALUES ('16', '0', '16', '1', '1', '1', '16', '0', '1487744545', null);
 
 -- ----------------------------
--- Table structure for tp_user_agrt
+-- Table structure for `tp_user_agrt`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_user_agrt`;
 CREATE TABLE `tp_user_agrt` (
@@ -739,7 +759,7 @@ CREATE TABLE `tp_user_agrt` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tp_user_agrt_log
+-- Table structure for `tp_user_agrt_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_user_agrt_log`;
 CREATE TABLE `tp_user_agrt_log` (
@@ -755,7 +775,7 @@ CREATE TABLE `tp_user_agrt_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tp_user_bindings
+-- Table structure for `tp_user_bindings`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_user_bindings`;
 CREATE TABLE `tp_user_bindings` (
@@ -792,7 +812,7 @@ INSERT INTO `tp_user_bindings` VALUES ('40', '50', '2', '', '', '0', '', '2', '1
 INSERT INTO `tp_user_bindings` VALUES ('41', '55', '2', '', '', '0', '', '2', '127.0.0.1', '1506677235', '1506677240', null);
 
 -- ----------------------------
--- Table structure for tp_user_info
+-- Table structure for `tp_user_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_user_info`;
 CREATE TABLE `tp_user_info` (
@@ -823,7 +843,7 @@ INSERT INTO `tp_user_info` VALUES ('65', '0', null, null, null, null);
 INSERT INTO `tp_user_info` VALUES ('66', '0', null, null, null, null);
 
 -- ----------------------------
--- Table structure for tp_user_log
+-- Table structure for `tp_user_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_user_log`;
 CREATE TABLE `tp_user_log` (
@@ -949,7 +969,7 @@ INSERT INTO `tp_user_log` VALUES ('428', '49', '49', '1', '', '', '127.0.0.1', '
 INSERT INTO `tp_user_log` VALUES ('429', '49', '49', '1', 'admin', '', '127.0.0.1', '1507769454', '1507769454', null);
 
 -- ----------------------------
--- Table structure for tp_user_log_type
+-- Table structure for `tp_user_log_type`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_user_log_type`;
 CREATE TABLE `tp_user_log_type` (
@@ -975,7 +995,7 @@ INSERT INTO `tp_user_log_type` VALUES ('7', 'groupadd', '6', '1486436829', '1486
 INSERT INTO `tp_user_log_type` VALUES ('8', 'groupdel', '6', '1486436829', '1486436829', null);
 
 -- ----------------------------
--- Table structure for tp_user_main
+-- Table structure for `tp_user_main`
 -- ----------------------------
 DROP TABLE IF EXISTS `tp_user_main`;
 CREATE TABLE `tp_user_main` (
@@ -1014,3 +1034,47 @@ INSERT INTO `tp_user_main` VALUES ('62', 'a', null, 'a', '7c3a_nFFHhn2jA1HX2j5Xs
 INSERT INTO `tp_user_main` VALUES ('64', 'test1', '_upload/20170926/18F61468B90410C5.jpeg', 'test', '289anMrAluB4KSXlUQq0f7WyjSwwflNS97wDUSoSJPaD3_zaIg', '2ACEBB818FB1C672', '0', '0', '0', '0', '1', '127.0.0.1', null, '1506397148', '1506397148', null);
 INSERT INTO `tp_user_main` VALUES ('65', 'asdasd', '_upload/20171009/00A19BB6880AC128.jpeg', 'asdasd', '0c90FPI4YfC2vWJyU66YS4siRyhnIOKv-6ucoQnObRXEhTk', 'F38E2534F8B25ECD', '0', '0', '0', '0', '1', '127.0.0.1', null, '1507515176', '1507515176', null);
 INSERT INTO `tp_user_main` VALUES ('66', 'zxczxc', '_upload/20171009/00A19BB6880AC128.jpeg', 'zxczxc', 'dae5Pf_p0h3iJih-N8LAiEo9JtOYiwKIUBii8j955RiSrMs', '425D55C2ADFBB557', '0', '0', '0', '0', '1', '127.0.0.1', null, '1507515406', '1507515406', null);
+
+-- ----------------------------
+-- Table structure for `tp_user_notice`
+-- ----------------------------
+DROP TABLE IF EXISTS `tp_user_notice`;
+CREATE TABLE `tp_user_notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
+  `txts` varchar(255) DEFAULT NULL,
+  `user_id` varchar(255) DEFAULT NULL,
+  `ips` varchar(255) DEFAULT NULL,
+  `publish_time` int(11) DEFAULT NULL,
+  `expire_time` int(11) DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  `delete_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tp_user_notice
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tp_user_notice_status`
+-- ----------------------------
+DROP TABLE IF EXISTS `tp_user_notice_status`;
+CREATE TABLE `tp_user_notice_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) DEFAULT NULL,
+  `notice_id` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `publish_time` int(11) DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  `delete_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tp_user_notice_status
+-- ----------------------------

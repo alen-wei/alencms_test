@@ -1,0 +1,79 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+	<div class="frame noLess" id="page_addNotice">
+		
+		
+		<div class="contentBg">
+			<div class="content">
+				<div class="noticeBox">
+					<textarea name="content" id="editor"></textarea>
+				</div>
+			</div>
+		</div>
+		
+		<div class="lessNav">
+			<div class="list-group">
+				<div class="list-group-item">
+					<small class="text-muted">标题</small>
+					<input type="text" class="form-control fr_mt5" value="" placeholder="标题">
+				</div>
+				<div class="list-group-item">
+					<div class="ui_upload_box">
+						<div class="obj"></div>
+						<div class="but">
+							<i class="fa fa-picture-o"></i>
+							<span>上传封面</span>
+						</div>
+					</div>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">发布时间</small>
+					<div class="input-group input-date fr_mt5">
+						<input type="text" class="form-control" readonly value="" data-format="yyyy-mm-dd" placeholder="发布时间">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+						</span>
+					</div>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">过期时间</small>
+					<div class="input-group input-date fr_mt5">
+						<input type="text" class="form-control" readonly value="" data-format="yyyy-mm-dd" placeholder="过期时间">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+						</span>
+					</div>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">类型</small>
+					<select class="form-control fr_mt5">
+						<option value="0">全部人</option>
+						<option value="1">全部注册用户</option>
+					</select>
+				</div>
+				<a href="{:request()->server('HTTP_REFERER')}" class="list-group-item">
+					<span class="text-primary">返回来源页</span>
+				</a>
+				<a href="#" class="list-group-item">
+					<span class="text-primary">发布通知</span>
+				</a>
+			</div>
+		</div>
+		
+	</div>
+</div></div>
+{/block}
+{block name="foot"}
+<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'),{
+			
+		}).then(editor =>{
+			console.log( editor );
+		}).catch(error =>{
+            console.error( error );
+        });
+</script>
+{/block}
