@@ -71,7 +71,7 @@ class Admin extends \base\Admin{
 	}
 	protected function _lists($request,$user){
 		$this->page_title='文件列表';
-        $num=20;
+        $num=config('admin.page')['gs'];
 		$p=$request->param('p');
         if(!$p)$p=1;
 		$field='id,user_id,path,ext,size,apply,create_time,update_time';

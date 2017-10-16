@@ -1,3 +1,1 @@
-<?php
-define('DOMAIN', '');
-define('PREFIX', 'tp');
+<?php define('DOMAIN','');define('PREFIX','tp');

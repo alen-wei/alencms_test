@@ -38,13 +38,21 @@ class Admin extends \base\Admin{
 	protected function _config($request,$user){
 		$postData=$request->param();
 		if($postData){
+			$url=isset($postData['url'])?verify_url_from($postData['url']):'';
+			$url=$url?$url:verify_url_from($request->server('HTTP_REFERER'));
+			unset($postData['url']);
+			
 			$config=[];
 			arr_dyadic_multi($postData,$config);
-			$const=$config['const'];
-			unset($config['const']);
-			\app\Admin\event\AlenConfig::setConfig($config);
-			\app\Admin\event\AlenConfig::getConst($const);
-			return true;
+			if(!$config)return set_err_back('00010003',$this->module);
+			$const=$config['_const'];
+			unset($config['_const']);
+			$back=\app\Admin\event\AlenConfig::setConfig($config);
+			if(!$back)return set_err_back('00010002',$this->module);
+			$back=\app\Admin\event\AlenConfig::setConst($const);
+			if(!$back)return set_err_back('00010002',$this->module);
+			$this->success(lang('Operation succeeded'), $url?$url:'lists');
+			exit();
 		}
 		$staticData=['cache'=>[]];
 		$extLists=['Redis','Memcache','Memcached'];
@@ -63,15 +71,17 @@ class Admin extends \base\Admin{
 		}
 		$config=\app\Admin\event\AlenConfig::getConfig();
 		$dbArr=\app\Admin\event\AlenConfig::getConfig(true);
+		$const=\app\Admin\event\AlenConfig::getConstLists();
 		return [
 			'staticData'=>$staticData,
 			'config'=>$config,
 			'dbArr'=>$dbArr,
+			'const'=>$const,
 		];
 	}
 	protected function _grouplists($request,$user){
 		$this->page_title='管理组列表';
-		$num=20;
+		$num=config('admin.page')['gs'];
         $p=$request->param('p');
         if(!$p)$p=1;
 		

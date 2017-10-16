@@ -67,10 +67,10 @@ class Log{
 	}
 	
 	public function getLists($wh=null,$page=null){
-		$db=userLog::field('id,user_id,modify_user_id,type,info,less,ips,create_time');
-		
+		$db=new userLog;
+		$db=$db->field('id,user_id,modify_user_id,type,info,less,ips,create_time');
 		if(!$wh)$wh=[];
-		$db=$db->whereNull('delete_time')->where($wh);
+		$db=$db->where($wh);
 		
 		if($page){
             if($page===true){

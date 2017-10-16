@@ -79,7 +79,7 @@ class Admin extends \base\Admin{
 	}
 	protected function _log($request,$user){
 		$this->page_title='操作日志';
-        $num=20;
+        $num=config('admin.page')['gs']*2;
 		$p=$request->param('p');
         if(!$p)$p=1;
 		
@@ -344,7 +344,7 @@ class Admin extends \base\Admin{
     //用户列表
 	protected function _lists($request,$user){
 		$this->page_title='用户列表';
-        $num=20;
+        $num=config('admin.page')['gs'];
         $field='id,user,name,img,login_time,create_time,admin,type,status';
         $p=$request->param('p');
         if(!$p)$p=1;

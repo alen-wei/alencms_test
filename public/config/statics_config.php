@@ -16,8 +16,8 @@ return [
 			'hostname'       => '127.0.0.1',
 			'hostport'       => '27017',
 			'database'       => 'tp',
-			'username'       => 'alencms',
-			'password'       => 'heng7535',
+			'username'       => '',
+			'password'       => '',
 		],
 	],
 	'cache'=>[

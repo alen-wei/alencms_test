@@ -103,7 +103,7 @@
 				<li data-id="{$v.id}">
 					<div class="check"><i class="fa fa-check-circle"></i></div>
 					<div class="col img">
-						<a>{if condition="$v->ext=='PDF'"}
+						<a href="{:url('show')}?id={$v.id}">{if condition="$v->ext=='PDF'"}
 						<i class="fa fa-2x fa-file-pdf-o"></i>
 						{elseif condition="$extType[$v->ext]=='img'" /}
 						<img src="{:get_static_img($v.path,100)}" />
@@ -113,7 +113,7 @@
 					</div>
 					<div class="col txt">
 						<p class="fr_pb5">
-							<span class="text-default">{$v.path}</span>
+							<a href="{:url('show')}?id={$v.id}">{$v.path}</a>
 						</p>
 						<p class="small ui_txtof">
 							<span class="text-muted ">{:date('Y-m-d H:i',$v.create_time)}</span>

@@ -7,32 +7,47 @@ class AlenConfig {
     public $errText='';
 	static $configFile=CONFIG_PATH.'config.php';
 	static $staticFile=CONFIG_PATH.'statics_config.php';
+	static $ConstFile=CONFIG_PATH.'define.php';
+	static $ConstName=['DOMAIN','PREFIX'];
 	//列表
 	static function getConfig($static=false){
 		return include $static?self::$staticFile:self::$configFile;
 	}
-	static function getConst(){
-		return [
-			'DOMAIN'=>DOMAIN,
-			'PREFIX'=>PREFIX,
-		];
+	static function getConstLists(){
+		$data=[];
+		foreach (self::$ConstName as $v){
+			$data[$v]=constant($v);
+		}
+		return $data;
 	}
-	public function setConfig(){
-		
+	static function setConfig($data){
+		$content=var_export($data,true);
+		$content='<?php return '.$content.';';
+		$fp = fopen(self::$configFile,"w");
+		fwrite($fp, $content);
+		fclose($fp);
+		return true;
 	}
-	public function setConst(){
-		
+	static function setConst($data){
+		$content='';
+		foreach($data as $k=>$v){
+			$content.='define(\''.$k.'\',\''.$v.'\');';
+		}
+		$content='<?php '.$content;
+		$fp = fopen(self::$ConstFile,"w");
+		fwrite($fp, $content);
+		fclose($fp);
+		return true;
 	}
 	static function loadConfig(){
 		//加载配置
 		$cog_arr=self::getConfig();
 		$db_arr=self::getConfig(true);
-		
 		foreach ($cog_arr['db_config'] as $k=>$v){
 			if(isset($db_arr[$k][$v]))$cog_arr['db_config'][$k]=$db_arr[$k][$v];
 		}
 		$db_cog=$cog_arr['db_config'];
-		
+		$setArr=[];
 		//debug
 		$debug=$cog_arr['debug'];
 		unset($cog_arr['debug']);
@@ -44,7 +59,8 @@ class AlenConfig {
 		//设置cache
 		$cache=Config::get('cache');
 		$cache=array_merge($cache,$db_cog['cache']);
-		Config::set($cache,'cache');
+		$setArr['cache']=$cache;
+		//Config::set($cache,'cache');
 		unset($db_cog['cache']);
 		//设置session
 		if('redis'==strtolower($cache['type'])){
@@ -55,7 +71,8 @@ class AlenConfig {
 			$cache['prefix']=$tmp['prefix'];
 			$cache['session_name']=PREFIX.'_session_';
 			$tmp=array_merge($tmp,$cache);
-			Config::set($tmp,'session');
+			$setArr['session']=$tmp;
+			//Config::set($tmp,'session');
 		}
 		//设置数据库
 		$bd_public=$db_cog['public'];
@@ -66,9 +83,11 @@ class AlenConfig {
 			$tmp=Config::get($k);
 			if(!$tmp)$tmp=[];
 			$tmp=array_merge($tmp,$bd_public,$v);
-			Config::set($tmp,$k);
+			$setArr[$k]=$tmp;
+			//Config::set($tmp,$k);
 		}
 		unset($cog_arr['db_config']);
-		Config::set($cog_arr);
+		$setArr=array_merge($cog_arr,$setArr);
+		Config::set($setArr);
 	}
 }

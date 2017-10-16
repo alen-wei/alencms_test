@@ -23,7 +23,7 @@
         "topthink/think-image": "^1.0"
     },
     "extra": {
-        "think-path": "thinkphp"
+        "think-path": "framework/thinkphp"
     },
     "config": {
         "preferred-install": "dist"
