@@ -64,6 +64,26 @@ class Admin extends \base\Admin{
 	
 	
 	protected function _noticeadd($request,$user){
+		$data=$request->param();
+		if($data){
+			if(!$data['name'])return set_err_back('00010009',$this->module);
+			$content=$data['content'];
+			unset($data['content']);
+			$data['txt']=get_html_txts($content);
+			if(!$data['img'] and $data['autoimg']){
+				$imgArr=get_html_img($content);
+				if($imgArr){
+					$data['img']=$imgArr[0][0];
+				}
+			}
+			unset($data['autoimg']);
+			if(!$data['publish_time'])$data['publish_time']=get_now_time();
+			if(!$data['expire_time'])$data['expire_time']=0;
+			
+			
+			print_r($data);
+			exit();
+		}
 		return true;
 	}
 	protected function _noticelists($request,$user){

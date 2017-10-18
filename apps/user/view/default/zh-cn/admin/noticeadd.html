@@ -1,13 +1,16 @@
 {extend name="&template\frame_admin" /}
+{block name="head"}
+<style>
+	.ui_upload_box .obj:empty:after{content:"上传封面";}
+</style>
+{/block}
 {block name="body"}
 <div class="main_page"><div class="main_page_m">
 	<div class="frame noLess" id="page_addNotice">
-		
-		
 		<div class="contentBg">
 			<div class="content">
 				<div class="noticeBox">
-					<textarea name="content" id="editor"></textarea>
+					<textarea name="content" id="content"></textarea>
 				</div>
 			</div>
 		</div>
@@ -16,21 +19,37 @@
 			<div class="list-group">
 				<div class="list-group-item">
 					<small class="text-muted">标题</small>
-					<input type="text" class="form-control fr_mt5" value="" placeholder="标题">
+					<input name="name" type="text" class="form-control fr_mt5" placeholder="标题">
 				</div>
 				<div class="list-group-item">
-					<div class="ui_upload_box">
+					<div class="ui_upload_box contain" data-name="img" id="upimg">
 						<div class="obj"></div>
 						<div class="but">
 							<i class="fa fa-picture-o"></i>
 							<span>上传封面</span>
 						</div>
 					</div>
+					<div class="fr_pt10">
+						<div class="btn-group btn-group-justified">
+							<div class="btn-group" data-name="autoimg" id="autoimg" data-val="1">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+									<span>自动获取</span> <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a data-txt="自动获取" data-val="1" href="#">如果没有封面则自动获取内容的第一张站内图片</a></li>
+									<li><a data-txt="不获取" data-val="" href="#">不获取</a></li>
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default" id="upimg_del"><i class="fa fa-trash-o fr_mr5"></i>删除</button>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="list-group-item">
 					<small class="text-muted">发布时间</small>
 					<div class="input-group input-date fr_mt5">
-						<input type="text" class="form-control" readonly value="" data-format="yyyy-mm-dd" placeholder="发布时间">
+						<input name="publish_time" type="text" class="form-control" readonly data-format="yyyy-mm-dd" placeholder="发布时间">
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
 						</span>
@@ -39,7 +58,7 @@
 				<div class="list-group-item">
 					<small class="text-muted">过期时间</small>
 					<div class="input-group input-date fr_mt5">
-						<input type="text" class="form-control" readonly value="" data-format="yyyy-mm-dd" placeholder="过期时间">
+						<input name="expire_time" type="text" class="form-control" readonly value="" data-format="yyyy-mm-dd" placeholder="过期时间">
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
 						</span>
@@ -47,33 +66,112 @@
 				</div>
 				<div class="list-group-item">
 					<small class="text-muted">类型</small>
-					<select class="form-control fr_mt5">
-						<option value="0">全部人</option>
-						<option value="1">全部注册用户</option>
+					<select name="type" class="form-control fr_mt5">
+						<option value="">全部注册用户</option>
 					</select>
 				</div>
 				<a href="{:request()->server('HTTP_REFERER')}" class="list-group-item">
 					<span class="text-primary">返回来源页</span>
 				</a>
-				<a href="#" class="list-group-item">
+				<a href="#" class="list-group-item" id="submit">
 					<span class="text-primary">发布通知</span>
 				</a>
 			</div>
 		</div>
-		
 	</div>
 </div></div>
 {/block}
 {block name="foot"}
-<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.1/classic/ckeditor.js"></script>
+<script src="{$static_url}CKEditor4/ckeditor.js"></script>
+<script src="{$static_url}Alen/Js/alen.Upload.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'),{
-			
-		}).then(editor =>{
-			console.log( editor );
-		}).catch(error =>{
-            console.error( error );
-        });
+	$('#upimg').click(function(){
+		var upObj=new _alenUpload;
+		var o=$(this);
+		upObj.uploadUrl=_sys.upload_img_url;
+		upObj.fileSize='3M';
+		upObj.exts=Array('jpg','jpeg','gif','png','bmp');
+		upObj.onComplete=function(files){
+			var data=files[0];
+			var url=data.back.url;
+			var img=data.back.path+data.back.thumb[320];
+			var backFun=function(){
+				o.attr('data-val',url);
+				var imgbox=o.find('.obj img');
+				if(imgbox.length<1){
+					imgbox=$('<img />');
+					o.find('.obj').append(imgbox);
+				}
+				imgbox.attr('src',img);
+			};
+			backFun();
+		};
+		upObj.onError=function(err){alerts(err);};
+		upObj.showFile();
+	});
+	
+	$('#upimg_del').click(function(){
+		$('#upimg .obj').html('');
+		$('#upimg').removeAttr('data-val');
+	});
+	
+	$('#autoimg ul li a').click(function(e){
+		var o=$(this);
+		var box=o.parents('#autoimg');
+		box.attr('data-val',o.attr('data-val'));
+		box.find('button span:first').text(o.attr('data-txt'));
+		stopDefault(e);
+	});
+	
+	var funSubmit=function(data,opOkFun,opErrFun){
+		opOkFun=opOkFun?opOkFun:function(data){
+			alert_hint_close();
+			alerts('发布成功');
+		};
+		opErrFun=opErrFun?opErrFun:function(err){
+			alert_hint_close();
+			alerts('<span class="text-danger"><i class="fa fa-2x fa-exclamation-circle fr_mr10"></i>'+err+'</span>');
+		};
+		alert_hint('提交中','spinner',-1);
+		alenPost("{:url('noticeadd')}",data,opOkFun,opErrFun);
+	};
+	
+	$('#submit').click(function(){
+		var ObjBox=$('#page_addNotice [name],#page_addNotice [data-name]');
+		var data={};
+		ObjBox.map(function(){
+			var o=$(this);
+			var k=o.attr('name');
+			k=k?k:o.attr('data-name');
+			var v=o.val();
+			v=v?v:o.attr('data-val');
+			data[k]=v?v:"";
+		});
+		for(var k in CKEDITOR.instances){
+			data[k]=CKEDITOR.instances[k].getData();
+		}
+		echoLog(data);
+		funSubmit(data);
+		return false;
+	});
+	
+	(function(){
+		var obj=CKEDITOR.replace( 'content',{
+			on:{
+				instanceReady:function(){
+					var box=$('.'+this.id);
+					var resizeFun=function(){
+						var bgBox=box.parent();
+						var conBox=box.find('.cke_contents');
+						var tmpH=bgBox.outerHeight()-(box.outerHeight()-conBox.outerHeight());
+						conBox.height(tmpH);
+					};
+					$(window).resize(resizeFun);
+					resizeFun();
+				}
+			}
+		});
+	})();
+	
 </script>
 {/block}

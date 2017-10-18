@@ -14,6 +14,7 @@ return [
 	],
 	//公共资源目录
 	'public_path'			=>PUBLIC_PATH,
+	'static_path'			=>PUBLIC_PATH.'static'.DS,
 	//主题资源文件夹
 	'skin_dirname'			=>'_skin',
 	//令牌有效时间

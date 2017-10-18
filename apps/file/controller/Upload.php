@@ -20,7 +20,52 @@ class Upload extends Ajax{
 	}
 	//编辑器上传
 	protected function _postEdit($request){
-		$this->_postImg($request);
+		$validate=[
+			'size'=>get_file_size('5M'),
+			'ext'=>\app\File\event\Common::$typeExt['img'],
+		];
+		$name=$request->param('editor');
+		$name=$name?$name:'upload';
+		$back=$this->upFun($name,$validate);
+		if(!$request->param('md5')){
+			if(is_numeric($back)){
+				$err=set_err_back($back,$this->module);
+			}else{
+				foreach($back as $k=>$v){
+					if(!isset($v['err'])){
+						$path=config('static_path').str_replace('/',DS,$v['url']);
+						$event=controller('Common', 'event'); 
+						$thumb=$event->createThumb($path);
+						$back[$k]['thumb']=$thumb;
+					}
+				}
+			}	
+		}
+		if(!isset($err)){
+			foreach($back as $v){
+				$msg=$v['path'].$v['url'];
+				break;
+			}
+		}
+		$josnArr=[
+			'err'=>isset($err)?$err['_txt']:'',
+			'msg'=>isset($msg)?$msg:'',
+		];
+		$html='';
+		$CKEditorFuncNum=$request->param('CKEditorFuncNum');
+		if($CKEditorFuncNum!=''){
+			$html='<script>';
+			if($josnArr['err']){
+				$html.='alert("'.$err['_txt'].'");window.parent.CKEDITOR.tools.callFunction('.$CKEditorFuncNum.',"","")';
+			}else{
+				$html.='window.parent.CKEDITOR.tools.callFunction('.$CKEditorFuncNum.',"'.$josnArr['msg'].'","")';
+			}
+			$html.='</script>';
+		}else{
+			$html=json_encode($josnArr);
+		}
+		echo $html;
+		exit();
 	}
 	//上传图片
 	protected function _postImg($request){

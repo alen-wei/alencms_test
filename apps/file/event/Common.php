@@ -316,7 +316,7 @@ class Common {
 			$path=$data->path;
 		}
 		$filePath=config('static_path').str_replace('/',DS,$path);
-		if (!is_file($filePath)){ 
+		if (!is_file($filePath)){
 			$this->errCode='0003';
 			return false;
 		}

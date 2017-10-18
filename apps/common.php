@@ -213,6 +213,31 @@ function order_to_arr($order){
 	}
 	return $orderArr;
 }
+//获取html加的文字
+function get_html_txts($html){
+	$txts=strip_tags($html);
+	$txts=str_replace('&nbsp;'," ",$txts);
+	$txts=trim(str_replace(["\n","\r","\r\n"],"",$txts));
+	return $txts;
+}
+//获取html中的图片
+function get_html_img($html){
+	$pattern='/<[i|I][m|M][g|G].*?[s|S][r|R][c|C]=[\'|\"](.*?)[\'|\"].*?>/is';
+	if(!$html)return false;
+	$Array=[];
+	preg_match_all($pattern, $html, $Array);
+	if(!$Array)return false;
+	$imgArr=$Array[1];
+	$static_url=config('static_url');
+	$newArr=[[],[]];
+	foreach($imgArr as $v){
+		if(0==stripos($v,$static_url)){
+			$newArr[0][]=substr($v, strlen($static_url));
+			$newArr[1][]=$v;
+		}
+	}
+	return $newArr;
+}
 //获取whereArr中的用到的字段
 function get_where_field($whereArr){
 	$ff=[];

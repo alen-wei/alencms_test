@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-10-16 17:36:46
+Date: 2017-10-18 17:17:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -681,7 +681,7 @@ CREATE TABLE `tp_file_main` (
   `update_time` int(11) DEFAULT NULL,
   `delete_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tp_file_main
@@ -712,6 +712,15 @@ INSERT INTO `tp_file_main` VALUES ('121', '49', '_upload/20171010/8AD28C80A08994
 INSERT INTO `tp_file_main` VALUES ('122', '49', '_upload/20171010/081D82F0DD1F2A04.html', 'HTML', 'text/html', '19624', '855982b0c718c3424773ae1980efa581', '0', '1', '127.0.0.1', '1507620677', '1508036715', '1508036715');
 INSERT INTO `tp_file_main` VALUES ('123', '49', '_upload/20171010/4CE56F77A0881545.7z', '7Z', 'application/x-7z-compressed', '30237780', 'dc2d655d1279cf1a297a783804e9e279', '0', '1', '127.0.0.1', '1507620718', '1508036655', '1508036655');
 INSERT INTO `tp_file_main` VALUES ('124', '49', '_upload/20171012/34B941B0E441000C.jpeg', 'JPEG', 'image/jpeg', '356811', '2d9a62e0d09412f8439f002908f84f4e', '0', '1', '127.0.0.1', '1507796468', '1507796468', null);
+INSERT INTO `tp_file_main` VALUES ('125', '49', '_upload/20171017/EEE50221817E6792.jpg', 'JPG', 'image/jpeg', '2995671', '50baa337f62b5e4761d80bc9e7e30443', '0', '1', '127.0.0.1', '1508220936', '1508224163', '1508224163');
+INSERT INTO `tp_file_main` VALUES ('126', '49', '_upload/20171017/731575F0C330FE01.jpg', 'JPG', 'image/jpeg', '359836', 'f87560a03b5edcdff16470641a819290', '0', '1', '127.0.0.1', '1508223697', '1508224156', '1508224156');
+INSERT INTO `tp_file_main` VALUES ('127', '49', '_upload/20171017/C3C0FFEF8DDE82AE.jpg', 'JPG', 'image/jpeg', '2995671', '50baa337f62b5e4761d80bc9e7e30443', '0', '1', '127.0.0.1', '1508224172', '1508224172', null);
+INSERT INTO `tp_file_main` VALUES ('128', '49', '_upload/20171017/2CFA77390F7DFE7C.jpg', 'JPG', 'image/jpeg', '359836', 'f87560a03b5edcdff16470641a819290', '0', '1', '127.0.0.1', '1508228624', '1508228624', null);
+INSERT INTO `tp_file_main` VALUES ('129', '49', '_upload/20171017/FC96E61ADD502473.jpg', 'JPG', 'image/jpeg', '876849', '909d95a90187e3adc46f8d70c52fa7af', '0', '1', '127.0.0.1', '1508229589', '1508229589', null);
+INSERT INTO `tp_file_main` VALUES ('130', '49', '_upload/20171018/56BE26C8CB30D2B2.png', 'PNG', 'image/png', '4293', '444c6d806ebdcc14ff7cee05aaf7fd7a', '0', '1', '127.0.0.1', '1508302368', '1508302368', null);
+INSERT INTO `tp_file_main` VALUES ('131', '49', '_upload/20171018/A9EAF73262190399.jpg', 'JPG', 'image/jpeg', '180759', '49543110d1f28e7342a801babf1c0ea1', '0', '1', '127.0.0.1', '1508302872', '1508302872', null);
+INSERT INTO `tp_file_main` VALUES ('132', '49', '_upload/20171018/412B4F19BEEE14B1.jpg', 'JPG', 'image/jpeg', '806567', '615f59cd719629994f84714a0d499727', '0', '1', '127.0.0.1', '1508303191', '1508318218', '1508318218');
+INSERT INTO `tp_file_main` VALUES ('133', '49', '_upload/20171018/574D90AF70CEEDD4.png', 'PNG', 'image/png', '2186948', 'f90d8d5fe2a61af5260e12f2ca0b662f', '0', '1', '127.0.0.1', '1508303191', '1508318209', '1508318209');
 
 -- ----------------------------
 -- Table structure for `tp_public_treeview`
@@ -1021,7 +1030,7 @@ CREATE TABLE `tp_user_main` (
 -- ----------------------------
 -- Records of tp_user_main
 -- ----------------------------
-INSERT INTO `tp_user_main` VALUES ('49', 'heng716', '_upload/20171009/36E848FE030ECCD3.jpeg', 'alen', '48a2iiXHPZXxWc5Q9z1671XBMLe_DnWQXdpp3FOuDC7c9l-1Ow', 'C351887AFE10C16F', '1', '0', '0', '0', '1', '127.0.0.2', '1508030411', '1486436970', '1505977597', null);
+INSERT INTO `tp_user_main` VALUES ('49', 'heng716', '_upload/20171009/36E848FE030ECCD3.jpeg', 'alen', '48a2iiXHPZXxWc5Q9z1671XBMLe_DnWQXdpp3FOuDC7c9l-1Ow', 'C351887AFE10C16F', '1', '0', '0', '0', '1', '127.0.0.2', '1508290009', '1486436970', '1505977597', null);
 INSERT INTO `tp_user_main` VALUES ('50', '_AUTO_2B2B7A8030B14B39', '_upload/20170926/18F61468B90410C5.jpeg', 'alenwei', '525cdRLjhxCK55z53q0RjuarMk5EyBIaJMfkb16_2gwrBjpb_Q', '51F2D49F8D807FA3', '6', '0', '0', '0', '1', '127.0.0.1', '1507693709', '1486437062', '1506096655', null);
 INSERT INTO `tp_user_main` VALUES ('55', 'asd', '_upload/20170926/18F61468B90410C5.jpeg', 'asd', 'b5a32EmSkfg69E6wq7kpGKOLxLRcXyeEVBK86OCRHZs', 'EF387F2DC3B26B26', '0', '0', '0', '0', '1', '127.0.0.1', null, '1506194695', '1506194695', null);
 INSERT INTO `tp_user_main` VALUES ('56', 'test', '_upload/20170923/67254373CB52A711.jpeg', 'test', 'bb98ugXnxPm66M5x6Hpaei4_46iD5WhTiEGym0R3fxN4', '6C5C11FC9B46A02F', '0', '0', '0', '0', '1', '127.0.0.1', null, '1506194800', '1506194800', null);
