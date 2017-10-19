@@ -69,18 +69,28 @@ class Admin extends \base\Admin{
 			if(!$data['name'])return set_err_back('00010009',$this->module);
 			$content=$data['content'];
 			unset($data['content']);
-			$data['txt']=get_html_txts($content);
-			if(!$data['img'] and $data['autoimg']){
+			$download=$data['_download'];
+			
+			
+			
+			$data['txts']=$data['_autotxt']?get_html_txts($content):$data['txts'];
+			unset($data['_autotxt']);
+			
+			if(!$data['img'] and $data['_autoimg']){
 				$imgArr=get_html_img($content);
 				if($imgArr){
 					$data['img']=$imgArr[0][0];
 				}
 			}
-			unset($data['autoimg']);
+			unset($data['_autoimg']);
+			
 			if(!$data['publish_time'])$data['publish_time']=get_now_time();
 			if(!$data['expire_time'])$data['expire_time']=0;
 			
-			
+			$event=controller('File/Content', 'event');
+			$id=1;
+			$back=$event->add($content,$this->module,'notice',$id,$download);
+			if(!$back)return set_err_back('00010003',$this->module);
 			print_r($data);
 			exit();
 		}

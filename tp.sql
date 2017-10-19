@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-10-18 17:17:14
+Date: 2017-10-19 17:25:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -610,11 +610,12 @@ CREATE TABLE `tp_file_content` (
   `update_time` int(11) DEFAULT NULL,
   `delete_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tp_file_content
 -- ----------------------------
+INSERT INTO `tp_file_content` VALUES ('1', '2', '1', 'notice', '<p><img alt=\"\" src=\"http://www.alencorp.cn/uploads/201706/59323387d92e9.jpg\" /><img alt=\"\" src=\"http://www.alencorp.cn/uploads/201706/593233885c702.jpg\" /></p>\r\n<p><img alt=\"\" src=\"http://www.alencorp.cn/uploads/201706/59323387d92e9.jpg\" /><img alt=\"1dc053969abd000001dc601e2ff3.jpg\" src=\"http://127.0.0.1:81/_upload/20171009/5C52793013EF922F.jpeg\" style=\"width:100%\" /><img alt=\"\" src=\"http://www.alencorp.cn/uploads/201706/593233885c702.jpg\" /></p>\r\n', '1508399077', '1508399077', null);
 
 -- ----------------------------
 -- Table structure for `tp_file_dir`
@@ -681,7 +682,7 @@ CREATE TABLE `tp_file_main` (
   `update_time` int(11) DEFAULT NULL,
   `delete_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=136 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tp_file_main
@@ -721,6 +722,8 @@ INSERT INTO `tp_file_main` VALUES ('130', '49', '_upload/20171018/56BE26C8CB30D2
 INSERT INTO `tp_file_main` VALUES ('131', '49', '_upload/20171018/A9EAF73262190399.jpg', 'JPG', 'image/jpeg', '180759', '49543110d1f28e7342a801babf1c0ea1', '0', '1', '127.0.0.1', '1508302872', '1508302872', null);
 INSERT INTO `tp_file_main` VALUES ('132', '49', '_upload/20171018/412B4F19BEEE14B1.jpg', 'JPG', 'image/jpeg', '806567', '615f59cd719629994f84714a0d499727', '0', '1', '127.0.0.1', '1508303191', '1508318218', '1508318218');
 INSERT INTO `tp_file_main` VALUES ('133', '49', '_upload/20171018/574D90AF70CEEDD4.png', 'PNG', 'image/png', '2186948', 'f90d8d5fe2a61af5260e12f2ca0b662f', '0', '1', '127.0.0.1', '1508303191', '1508318209', '1508318209');
+INSERT INTO `tp_file_main` VALUES ('134', '49', '_upload/20171019/415605867A8A5B55.jpg', 'JPG', 'image/jpeg', '97921', 'a9c9e2556f7b3d3fc1cb3f409a6a49bc', '0', '1', '127.0.0.1', '1508404081', '1508404081', null);
+INSERT INTO `tp_file_main` VALUES ('135', '49', '_upload/20171019/140591A52DE0EAF0.jpg', 'JPG', 'image/jpeg', '199607', '83f3623829c2f6e30bea3b186ace279f', '0', '1', '127.0.0.1', '1508405050', '1508405050', null);
 
 -- ----------------------------
 -- Table structure for `tp_public_treeview`
@@ -1030,7 +1033,7 @@ CREATE TABLE `tp_user_main` (
 -- ----------------------------
 -- Records of tp_user_main
 -- ----------------------------
-INSERT INTO `tp_user_main` VALUES ('49', 'heng716', '_upload/20171009/36E848FE030ECCD3.jpeg', 'alen', '48a2iiXHPZXxWc5Q9z1671XBMLe_DnWQXdpp3FOuDC7c9l-1Ow', 'C351887AFE10C16F', '1', '0', '0', '0', '1', '127.0.0.2', '1508290009', '1486436970', '1505977597', null);
+INSERT INTO `tp_user_main` VALUES ('49', 'heng716', '_upload/20171009/36E848FE030ECCD3.jpeg', 'alen', '48a2iiXHPZXxWc5Q9z1671XBMLe_DnWQXdpp3FOuDC7c9l-1Ow', 'C351887AFE10C16F', '1', '0', '0', '0', '1', '127.0.0.2', '1508373678', '1486436970', '1505977597', null);
 INSERT INTO `tp_user_main` VALUES ('50', '_AUTO_2B2B7A8030B14B39', '_upload/20170926/18F61468B90410C5.jpeg', 'alenwei', '525cdRLjhxCK55z53q0RjuarMk5EyBIaJMfkb16_2gwrBjpb_Q', '51F2D49F8D807FA3', '6', '0', '0', '0', '1', '127.0.0.1', '1507693709', '1486437062', '1506096655', null);
 INSERT INTO `tp_user_main` VALUES ('55', 'asd', '_upload/20170926/18F61468B90410C5.jpeg', 'asd', 'b5a32EmSkfg69E6wq7kpGKOLxLRcXyeEVBK86OCRHZs', 'EF387F2DC3B26B26', '0', '0', '0', '0', '1', '127.0.0.1', null, '1506194695', '1506194695', null);
 INSERT INTO `tp_user_main` VALUES ('56', 'test', '_upload/20170923/67254373CB52A711.jpeg', 'test', 'bb98ugXnxPm66M5x6Hpaei4_46iD5WhTiEGym0R3fxN4', '6C5C11FC9B46A02F', '0', '0', '0', '0', '1', '127.0.0.1', null, '1506194800', '1506194800', null);

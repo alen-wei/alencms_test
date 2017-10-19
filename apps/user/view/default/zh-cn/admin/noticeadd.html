@@ -1,6 +1,7 @@
 {extend name="&template\frame_admin" /}
 {block name="head"}
 <style>
+	body,html{ overflow: hidden;}
 	.ui_upload_box .obj:empty:after{content:"上传封面";}
 </style>
 {/block}
@@ -11,6 +12,26 @@
 			<div class="content">
 				<div class="noticeBox">
 					<textarea name="content" id="content"></textarea>
+					<div class="contentTools">
+						<textarea placeholder="请输入简介" class="form-control txts fr_mb10 hidden"></textarea>
+						<div class="form-inline">
+							<div class="checkbox fr_mr10">
+								<label>
+									<input name="_autotxt" id="autotxt" checked type="checkbox">自动生成简介
+								</label>
+							</div>
+							<div class="checkbox fr_mr10">
+								<label>
+									<input name="_autoimg" checked type="checkbox">自动设置封面
+								</label>
+							</div>
+							<div class="checkbox fr_mr10">
+								<label>
+									<input name="_download" type="checkbox">下载远程图片
+								</label>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -29,22 +50,7 @@
 							<span>上传封面</span>
 						</div>
 					</div>
-					<div class="fr_pt10">
-						<div class="btn-group btn-group-justified">
-							<div class="btn-group" data-name="autoimg" id="autoimg" data-val="1">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									<span>自动获取</span> <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a data-txt="自动获取" data-val="1" href="#">如果没有封面则自动获取内容的第一张站内图片</a></li>
-									<li><a data-txt="不获取" data-val="" href="#">不获取</a></li>
-								</ul>
-							</div>
-							<div class="btn-group">
-								<button type="button" class="btn btn-default" id="upimg_del"><i class="fa fa-trash-o fr_mr5"></i>删除</button>
-							</div>
-						</div>
-					</div>
+					<button type="button" class="btn btn-default fr_wb100 fr_mt5" id="upimg_del"><i class="fa fa-trash-o fr_mr5"></i>清除封面</button>
 				</div>
 				<div class="list-group-item">
 					<small class="text-muted">发布时间</small>
@@ -115,6 +121,16 @@
 		$('#upimg').removeAttr('data-val');
 	});
 	
+	$('#autotxt').click(function(){
+		var o=$(this);
+		if(o.prop('checked')){
+			$('.contentTools .txts').addClass('hidden');
+		}else{
+			$('.contentTools .txts').removeClass('hidden');
+		}
+		$(window).resize();
+	});
+	
 	$('#autoimg ul li a').click(function(e){
 		var o=$(this);
 		var box=o.parents('#autoimg');
@@ -143,8 +159,12 @@
 			var o=$(this);
 			var k=o.attr('name');
 			k=k?k:o.attr('data-name');
-			var v=o.val();
-			v=v?v:o.attr('data-val');
+			var v='';
+			if('checkbox'==o.attr('type')){
+				v=o.prop('checked')?1:'';
+			}else{
+				v=o.val()?o.val():o.attr('data-val');
+			}
 			data[k]=v?v:"";
 		});
 		for(var k in CKEDITOR.instances){
@@ -163,7 +183,7 @@
 					var resizeFun=function(){
 						var bgBox=box.parent();
 						var conBox=box.find('.cke_contents');
-						var tmpH=bgBox.outerHeight()-(box.outerHeight()-conBox.outerHeight());
+						var tmpH=bgBox.outerHeight()-(box.outerHeight()-conBox.outerHeight())-$('.contentTools').outerHeight()-10;
 						conBox.height(tmpH);
 					};
 					$(window).resize(resizeFun);

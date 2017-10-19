@@ -221,19 +221,24 @@ function get_html_txts($html){
 	return $txts;
 }
 //获取html中的图片
-function get_html_img($html){
+function get_html_img($html,$other=false){
 	$pattern='/<[i|I][m|M][g|G].*?[s|S][r|R][c|C]=[\'|\"](.*?)[\'|\"].*?>/is';
 	if(!$html)return false;
 	$Array=[];
 	preg_match_all($pattern, $html, $Array);
-	if(!$Array)return false;
+	if(!$Array[0])return false;
 	$imgArr=$Array[1];
 	$static_url=config('static_url');
 	$newArr=[[],[]];
 	foreach($imgArr as $v){
-		if(0==stripos($v,$static_url)){
-			$newArr[0][]=substr($v, strlen($static_url));
+		if($other){
+			$newArr[0][]=$v;
 			$newArr[1][]=$v;
+		}else{
+			if(0===stripos($v,$static_url)){
+				$newArr[0][]=substr($v, strlen($static_url));
+				$newArr[1][]=$v;
+			}
 		}
 	}
 	return $newArr;
@@ -347,11 +352,13 @@ function get_temp_file($filename,$cache=true){
 	return json_decode(trim(substr(file_get_contents($path), 15)),true);
 }
 //写入文件
-function set_temp_file($filename, $content,$cache=true){
+function set_temp_file($filename,$content,$cache=true,$cont=false){
 	$path=$cache?CACHE_PATH.$filename:$filename;
 	$fp = fopen($path,"w");
-	fwrite($fp, "<?php exit();?>".json_encode($content,JSON_UNESCAPED_UNICODE));
+	$content=$cont?$content:"<?php exit();?>".json_encode($content,JSON_UNESCAPED_UNICODE);
+	fwrite($fp,$content);
 	fclose($fp);
+	return $path;
 }
 //新建文件夹
 function add_file_dir($path,$mode=0777){
