@@ -10,7 +10,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/top-think/think-installer/1be326e68f63de4e95977ed50f46ae75f017556d.zip",
+            "url": "https://api.github.com/repos/top-think/think-installer/zipball/1be326e68f63de4e95977ed50f46ae75f017556d",
             "reference": "1be326e68f63de4e95977ed50f46ae75f017556d",
             "shasum": ""
         },
@@ -53,7 +53,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/top-think/framework/926c9edb0c2682b14f563cac2c8a93f42f729016.zip",
+            "url": "https://api.github.com/repos/top-think/framework/zipball/926c9edb0c2682b14f563cac2c8a93f42f729016",
             "reference": "926c9edb0c2682b14f563cac2c8a93f42f729016",
             "shasum": ""
         },
@@ -106,7 +106,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/top-think/think-captcha/0c55455df26a1626a60d0dc35d2d89002b741d44.zip",
+            "url": "https://api.github.com/repos/top-think/think-captcha/zipball/0c55455df26a1626a60d0dc35d2d89002b741d44",
             "reference": "0c55455df26a1626a60d0dc35d2d89002b741d44",
             "shasum": ""
         },
@@ -144,7 +144,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/top-think/think-image/8586cf47f117481c6d415b20f7dedf62e79d5512.zip",
+            "url": "https://api.github.com/repos/top-think/think-image/zipball/8586cf47f117481c6d415b20f7dedf62e79d5512",
             "reference": "8586cf47f117481c6d415b20f7dedf62e79d5512",
             "shasum": ""
         },
@@ -186,7 +186,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/top-think/think-mongo/fc552c8fe5798679a52f4f0d7e60763f64aeb155.zip",
+            "url": "https://api.github.com/repos/top-think/think-mongo/zipball/fc552c8fe5798679a52f4f0d7e60763f64aeb155",
             "reference": "fc552c8fe5798679a52f4f0d7e60763f64aeb155",
             "shasum": ""
         },
@@ -222,7 +222,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/top-think/think-helper/0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f.zip",
+            "url": "https://api.github.com/repos/top-think/think-helper/zipball/0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f",
             "reference": "0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f",
             "shasum": ""
         },
@@ -260,7 +260,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/top-think/think-queue/ad709611d516e13d6760234bc98e91faa901cae8.zip",
+            "url": "https://api.github.com/repos/top-think/think-queue/zipball/ad709611d516e13d6760234bc98e91faa901cae8",
             "reference": "ad709611d516e13d6760234bc98e91faa901cae8",
             "shasum": ""
         },

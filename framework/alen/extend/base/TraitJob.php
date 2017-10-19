@@ -3,7 +3,7 @@ namespace base;
 trait TraitJob{
 	//验证
 	protected function call_job($funName,$param,$slow=false){
-		$isJob=false;
+		$isJob=config('queue_switch');
 		if(!method_exists($this,$funName)){
 			$this->errCode='00010004';
 			return false;

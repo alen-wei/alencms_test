@@ -30,6 +30,8 @@ class Content{
 		return $data;
 	}
 	public function downloadImg($id){
+		//$isJob=config('queue_switch');
+		
 		$data=fileContent::find($id);
 		$content=$data['content'];
 		$tmp=get_html_img($content,true);
@@ -46,7 +48,7 @@ class Content{
 			if(0===stripos($v,$static_url))continue;
 			$imgArr[]=$v;
 		}
-		
+		$imgArr=array_unique($imgArr);
 		$event=controller($this->module.'/Common', 'event');
 		//$imgArr=[0=>$imgArr[0]];
 		$newArr=[];
@@ -68,9 +70,7 @@ class Content{
 			$event->createThumb($path);
 			$newArr[]=$back['url'];
 		}
-		print_r([$newArr,$imgArr]);
-		
-		
+		return true;
 		
 		
 		
@@ -90,8 +90,6 @@ class Content{
 		print_r($ext);
 		 * 
 		 */
-		exit();
-		return 1;
 	}
 	
 }
