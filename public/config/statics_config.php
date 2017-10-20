@@ -16,8 +16,8 @@ return [
 			'hostname'       => '127.0.0.1',
 			'hostport'       => '27017',
 			'database'       => 'tp',
-			'username'       => 'alencms',
-			'password'       => 'heng7535',
+			'username'       => '',
+			'password'       => '',
 		],
 	],
 	'cache'=>[
@@ -25,7 +25,7 @@ return [
 			'type'   => 'redis',
 			'host'=>'127.0.0.1',
 			'port'=>'6379',
-			'password'=>'',
+			'password'=>'heng7535',
 		],
 	],
 ];

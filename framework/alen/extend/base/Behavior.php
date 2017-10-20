@@ -4,7 +4,7 @@ class Behavior{
 	public function appInit(&$params){	
 		\app\Admin\event\AlenConfig::loadConfig();
 	}
-	public function queue_failed(&$jobObject){
+	public function queueFailed(&$jobObject){
 		return true;
 	}
 }

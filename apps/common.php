@@ -130,6 +130,7 @@ function strint_to_arrint($str,$ds=','){
 	$arr=array_unique(array_filter($arr));
 	return $arr?$arr:false;
 }
+//字符串转数组
 function str_to_arr($str,$ds=','){
 	if(is_array($str)){
 		$arr=$str;
@@ -172,6 +173,7 @@ function str_to_date($str){
 }
 //设置错误返回信息
 function set_err_back($code,$module){
+	if(is_array($code))return $code;
     if(strlen($code)==8){
         $data=[
             '_err'=>$code,
@@ -214,10 +216,12 @@ function order_to_arr($order){
 	return $orderArr;
 }
 //获取html加的文字
-function get_html_txts($html){
+function get_html_txts($html,$cut=0){
 	$txts=strip_tags($html);
 	$txts=str_replace('&nbsp;'," ",$txts);
 	$txts=trim(str_replace(["\n","\r","\r\n"],"",$txts));
+	$txts=html_entity_decode($txts);
+	if($cut)$txts=cut_str($txts,$cut);
 	return $txts;
 }
 //获取html中的图片
@@ -241,6 +245,7 @@ function get_html_img($html,$other=false){
 			}
 		}
 	}
+	if(!$newArr[0])return false;
 	return $newArr;
 }
 //获取whereArr中的用到的字段
@@ -512,7 +517,7 @@ function get_user_img($img='',$thumb=''){
 	$d_url=$img?get_static_img($img,$thumb):config('static_url').config('skin_dirname').'/user/'.config('app_theme').'/'.config('default_lang').'/img/user.jpg';
 	return $d_url;
 }
-//获取图片
+//获取图片url
 function get_static_img($img='',$thumb=''){
 	$thumbArr=config('thumb_wh');
 	if(!isset($thumbArr[$thumb]))$thumb='';
@@ -529,6 +534,7 @@ function get_static_img($img='',$thumb=''){
 	}
 	return config('static_url').$url;
 }
+//获取文件url
 function get_static_file($url){
 	return config('static_url').$url;
 }
@@ -609,7 +615,7 @@ function get_url_param($url=null,$omit=[],$toStr=false){
 	}
 	return $toStr?$str:$getArr;
 }
-
+//获取状态字符
 function get_status_txt($val=false){
     $statusArr = [1=>lang('normal'),0=>lang('disable'),2=>lang('to be verified')];
     return $val===false?$statusArr:$statusArr[$val];
@@ -646,6 +652,7 @@ function get_page_html($index,$max,$num=5,$uri=''){
     $html.='</ul>';
     return $html;
 }
+//数组二维转多维
 function arr_dyadic_multi($val,&$arr,$ds='-'){
 	if(is_array($ds)){
 		$k=array_shift($ds);
@@ -660,5 +667,48 @@ function arr_dyadic_multi($val,&$arr,$ds='-'){
 			$k=explode($ds, $k);
 			arr_dyadic_multi($v,$arr,(array)$k);
 		}
+	}
+}
+/*截取字符
+Utf-8、gb2312都支持的汉字截取函数 
+cut_str(字符串, 截取长度, 开始长度, 编码); 
+编码默认为 utf-8 
+开始长度默认为 0 
+*/
+function cut_str($string, $sublen, $start = 0, $w='..' ,$code = 'UTF-8'){ 
+	if($code=='UTF-8'){ 
+		$pa ="/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|\xe0[\xa0-\xbf][\x80-\xbf]|[\xe1-\xef][\x80-\xbf][\x80-\xbf]|\xf0[\x90-\xbf][\x80-\xbf][\x80-\xbf]|[\xf1-\xf7][\x80-\xbf][\x80-\xbf][\x80-\xbf]/"; 
+		preg_match_all($pa, $string, $t_string); 
+		$tmp='';
+		$i=0;
+		$l=0;
+		while($l<$sublen){
+			$t=$t_string[0][$i+$start];
+			if($t==''){$w='';break;}
+			$tmp.=$t_string[0][$i+$start];
+			if(ord($t_string[0][$i+$start]) > 127){
+				$l+=1;
+			}
+			$l++;
+			$i++;
+		}
+		return $tmp.$w;
+	}else{ 
+		$start = $start*2; 
+		$sublen = $sublen*2; 
+		$strlen = strlen($string); 
+		$tmpstr = '';
+		for($i=0; $i<$strlen; $i++){ 
+			if($i>=$start && $i<($start+$sublen)){ 
+				if(ord(substr($string, $i, 1))>129){
+					$tmpstr.= substr($string, $i, 2);
+				}else{ 
+					$tmpstr.= substr($string, $i, 1); 
+				} 
+			} 
+			if(ord(substr($string, $i, 1))>129)$i++; 
+		} 
+		if(strlen($tmpstr)<$strlen )$tmpstr.= $w; 
+		return $tmpstr; 
 	}
 }

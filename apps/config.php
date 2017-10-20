@@ -12,7 +12,7 @@ return [
 		'cms'=>5,
 		'admin'=>6,
 	],
-	'queue_switch'=>true,
+	'queue_switch'=>false,
 	//公共资源目录
 	'public_path'			=>PUBLIC_PATH,
 	'static_path'			=>PUBLIC_PATH.'static'.DS,

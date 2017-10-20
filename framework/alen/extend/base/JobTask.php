@@ -15,33 +15,41 @@ class JobTask{
 		
 		$event=new $this->class;
 		$back=call_user_func_array([$event,$this->fun],$this->param);
-		$back=false;
-		$event->errCode='00010001';
+		//$back=false;
 		if($back){
 			$this->echoStatus();
 			$job->delete();
 		}else{
-			$errArr=set_err_back($event->errCode,$event->module);
+			$errArr=set_err_back($event->errCode,$event->getJobModule());
+			//$errArr=['_txt'=>'test'];
 			$this->echoStatus($errArr['_txt'],true);
-			//abort(500,'error');
+			$job->release();
 		}
 	}
 	public function failed($data){
 		$this->class=$data['class'];
 		$this->fun=$data['fun'];
 		$this->param=$data['param'];
-		$this->echoStatus('任务超过重试次数','failed');
+		$this->echoStatus('',true);
 	}
 	public function echoStatus($str='',$err=false){
+		$space='    ';
 		if($err){
-			$status=$err=='failed'?'失败':'错误';
+			if($str){
+				$status='Error';
+			}else{
+				$status='Failed';
+				$str='Too many retries';
+				$space=' ';
+			}
 		}else{
-			$status='成功';
+			$status='Success';
 		}
-		$echoStr=get_now_time('Y-m-d H:i:s').':'.$this->class.'@'.$this->fun.'['.$status."]\r\n";
-		$echoStr.='参数：'.json_encode($this->param,JSON_UNESCAPED_UNICODE)."\r\n";
-		if($this->job)$echoStr.='次数：'.$this->job->attempts()."\r\n";
-		if($str)$echoStr.='消息：'.$str."\r\n";
+		$echoStr='==['.get_now_time('Y-m-d H:i:s').']================='."\r\n";
+		$echoStr.=$this->class.'@'.$this->fun.'=>'.$status."\r\n";
+		$echoStr.=$space.'Param：'.json_encode($this->param,JSON_UNESCAPED_UNICODE)."\r\n";
+		if($this->job)$echoStr.=$space.'  Num：'.$this->job->attempts()."\r\n";
+		if($str)$echoStr.=$space.'  Msg：'.$str."\r\n";
 		echo mb_convert_encoding($echoStr,config('os_code'),"UTF-8");
 	}
 }

@@ -26,4 +26,8 @@ trait TraitJob{
 			return call_user_func_array([$this,$funName],$param);
 		}
 	}
+	public function getJobModule(){
+		return $this->module;
+	}
+	
 }
