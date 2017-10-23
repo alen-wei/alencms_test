@@ -1,6 +1,6 @@
 <?php
 define('APP_PATH', __DIR__ . '/../apps/');
-define('BIND_MODULE','push/Workerbusiness');
+define('EXTEND_PATH', '../framework/alen/extend/');
+define('BIND_MODULE','socketer/Business');
 // 加载框架引导文件
 require __DIR__ . '/../framework/thinkphp/start.php';
-?>

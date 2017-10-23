@@ -1,0 +1,150 @@
+{extend name="&template\frame_admin" /}
+{block name="body"}
+<div class="main_page"><div class="main_page_m">
+
+<!--顶部工具栏-->
+<div class="topTools">
+	<div class="col x">
+		<form class="form-inline">
+			<span class="form-group text-muted">发布时间：</span>
+			<div class="btn-group" id="case">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<i></i> <span>预设条件</span> <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li data-val=""><a href="#">自定义</a></li>
+					<li role="separator" class="divider"></li>
+					<li data-val="1d"><a href="#">今天</a></li>
+					<li data-val="1w"><a href="#">一个星期内</a></li>
+					<li data-val="1m"><a href="#">一个月内</a></li>
+					<li data-val="3m"><a href="#">三个月内</a></li>
+					<li data-val="1y"><a href="#">一年内</a></li>
+				</ul>
+			</div>
+			<div class="input-group input-date" id="startdate">
+				<input type="text" readonly class="form-control" value="{$cond.startdate}" data-format="yyyy-mm-dd" placeholder="开始时间">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+				</span>
+			</div>
+			<div class="input-group input-date" id="enddate">
+				<input type="text" readonly class="form-control" value="{$cond.enddate}" data-format="yyyy-mm-dd" placeholder="结束时间">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><i class="fa fa-trash"></i></button>
+				</span>
+			</div>
+		</form>
+		
+	</div>
+	<div class="col">
+		<span class="text-muted fr_ml5">类型：</span>
+		<div class="btn-group" id="type">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <i></i> <span>全部</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+				<li data-val=""><a href="#">全部用户</a></li>
+            </ul>
+        </div>
+	</div>
+	
+	<div class="col">
+		<a id="submit" class="btn btn-primary fr_ml5">提交</a>
+	</div>
+	<div class="col">
+        <span class="split">|</span>
+        <a href="{:url('noticeadd')}" class="btn btn-primary"><i class="fa fa-plus-square fr_mr5"></i>发布公告</a>
+    </div>
+</div>
+<!--内容列表-->
+<div class="container-fluid">
+	<div class="fr_main">
+		<div class="col x">
+			{if condition="$count>0"}
+			<p>
+				<span class="small text-muted">共 <b>{$count}</b> 条记录，每页 <b>{$page.num}</b> 条，共 <b>{$page.max}</b> 页</span>
+			</p>
+			{/if}
+			<ul class="ui_admin_List1">{volist name="lists" id="v"}
+				<li data-id="{$v.id}">
+					<div class="check"><i class="fa fa-check-circle"></i></div>
+					<div class="col img">
+						<a href="{:url('noticeshow')}?id={$v.id}">{if condition="$v.img"}
+						<img src="{:get_static_img($v.img,100)}" />
+						{else /}
+						<i class="fa fa-2x fa-picture-o"></i>
+						{/if}</a>
+					</div>
+					<div class="col txt">
+						<p class="fr_pb5">
+							<a href="{:url('noticeshow')}?id={$v.id}">{$v.name}</a>
+						</p>
+						<p class="small ui_txtof">
+							<span class="text-muted">发布时间：{:date('Y-m-d H:i',$v.publish_time)}</span>
+							{if condition="$v.expire_time"}<span class="text-muted fr_ml10">过期时间：{:date('Y-m-d H:i',$v.expire_time)}</span>{/if}
+							<span class="text-muted fr_ml10">发布用户：{$v.user.name}</span>
+						</p>
+					</div>
+					<div class="col but">
+						<div class="butGroup">
+							<a href="{:url('noticeshow')}?id={$v.id}" class="btn btn-primary"><i class="fa fa-pencil fr_mr5"></i>编辑</a>
+							<a target="_blank" href="{:url('noticedel')}?id={$v.id}" class="btn btn-danger"><i class="fa fa-trash fr_mr5"></i>删除</a>
+						</div>
+					</div>
+				</li>
+			{/volist}</ul>
+			<!--翻页-->
+			<nav class="text-center">
+				{:get_page_html($page.index,$page.max,5,$urlParam)}
+			</nav>
+		</div>
+	</div>
+
+</div>
+
+</div></div>
+{/block}
+{block name="foot"}
+<script>
+	$('#type ul,#case ul').delegate('li a','click',function(e){
+		var o=$(this).parent('li');
+		var box=o.parents('.btn-group:first');
+		var val=o.attr('data-val');
+		box.attr('data-val',val?val:'');
+		if(!box.attr('data-noup'))box.find('button span:first').text(o.text());
+		stopDefault(e);
+	});
+	
+	$('#case ul li a').click(function(e){
+		var o=$(this).parent('li');
+		var val=o.attr('data-val');
+		if(val){
+			$('#startdate input,#enddate input').attr('disabled',true);
+		}else{
+			$('#startdate input,#enddate input').removeAttr('disabled');
+		}
+	});
+	
+	$('#startdate button,#enddate button').click(function(){
+		var o=$(this);
+		var box=o.parents('.input-date');
+		box.find('input').val('');
+	});
+	
+	$('#submit').click(function(e){
+		var url='';
+		$('.topTools [id]:not(#submit)').map(function(){
+			var val=$(this).find('input').length>0?$(this).find('input').val():$(this).attr('data-val');
+			if(!val)return;
+			url+=url?'&':'?';
+			url+=$(this).attr('id')+'='+encodeURIComponent(val);
+		});
+		
+		window.location.href=url?url:'?';
+		stopDefault(e);
+	});
+	
+	$('#case li[data-val="{$cond.case}"] a').click();
+	$('#type li[data-val="{$cond.type}"] a').click();
+</script>
+{/block}

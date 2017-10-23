@@ -11,9 +11,17 @@
 		<div class="contentBg">
 			<div class="content">
 				<div class="noticeBox">
-					<textarea name="content" id="content"></textarea>
+					{if condition="$data->content[0]->lock"}
+					<div class="ui_contentShow">
+						<div class="alert alert-warning fr_mb0" role="alert">
+							<i class="fa fa-lock fr_mr5"></i><span>内容已经锁定，暂时无法修改</span>
+						</div>
+						<div class="html">{$data->contentHtml}</div>
+					</div>
+					{else /}
+					<textarea name="content" id="content">{if condition="$admin_ctrl=='noticeshow'"}{$data->contentHtml}{/if}</textarea>
 					<div class="contentTools">
-						<textarea placeholder="请输入简介" class="form-control txts fr_mb10 hidden"></textarea>
+						<textarea name="txts" placeholder="请输入简介" class="form-control txts fr_mb10 hidden">{$data.txts|default=''}</textarea>
 						<div class="form-inline">
 							<div class="checkbox fr_mr10">
 								<label>
@@ -32,19 +40,20 @@
 							</div>
 						</div>
 					</div>
+					{/if}
 				</div>
 			</div>
 		</div>
 		
 		<div class="lessNav">
-			<div class="list-group">
+			<div class="list-group fr_mb0">
 				<div class="list-group-item">
 					<small class="text-muted">标题</small>
-					<input name="name" type="text" class="form-control fr_mt5" placeholder="标题">
+					<input name="name" type="text" class="form-control fr_mt5" value="{$data.name|default=''}" placeholder="标题">
 				</div>
 				<div class="list-group-item">
-					<div class="ui_upload_box contain" data-name="img" id="upimg">
-						<div class="obj"></div>
+					<div class="ui_upload_box contain" data-name="img" id="upimg" data-val="{$data.img|default=''}">
+						<div class="obj">{if condition="isset($data['img']) and $data['img']"}<img src="{:get_static_img($data.img,320)}" />{/if}</div>
 						<div class="but">
 							<i class="fa fa-picture-o"></i>
 							<span>上传封面</span>
@@ -52,6 +61,32 @@
 					</div>
 					<button type="button" class="btn btn-default fr_wb100 fr_mt5" id="upimg_del"><i class="fa fa-trash-o fr_mr5"></i>清除封面</button>
 				</div>
+				{if condition="$admin_ctrl=='noticeshow'"}
+				<input type="hidden" name="id" value="{$data.id}" />
+				<div class="list-group-item">
+					<small class="text-muted">发布时间</small>
+					<span class="pull-right">{:date('Y-m-d H:i',$data.publish_time)}</span>
+					<div class="clearfix"></div>
+				</div>
+				<div class="list-group-item">
+					<small class="text-muted">过期时间</small>
+					<span class="pull-right">{if condition="$data.expire_time"}{:date('Y-m-d H:i',$data.expire_time)}{else /}无{/if}</span>
+					<div class="clearfix"></div>
+				</div>
+				<div class="list-group-item">
+					<div class="media">
+						<div class="media-left media-middle">
+							<a href="{:url('user/admin/show')}?id={$data.user.id}">
+								<img height="50" class="media-object img-rounded" src="{:get_user_img($data.user.img,100)}" />
+							</a>
+						</div>
+						<div class="media-body media-middle">
+							<small class="text-muted">发布用户</small>
+							<div title="{$data.user.name}" class="ui_txtof"><a class="text-default" href="{:url('user/admin/show')}?id={$data.user.id}">{$data.user.name}</a></div>
+						</div>
+					</div>
+				</div>
+				{else /}
 				<div class="list-group-item">
 					<small class="text-muted">发布时间</small>
 					<div class="input-group input-date fr_mt5">
@@ -76,6 +111,7 @@
 						<option value="">全部注册用户</option>
 					</select>
 				</div>
+				{/if}
 				<a href="{:request()->server('HTTP_REFERER')}" class="list-group-item">
 					<span class="text-primary">返回来源页</span>
 				</a>
@@ -149,7 +185,8 @@
 			alerts('<span class="text-danger"><i class="fa fa-2x fa-exclamation-circle fr_mr10"></i>'+err+'</span>');
 		};
 		alert_hint('提交中','spinner',-1);
-		alenPost("{:url('noticeadd')}",data,opOkFun,opErrFun);
+		var url="{$admin_ctrl=='noticeshow'?url('noticesave'):url('noticeadd')}";
+		alenPost(url,data,opOkFun,opErrFun);
 	};
 	
 	$('#submit').click(function(){
@@ -170,13 +207,12 @@
 		for(var k in CKEDITOR.instances){
 			data[k]=CKEDITOR.instances[k].getData();
 		}
-		echoLog(data);
 		funSubmit(data);
 		return false;
 	});
-	
+	/*{if condition="!$data->content[0]->lock"}*/
 	(function(){
-		var obj=CKEDITOR.replace( 'content',{
+		CKEDITOR.replace( 'content',{
 			on:{
 				instanceReady:function(){
 					var box=$('.'+this.id);
@@ -192,6 +228,6 @@
 			}
 		});
 	})();
-	
+	/*{/if}*/
 </script>
 {/block}

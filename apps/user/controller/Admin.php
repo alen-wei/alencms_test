@@ -60,10 +60,23 @@ class Admin extends \base\Admin{
     private function TextToDate($str){
         return str_to_date($str);
     }
-	
-	
-	
+	//发布公告
+	protected function _noticesave($request,$user){
+		$data=$request->param();
+		$download=isset($data['_download'])?true:false;
+		$autotxt=isset($data['_autotxt'])?true:false;
+		$autoimg=isset($data['_autoimg'])?true:false;
+		unset($data['_download']);
+		unset($data['_autotxt']);
+		unset($data['_autoimg']);
+		$event=controller($this->module.'/Notice', 'event');
+		$back=$event->save($data,$autotxt,$autoimg,$download);
+		if(!$back)return set_err_back($event->errCode,$this->module);
+		return true;
+	}
+	//发布公告
 	protected function _noticeadd($request,$user){
+		$this->page_title='发布公告';
 		$data=$request->param();
 		if($data){
 			$download=$data['_download'];
@@ -74,18 +87,54 @@ class Admin extends \base\Admin{
 			unset($data['_autoimg']);
 			$event=controller($this->module.'/Notice', 'event');
 			$back=$event->add($data,$autotxt,$autoimg,$download,$user['id']);
-			if(!$back)return set_err_back($this->errCode,$this->module);
+			if(!$back)return set_err_back($event->errCode,$this->module);
 			return true;
 		}
-		return true;
+		$this->Tpl='noticeshow';
+		return ['data'=>$data];
 	}
-	protected function _noticelists($request,$user){
+	//查看公告
+	protected function _noticeshow($request,$user){
+		$id=$request->param('id');
 		$event=controller($this->module.'/Notice', 'event');
-		
-		
-		$lists=$event->getLists();
-		return true;
+		$data=$event->get($id);
+		return ['data'=>$data];
 	}
+	//公告列表
+	protected function _noticelists($request,$user){
+		$this->page_title='公告列表';
+		$case=$request->param('case');
+		$startdate=$request->param('startdate');
+		$enddate=$request->param('enddate');
+		$type=$request->param('type');
+		$where=[];
+		if($case){
+			$startdate='';
+			$enddate='';
+			$tmp=str_to_date($case);
+			$where['publish_time']=['>=',$tmp];
+		}else{
+			if($startdate and $enddate){
+				$where['publish_time']=['between',[txt_to_time($startdate),txt_to_time($enddate)]];
+			}else{
+				if($startdate)$where['publish_time']=['>=',txt_to_time($startdate)];
+				if($enddate)$where['publish_time']=['<',txt_to_time($enddate)];
+			}	
+		}
+		$event=controller($this->module.'/Notice', 'event');
+		$data=$this->getDataLists($event,$where,'publish_time DESC',true);
+		load_relation($data['lists'],'user');
+		$data=array_merge($data,[
+			'cond'=>[
+				'case'=>$case,
+				'type'=>$type,
+				'startdate'=>$startdate,
+				'enddate'=>$enddate,
+			],
+		]);
+		return $data;
+	}
+	//日志类型
 	protected function _logtype($request,$user){
 		$module=$request->param('module');
 		$event=controller($this->module.'/Log', 'event');
@@ -107,7 +156,7 @@ class Admin extends \base\Admin{
 			'list'=>$data,
 		];
 	}
-	
+	//删除日志
 	protected function _dellog($request,$user){
 		$this->page_title='删除日志';
 		$ids=$request->param('ids');
@@ -120,6 +169,7 @@ class Admin extends \base\Admin{
 		exit();
 		
 	}
+	//操作日志
 	protected function _log($request,$user){
 		$this->page_title='操作日志';
         $num=config('admin.page')['gs']*2;

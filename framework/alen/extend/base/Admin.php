@@ -23,6 +23,29 @@ class Admin extends Tpl{
         }
         return $user;
     }
+	//通用列表函数
+	protected function getDataLists($event,$where=null,$order=null,$field=true,$num=0){
+		$lists=$event->getLists();
+		$num=$num?$num:config('admin.page')['gs'];
+		$p=request()->param('p');
+		if(!$p)$p=1;
+		$count=$event->getLists($where,true,null,true);
+		$MaxP=ceil($count/$num);
+		if($p>$MaxP)$p=$MaxP;
+		$lists=$event->getLists($where,$field,$order,$p.','.$num);
+		$urlParam=get_url_param(null,['p'],true);
+		$data=[
+			'lists'=>$lists,
+			'count'=>$count,
+			'urlParam'=>$urlParam,
+			'page'=>[
+				'num'=>$num,
+				'max'=>$MaxP,
+				'index'=>$p,
+			],
+        ];
+		return $data;
+	}
 	
 	//代理函数
 	public function _empty(){

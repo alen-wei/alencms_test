@@ -2,7 +2,7 @@
 namespace app\push\controller;
 use think\worker\Server;
 use \Workerman\Connection\AsyncTcpConnection;
-$WorkermanPath='workerman/workerman'.(IS_WIN?'-for-win':'').'/';
+$WorkermanPath='workerman'.DS.'workerman'.(IS_WIN?'-for-win':'').DS;
 require_once VENDOR_PATH.$WorkermanPath.'Channel/Client.php';
 require_once VENDOR_PATH.$WorkermanPath.'GlobalData/Client.php';
 class Workergateway extends Server{

@@ -21,7 +21,10 @@
         "topthink/think-mongo": "1.*",
         "topthink/think-captcha": "1.*",
         "topthink/think-image": "^1.0",
-        "topthink/think-queue": "1.*"
+        "topthink/think-queue": "1.*",
+        "topthink/think-worker": "^1.0",
+        "workerman/Channel": "^1.0",
+        "workerman/workerman-for-win": "^3.5"
     },
     "extra": {
         "think-path": "framework/thinkphp"

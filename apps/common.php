@@ -215,6 +215,26 @@ function order_to_arr($order){
 	}
 	return $orderArr;
 }
+//获取内容html
+function get_content_html($content,$thumb=''){
+	$tmp=get_html_img($content,true);
+	$xyArr=['http','https'];
+	$imgArr=[];
+	foreach($tmp[0] as $v){
+		$add=true;
+		foreach($xyArr as $vv){
+			if($vv!=strtolower(substr($v,0,strlen($vv))))continue;
+			$add=false;
+			break;
+		}
+		if($add)$imgArr[]=$v;
+	}
+	foreach($imgArr as $v){
+		$content=str_replace($v,get_static_img($v,$thumb),$content);
+	}
+	$html=$content;
+	return $html;
+}
 //获取html加的文字
 function get_html_txts($html,$cut=0){
 	$txts=strip_tags($html);

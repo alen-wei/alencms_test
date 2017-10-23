@@ -5,34 +5,61 @@ class Content{
 	use \base\TraitJob;
 	protected $module='file';
 	public $errCode='';
+	public $maxNum=2;
 	
 	public function save($content,$module,$less,$byid,$download=0){
+		
 		$moduleID=config('app_id');
 		if(!isset($moduleID[strtolower($module)])){
 			$this->errCode='00010003';
 			return false;
 		}
 		$moduleID=$moduleID[strtolower($module)];
+		$content=trim($content);
+		if(!$content)return true;
 		$imgArr=get_html_img($content);
-		foreach($imgArr[0] as $k=>$v){
-			$content=str_replace($imgArr[1][$k],$v,$content);
+		if($imgArr){
+			foreach($imgArr[0] as $k=>$v){
+				$content=str_replace($imgArr[1][$k],$v,$content);
+			}
 		}
-		$data=[
+		$where=[
 			'module_id'=>$moduleID,
 			'less'=>$less,
 			'by_id'=>$byid,
-			'content'=>$content,
 		];
-		$back=fileContent::create($data);
-		if(!$back){
+		$data=[
+			'content'=>$content,
+			'ver'=>1,
+			'lock'=>$download?1:0,
+		];
+		$count=fileContent::where($where)->count();
+		if($count<1){
+			$back=fileContent::create(array_merge($where,$data));
+		}else{
+			$old=fileContent::field('id,content,ver')->where($where)->order(['ver'=>'DESC'])->find();
+			if(md5($old->content)==md5($content)){
+				return $old->id;
+			}else{
+				$data['ver']=$old->ver+1;
+				if($count<$this->maxNum){
+					$back=fileContent::create(array_merge($where,$data));
+				}else{
+					$tmp=fileContent::field('id,content,ver')->where($where)->order(['update_time'=>'ASC'])->find();
+					foreach($data as $k=>$v){
+						$tmp->$k=$v;
+					}
+					$back=$tmp->save();
+					$id=$tmp->id;
+				}
+			}
+		}
+		if($back===false){
 			$this->errCode='0010';
 			return false;
 		}
-		$id=$back['id'];
-		if($content and $download){
-			$back=$this->call_job('downloadImg',[$id],true);
-			//if(!$back)return false;
-		}
+		if(!isset($id))$id=$back['id'];
+		if($download)$back=$this->call_job('downloadImg',[$id],true);
 		return $id;
 	}
 	public function downloadImg($id){
@@ -76,13 +103,11 @@ class Content{
 			$event->createThumb($path);
 			$newArr[]=$back['url'];
 		}
-		//print_r([$imgArr,$newArr]);
-		//$this->errCode=['_txt'=>print_r([$imgArr,$newArr],true)];
-		//return false;
 		foreach ($imgArr as $k=>$v){
 			$content=str_replace($v,$newArr[$k],$content);
 		}
 		$data->content=$content;
+		$data->lock=0;
 		$back=$data->save();
 		if(!$back){
 			$this->errCode='00010002';
