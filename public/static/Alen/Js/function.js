@@ -155,8 +155,15 @@ function include(file,type,cfun){
 	if(type=='css'){
 		var html='<link rel="stylesheet" type="text/css" href="'+file+'"/>';
 		$('head').append(html);
-	}else if(type=='js'){	
-		$.getScript(file,cfun);
+	}else if(type=='js'){
+		$.ajax({
+			type:'GET',
+			url:file,
+			success:cfun,
+			dataType:'script',
+			cache:true
+		});
+		//$.getScript(file,cfun);
 	}
 }
 //加载图片

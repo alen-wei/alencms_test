@@ -118,6 +118,7 @@
 {/block}
 {block name="foot"}
 <script src="{$static_url}Jq_plugins/jquery.scrollTo.js"></script>
+<script src="{$static_url}alenSubscribeSer/subscribeSer.js"></script>
 <script>
 
 (function(){
@@ -228,58 +229,8 @@ msgObj.onClose=function(){
 msgObj.init();
 
 
-var subscribeSer=function(){
-	var tmpThis=this;
-	var _token,_tokenTime,_type,_url,_connect;
-	var _getToken=function(backFun){
-		alenPost("{:url('pushser/api/getToken')}",{},function(data){
-			_token=data.token;
-			_tokenTime=data.time;
-			_type=data.type;
-			_url=data.url;
-			_setConnect();
-			if(backFun)backFun();
-		},function(err){
-			echoLog(err);
-			setTimeout(function(){
-				_getToken(backFun);
-			},5000);
-		});
-	};
-	var _setConnect=function(){
-		if(_type=='ws'){
-			_connect = new WebSocket("ws://"+_url);
-			_connect.onopen=function(){
-				echoLog('连接成功');
-				_sendData({
-					'type':'verify',
-					'token':_token,
-					'time':_tokenTime
-				});
-			};
-			_connect.onmessage=function(e){
-				echoLog("收到服务端的消息：" + e.data);
-			};
-		}
-	};
-	var _sendData=function(data){
-		var msg=JSON.stringify(data);
-		_connect.send(msg);
-	};
-	
-	this.onInit;
-	
-	this.init=function(){
-		//var now=parseInt(getNowDate().getTime()/1000);
-		_getToken(function(){
-			if(tmpThis.onInit)tmpThis.onInit();
-		});
-	};
-};
-var subscribeObj=new subscribeSer();
+
+var subscribeObj=new subscribeSer("{:url('pushser/api/getToken')}");
 subscribeObj.init();
-subscribeObj.onInit=function(){
-	
-};
 </script>
 {/block}

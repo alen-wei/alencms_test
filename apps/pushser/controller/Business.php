@@ -38,6 +38,10 @@ class Business extends Server{
 			case 'ping':
 				$this->echoStatus($con,'heart');
 			break;
+			case 'adduser':
+				$this->echoStatus($con,'user connect ID='.$data['id']);
+				$this->_gatewayAddUser($con->id,$data['id']);
+			break;
 		}
 		
     }
@@ -56,7 +60,7 @@ class Business extends Server{
     public function onClose($con){
 		//更新网关列表
 		$back=$this->_gatewayDelConnect($con->id);
-		if($back)$this->echoStatus($con,'connection close');
+		if($back)$this->echoStatus($con,'connect close');
     }
 
     /**
@@ -134,7 +138,18 @@ class Business extends Server{
 		$this->_uploadCahe($delIps);
 		return true;
 	}
-	//删除连接ID
+	//添加网关用户
+	protected function _gatewayAddUser($cid,$uid,$type='user'){
+		$gatewayList=&$this->gatewayList;
+		$tmpK=$this->_verifyConnectId($cid);
+		if(!$tmpK)return false;
+		if(!isset($gatewayList[$tmpK][$type]))$gatewayList[$tmpK][$type]=[];
+		if(in_array($uid, $gatewayList[$tmpK][$type]))return false;
+		$gatewayList[$tmpK][$type][]=$uid;
+		$this->_uploadCahe();
+		return true;
+	}
+	//验证连接ID
 	protected function _verifyConnectId($id){
 		$id=intval($id);
 		$gatewayList=&$this->gatewayList;

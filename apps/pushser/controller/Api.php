@@ -16,7 +16,8 @@ class Api extends Ajax{
 			$data=['type'=>'ajax'];
 		}
 		$uid=$user?$user['id']:0;
-		$data['token']=str_encrypt(md5($now.'.'.$uid),$now);
+		$data['token']=str_encrypt($now.'.'.$uid,$now);
+		//$data['token'].='aaaa';
 		$data['time']=$now;
 		$data['url']=$ips;
 		return $data;

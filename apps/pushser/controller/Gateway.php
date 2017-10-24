@@ -11,6 +11,7 @@ class Gateway extends Server{
 	protected $business;
 	protected $verifyTime;
 	protected $pingID;
+	//网关IP
 	public $gatewayIps='127.0.0.1';
 	
 	protected function _verifyUser(&$con,$data){
@@ -18,9 +19,13 @@ class Gateway extends Server{
 		$token=$data['token'];
 		$time=$data['time'];
 		if($now-$time>config('user_token_time'))return false;
-		
-		str_decrypt($token,$time);
-		
+		$tmp=str_decrypt($token,$time);
+		if(!$tmp)return false;
+		$tmp= explode('.', $tmp);
+		if(intval($tmp[0])!=$time)return false;
+		$user=intval($tmp[1]);
+		con_send($con,['type'=>'verify','msg'=>$user]);
+		return $user;
 	}
     /**
      * 收到信息
@@ -31,9 +36,18 @@ class Gateway extends Server{
 		$data=handle_get_data($msg);
 		if(!$data)return;
 		if($data['type']=='verify'){
-			_verifyUser($con,$data);
-			//$token=$data['token'];
-			//$con->send('我收到你的信息了:'.$token);
+			$user=$this->_verifyUser($con,$data);
+			if($user===false){
+				$con->close(handle_send_data([
+					'type'=>'verify',
+					'err'=>'token err',
+				]));
+			}else{
+				//验证成功
+				$this->echoStatus($con,'user connect ID='.$user);
+				con_send($this->business,['type'=>'adduser','id'=>$user]);
+			}
+			return;
 		}
 		/*
 		$str=print_r($data,true);
@@ -130,7 +144,6 @@ class Gateway extends Server{
 			}
 		};
 		$this->business->connect();
-		
     }
 	
 	
