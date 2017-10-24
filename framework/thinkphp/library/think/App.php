@@ -349,7 +349,7 @@ class App
             } elseif (!in_array($module, $config['deny_module_list']) && is_dir(APP_PATH . $module)) {
                 $available = true;
             }
-
+			
             // 模块初始化
             if ($module && $available) {
                 // 初始化模块
